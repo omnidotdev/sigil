@@ -1,0 +1,24 @@
+/* https://panda-css.com/docs/concepts/cascade-layers */
+@layer reset, base, tokens, recipes, utilities;
+
+:root {
+  /* alias fonts to CSS variables */
+  --font-assistant: "Assistant", sans-serif;
+  --font-fira-code: "Fira Code", monospace;
+
+  /* semantic */
+  --font-primary: var(--font-assistant);
+  --font-code: var(--font-fira-code);
+}
+
+@font-face {
+  font-family: "Assistant";
+  src: url("../assets/fonts/assistant-variable.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url("../assets/fonts/fira-code-variable.ttf") format("truetype");
+  font-display: swap;
+}

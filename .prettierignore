@@ -1,0 +1,7 @@
+# node_modules ignored by default
+build
+coverage
+generated
+examples
+tsconfig.json
+storybook-static

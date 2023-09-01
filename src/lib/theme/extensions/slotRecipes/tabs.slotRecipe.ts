@@ -1,0 +1,91 @@
+import { tabsAnatomy } from "@ark-ui/react";
+import { defineSlotRecipe } from "@pandacss/dev";
+
+/**
+ * Tabs recipe.
+ */
+const tabs = defineSlotRecipe({
+  className: "tabs",
+  description: "Tabs style recipes",
+  slots: tabsAnatomy.keys(),
+  base: {
+    list: {
+      display: "flex",
+      _horizontal: {
+        boxShadow: "0 -1px 0 0 inset var(--colors-border-default)",
+        flexDirection: "row",
+        gap: 4,
+      },
+      _vertical: {
+        boxShadow: "1px 0 0 0 inset var(--colors-border-default)",
+        gap: 1,
+        flexDirection: "column",
+      },
+      overflow: "auto",
+      position: "relative",
+      scrollbarWidth: "none",
+      "&::-webkit-scrollbar": {
+        display: "none",
+      },
+    },
+    trigger: {
+      color: "foreground.subtle",
+      cursor: "pointer",
+      fontWeight: "semibold",
+      transitionDuration: "normal",
+      transitionProperty: "color",
+      transitionTimingFunction: "default",
+      whiteSpace: "nowrap",
+      _horizontal: {
+        px: 1,
+        pb: 3,
+      },
+      _vertical: {
+        px: 3,
+        py: 1.5,
+      },
+      _hover: {
+        color: "foreground.muted",
+      },
+      _selected: {
+        color: "foreground.default",
+        _hover: {
+          color: "foreground.default",
+        },
+      },
+    },
+    indicator: {
+      bgColor: "accent.default",
+      _horizontal: {
+        height: "2px",
+        bottom: 0,
+      },
+      _vertical: {
+        width: "2px",
+        left: 0,
+      },
+    },
+    content: {
+      mt: 5,
+    },
+  },
+  defaultVariants: {
+    size: "md",
+  },
+  variants: {
+    size: {
+      sm: {
+        trigger: {
+          textStyle: "sm",
+        },
+      },
+      md: {
+        trigger: {
+          textStyle: "md",
+        },
+      },
+    },
+  },
+});
+
+export default tabs;
