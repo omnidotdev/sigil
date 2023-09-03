@@ -25,7 +25,7 @@ const pandaConfig = defineConfig({
   staticCss: PREGENERATE_STATIC_CSS
     ? {
         // pregenerate recipe styles; allow Storybook stories to properly use `args` without needing to hint the extractor with `render` or other workarounds like `{fn}.raw`
-        // TODO PurgeCSS
+        // TODO PurgeCSS (https://panda-css.com/docs/guides/static#removing-unused-css)
         recipes: {
           ...mapArrayToObject(recipeKeys, ["*"]),
           ...mapArrayToObject(slotRecipeKeys, ["*"]),

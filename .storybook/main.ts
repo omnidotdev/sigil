@@ -46,6 +46,8 @@ const storybookConfig: StorybookConfig = {
   viteFinal: (config) =>
     // recursively merge Vite options
     mergeConfig(config, {
+      // https://github.com/storybookjs/storybook/issues/18920#issuecomment-1342865124
+      define: { "process.env": {} },
       plugins: [tsconfigPaths()],
       // dependencies to pre-optimize
       optimizeDeps: {
