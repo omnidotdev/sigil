@@ -2,6 +2,54 @@ import { radioGroupAnatomy } from "@ark-ui/react";
 import { defineSlotRecipe } from "@pandacss/dev";
 
 /**
+ * Rounded rectangle radio button variant styles.
+ */
+const roundedRectangleStyles = {
+  radioLabel: {
+    _checked: {
+      color: "background.default",
+    },
+  },
+  radio: {
+    px: "0!",
+    appearance: "none",
+    borderColor: "border.emphasized",
+    borderRadius: "sm",
+    borderWidth: "1px",
+    color: "foreground.emphasized",
+    display: "inline-flex",
+    fontWeight: "semibold",
+    justifyContent: "center",
+    outline: "none",
+    position: "relative",
+    transitionDuration: "normal",
+    transitionProperty: "background, border-color, color, box-shadow",
+    transitionTimingFunction: "default",
+    userSelect: "none",
+    verticalAlign: "middle",
+    whiteSpace: "nowrap",
+    _hover: {
+      color: "foreground.default",
+      bgColor: "background.subtle",
+    },
+    _checked: {
+      cursor: "default",
+      borderColor: "border.accent",
+    },
+    _disabled: {
+      borderColor: "border.disabled",
+      color: "foreground.disabled",
+      cursor: "not-allowed",
+      _hover: {
+        bgColor: "initial",
+        borderColor: "border.disabled",
+        color: "foreground.disabled",
+      },
+    },
+  },
+};
+
+/**
  * Radio group recipe.
  */
 const radioGroup = defineSlotRecipe({
@@ -11,30 +59,10 @@ const radioGroup = defineSlotRecipe({
   base: {
     root: {
       display: "flex",
+      flexWrap: "wrap",
       flexDirection: {
         _vertical: "column",
         _horizontal: "row",
-      },
-    },
-    radioControl: {
-      bgColor: "transparent",
-      borderColor: "border.emphasized",
-      borderRadius: "full",
-      borderWidth: "1px",
-      transitionDuration: "normal",
-      transitionProperty: "background",
-      transitionTimingFunction: "default",
-      _hover: {
-        bgColor: "background.subtle",
-      },
-      _checked: {
-        bgColor: "accent.default",
-        borderColor: "border.accent",
-        outlineColor: "background.default",
-        outlineStyle: "solid",
-        _hover: {
-          bgColor: "accent.default",
-        },
       },
     },
     radio: {
@@ -43,16 +71,152 @@ const radioGroup = defineSlotRecipe({
       display: "flex",
     },
     radioLabel: {
-      color: "foreground.emphasized",
       fontWeight: "medium",
     },
   },
   defaultVariants: {
     size: "md",
+    variant: "regular",
   },
   variants: {
+    variant: {
+      regular: {
+        radioControl: {
+          bgColor: "transparent",
+          borderColor: "border.emphasized",
+          borderRadius: "full",
+          borderWidth: "1px",
+          transitionDuration: "normal",
+          transitionProperty: "background",
+          transitionTimingFunction: "default",
+          _hover: {
+            bgColor: "background.subtle",
+          },
+          _checked: {
+            bgColor: "accent.default",
+            borderColor: "border.accent",
+            outlineColor: "background.default",
+            outlineStyle: "solid",
+            _hover: {
+              bgColor: "accent.default",
+            },
+          },
+        },
+      },
+      solid: {
+        ...roundedRectangleStyles,
+        radio: {
+          ...roundedRectangleStyles.radio,
+          _checked: {
+            ...roundedRectangleStyles.radio._checked,
+            bgColor: "accent.default",
+            color: "background.default",
+            _hover: {
+              color: "accent.foreground",
+              bgColor: "accent.default",
+            },
+          },
+        },
+      },
+      outline: {
+        ...roundedRectangleStyles,
+        radioLabel: {
+          _checked: {
+            color: "accent.default",
+          },
+        },
+        radio: {
+          ...roundedRectangleStyles.radio,
+          _checked: {
+            ...roundedRectangleStyles.radio._checked,
+            boxShadow: "accent",
+            _hover: {
+              bgColor: "initial",
+            },
+          },
+        },
+      },
+    },
     size: {
       sm: {
+        root: {
+          gap: 2,
+        },
+        radio: {
+          h: 9,
+          minW: 9,
+          textStyle: "sm",
+          px: 3.5,
+          "& svg": {
+            width: 4.5,
+            height: 4.5,
+          },
+        },
+        radioLabel: {
+          gap: 2,
+        },
+      },
+      md: {
+        root: {
+          gap: 3,
+        },
+        radio: {
+          h: 10,
+          minW: 10,
+          textStyle: "sm",
+          px: 4,
+          "& svg": {
+            width: 5,
+            height: 5,
+          },
+        },
+        radioLabel: {
+          gap: 2,
+        },
+      },
+      lg: {
+        root: {
+          gap: 3,
+        },
+        radio: {
+          h: 11,
+          minW: 11,
+          textStyle: "md",
+          px: 4.5,
+          "& svg": {
+            width: 5,
+            height: 5,
+          },
+        },
+        radioLabel: {
+          gap: 2,
+        },
+      },
+      xl: {
+        root: {
+          gap: 3,
+        },
+        radio: {
+          h: 12,
+          minW: 12,
+          textStyle: "md",
+          px: 5,
+          "& svg": {
+            width: 5,
+            height: 5,
+          },
+        },
+        radioLabel: {
+          gap: 2.5,
+        },
+      },
+    },
+  },
+  compoundVariants: [
+    {
+      variant: "regular",
+      size: "sm",
+      css: {
         root: {
           gap: {
             _vertical: 3,
@@ -74,7 +238,11 @@ const radioGroup = defineSlotRecipe({
           textStyle: "sm",
         },
       },
-      md: {
+    },
+    {
+      variant: "regular",
+      size: "md",
+      css: {
         root: {
           gap: {
             _vertical: 4,
@@ -96,7 +264,11 @@ const radioGroup = defineSlotRecipe({
           textStyle: "md",
         },
       },
-      lg: {
+    },
+    {
+      variant: "regular",
+      size: "lg",
+      css: {
         root: {
           gap: {
             _vertical: 5,
@@ -119,7 +291,7 @@ const radioGroup = defineSlotRecipe({
         },
       },
     },
-  },
+  ],
 });
 
 export default radioGroup;

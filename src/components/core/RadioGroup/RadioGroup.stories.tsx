@@ -28,4 +28,30 @@ export const Vertical: Story = {
   },
 };
 
+export const RoundedRectangleSolid: Story = {
+  args: {
+    ...Default.args,
+    variant: "solid",
+    options: [
+      { value: "xsmall", label: "XS" },
+      { value: "small", label: "S" },
+      { value: "medium", label: "M" },
+      {
+        value: "large",
+        label: "L",
+        isDisabled: true,
+      },
+      { value: "xlarge", label: "XL" },
+    ],
+    defaultValue: "medium",
+  },
+};
+
+export const RoundedRectangleOutline: Story = {
+  args: {
+    ...RoundedRectangleSolid.args,
+    variant: "outline",
+  },
+};
+
 export default meta;

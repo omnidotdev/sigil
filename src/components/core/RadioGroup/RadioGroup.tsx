@@ -11,7 +11,7 @@ const { withProvider, withContext } = createStyleContext(radioGroup);
 export interface RadioGroupProps
   extends Ark.RadioGroupProps,
     RadioGroupVariantProps {
-  options: { value: string; label: string }[];
+  options: { value: string; label: string; isDisabled?: boolean }[];
 }
 
 export const RadioGroupRoot = withProvider(styled(Ark.RadioGroup.Root), "root");
@@ -43,7 +43,11 @@ const RadioGroup = ({ options, ...rest }: RadioGroupProps) => (
     {...rest}
   >
     {options.map((option) => (
-      <Radio key={option.value} value={option.value}>
+      <Radio
+        key={option.value}
+        value={option.value}
+        disabled={option.isDisabled}
+      >
         <RadioControl />
 
         <RadioLabel>{option.label}</RadioLabel>
