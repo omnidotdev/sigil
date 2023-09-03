@@ -35,6 +35,7 @@ const storybookConfig: StorybookConfig = {
     // https://storybook.js.org/docs/react/essentials/introduction
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    "@storybook/addon-storysource",
     "storybook-dark-mode",
   ],
   staticDirs: [
