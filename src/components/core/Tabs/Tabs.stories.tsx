@@ -47,4 +47,19 @@ export const Vertical: Story = {
   },
 };
 
+export const Disabled: Story = {
+  args: {
+    ...Default.args,
+    tabs: [
+      ...Default.args.tabs,
+      {
+        id: "disabled",
+        label: "Disabled Tab",
+        content: "Disabled content",
+        isDisabled: true,
+      },
+    ],
+  },
+};
+
 export default meta;

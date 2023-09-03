@@ -56,6 +56,13 @@ const segmentGroup = defineSlotRecipe({
           color: "foreground.emphasized",
         },
       },
+      _disabled: {
+        color: "foreground.disabled",
+        cursor: "not-allowed",
+        _hover: {
+          color: "foreground.disabled",
+        },
+      },
       px: {
         _horizontal: 1,
         _vertical: 3,

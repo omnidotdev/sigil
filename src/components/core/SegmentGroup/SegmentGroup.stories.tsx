@@ -17,7 +17,7 @@ export const Default: Story = {
     options: [
       { value: "react", label: "React" },
       { value: "solid", label: "Solid" },
-      { value: "vue", label: "Vue" },
+      { value: "vue", label: "Vue", isDisabled: true },
     ],
   },
 };

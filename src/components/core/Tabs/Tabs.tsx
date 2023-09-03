@@ -15,6 +15,7 @@ export interface TabsProps extends Ark.TabsProps, TabsVariantProps {
   tabs: {
     id: string;
     label: string;
+    isDisabled?: boolean;
     content: ReactNode;
   }[];
 }
@@ -38,8 +39,8 @@ export const TabContent = withContext(styled(Ark.Tabs.Content), "content");
 const Tabs = ({ tabs, ...rest }: TabsProps) => (
   <TabsRoot defaultValue={tabs[0].id} {...rest}>
     <TabList>
-      {tabs.map(({ id, label }) => (
-        <TabTrigger key={id} value={id}>
+      {tabs.map(({ id, label, isDisabled }) => (
+        <TabTrigger key={id} value={id} disabled={isDisabled}>
           {label}
         </TabTrigger>
       ))}

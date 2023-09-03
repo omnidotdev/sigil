@@ -42,15 +42,11 @@ const RadioGroup = ({ options, ...rest }: RadioGroupProps) => (
     defaultValue={options[0].value}
     {...rest}
   >
-    {options.map((option) => (
-      <Radio
-        key={option.value}
-        value={option.value}
-        disabled={option.isDisabled}
-      >
+    {options.map(({ label, value, isDisabled }) => (
+      <Radio key={value} value={value} disabled={isDisabled}>
         <RadioControl />
 
-        <RadioLabel>{option.label}</RadioLabel>
+        <RadioLabel>{label}</RadioLabel>
       </Radio>
     ))}
   </RadioGroupRoot>

@@ -18,6 +18,8 @@ export interface SegmentGroupProps
     label: string;
     /** Serializable value. */
     value: string;
+    /** Whether option is disabled. */
+    isDisabled?: boolean;
   }[];
 }
 
@@ -57,8 +59,8 @@ const SegmentGroup = ({ options, ...rest }: SegmentGroupProps) => (
     defaultValue={options[0].value}
     {...rest}
   >
-    {options.map(({ label, value }) => (
-      <Segment key={value} value={value}>
+    {options.map(({ label, value, isDisabled }) => (
+      <Segment key={value} value={value} disabled={isDisabled}>
         <SegmentControl />
 
         <SegmentLabel>{label}</SegmentLabel>

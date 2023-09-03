@@ -69,9 +69,16 @@ const radioGroup = defineSlotRecipe({
       alignItems: "center",
       cursor: "pointer",
       display: "flex",
+      _disabled: {
+        cursor: "not-allowed",
+      },
     },
     radioLabel: {
+      color: "foreground.emphasized",
       fontWeight: "medium",
+      _disabled: {
+        color: "foreground.disabled",
+      },
     },
   },
   defaultVariants: {
@@ -99,6 +106,14 @@ const radioGroup = defineSlotRecipe({
             outlineStyle: "solid",
             _hover: {
               bgColor: "accent.default",
+            },
+          },
+          _disabled: {
+            borderColor: "border.disabled",
+            color: "foreground.disabled",
+            _hover: {
+              bgColor: "initial",
+              color: "foreground.disabled",
             },
           },
         },
