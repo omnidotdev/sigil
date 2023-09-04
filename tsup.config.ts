@@ -39,9 +39,15 @@ const tsupConfig = defineTsupConfig({
         NODE_OPTIONS: "--max-old-space-size=8192",
       },
     });
+    // https://github.com/egoist/tsup/issues/615
+    // spawnSync(
+    //   "tsc",
+    //   ["-p", "tsconfig.build.json", "--extendedDiagnostics"],
+    //   spawnProcessOptions,
+    // );
 
     console.log("Publishing local package...");
-    spawnSync("yarn", ["yalc", "push"], spawnProcessOptions);
+    spawnSync("yarn", ["knit", "push"], spawnProcessOptions);
   },
   format: ["cjs", "esm"],
   // NB: `peerDeps`, among others, are excluded (marked external) by default

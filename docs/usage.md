@@ -64,23 +64,23 @@ Install from remote repository: `yarn add @omnidev/sigil`
 
 This workflow is ideal for local development.
 
-1. Install [yalc](https://github.com/wclr/yalc)
+1. Install [knit](https://github.com/coopbri/knit)
 2. **Within the root UI library directory**, build the UI library: `yarn build` (or `yarn dev` for continuous builds)
 3. **Within the project directory:**
 
    1. Install dependencies: `yarn`
-   2. Link the UI library: `yalc link @omnidev/sigil`. Linking will not modify `package.json`, it will just symlink the package into your `node_modules`. Note that the package must be published to the `yalc` store first (this happens automatically after a successful build of the UI library)
+   2. Link the UI library: `knit link @omnidev/sigil`. Linking will not modify `package.json`, it will just symlink the package into your `node_modules`. Note that the package must be published to the `knit` store first (this happens automatically after a successful build of the UI library)
 
-      > 💡 **Note:** if you receive a `Cannot find module '@omnidev/sigil' [...]` error and `yarn && yalc link @omnidev/sigil` does not resolve the issue, try removing the `yalc.lock` file and then relink:
+      > 💡 **Note:** if you receive a `Cannot find module '@omnidev/sigil' [...]` error and `yarn && knit link @omnidev/sigil` does not resolve the issue, try removing the `knit.lock` file and then relink:
       >
       > ```sh
-      >  rm yalc.lock && yalc link @omnidev/sigil
+      >  rm knit.lock && knit link @omnidev/sigil
       > ```
 
       > 💡 **Note:** every time you install or modify dependencies (e.g. run `yarn` or `yarn add [...]`), the package symlink will be cleared, and will need to be relinked:
       >
       > ```sh
-      >  yarn && yalc link @omnidev/sigil
+      >  yarn && knit link @omnidev/sigil
       > ```
 
       > 💡 **Note:** if the UI library build fails, this will cause trickling errors. Make sure the UI library builds successfully if you are still having issues.

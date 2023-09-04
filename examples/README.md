@@ -17,5 +17,5 @@ To run any of these examples from within the repository, follow the [local usage
 
 ```sh
 yarn
-yarn add @omnidev/sigil # (or link with `yalc` as above)
+yarn add @omnidev/sigil # (or link with `knit` as above)
 ```
