@@ -6,7 +6,7 @@ import type { FontToken } from "generated/panda/tokens";
 
 type Story = StoryObj<typeof meta>;
 
-interface Props {
+interface TypesetProps {
   /** Name of font to showcase. */
   fontName: string;
   /** Token-attached font family. */
@@ -23,7 +23,7 @@ const meta = {
 /**
  * Typeset for showcasing font variations.
  */
-const Typeset = ({ fontName, fontFamily, intendedUse }: Props) => (
+const Typeset = ({ fontName, fontFamily, intendedUse }: TypesetProps) => (
   <Stack fontFamily={fontFamily}>
     <Stack mb={4}>
       <Text fontSize="2xl" fontWeight="bold">

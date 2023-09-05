@@ -9,6 +9,9 @@ export interface ArticleProps
   extends ArticleVariantProps,
     ComponentPropsWithoutRef<typeof ark.article> {}
 
+/**
+ * Article.
+ */
 const Article = styled(ark.article, article);
 
 export default Article;
