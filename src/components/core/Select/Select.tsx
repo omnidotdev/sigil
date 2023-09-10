@@ -1,45 +1,47 @@
 import { Portal } from "@ark-ui/react";
-import * as Ark from "@ark-ui/react/select";
+import { Select as ArkSelect } from "@ark-ui/react/select";
 import { BiExpandVertical } from "react-icons/bi";
 
 import { Stack, styled } from "generated/panda/jsx";
 import { select, type SelectVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { SelectProps as ArkSelectProps } from "@ark-ui/react/select";
+
 // https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/select";
 
 const { withProvider, withContext } = createStyleContext(select);
 
-export interface SelectProps extends Ark.SelectProps, SelectVariantProps {
+export interface SelectProps extends ArkSelectProps, SelectVariantProps {
   label: string;
   options: { label: string; value: string }[];
 }
 
-export const SelectRoot = withProvider(styled(Ark.Select.Root), "root");
+export const SelectRoot = withProvider(styled(ArkSelect.Root), "root");
 
-export const SelectContent = withContext(styled(Ark.Select.Content), "content");
+export const SelectContent = withContext(styled(ArkSelect.Content), "content");
 
-export const SelectLabel = withContext(styled(Ark.Select.Label), "label");
+export const SelectLabel = withContext(styled(ArkSelect.Label), "label");
 
-export const SelectOption = withContext(styled(Ark.Select.Option), "option");
+export const SelectOption = withContext(styled(ArkSelect.Option), "option");
 
 export const SelectOptionGroup = withContext(
-  styled(Ark.Select.OptionGroup),
+  styled(ArkSelect.OptionGroup),
   "optionGroup",
 );
 
 export const SelectOptionGroupLabel = withContext(
-  styled(Ark.Select.OptionGroupLabel),
+  styled(ArkSelect.OptionGroupLabel),
   "optionGroupLabel",
 );
 
 export const SelectPositioner = withContext(
-  styled(Ark.Select.Positioner),
+  styled(ArkSelect.Positioner),
   "positioner",
 );
 
-export const SelectTrigger = withContext(styled(Ark.Select.Trigger), "trigger");
+export const SelectTrigger = withContext(styled(ArkSelect.Trigger), "trigger");
 
 /**
  * Select.

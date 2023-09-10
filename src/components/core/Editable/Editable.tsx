@@ -1,4 +1,4 @@
-import * as Ark from "@ark-ui/react/editable";
+import { Editable as ArkEditable } from "@ark-ui/react/editable";
 
 import Button from "components/core/Button/Button";
 import Label from "components/core/Label/Label";
@@ -6,45 +6,47 @@ import { styled } from "generated/panda/jsx";
 import { editable, type EditableVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { EditableProps as ArkEditableProps } from "@ark-ui/react/editable";
+
 const { withProvider, withContext } = createStyleContext(editable);
 
 export interface EditableProps
-  extends Omit<Ark.EditableProps, "children">,
+  extends Omit<ArkEditableProps, "children">,
     EditableVariantProps {
   /** Editable field label. */
   label: string;
 }
 
-export const EditableRoot = withProvider(styled(Ark.Editable.Root), "root");
+export const EditableRoot = withProvider(styled(ArkEditable.Root), "root");
 
-export const EditableArea = withContext(styled(Ark.Editable.Area), "area");
+export const EditableArea = withContext(styled(ArkEditable.Area), "area");
 
 export const EditableCancelTrigger = withContext(
-  styled(Ark.Editable.CancelTrigger),
+  styled(ArkEditable.CancelTrigger),
   "cancelTrigger",
 );
 
 export const EditableControl = withContext(
-  styled(Ark.Editable.Control),
+  styled(ArkEditable.Control),
   "control",
 );
 
 export const EditableEditTrigger = withContext(
-  styled(Ark.Editable.EditTrigger),
+  styled(ArkEditable.EditTrigger),
   "editTrigger",
 );
 
-export const EditableInput = withContext(styled(Ark.Editable.Input), "input");
+export const EditableInput = withContext(styled(ArkEditable.Input), "input");
 
-export const EditableLabel = withContext(styled(Ark.Editable.Label), "label");
+export const EditableLabel = withContext(styled(ArkEditable.Label), "label");
 
 export const EditablePreview = withContext(
-  styled(Ark.Editable.Preview),
+  styled(ArkEditable.Preview),
   "preview",
 );
 
 export const EditableSubmitTrigger = withContext(
-  styled(Ark.Editable.SubmitTrigger),
+  styled(ArkEditable.SubmitTrigger),
   "submitTrigger",
 );
 

@@ -1,4 +1,4 @@
-import * as Ark from "@ark-ui/react/switch";
+import { Switch as ArkSwitch } from "@ark-ui/react/switch";
 
 import { styled } from "generated/panda/jsx";
 import {
@@ -7,19 +7,19 @@ import {
 } from "generated/panda/recipes";
 import { createStyleContext, getContextualChildren } from "lib/util";
 
+import type { SwitchProps as ArkSwitchProps } from "@ark-ui/react/switch";
+
 const { withProvider, withContext } = createStyleContext(switchRecipe);
 
-export interface SwitchProps
-  extends Ark.SwitchProps,
-    SwitchRecipeVariantProps {}
+export interface SwitchProps extends ArkSwitchProps, SwitchRecipeVariantProps {}
 
-export const SwitchRoot = withProvider(styled(Ark.Switch.Root), "root");
+export const SwitchRoot = withProvider(styled(ArkSwitch.Root), "root");
 
-export const SwitchControl = withContext(styled(Ark.Switch.Control), "control");
+export const SwitchControl = withContext(styled(ArkSwitch.Control), "control");
 
-export const SwitchLabel = withContext(styled(Ark.Switch.Label), "label");
+export const SwitchLabel = withContext(styled(ArkSwitch.Label), "label");
 
-export const SwitchThumb = withContext(styled(Ark.Switch.Thumb), "thumb");
+export const SwitchThumb = withContext(styled(ArkSwitch.Thumb), "thumb");
 
 /**
  * Toggle switch.

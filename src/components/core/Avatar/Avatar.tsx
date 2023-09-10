@@ -1,14 +1,15 @@
-import * as Ark from "@ark-ui/react/avatar";
+import { Avatar as ArkAvatar } from "@ark-ui/react/avatar";
 
 import { styled } from "generated/panda/jsx";
 import { avatar, type AvatarVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { AvatarProps as ArkAvatarProps } from "@ark-ui/react/avatar";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(avatar);
 
-export interface AvatarProps extends Ark.AvatarProps, AvatarVariantProps {
+export interface AvatarProps extends ArkAvatarProps, AvatarVariantProps {
   /** Name of user. */
   name: string;
   /** Fallback content. Defaults to user's initials. */
@@ -17,14 +18,14 @@ export interface AvatarProps extends Ark.AvatarProps, AvatarVariantProps {
   imageSource: string;
 }
 
-export const AvatarRoot = withProvider(styled(Ark.Avatar.Root), "root");
+export const AvatarRoot = withProvider(styled(ArkAvatar.Root), "root");
 
 export const AvatarFallback = withContext(
-  styled(Ark.Avatar.Fallback),
+  styled(ArkAvatar.Fallback),
   "fallback",
 );
 
-export const AvatarImage = withContext(styled(Ark.Avatar.Image), "image");
+export const AvatarImage = withContext(styled(ArkAvatar.Image), "image");
 
 // TODO unit test this, use JSDoc examples below as basepoint and match for e.g. names with diacritics
 /**

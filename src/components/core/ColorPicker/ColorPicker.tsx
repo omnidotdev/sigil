@@ -1,4 +1,4 @@
-import * as Ark from "@ark-ui/react/color-picker";
+import { ColorPicker as ArkColorPicker } from "@ark-ui/react/color-picker";
 import { IoMdColorFilter } from "react-icons/io";
 
 import Button from "components/core/Button/Button";
@@ -11,6 +11,8 @@ import {
 } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { ColorPickerProps as ArkColorPickerProps } from "@ark-ui/react/color-picker";
+
 // https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/color-picker";
 import type {} from "@zag-js/color-utils";
@@ -18,73 +20,70 @@ import type {} from "@zag-js/color-utils";
 const { withProvider, withContext } = createStyleContext(colorPicker);
 
 export interface ColorPickerProps
-  extends Ark.ColorPickerProps,
+  extends ArkColorPickerProps,
     ColorPickerVariantProps {
   presets?: string[];
 }
 
 export const ColorPickerRoot = withProvider(
-  styled(Ark.ColorPicker.Root),
+  styled(ArkColorPicker.Root),
   "root",
 );
 
-export const ColorPickerArea = withContext(
-  styled(Ark.ColorPicker.Area),
-  "area",
-);
+export const ColorPickerArea = withContext(styled(ArkColorPicker.Area), "area");
 
 export const ColorPickerAreaGradient = withContext(
-  styled(Ark.ColorPicker.AreaGradient),
+  styled(ArkColorPicker.AreaGradient),
   "areaGradient",
 );
 
 export const ColorPickerAreaThumb = withContext(
-  styled(Ark.ColorPicker.AreaThumb),
+  styled(ArkColorPicker.AreaThumb),
   "areaThumb",
 );
 
 export const ColorPickerChannelInput = withContext(
-  styled(Ark.ColorPicker.ChannelInput),
+  styled(ArkColorPicker.ChannelInput),
   "channelInput",
 );
 
 export const ColorPickerChannelSliderBackground = withContext(
-  styled(Ark.ColorPicker.ChannelSliderBackground),
+  styled(ArkColorPicker.ChannelSliderBackground),
   "channelSliderBackground",
 );
 
 export const ColorPickerChannelSliderThumb = withContext(
-  styled(Ark.ColorPicker.ChannelSliderThumb),
+  styled(ArkColorPicker.ChannelSliderThumb),
   "channelSliderThumb",
 );
 
 export const ColorPickerChannelSliderTrack = withContext(
-  styled(Ark.ColorPicker.ChannelSliderTrack),
+  styled(ArkColorPicker.ChannelSliderTrack),
   "channelSliderTrack",
 );
 
 export const ColorPickerContent = withContext(
-  styled(Ark.ColorPicker.Content),
+  styled(ArkColorPicker.Content),
   "content",
 );
 
 export const ColorPickerEyeDropperTrigger = withContext(
-  styled(Ark.ColorPicker.EyeDropperTrigger),
+  styled(ArkColorPicker.EyeDropperTrigger),
   "eyeDropperTrigger",
 );
 
 export const ColorPickerSwatch = withContext(
-  styled(Ark.ColorPicker.Swatch),
+  styled(ArkColorPicker.Swatch),
   "swatch",
 );
 
 export const ColorPickerSwatchBackground = withContext(
-  styled(Ark.ColorPicker.SwatchBackground),
+  styled(ArkColorPicker.SwatchBackground),
   "swatchBackground",
 );
 
 export const ColorPickerSwatchGroup = withContext(
-  styled(Ark.ColorPicker.SwatchGroup),
+  styled(ArkColorPicker.SwatchGroup),
   "swatchGroup",
 );
 

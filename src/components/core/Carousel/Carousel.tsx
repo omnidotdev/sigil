@@ -1,4 +1,4 @@
-import * as Ark from "@ark-ui/react/carousel";
+import { Carousel as ArkCarousel } from "@ark-ui/react/carousel";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 import Button from "components/core/Button/Button";
@@ -6,6 +6,7 @@ import { styled } from "generated/panda/jsx";
 import { carousel, type CarouselVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { CarouselProps as ArkCarouselProps } from "@ark-ui/react/carousel";
 import type { ReactNode } from "react";
 
 // https://github.com/microsoft/TypeScript/issues/47663
@@ -14,49 +15,49 @@ import type {} from "@zag-js/carousel";
 const { withProvider, withContext } = createStyleContext(carousel);
 
 export interface CarouselProps
-  extends Omit<Ark.CarouselProps, "children">,
+  extends Omit<ArkCarouselProps, "children">,
     CarouselVariantProps {
   /** Slide content to render. */
   slides: ReactNode[];
 }
 
 // @ts-ignore type inference bug
-export const CarouselRoot = withProvider(styled(Ark.Carousel.Root), "root");
+export const CarouselRoot = withProvider(styled(ArkCarousel.Root), "root");
 
 export const CarouselControl = withContext(
-  styled(Ark.Carousel.Control),
+  styled(ArkCarousel.Control),
   "control",
 );
 
 export const CarouselIndicator = withContext(
-  styled(Ark.Carousel.Indicator),
+  styled(ArkCarousel.Indicator),
   "indicator",
 );
 
 export const CarouselIndicatorGroup = withContext(
-  styled(Ark.Carousel.IndicatorGroup),
+  styled(ArkCarousel.IndicatorGroup),
   "indicatorGroup",
 );
 
 export const CarouselNextSlideTrigger = withContext(
-  styled(Ark.Carousel.NextSlideTrigger),
+  styled(ArkCarousel.NextSlideTrigger),
   "nextSlideTrigger",
 );
 
 export const CarouselPrevSlideTrigger = withContext(
-  styled(Ark.Carousel.PrevSlideTrigger),
+  styled(ArkCarousel.PrevSlideTrigger),
   "prevSlideTrigger",
 );
 
-export const CarouselSlide = withContext(styled(Ark.Carousel.Slide), "slide");
+export const CarouselSlide = withContext(styled(ArkCarousel.Slide), "slide");
 
 export const CarouselSlideGroup = withContext(
-  styled(Ark.Carousel.SlideGroup),
+  styled(ArkCarousel.SlideGroup),
   "slideGroup",
 );
 
 export const CarouselViewport = withContext(
-  styled(Ark.Carousel.Viewport),
+  styled(ArkCarousel.Viewport),
   "viewport",
 );
 

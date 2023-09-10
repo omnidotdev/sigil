@@ -1,4 +1,4 @@
-import * as Ark from "@ark-ui/react/tags-input";
+import { TagsInput as ArkTagsInput } from "@ark-ui/react/tags-input";
 import { Fragment } from "react";
 import { FiX } from "react-icons/fi";
 
@@ -18,34 +18,34 @@ const { withProvider, withContext } = createStyleContext(tagsInput);
 export interface TagsInputProps
   extends Omit<ComponentProps<typeof TagsInputRoot>, "children" | "size">,
     // TODO use below type instead of above, currently a missing props issue (e.g. `maxW`)
-    // Omit<Ark.TagsInputProps, "children">
+    // Omit<ArkTagsInputProps, "children">
     TagsInputVariantProps {
   /** Input label. */
   label: string;
 }
 
-export const TagsInputRoot = withProvider(styled(Ark.TagsInput.Root), "root");
+export const TagsInputRoot = withProvider(styled(ArkTagsInput.Root), "root");
 
 export const TagsInputClearTrigger = withContext(
-  styled(Ark.TagsInput.ClearTrigger),
+  styled(ArkTagsInput.ClearTrigger),
   "clearTrigger",
 );
 
 export const TagsInputControl = withContext(
-  styled(Ark.TagsInput.Control),
+  styled(ArkTagsInput.Control),
   "control",
 );
 
-export const TagsInputInput = withContext(styled(Ark.TagsInput.Input), "input");
+export const TagsInputInput = withContext(styled(ArkTagsInput.Input), "input");
 
-export const TagsInputLabel = withContext(styled(Ark.TagsInput.Label), "label");
+export const TagsInputLabel = withContext(styled(ArkTagsInput.Label), "label");
 
-export const Tag = withContext(styled(Ark.TagsInput.Tag), "tag");
+export const Tag = withContext(styled(ArkTagsInput.Tag), "tag");
 
-export const TagInput = withContext(styled(Ark.TagsInput.TagInput), "tagInput");
+export const TagInput = withContext(styled(ArkTagsInput.TagInput), "tagInput");
 
 export const TagDeleteTrigger = withContext(
-  styled(Ark.TagsInput.TagDeleteTrigger),
+  styled(ArkTagsInput.TagDeleteTrigger),
   "tagDeleteTrigger",
 );
 

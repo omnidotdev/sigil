@@ -1,41 +1,42 @@
 import { Portal } from "@ark-ui/react";
-import * as Ark from "@ark-ui/react/hover-card";
+import { HoverCard as ArkHoverCard } from "@ark-ui/react/hover-card";
 
 import { styled } from "generated/panda/jsx";
 import { hoverCard, type HoverCardVariantProps } from "generated/panda/recipes";
 import { createStyleContext, getContextualChildren } from "lib/util";
 
+import type { HoverCardProps as ArkHoverCardProps } from "@ark-ui/react/hover-card";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(hoverCard);
 
 export interface HoverCardProps
-  extends Ark.HoverCardProps,
+  extends ArkHoverCardProps,
     HoverCardVariantProps {
   trigger: ReactNode;
 }
 
-export const HoverCardRoot = withProvider(styled(Ark.HoverCard.Root), "root");
+export const HoverCardRoot = withProvider(styled(ArkHoverCard.Root), "root");
 
-export const HoverCardArrow = withContext(styled(Ark.HoverCard.Arrow), "arrow");
+export const HoverCardArrow = withContext(styled(ArkHoverCard.Arrow), "arrow");
 
 export const HoverCardArrowTip = withContext(
-  styled(Ark.HoverCard.ArrowTip),
+  styled(ArkHoverCard.ArrowTip),
   "arrowTip",
 );
 
 export const HoverCardContent = withContext(
-  styled(Ark.HoverCard.Content),
+  styled(ArkHoverCard.Content),
   "content",
 );
 
 export const HoverCardPositioner = withContext(
-  styled(Ark.HoverCard.Positioner),
+  styled(ArkHoverCard.Positioner),
   "positioner",
 );
 
 export const HoverCardTrigger = withContext(
-  styled(Ark.HoverCard.Trigger),
+  styled(ArkHoverCard.Trigger),
   "trigger",
 );
 

@@ -1,5 +1,8 @@
 import { Portal } from "@ark-ui/react";
-import * as Ark from "@ark-ui/react/toast";
+import {
+  Toast as ArkToast,
+  useToast as useArkToast,
+} from "@ark-ui/react/toast";
 import { cloneElement } from "react";
 import { FiX } from "react-icons/fi";
 
@@ -8,7 +11,10 @@ import { Box, Stack, styled } from "generated/panda/jsx";
 import { toast, type ToastVariantProps } from "generated/panda/recipes";
 import createStyleContext from "lib/util/createStyleContext";
 
-import type { ToastProviderProps } from "@ark-ui/react/toast";
+import type {
+  ToastProviderProps,
+  ToastProps as ArkToastProps,
+} from "@ark-ui/react/toast";
 // https://github.com/microsoft/TypeScript/issues/47663
 import type { ToastOptions } from "@zag-js/toast";
 import type { ReactElement } from "react";
@@ -21,43 +27,40 @@ interface ToastWrapperProps {
 }
 
 export interface ToastProps
-  extends Ark.ToastProps,
+  extends ArkToastProps,
     ToastVariantProps,
     ToastWrapperProps {
   providerProps?: ToastProviderProps;
 }
 
-export const ToastProvider = withContext(
-  styled(Ark.Toast.Provider),
-  "provider",
-);
+export const ToastProvider = withContext(styled(ArkToast.Provider), "provider");
 
-export const ToastTitle = withContext(styled(Ark.Toast.Title), "title");
+export const ToastTitle = withContext(styled(ArkToast.Title), "title");
 
-export const ToastRoot = withProvider(styled(Ark.Toast.Root), "root");
+export const ToastRoot = withProvider(styled(ArkToast.Root), "root");
 
 export const ToastDescription = withContext(
-  styled(Ark.Toast.Description),
+  styled(ArkToast.Description),
   "description",
 );
 
 export const ToastCloseTrigger = withContext(
-  styled(Ark.Toast.CloseTrigger),
+  styled(ArkToast.CloseTrigger),
   "closeTrigger",
 );
 
 export const ToastPlacements = withContext(
-  styled(Ark.Toast.Placements),
+  styled(ArkToast.Placements),
   "placements",
 );
 
-export const ToastGroup = withContext(styled(Ark.Toast.Group), "group");
+export const ToastGroup = withContext(styled(ArkToast.Group), "group");
 
 /**
  * Toast wrapper that triggers creation of a toast.
  */
 const ToastWrapper = ({ trigger, toastOptions }: ToastWrapperProps) => {
-  const toast = Ark.useToast();
+  const toast = useArkToast();
 
   return cloneElement(trigger, {
     onClick: () => {

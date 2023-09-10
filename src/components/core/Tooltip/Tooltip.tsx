@@ -1,40 +1,41 @@
 import { Portal } from "@ark-ui/react";
-import * as Ark from "@ark-ui/react/tooltip";
+import { Tooltip as ArkTooltip } from "@ark-ui/react/tooltip";
 
 import { styled } from "generated/panda/jsx";
 import { tooltip, type TooltipVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { TooltipProps as ArkTooltipProps } from "@ark-ui/react/tooltip";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(tooltip);
 
-export interface TooltipProps extends Ark.TooltipProps, TooltipVariantProps {
+export interface TooltipProps extends ArkTooltipProps, TooltipVariantProps {
   trigger: ReactNode;
   content: ReactNode;
 }
 
-export const TooltipRoot = withProvider(styled(Ark.Tooltip.Root), "root");
+export const TooltipRoot = withProvider(styled(ArkTooltip.Root), "root");
 
-export const TooltipArrow = withContext(styled(Ark.Tooltip.Arrow), "arrow");
+export const TooltipArrow = withContext(styled(ArkTooltip.Arrow), "arrow");
 
 export const TooltipArrowTip = withContext(
-  styled(Ark.Tooltip.ArrowTip),
+  styled(ArkTooltip.ArrowTip),
   "arrowTip",
 );
 
 export const TooltipContent = withContext(
-  styled(Ark.Tooltip.Content),
+  styled(ArkTooltip.Content),
   "content",
 );
 
 export const TooltipPositioner = withContext(
-  styled(Ark.Tooltip.Positioner),
+  styled(ArkTooltip.Positioner),
   "positioner",
 );
 
 export const TooltipTrigger = withContext(
-  styled(Ark.Tooltip.Trigger),
+  styled(ArkTooltip.Trigger),
   "trigger",
 );
 

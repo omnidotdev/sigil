@@ -1,9 +1,10 @@
-import * as Ark from "@ark-ui/react/splitter";
+import { Splitter as ArkSplitter } from "@ark-ui/react/splitter";
 
 import { styled } from "generated/panda/jsx";
 import { splitter, type SplitterVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { SplitterProps as ArkSplitterProps } from "@ark-ui/react/splitter";
 import type { ComponentProps, ReactNode } from "react";
 
 // https://github.com/microsoft/TypeScript/issues/47663
@@ -11,7 +12,7 @@ import type {} from "@zag-js/splitter";
 
 const { withProvider, withContext } = createStyleContext(splitter);
 
-export interface SplitterProps extends Ark.SplitterProps, SplitterVariantProps {
+export interface SplitterProps extends ArkSplitterProps, SplitterVariantProps {
   sections: {
     type: "panel" | "resizeTrigger";
     // TODO enforce : on resizeTrigger
@@ -26,12 +27,12 @@ export interface SplitterProps extends Ark.SplitterProps, SplitterVariantProps {
   }[];
 }
 
-export const SplitterRoot = withProvider(styled(Ark.Splitter.Root), "root");
+export const SplitterRoot = withProvider(styled(ArkSplitter.Root), "root");
 
-export const SplitterPanel = withContext(styled(Ark.Splitter.Panel), "panel");
+export const SplitterPanel = withContext(styled(ArkSplitter.Panel), "panel");
 
 export const SplitterResizeTrigger = withContext(
-  styled(Ark.Splitter.ResizeTrigger),
+  styled(ArkSplitter.ResizeTrigger),
   "resizeTrigger",
 );
 

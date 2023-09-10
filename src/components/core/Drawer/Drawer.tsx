@@ -1,5 +1,5 @@
 import { Portal } from "@ark-ui/react";
-import * as Ark from "@ark-ui/react/dialog";
+import { Dialog as ArkDialog } from "@ark-ui/react/dialog";
 import { FiX } from "react-icons/fi";
 
 import Button from "components/core/Button/Button";
@@ -7,11 +7,12 @@ import { Stack, styled } from "generated/panda/jsx";
 import { drawer, type DrawerVariantProps } from "generated/panda/recipes";
 import { createStyleContext, getContextualChildren } from "lib/util";
 
+import type { DialogProps as ArkDialogProps } from "@ark-ui/react/dialog";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(drawer);
 
-export interface DrawerProps extends Ark.DialogProps, DrawerVariantProps {
+export interface DrawerProps extends ArkDialogProps, DrawerVariantProps {
   /** Trigger node, such as a button, used to open the drawer. */
   trigger: ReactNode;
   /** Drawer title, displayed at the top. */
@@ -22,33 +23,33 @@ export interface DrawerProps extends Ark.DialogProps, DrawerVariantProps {
   contentProps?: ComponentPropsWithoutRef<typeof DrawerContent>;
 }
 
-export const DrawerRoot = withProvider(styled(Ark.Dialog.Root), "root");
+export const DrawerRoot = withProvider(styled(ArkDialog.Root), "root");
 
 export const DrawerBackdrop = withContext(
-  styled(Ark.Dialog.Backdrop),
+  styled(ArkDialog.Backdrop),
   "backdrop",
 );
 
 export const DrawerCloseTrigger = withContext(
-  styled(Ark.Dialog.CloseTrigger),
+  styled(ArkDialog.CloseTrigger),
   "closeTrigger",
 );
 
 export const DrawerContainer = withContext(
-  styled(Ark.Dialog.Container),
+  styled(ArkDialog.Container),
   "container",
 );
 
-export const DrawerContent = withContext(styled(Ark.Dialog.Content), "content");
+export const DrawerContent = withContext(styled(ArkDialog.Content), "content");
 
 export const DrawerDescription = withContext(
-  styled(Ark.Dialog.Description),
+  styled(ArkDialog.Description),
   "description",
 );
 
-export const DrawerTitle = withContext(styled(Ark.Dialog.Title), "title");
+export const DrawerTitle = withContext(styled(ArkDialog.Title), "title");
 
-export const DrawerTrigger = withContext(styled(Ark.Dialog.Trigger), "trigger");
+export const DrawerTrigger = withContext(styled(ArkDialog.Trigger), "trigger");
 
 /**
  * Drawer.

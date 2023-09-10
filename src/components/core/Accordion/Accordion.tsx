@@ -1,9 +1,11 @@
-import * as Ark from "@ark-ui/react/accordion";
+import { Accordion as ArkAccordion } from "@ark-ui/react/accordion";
 import { FiChevronDown } from "react-icons/fi";
 
 import { styled } from "generated/panda/jsx";
 import { accordion, type AccordionVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
+
+import type { AccordionProps as ArkAccordionProps } from "@ark-ui/react/accordion";
 
 // https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/accordion";
@@ -11,22 +13,22 @@ import type {} from "@zag-js/accordion";
 const { withProvider, withContext } = createStyleContext(accordion);
 
 export interface AccordionProps
-  extends Ark.AccordionProps,
+  extends ArkAccordionProps,
     AccordionVariantProps {
   items: { title: string; body: string }[];
 }
 
-export const AccordionRoot = withProvider(styled(Ark.Accordion.Root), "root");
+export const AccordionRoot = withProvider(styled(ArkAccordion.Root), "root");
 
 export const AccordionContent = withContext(
-  styled(Ark.Accordion.Content),
+  styled(ArkAccordion.Content),
   "content",
 );
 
-export const AccordionItem = withContext(styled(Ark.Accordion.Item), "item");
+export const AccordionItem = withContext(styled(ArkAccordion.Item), "item");
 
 export const AccordionTrigger = withContext(
-  styled(Ark.Accordion.Trigger),
+  styled(ArkAccordion.Trigger),
   "trigger",
 );
 

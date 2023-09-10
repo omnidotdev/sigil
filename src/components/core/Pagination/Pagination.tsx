@@ -1,4 +1,4 @@
-import * as Ark from "@ark-ui/react/pagination";
+import { Pagination as ArkPagination } from "@ark-ui/react/pagination";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useMediaQuery } from "usehooks-ts";
 
@@ -10,41 +10,43 @@ import {
 } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { PaginationProps as ArkPaginationProps } from "@ark-ui/react/pagination";
+
 // https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/pagination";
 
 const { withProvider, withContext } = createStyleContext(pagination);
 
 export interface PaginationProps
-  extends Ark.PaginationProps,
+  extends ArkPaginationProps,
     PaginationVariantProps {}
 
-export const PaginationRoot = withProvider(styled(Ark.Pagination.Root), "root");
+export const PaginationRoot = withProvider(styled(ArkPagination.Root), "root");
 
 export const PaginationEllipsis = withContext(
-  styled(Ark.Pagination.Ellipsis),
+  styled(ArkPagination.Ellipsis),
   "ellipsis",
 );
 
-export const PaginationList = withContext(styled(Ark.Pagination.List), "list");
+export const PaginationList = withContext(styled(ArkPagination.List), "list");
 
 export const PaginationListItem = withContext(
-  styled(Ark.Pagination.ListItem),
+  styled(ArkPagination.ListItem),
   "listItem",
 );
 
 export const PaginationNextPageTrigger = withContext(
-  styled(Ark.Pagination.NextPageTrigger),
+  styled(ArkPagination.NextPageTrigger),
   "nextPageTrigger",
 );
 
 export const PaginationPageTrigger = withContext(
-  styled(Ark.Pagination.PageTrigger),
+  styled(ArkPagination.PageTrigger),
   "pageTrigger",
 );
 
 export const PaginationPrevPageTrigger = withContext(
-  styled(Ark.Pagination.PrevPageTrigger),
+  styled(ArkPagination.PrevPageTrigger),
   "prevPageTrigger",
 );
 

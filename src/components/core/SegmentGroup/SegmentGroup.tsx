@@ -1,4 +1,4 @@
-import * as Ark from "@ark-ui/react/segment-group";
+import { SegmentGroup as ArkSegmentGroup } from "@ark-ui/react/segment-group";
 
 import { styled } from "generated/panda/jsx";
 import {
@@ -7,10 +7,12 @@ import {
 } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { SegmentGroupProps as ArkSegmentGroupProps } from "@ark-ui/react/segment-group";
+
 const { withProvider, withContext } = createStyleContext(segmentGroup);
 
 export interface SegmentGroupProps
-  extends Ark.SegmentGroupProps,
+  extends ArkSegmentGroupProps,
     SegmentGroupVariantProps {
   /** Segment group options. */
   options: {
@@ -24,29 +26,29 @@ export interface SegmentGroupProps
 }
 
 export const SegmentGroupRoot = withProvider(
-  styled(Ark.SegmentGroup.Root),
+  styled(ArkSegmentGroup.Root),
   "root",
 );
 
 export const SegmentGroupLabel = withContext(
-  styled(Ark.SegmentGroup.Label),
+  styled(ArkSegmentGroup.Label),
   "label",
 );
 
 export const SegmentGroupIndicator = withContext(
-  styled(Ark.SegmentGroup.Indicator),
+  styled(ArkSegmentGroup.Indicator),
   "indicator",
 );
 
-export const Segment = withContext(styled(Ark.SegmentGroup.Segment), "radio");
+export const Segment = withContext(styled(ArkSegmentGroup.Segment), "radio");
 
 export const SegmentLabel = withContext(
-  styled(Ark.SegmentGroup.SegmentLabel),
+  styled(ArkSegmentGroup.SegmentLabel),
   "radioLabel",
 );
 
 export const SegmentControl = withContext(
-  styled(Ark.SegmentGroup.SegmentControl),
+  styled(ArkSegmentGroup.SegmentControl),
   "radioControl",
 );
 

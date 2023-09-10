@@ -1,4 +1,4 @@
-import * as Ark from "@ark-ui/react/number-input";
+import { NumberInput as ArkNumberInput } from "@ark-ui/react/number-input";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 
 import { styled } from "generated/panda/jsx";
@@ -8,47 +8,49 @@ import {
 } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { NumberInputProps as ArkNumberInputProps } from "@ark-ui/react/number-input";
+
 const { withProvider, withContext } = createStyleContext(numberInput);
 
 export interface NumberInputProps
-  extends Ark.NumberInputProps,
+  extends ArkNumberInputProps,
     NumberInputVariantProps {
   label: string;
 }
 
 export const NumberInputRoot = withProvider(
-  styled(Ark.NumberInput.Root),
+  styled(ArkNumberInput.Root),
   "root",
 );
 
 export const NumberInputControl = withContext(
-  styled(Ark.NumberInput.Control),
+  styled(ArkNumberInput.Control),
   "control",
 );
 
 export const NumberInputDecrementTrigger = withContext(
-  styled(Ark.NumberInput.DecrementTrigger),
+  styled(ArkNumberInput.DecrementTrigger),
   "decrementTrigger",
 );
 
 export const NumberInputInput = withContext(
-  styled(Ark.NumberInput.Input),
+  styled(ArkNumberInput.Input),
   "input",
 );
 
 export const NumberInputIncrementTrigger = withContext(
-  styled(Ark.NumberInput.IncrementTrigger),
+  styled(ArkNumberInput.IncrementTrigger),
   "incrementTrigger",
 );
 
 export const NumberInputLabel = withContext(
-  styled(Ark.NumberInput.Label),
+  styled(ArkNumberInput.Label),
   "label",
 );
 
 // ?
 export const NumberInputScrubber = withContext(
-  styled(Ark.NumberInput.Scrubber),
+  styled(ArkNumberInput.Scrubber),
   "scrubber",
 );
 

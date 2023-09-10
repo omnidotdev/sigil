@@ -1,5 +1,5 @@
 import { Portal } from "@ark-ui/react";
-import * as Ark from "@ark-ui/react/date-picker";
+import { DatePicker as ArkDatePicker } from "@ark-ui/react/date-picker";
 import { FiCalendar, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 import Button from "components/core/Button/Button";
@@ -11,118 +11,120 @@ import {
 } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { DatePickerProps as ArkDatePickerProps } from "@ark-ui/react/date-picker";
+
 // https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/date-picker";
 
 const { withProvider, withContext } = createStyleContext(datePicker);
 
 export interface DatePickerProps
-  extends Ark.DatePickerProps,
+  extends ArkDatePickerProps,
     DatePickerVariantProps {}
 
-export const DatePickerRoot = withProvider(styled(Ark.DatePicker.Root), "root");
+export const DatePickerRoot = withProvider(styled(ArkDatePicker.Root), "root");
 
 export const DatePickerClearTrigger = withContext(
-  styled(Ark.DatePicker.ClearTrigger),
+  styled(ArkDatePicker.ClearTrigger),
   "clearTrigger",
 );
 
 export const DatePickerColumnHeader = withContext(
-  styled(Ark.DatePicker.ColumnHeader),
+  styled(ArkDatePicker.ColumnHeader),
   "columnHeader",
 );
 
 export const DatePickerContent = withContext(
-  styled(Ark.DatePicker.Content),
+  styled(ArkDatePicker.Content),
   "content",
 );
 
 export const DatePickerControl = withContext(
-  styled(Ark.DatePicker.Control),
+  styled(ArkDatePicker.Control),
   "control",
 );
 
 export const DatePickerDayCell = withContext(
-  styled(Ark.DatePicker.DayCell),
+  styled(ArkDatePicker.DayCell),
   "dayCell",
 );
 
 export const DatePickerDayCellTrigger = withContext(
-  styled(Ark.DatePicker.DayCellTrigger),
+  styled(ArkDatePicker.DayCellTrigger),
   "dayCellTrigger",
 );
 
-export const DatePickerGrid = withContext(styled(Ark.DatePicker.Grid), "grid");
+export const DatePickerGrid = withContext(styled(ArkDatePicker.Grid), "grid");
 
 export const DatePickerInput = withContext(
-  styled(Ark.DatePicker.Input),
+  styled(ArkDatePicker.Input),
   "input",
 );
 
 export const DatePickerMonthCell = withContext(
-  styled(Ark.DatePicker.MonthCell),
+  styled(ArkDatePicker.MonthCell),
   "monthCell",
 );
 
 export const DatePickerMonthCellTrigger = withContext(
-  styled(Ark.DatePicker.MonthCellTrigger),
+  styled(ArkDatePicker.MonthCellTrigger),
   "monthCellTrigger",
 );
 
 export const DatePickerMonthSelect = withContext(
-  styled(Ark.DatePicker.MonthSelect),
+  styled(ArkDatePicker.MonthSelect),
   "monthSelect",
 );
 
 export const DatePickerNextTrigger = withContext(
-  styled(Ark.DatePicker.NextTrigger),
+  styled(ArkDatePicker.NextTrigger),
   "nextTrigger",
 );
 
 export const DatePickerPositioner = withContext(
-  styled(Ark.DatePicker.Positioner),
+  styled(ArkDatePicker.Positioner),
   "positioner",
 );
 
 export const DatePickerPrevTrigger = withContext(
-  styled(Ark.DatePicker.PrevTrigger),
+  styled(ArkDatePicker.PrevTrigger),
   "prevTrigger",
 );
 
-export const DatePickerRow = withContext(styled(Ark.DatePicker.Row), "row");
+export const DatePickerRow = withContext(styled(ArkDatePicker.Row), "row");
 
 export const DatePickerRowGroup = withContext(
-  styled(Ark.DatePicker.RowGroup),
+  styled(ArkDatePicker.RowGroup),
   "rowGroup",
 );
 
 export const DatePickerRowHeader = withContext(
-  styled(Ark.DatePicker.RowHeader),
+  styled(ArkDatePicker.RowHeader),
   "rowHeader",
 );
 
 export const DatePickerTrigger = withContext(
-  styled(Ark.DatePicker.Trigger),
+  styled(ArkDatePicker.Trigger),
   "trigger",
 );
 
 export const DatePickerViewTrigger = withContext(
-  styled(Ark.DatePicker.ViewTrigger),
+  styled(ArkDatePicker.ViewTrigger),
   "viewTrigger",
 );
 
 export const DatePickerYearCell = withContext(
-  styled(Ark.DatePicker.YearCell),
+  styled(ArkDatePicker.YearCell),
   "yearCell",
 );
 
 export const DatePickerYearCellTrigger = withContext(
-  styled(Ark.DatePicker.YearCellTrigger),
+  styled(ArkDatePicker.YearCellTrigger),
   "yearCellTrigger",
 );
 
 export const DatePickerYearSelect = withContext(
-  styled(Ark.DatePicker.YearSelect),
+  styled(ArkDatePicker.YearSelect),
   "yearSelect",
 );
 

@@ -1,4 +1,4 @@
-import * as Ark from "@ark-ui/react/rating-group";
+import { RatingGroup as ArkRatingGroup } from "@ark-ui/react/rating-group";
 import {
   BsStarHalf as IconHalf,
   BsStar as IconEmpty,
@@ -9,23 +9,25 @@ import { styled } from "generated/panda/jsx";
 import { rating, type RatingVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { RatingGroupProps as ArkRatingGroupProps } from "@ark-ui/react/rating-group";
+
 // https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/rating-group";
 
 const { withProvider, withContext } = createStyleContext(rating);
 
-export interface RatingProps extends Ark.RatingGroupProps, RatingVariantProps {}
+export interface RatingProps extends ArkRatingGroupProps, RatingVariantProps {}
 
-export const RatingRoot = withProvider(styled(Ark.RatingGroup.Root), "root");
+export const RatingRoot = withProvider(styled(ArkRatingGroup.Root), "root");
 
 export const RatingControl = withContext(
-  styled(Ark.RatingGroup.Control),
+  styled(ArkRatingGroup.Control),
   "control",
 );
 
-export const RatingLabel = withContext(styled(Ark.RatingGroup.Label), "label");
+export const RatingLabel = withContext(styled(ArkRatingGroup.Label), "label");
 
-export const RatingItem = withContext(styled(Ark.RatingGroup.Rating), "rating");
+export const RatingItem = withContext(styled(ArkRatingGroup.Rating), "rating");
 
 /**
  * Rating.

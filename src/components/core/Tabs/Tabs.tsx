@@ -1,9 +1,10 @@
-import * as Ark from "@ark-ui/react/tabs";
+import { Tabs as ArkTabs } from "@ark-ui/react/tabs";
 
 import { styled } from "generated/panda/jsx";
 import { tabs, type TabsVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { TabsProps as ArkTabsProps } from "@ark-ui/react/tabs";
 import type { ReactNode } from "react";
 
 // https://github.com/microsoft/TypeScript/issues/47663
@@ -11,7 +12,7 @@ import type {} from "@zag-js/tabs";
 
 const { withProvider, withContext } = createStyleContext(tabs);
 
-export interface TabsProps extends Ark.TabsProps, TabsVariantProps {
+export interface TabsProps extends ArkTabsProps, TabsVariantProps {
   tabs: {
     id: string;
     label: string;
@@ -20,18 +21,15 @@ export interface TabsProps extends Ark.TabsProps, TabsVariantProps {
   }[];
 }
 
-export const TabsRoot = withProvider(styled(Ark.Tabs.Root), "root");
+export const TabsRoot = withProvider(styled(ArkTabs.Root), "root");
 
-export const TabList = withContext(styled(Ark.Tabs.List), "list");
+export const TabList = withContext(styled(ArkTabs.List), "list");
 
-export const TabTrigger = withContext(styled(Ark.Tabs.Trigger), "trigger");
+export const TabTrigger = withContext(styled(ArkTabs.Trigger), "trigger");
 
-export const TabIndicator = withContext(
-  styled(Ark.Tabs.Indicator),
-  "indicator",
-);
+export const TabIndicator = withContext(styled(ArkTabs.Indicator), "indicator");
 
-export const TabContent = withContext(styled(Ark.Tabs.Content), "content");
+export const TabContent = withContext(styled(ArkTabs.Content), "content");
 
 /**
  * Tabs.

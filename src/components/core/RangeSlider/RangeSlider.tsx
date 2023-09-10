@@ -1,4 +1,4 @@
-import * as Ark from "@ark-ui/react/range-slider";
+import { RangeSlider as ArkRangeSlider } from "@ark-ui/react/range-slider";
 
 import { styled } from "generated/panda/jsx";
 import {
@@ -7,57 +7,59 @@ import {
 } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { RangeSliderProps as ArkRangeSliderProps } from "@ark-ui/react/range-slider";
+
 const { withProvider, withContext } = createStyleContext(rangeSlider);
 
 export interface RangeSliderProps
-  extends Ark.RangeSliderProps,
+  extends ArkRangeSliderProps,
     RangeSliderVariantProps {
   /** Track values to mark. */
   markerValues: number[];
 }
 
 export const RangeSliderRoot = withProvider(
-  styled(Ark.RangeSlider.Root),
+  styled(ArkRangeSlider.Root),
   "root",
 );
 
 export const RangeSliderControl = withContext(
-  styled(Ark.RangeSlider.Control),
+  styled(ArkRangeSlider.Control),
   "control",
 );
 
 export const RangeSliderLabel = withContext(
-  styled(Ark.RangeSlider.Label),
+  styled(ArkRangeSlider.Label),
   "label",
 );
 
 export const RangeSliderMarker = withContext(
-  styled(Ark.RangeSlider.Marker),
+  styled(ArkRangeSlider.Marker),
   "marker",
 );
 
 export const RangeSliderMarkerGroup = withContext(
-  styled(Ark.RangeSlider.MarkerGroup),
+  styled(ArkRangeSlider.MarkerGroup),
   "markerGroup",
 );
 
 export const RangeSliderOutput = withContext(
-  styled(Ark.RangeSlider.Output),
+  styled(ArkRangeSlider.Output),
   "output",
 );
 
 export const RangeSliderRange = withContext(
-  styled(Ark.RangeSlider.Range),
+  styled(ArkRangeSlider.Range),
   "range",
 );
 
 export const RangeSliderThumb = withContext(
-  styled(Ark.RangeSlider.Thumb),
+  styled(ArkRangeSlider.Thumb),
   "thumb",
 );
 
 export const RangeSliderTrack = withContext(
-  styled(Ark.RangeSlider.Track),
+  styled(ArkRangeSlider.Track),
   "track",
 );
 

@@ -1,5 +1,5 @@
 import { Portal } from "@ark-ui/react";
-import * as Ark from "@ark-ui/react/popover";
+import { Popover as ArkPopover } from "@ark-ui/react/popover";
 import { FiX } from "react-icons/fi";
 
 import Button from "components/core/Button/Button";
@@ -7,6 +7,7 @@ import { Box, Stack, styled } from "generated/panda/jsx";
 import { popover, type PopoverVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { PopoverProps as ArkPopoverProps } from "@ark-ui/react/popover";
 import type { ReactNode } from "react";
 
 // https://github.com/microsoft/TypeScript/issues/47663
@@ -14,47 +15,47 @@ import type {} from "@zag-js/popper";
 
 const { withProvider, withContext } = createStyleContext(popover);
 
-export interface PopoverProps extends Ark.PopoverProps, PopoverVariantProps {
+export interface PopoverProps extends ArkPopoverProps, PopoverVariantProps {
   trigger: ReactNode;
   title: string;
   description: string;
 }
 
-export const PopoverRoot = withProvider(styled(Ark.Popover.Root), "root");
+export const PopoverRoot = withProvider(styled(ArkPopover.Root), "root");
 
-export const PopoverAnchor = withContext(styled(Ark.Popover.Anchor), "anchor");
+export const PopoverAnchor = withContext(styled(ArkPopover.Anchor), "anchor");
 
-export const PopoverArrow = withContext(styled(Ark.Popover.Arrow), "arrow");
+export const PopoverArrow = withContext(styled(ArkPopover.Arrow), "arrow");
 
 export const PopoverArrowTip = withContext(
-  styled(Ark.Popover.ArrowTip),
+  styled(ArkPopover.ArrowTip),
   "arrowTip",
 );
 
 export const PopoverCloseTrigger = withContext(
-  styled(Ark.Popover.CloseTrigger),
+  styled(ArkPopover.CloseTrigger),
   "closeTrigger",
 );
 
 export const PopoverContent = withContext(
-  styled(Ark.Popover.Content),
+  styled(ArkPopover.Content),
   "content",
 );
 
 export const PopoverDescription = withContext(
-  styled(Ark.Popover.Description),
+  styled(ArkPopover.Description),
   "description",
 );
 
 export const PopoverPositioner = withContext(
-  styled(Ark.Popover.Positioner),
+  styled(ArkPopover.Positioner),
   "positioner",
 );
 
-export const PopoverTitle = withContext(styled(Ark.Popover.Title), "title");
+export const PopoverTitle = withContext(styled(ArkPopover.Title), "title");
 
 export const PopoverTrigger = withContext(
-  styled(Ark.Popover.Trigger),
+  styled(ArkPopover.Trigger),
   "trigger",
 );
 

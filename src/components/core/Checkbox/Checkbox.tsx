@@ -1,26 +1,31 @@
-import * as Ark from "@ark-ui/react/checkbox";
+import { Checkbox as ArkCheckbox } from "@ark-ui/react/checkbox";
 
 import { styled } from "generated/panda/jsx";
 import { checkbox, type CheckboxVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { CheckboxProps as ArkCheckboxProps } from "@ark-ui/react/checkbox";
+
 const { withProvider, withContext } = createStyleContext(checkbox);
 
+// https://github.com/microsoft/TypeScript/issues/47663
+import type {} from "@zag-js/checkbox";
+
 export interface CheckboxProps
-  extends Omit<Ark.CheckboxProps, "children">,
+  extends Omit<ArkCheckboxProps, "children">,
     CheckboxVariantProps {
   /** Checkbox label. */
   label: string;
 }
 
-export const CheckboxRoot = withProvider(styled(Ark.Checkbox.Root), "root");
+export const CheckboxRoot = withProvider(styled(ArkCheckbox.Root), "root");
 
 export const CheckboxControl = withContext(
-  styled(Ark.Checkbox.Control),
+  styled(ArkCheckbox.Control),
   "control",
 );
 
-export const CheckboxLabel = withContext(styled(Ark.Checkbox.Label), "label");
+export const CheckboxLabel = withContext(styled(ArkCheckbox.Label), "label");
 
 const CheckIcon = () => (
   <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,5 +1,5 @@
 import { Portal } from "@ark-ui/react";
-import * as Ark from "@ark-ui/react/dialog";
+import { Dialog as ArkDialog } from "@ark-ui/react/dialog";
 import { FiX } from "react-icons/fi";
 
 import Button from "components/core/Button/Button";
@@ -7,6 +7,10 @@ import { Stack, styled } from "generated/panda/jsx";
 import { dialog, type DialogVariantProps } from "generated/panda/recipes";
 import { createStyleContext, getContextualChildren } from "lib/util";
 
+import type {
+  DialogProps as ArkDialogProps,
+  DialogContentProps as ArkDialogContentProps,
+} from "@ark-ui/react/dialog";
 import type { ReactNode } from "react";
 
 // https://github.com/microsoft/TypeScript/issues/47663
@@ -14,38 +18,38 @@ import type {} from "@zag-js/types";
 
 const { withProvider, withContext } = createStyleContext(dialog);
 
-export interface DialogProps extends Ark.DialogProps, DialogVariantProps {
+export interface DialogProps extends ArkDialogProps, DialogVariantProps {
   trigger: ReactNode;
   title?: string;
   description?: string;
-  contentProps?: Ark.DialogContentProps;
+  contentProps?: ArkDialogContentProps;
 }
 
-export const DialogRoot = withProvider(styled(Ark.Dialog.Root), "root");
+export const DialogRoot = withProvider(styled(ArkDialog.Root), "root");
 
-export const DialogTrigger = withContext(styled(Ark.Dialog.Trigger), "trigger");
+export const DialogTrigger = withContext(styled(ArkDialog.Trigger), "trigger");
 
 export const DialogBackdrop = withContext(
-  styled(Ark.Dialog.Backdrop),
+  styled(ArkDialog.Backdrop),
   "backdrop",
 );
 
 export const DialogContainer = withContext(
-  styled(Ark.Dialog.Container),
+  styled(ArkDialog.Container),
   "container",
 );
 
-export const DialogContent = withContext(styled(Ark.Dialog.Content), "content");
+export const DialogContent = withContext(styled(ArkDialog.Content), "content");
 
 export const DialogCloseTrigger = withContext(
-  styled(Ark.Dialog.CloseTrigger),
+  styled(ArkDialog.CloseTrigger),
   "closeTrigger",
 );
 
-export const DialogTitle = withContext(styled(Ark.Dialog.Title), "title");
+export const DialogTitle = withContext(styled(ArkDialog.Title), "title");
 
 export const DialogDescription = withContext(
-  styled(Ark.Dialog.Description),
+  styled(ArkDialog.Description),
   "description",
 );
 
