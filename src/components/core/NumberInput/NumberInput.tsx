@@ -1,9 +1,7 @@
 import * as Ark from "@ark-ui/react/number-input";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 
-import Button from "components/core/Button/Button";
-import Label from "components/core/Label/Label";
-import { Stack, styled } from "generated/panda/jsx";
+import { styled } from "generated/panda/jsx";
 import {
   numberInput,
   type NumberInputVariantProps,
@@ -48,6 +46,7 @@ export const NumberInputLabel = withContext(
   "label",
 );
 
+// ?
 export const NumberInputScrubber = withContext(
   styled(Ark.NumberInput.Scrubber),
   "scrubber",
@@ -57,31 +56,24 @@ export const NumberInputScrubber = withContext(
  * Number input.
  */
 const NumberInput = ({ label, ...rest }: NumberInputProps) => (
-  <Stack gap={1.5} width="2xs">
-    <Label htmlFor="qty">{label}</Label>
+  <NumberInputRoot width="2xs" {...rest}>
+    {/* enable scrubbing via the Pointer Lock API (https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) */}
+    <NumberInputScrubber />
 
-    <NumberInputRoot min={0} max={5} defaultValue="3" {...rest}>
-      <NumberInputScrubber />
+    <NumberInputLabel>{label}</NumberInputLabel>
 
-      <NumberInputInput id="qty" />
+    <NumberInputControl>
+      <NumberInputInput />
 
-      <NumberInputControl>
-        <NumberInputIncrementTrigger asChild>
-          <Button size="xs" variant="ghost" aria-label="Increment">
-            <FiChevronUp />
-          </Button>
-        </NumberInputIncrementTrigger>
+      <NumberInputIncrementTrigger>
+        <FiChevronUp />
+      </NumberInputIncrementTrigger>
 
-        <hr />
-
-        <NumberInputDecrementTrigger asChild>
-          <Button size="xs" variant="ghost" aria-label="Decrement">
-            <FiChevronDown />
-          </Button>
-        </NumberInputDecrementTrigger>
-      </NumberInputControl>
-    </NumberInputRoot>
-  </Stack>
+      <NumberInputDecrementTrigger>
+        <FiChevronDown />
+      </NumberInputDecrementTrigger>
+    </NumberInputControl>
+  </NumberInputRoot>
 );
 
 export default NumberInput;

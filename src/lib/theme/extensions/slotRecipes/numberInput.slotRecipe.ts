@@ -1,6 +1,30 @@
 import { numberInputAnatomy } from "@ark-ui/react";
 import { defineSlotRecipe } from "@pandacss/dev";
 
+const triggerStyles = {
+  alignItems: "center",
+  borderColor: "border.emphasized",
+  cursor: "pointer",
+  display: "inline-flex",
+  justifyContent: "center",
+  transitionDuration: "normal",
+  transitionProperty: "background, border-color, color, box-shadow",
+  transitionTimingFunction: "default",
+  color: "foreground.emphasized",
+  _hover: {
+    color: "foreground.default",
+    background: "background.subtle",
+  },
+  _disabled: {
+    color: "foreground.disabled",
+    cursor: "not-allowed",
+    _hover: {
+      background: "transparent",
+      color: "foreground.disabled",
+    },
+  },
+};
+
 /**
  * Number input recipe.
  */
@@ -10,12 +34,19 @@ const numberInput = defineSlotRecipe({
   slots: numberInputAnatomy.keys(),
   base: {
     root: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 1.5,
+    },
+    control: {
       borderColor: "border.emphasized",
       borderRadius: "sm",
       borderWidth: "1px",
-      display: "flex",
+      display: "grid",
+      divideX: "1px",
+      gridTemplateColumns: "1fr 32px",
+      gridTemplateRows: "1fr 1fr",
       overflow: "hidden",
-      width: "full",
       transitionDuration: "normal",
       transitionProperty: "border-color, box-shadow",
       transitionTimingFunction: "default",
@@ -24,23 +55,21 @@ const numberInput = defineSlotRecipe({
         boxShadow: "accent",
       },
     },
-    control: {
-      borderLeftWidth: "1px",
-      borderColor: "border.emphasized",
-      display: "flex",
-      flexDirection: "column",
-    },
     input: {
       outline: "none",
-      bgColor: "transparent",
+      background: "transparent",
       width: "full",
+      gridRow: 2,
+    },
+    label: {
+      color: "foreground.emphasized",
+      fontWeight: "medium",
     },
     decrementTrigger: {
-      borderRadius: 0,
+      ...triggerStyles,
+      borderTopWidth: "1px",
     },
-    incrementTrigger: {
-      borderRadius: 0,
-    },
+    incrementTrigger: triggerStyles,
   },
   defaultVariants: {
     size: "md",
@@ -48,27 +77,36 @@ const numberInput = defineSlotRecipe({
   variants: {
     size: {
       md: {
-        root: {
+        control: {
           ps: 3,
           h: 10,
           minW: 10,
           fontSize: "md",
         },
+        label: {
+          textStyle: "sm",
+        },
       },
       lg: {
-        root: {
+        control: {
           ps: 3.5,
           h: 11,
           minW: 11,
           fontSize: "md",
         },
+        label: {
+          textStyle: "sm",
+        },
       },
       xl: {
-        root: {
+        control: {
           ps: 4,
           h: 12,
           minW: 12,
           fontSize: "lg",
+        },
+        label: {
+          textStyle: "md",
         },
       },
     },

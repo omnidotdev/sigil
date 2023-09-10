@@ -13,6 +13,9 @@ const meta = {
 export const Default: Story = {
   args: {
     label: "Quantity",
+    defaultValue: "0",
+    min: 0,
+    max: 5,
   },
 };
 
