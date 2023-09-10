@@ -15,4 +15,11 @@ export const Default: Story = {
   },
 };
 
+export const WithLabel: Story = {
+  args: {
+    ...Default.args,
+    label: "Enter your PIN below 🔒",
+  },
+};
+
 export default meta;

@@ -9,9 +9,45 @@ const pinInput = defineSlotRecipe({
   description: "PIN input style recipes",
   slots: pinInputAnatomy.keys(),
   base: {
+    root: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 1.5,
+    },
     control: {
       display: "flex",
       gap: 2,
+    },
+    label: {
+      color: "foreground.emphasized",
+      fontWeight: "medium",
+    },
+  },
+  defaultVariants: {
+    size: "md",
+  },
+  variants: {
+    size: {
+      sm: {
+        label: {
+          textStyle: "sm",
+        },
+      },
+      md: {
+        label: {
+          textStyle: "sm",
+        },
+      },
+      lg: {
+        label: {
+          textStyle: "sm",
+        },
+      },
+      xl: {
+        label: {
+          textStyle: "md",
+        },
+      },
     },
   },
 });
