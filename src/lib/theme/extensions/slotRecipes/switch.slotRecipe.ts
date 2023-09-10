@@ -1,12 +1,12 @@
 import { switchAnatomy } from "@ark-ui/react";
 import { defineSlotRecipe } from "@pandacss/dev";
 
-// TODO `switch` is reserved keyword, either rename or append `Recipe` or similar to all recipes
 /**
  * Switch recipe.
+ * ! NB: `switch` is a reserved keyword; so can't be named here
  */
 const switchRecipe = defineSlotRecipe({
-  className: "switchRecipe",
+  className: "switch",
   description: "Switch style recipes",
   slots: switchAnatomy.keys(),
   base: {

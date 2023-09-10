@@ -22,7 +22,7 @@ export { default as segmentGroup } from "./segmentGroup.slotRecipe";
 export { default as select } from "./select.slotRecipe";
 export { default as slider } from "./slider.slotRecipe";
 export { default as splitter } from "./splitter.slotRecipe";
-// TODO rename
+// ! NB: `switch` is a reserved word; so can't be exported here
 export { default as switchRecipe } from "./switch.slotRecipe";
 export { default as tabs } from "./tabs.slotRecipe";
 export { default as tagsInput } from "./tagsInput.slotRecipe";
