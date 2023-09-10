@@ -3368,6 +3368,7 @@ __metadata:
     "@typescript-eslint/parser": ^6.6.0
     "@zag-js/accordion": ^0.17.0
     "@zag-js/carousel": ^0.17.0
+    "@zag-js/checkbox": ^0.17.0
     "@zag-js/color-picker": ^0.17.0
     "@zag-js/color-utils": ^0.17.0
     "@zag-js/combobox": ^0.17.0
@@ -6677,7 +6678,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zag-js/checkbox@npm:0.17.0":
+"@zag-js/checkbox@npm:0.17.0, @zag-js/checkbox@npm:^0.17.0":
   version: 0.17.0
   resolution: "@zag-js/checkbox@npm:0.17.0"
   dependencies:
