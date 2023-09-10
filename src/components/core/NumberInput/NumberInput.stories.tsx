@@ -19,4 +19,14 @@ export const Default: Story = {
   },
 };
 
+/**
+ * Enable mouse wheel scrolling to change the value. The input must be focused.
+ */
+export const MouseWheelAllowed: Story = {
+  args: {
+    ...Default.args,
+    allowMouseWheel: true,
+  },
+};
+
 export default meta;
