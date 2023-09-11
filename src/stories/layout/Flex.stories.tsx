@@ -1,4 +1,5 @@
 import { Flex } from "generated/panda/jsx";
+import { Tags } from "lib/types/storybook";
 import { FruitBasket } from "stories/data";
 
 import type { Meta, StoryObj } from "@storybook/react";
@@ -11,7 +12,7 @@ type Story = StoryObj<typeof meta>;
 const meta = {
   title: "Components/Layout/Flex",
   component: Flex,
-  tags: ["autodocs"],
+  tags: [Tags.AUTODOCS],
 } satisfies Meta<typeof Flex>;
 
 export const Default: Story = {

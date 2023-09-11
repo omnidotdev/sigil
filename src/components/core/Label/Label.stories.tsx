@@ -7,7 +7,7 @@ type Story = StoryObj<typeof meta>;
 const meta = {
   title: "Components/Core/Label",
   component: Label,
-  tags: ["autodocs"],
+  tags: [Tags.AUTODOCS],
 } satisfies Meta<typeof Label>;
 
 export const Default: Story = {

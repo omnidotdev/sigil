@@ -1,5 +1,6 @@
 import { Badge } from "components";
 import { app } from "lib/config";
+import { Tags } from "lib/types/storybook";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -8,7 +9,7 @@ type Story = StoryObj<typeof meta>;
 const meta = {
   title: "Components/Core/Badge",
   component: Badge,
-  tags: ["autodocs"],
+  tags: [Tags.AUTODOCS],
 } satisfies Meta<typeof Badge>;
 
 export const Default: Story = {

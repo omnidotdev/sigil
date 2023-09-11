@@ -1,4 +1,5 @@
 import { Splitter } from "components";
+import { Tags } from "lib/types/storybook";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -7,7 +8,7 @@ type Story = StoryObj<typeof meta>;
 const meta = {
   title: "Components/Core/Splitter",
   component: Splitter,
-  tags: ["autodocs"],
+  tags: [Tags.AUTODOCS],
 } satisfies Meta<typeof Splitter>;
 
 // TODO add multiple orientations of panels & splitters in a single story

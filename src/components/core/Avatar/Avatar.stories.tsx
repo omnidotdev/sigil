@@ -1,4 +1,5 @@
 import { Avatar } from "components";
+import { Tags } from "lib/types/storybook";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -7,7 +8,7 @@ type Story = StoryObj<typeof meta>;
 const meta = {
   title: "Components/Core/Avatar",
   component: Avatar,
-  tags: ["autodocs"],
+  tags: [Tags.AUTODOCS],
 } satisfies Meta<typeof Avatar>;
 
 export const Default: Story = {

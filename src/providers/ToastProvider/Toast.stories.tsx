@@ -3,6 +3,7 @@ import { FiX } from "react-icons/fi";
 
 import { Button } from "components";
 import { Box, Stack } from "generated/panda/jsx";
+import { Tags } from "lib/types/storybook";
 import {
   SigilProvider,
   ToastCloseTrigger,
@@ -45,7 +46,7 @@ const ToastDemo = ({ toastOptions }: ToastDemoProps) => {
 const meta = {
   title: "Components/Core/Toast",
   component: ToastProvider,
-  tags: ["autodocs"],
+  tags: [Tags.AUTODOCS],
 } satisfies Meta<typeof ToastProvider>;
 
 export const Default: Story = {
@@ -94,7 +95,7 @@ export const WithCustomRender: Story = {
  * Default toast options can be specified at the provider level.
  */
 export const WithCustomDefaults: Story = {
-  tags: ["disable:globaldecorators"],
+  tags: [Tags.DISABLE_GLOBAL_DECORATORS],
   render: () => <ToastDemo />,
   decorators: [
     (Story) => (

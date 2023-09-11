@@ -2,6 +2,7 @@ import { FiInfo } from "react-icons/fi";
 
 import { Alert, Text } from "components";
 import { Box, Stack } from "generated/panda/jsx";
+import { Tags } from "lib/types/storybook";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -10,7 +11,7 @@ type Story = StoryObj<typeof meta>;
 const meta = {
   title: "Components/Core/Alert",
   component: Alert,
-  tags: ["autodocs"],
+  tags: [Tags.AUTODOCS],
 } satisfies Meta<typeof Alert>;
 
 export const Default: Story = {

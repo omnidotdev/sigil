@@ -1,5 +1,6 @@
 import { Button, Card, Input, Label } from "components";
 import { Stack } from "generated/panda/jsx";
+import { Tags } from "lib/types/storybook";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -8,7 +9,7 @@ type Story = StoryObj<typeof meta>;
 const meta = {
   title: "Components/Core/Card",
   component: Card,
-  tags: ["autodocs"],
+  tags: [Tags.AUTODOCS],
 } satisfies Meta<typeof Card>;
 
 export const Default: Story = {

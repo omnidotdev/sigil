@@ -1,4 +1,5 @@
 import { Center, Divider } from "generated/panda/jsx";
+import { Tags } from "lib/types/storybook";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -15,7 +16,7 @@ const dividerProps = {
 const meta = {
   title: "Components/Layout/Divider",
   component: Divider,
-  tags: ["autodocs"],
+  tags: [Tags.AUTODOCS],
 } satisfies Meta<typeof Divider>;
 
 export const Default: Story = {
