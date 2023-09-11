@@ -100,8 +100,5 @@ export * from "./TagsInput/TagsInput";
 export { default as Textarea } from "./Textarea/Textarea";
 export * from "./Textarea/Textarea";
 
-export { default as Toast } from "./Toast/Toast";
-export * from "./Toast/Toast";
-
 export { default as Tooltip } from "./Tooltip/Tooltip";
 export * from "./Tooltip/Tooltip";

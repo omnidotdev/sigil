@@ -1,9 +1,5 @@
 import { Portal } from "@ark-ui/react";
-import {
-  Toast as ArkToast,
-  useToast as useArkToast,
-} from "@ark-ui/react/toast";
-import { cloneElement } from "react";
+import { Toast as ArkToast } from "@ark-ui/react/toast";
 import { FiX } from "react-icons/fi";
 
 import Button from "components/core/Button/Button";
@@ -11,29 +7,21 @@ import { Box, Stack, styled } from "generated/panda/jsx";
 import { toast, type ToastVariantProps } from "generated/panda/recipes";
 import createStyleContext from "lib/util/createStyleContext";
 
-import type {
-  ToastProviderProps,
-  ToastProps as ArkToastProps,
-} from "@ark-ui/react/toast";
+import type { ToastProviderProps as ArkToastProviderProps } from "@ark-ui/react/toast";
+
 // https://github.com/microsoft/TypeScript/issues/47663
-import type { ToastOptions } from "@zag-js/toast";
-import type { ReactElement } from "react";
+import type {} from "@zag-js/toast";
 
 const { withProvider, withContext } = createStyleContext(toast);
 
-interface ToastWrapperProps {
-  trigger: ReactElement;
-  toastOptions: Partial<ToastOptions>;
-}
+export interface ToastProviderProps
+  extends ArkToastProviderProps,
+    ToastVariantProps {}
 
-export interface ToastProps
-  extends ArkToastProps,
-    ToastVariantProps,
-    ToastWrapperProps {
-  providerProps?: ToastProviderProps;
-}
-
-export const ToastProvider = withContext(styled(ArkToast.Provider), "provider");
+export const BaseToastProvider = withContext(
+  styled(ArkToast.Provider),
+  "provider",
+);
 
 export const ToastTitle = withContext(styled(ArkToast.Title), "title");
 
@@ -57,33 +45,13 @@ export const ToastPlacements = withContext(
 export const ToastGroup = withContext(styled(ArkToast.Group), "group");
 
 /**
- * Toast wrapper that triggers creation of a toast.
+ * Popup toast provider.
  */
-const ToastWrapper = ({ trigger, toastOptions }: ToastWrapperProps) => {
-  const toast = useArkToast();
-
-  return cloneElement(trigger, {
-    onClick: () => {
-      toast.create({
-        placement: "bottom-end",
-        removeDelay: 0,
-        ...toastOptions,
-      });
-    },
-  });
-};
-
-/**
- * Popup toast.
- */
-const Toast = ({
-  trigger,
+const ToastProvider = ({
   children,
-  toastOptions,
-  providerProps,
   ...rest
-}: Omit<ToastProps, "toast">) => (
-  <ToastProvider {...providerProps}>
+}: Omit<ToastProviderProps, "toast">) => (
+  <BaseToastProvider {...rest}>
     <Portal>
       <ToastPlacements>
         {(placements) =>
@@ -92,13 +60,9 @@ const Toast = ({
               {(toasts) =>
                 toasts.map((toast) => (
                   <ToastRoot key={toast.id} toast={toast} {...rest}>
-                    <Stack gap={4}>
-                      <Stack gap={1}>
-                        <ToastTitle />
-                        <ToastDescription />
-                      </Stack>
-
-                      {children}
+                    <Stack gap={1}>
+                      <ToastTitle />
+                      <ToastDescription />
                     </Stack>
 
                     <Box position="absolute" top="3" right="3">
@@ -121,8 +85,8 @@ const Toast = ({
       </ToastPlacements>
     </Portal>
 
-    <ToastWrapper trigger={trigger} toastOptions={toastOptions} />
-  </ToastProvider>
+    {children}
+  </BaseToastProvider>
 );
 
-export default Toast;
+export default ToastProvider;
