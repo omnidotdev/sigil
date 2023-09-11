@@ -1,3 +1,5 @@
+import { SigilProvider } from "providers";
+
 import type { Preview } from "@storybook/react";
 
 import "lib/styles/main.css";
@@ -6,6 +8,17 @@ import "lib/styles/main.css";
  * Storybook preview.
  */
 const preview: Preview = {
+  decorators: [
+    (Story, ctx) =>
+      // disable global decorators for certain tagged stories
+      ctx.tags.includes("disable:globaldecorators") ? (
+        <Story />
+      ) : (
+        <SigilProvider>
+          <Story />
+        </SigilProvider>
+      ),
+  ],
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
     backgrounds: {
