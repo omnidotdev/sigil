@@ -25,7 +25,7 @@ export interface DialogProps extends ArkDialogProps, DialogVariantProps {
   contentProps?: ArkDialogContentProps;
 }
 
-export const DialogRoot = withProvider(styled(ArkDialog.Root), "root");
+export const DialogRoot = withProvider(styled(ArkDialog.Root));
 
 export const DialogTrigger = withContext(styled(ArkDialog.Trigger), "trigger");
 

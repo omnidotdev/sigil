@@ -8,6 +8,7 @@ import {
 import { createStyleContext } from "lib/util";
 
 import type { RangeSliderProps as ArkRangeSliderProps } from "@ark-ui/react/range-slider";
+import type {} from "@zag-js/range-slider";
 
 const { withProvider, withContext } = createStyleContext(rangeSlider);
 

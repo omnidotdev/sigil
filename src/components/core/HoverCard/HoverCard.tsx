@@ -16,7 +16,7 @@ export interface HoverCardProps
   trigger: ReactNode;
 }
 
-export const HoverCardRoot = withProvider(styled(ArkHoverCard.Root), "root");
+export const HoverCardRoot = withProvider(styled(ArkHoverCard.Root));
 
 export const HoverCardArrow = withContext(styled(ArkHoverCard.Arrow), "arrow");
 

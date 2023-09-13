@@ -22,7 +22,7 @@ export interface DatePickerProps
   extends ArkDatePickerProps,
     DatePickerVariantProps {}
 
-export const DatePickerRoot = withProvider(styled(ArkDatePicker.Root), "root");
+export const DatePickerRoot = withProvider(styled(ArkDatePicker.Root));
 
 export const DatePickerClearTrigger = withContext(
   styled(ArkDatePicker.ClearTrigger),
@@ -44,14 +44,11 @@ export const DatePickerControl = withContext(
   "control",
 );
 
-export const DatePickerDayCell = withContext(
-  styled(ArkDatePicker.DayCell),
-  "dayCell",
-);
+export const DatePickerDayCell = withContext(styled(ArkDatePicker.DayCell));
 
 export const DatePickerDayCellTrigger = withContext(
   styled(ArkDatePicker.DayCellTrigger),
-  "dayCellTrigger",
+  "cellTrigger",
 );
 
 export const DatePickerGrid = withContext(styled(ArkDatePicker.Grid), "grid");
@@ -61,14 +58,11 @@ export const DatePickerInput = withContext(
   "input",
 );
 
-export const DatePickerMonthCell = withContext(
-  styled(ArkDatePicker.MonthCell),
-  "monthCell",
-);
+export const DatePickerMonthCell = withContext(styled(ArkDatePicker.MonthCell));
 
 export const DatePickerMonthCellTrigger = withContext(
   styled(ArkDatePicker.MonthCellTrigger),
-  "monthCellTrigger",
+  "cellTrigger",
 );
 
 export const DatePickerMonthSelect = withContext(
@@ -113,14 +107,11 @@ export const DatePickerViewTrigger = withContext(
   "viewTrigger",
 );
 
-export const DatePickerYearCell = withContext(
-  styled(ArkDatePicker.YearCell),
-  "yearCell",
-);
+export const DatePickerYearCell = withContext(styled(ArkDatePicker.YearCell));
 
 export const DatePickerYearCellTrigger = withContext(
   styled(ArkDatePicker.YearCellTrigger),
-  "yearCellTrigger",
+  "cellTrigger",
 );
 
 export const DatePickerYearSelect = withContext(

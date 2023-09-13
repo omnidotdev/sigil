@@ -23,7 +23,7 @@ export interface DrawerProps extends ArkDialogProps, DrawerVariantProps {
   contentProps?: ComponentPropsWithoutRef<typeof DrawerContent>;
 }
 
-export const DrawerRoot = withProvider(styled(ArkDialog.Root), "root");
+export const DrawerRoot = withProvider(styled(ArkDialog.Root));
 
 export const DrawerBackdrop = withContext(
   styled(ArkDialog.Backdrop),

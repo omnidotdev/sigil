@@ -9,6 +9,7 @@ import {
 import { createStyleContext } from "lib/util";
 
 import type { NumberInputProps as ArkNumberInputProps } from "@ark-ui/react/number-input";
+import type {} from "@zag-js/number-input";
 
 const { withProvider, withContext } = createStyleContext(numberInput);
 

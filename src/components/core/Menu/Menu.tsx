@@ -18,7 +18,7 @@ export interface MenuProps extends ArkMenuProps, MenuVariantProps {
   trigger: ReactNode;
 }
 
-export const MenuRoot = withProvider(styled(ArkMenu.Root), "root");
+export const MenuRoot = withProvider(styled(ArkMenu.Root));
 
 export const MenuArrow = withContext(styled(ArkMenu.Arrow), "arrow");
 

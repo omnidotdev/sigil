@@ -18,7 +18,7 @@ export interface SelectProps extends ArkSelectProps, SelectVariantProps {
   options: { label: string; value: string }[];
 }
 
-export const SelectRoot = withProvider(styled(ArkSelect.Root), "root");
+export const SelectRoot = withProvider(styled(ArkSelect.Root));
 
 export const SelectContent = withContext(styled(ArkSelect.Content), "content");
 

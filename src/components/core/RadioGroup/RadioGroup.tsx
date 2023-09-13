@@ -5,6 +5,7 @@ import { radioGroup } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { RadioGroupProps as ArkRadioGroupProps } from "@ark-ui/react/radio-group";
+import type {} from "@zag-js/radio-group";
 import type { RadioGroupVariantProps } from "generated/panda/recipes";
 
 const { withProvider, withContext } = createStyleContext(radioGroup);

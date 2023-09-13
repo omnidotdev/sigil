@@ -5,6 +5,7 @@ import { avatar, type AvatarVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { AvatarProps as ArkAvatarProps } from "@ark-ui/react/avatar";
+import type {} from "@zag-js/avatar";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(avatar);

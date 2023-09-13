@@ -15,7 +15,7 @@ export interface TooltipProps extends ArkTooltipProps, TooltipVariantProps {
   content: ReactNode;
 }
 
-export const TooltipRoot = withProvider(styled(ArkTooltip.Root), "root");
+export const TooltipRoot = withProvider(styled(ArkTooltip.Root));
 
 export const TooltipArrow = withContext(styled(ArkTooltip.Arrow), "arrow");
 

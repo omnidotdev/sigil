@@ -18,10 +18,7 @@ export interface ToastProviderProps
   extends ArkToastProviderProps,
     ToastVariantProps {}
 
-export const BaseToastProvider = withContext(
-  styled(ArkToast.Provider),
-  "provider",
-);
+export const BaseToastProvider = withContext(styled(ArkToast.Provider));
 
 export const ToastTitle = withContext(styled(ArkToast.Title), "title");
 
@@ -37,10 +34,7 @@ export const ToastCloseTrigger = withContext(
   "closeTrigger",
 );
 
-export const ToastPlacements = withContext(
-  styled(ArkToast.Placements),
-  "placements",
-);
+export const ToastPlacements = withContext(styled(ArkToast.Placements));
 
 export const ToastGroup = withContext(styled(ArkToast.Group), "group");
 

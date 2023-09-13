@@ -25,10 +25,7 @@ export interface ColorPickerProps
   presets?: string[];
 }
 
-export const ColorPickerRoot = withProvider(
-  styled(ArkColorPicker.Root),
-  "root",
-);
+export const ColorPickerRoot = withProvider(styled(ArkColorPicker.Root));
 
 export const ColorPickerArea = withContext(styled(ArkColorPicker.Area), "area");
 
@@ -49,7 +46,7 @@ export const ColorPickerChannelInput = withContext(
 
 export const ColorPickerChannelSliderBackground = withContext(
   styled(ArkColorPicker.ChannelSliderBackground),
-  "channelSliderBackground",
+  "channelSliderTrackBackground",
 );
 
 export const ColorPickerChannelSliderThumb = withContext(

@@ -21,7 +21,7 @@ export interface PopoverProps extends ArkPopoverProps, PopoverVariantProps {
   description: string;
 }
 
-export const PopoverRoot = withProvider(styled(ArkPopover.Root), "root");
+export const PopoverRoot = withProvider(styled(ArkPopover.Root));
 
 export const PopoverAnchor = withContext(styled(ArkPopover.Anchor), "anchor");
 
