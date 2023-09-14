@@ -19,6 +19,7 @@ const spawnProcessOptions: SpawnSyncOptions = {
  * @see https://tsup.egoist.dev
  */
 const tsupConfig = defineTsupConfig({
+  tsconfig: "tsconfig.build.json",
   entry: {
     sigil: "src/index.ts",
   },
@@ -31,20 +32,7 @@ const tsupConfig = defineTsupConfig({
   onSuccess: async () => {
     console.log("Generating type declarations...");
     // NB: below is used as alternative to `tsup` config `dts: true` option to avoid race condition with local package publish (at the cost of less concurrency)
-    spawnSync("yarn", ["tsup", "--dts-only"], {
-      ...spawnProcessOptions,
-      env: {
-        ...spawnProcessOptions.env,
-        // https://github.com/microsoft/TypeScript/issues/53087
-        NODE_OPTIONS: "--max-old-space-size=8192",
-      },
-    });
-    // https://github.com/egoist/tsup/issues/615
-    // spawnSync(
-    //   "tsc",
-    //   ["-p", "tsconfig.build.json", "--extendedDiagnostics"],
-    //   spawnProcessOptions,
-    // );
+    spawnSync("yarn", ["tsup", "--dts-only"], spawnProcessOptions);
 
     console.log("Publishing local package...");
     spawnSync("yarn", ["knit", "push"], spawnProcessOptions);
