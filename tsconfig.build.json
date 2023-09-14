@@ -12,7 +12,5 @@
   },
   // overwrite include from composed `tsconfig`
   "include": [],
-  "files": [
-    "src/index.ts"
-  ]
+  "files": ["src/index.ts"]
 }
