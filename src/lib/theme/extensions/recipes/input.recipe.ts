@@ -8,7 +8,7 @@ const input = defineRecipe({
   description: "Input style recipes",
   base: {
     appearance: "none",
-    backgroundColor: "background.default",
+    bgColor: "background.default",
     borderColor: "border.emphasized",
     borderRadius: "sm",
     borderWidth: "1px",

@@ -18,7 +18,7 @@ const rangeSlider = defineSlotRecipe({
       alignItems: "center",
     },
     track: {
-      backgroundColor: "background.muted",
+      bgColor: "background.muted",
       borderRadius: "sm",
       flex: 1,
       cursor: "pointer",

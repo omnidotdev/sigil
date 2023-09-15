@@ -44,7 +44,7 @@ const article = defineRecipe({
       fontWeight: "medium",
     },
     "& :where(pre)": {
-      backgroundColor: "background.subtle",
+      bgColor: "background.subtle",
       borderRadius: "md",
       borderWidth: "1px",
       overflowX: "auto",

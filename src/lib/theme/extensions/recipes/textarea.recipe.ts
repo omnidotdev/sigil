@@ -7,7 +7,7 @@ const textarea = defineRecipe({
   className: "textarea",
   description: "Textarea style recipes",
   base: {
-    backgroundColor: "background.default",
+    bgColor: "background.default",
     appearance: "none",
     borderColor: "border.emphasized",
     borderRadius: "sm",
