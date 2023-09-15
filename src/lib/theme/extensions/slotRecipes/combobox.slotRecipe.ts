@@ -13,9 +13,14 @@ const combobox = defineSlotRecipe({
       display: "flex",
       flexDirection: "column",
       gap: 1.5,
+      width: "full",
     },
     control: {
       position: "relative",
+    },
+    label: {
+      color: "foreground.emphasized",
+      fontWeight: "medium",
     },
     trigger: {
       position: "absolute!",
@@ -45,12 +50,12 @@ const combobox = defineSlotRecipe({
         outlineColor: "border.outline",
       },
     },
-    option: {
+    item: {
       alignItems: "center",
       borderRadius: "xs",
       cursor: "pointer",
       display: "flex",
-      fontWeight: "medium",
+      justifyContent: "space-between",
       transitionDuration: "fast",
       transitionProperty: "background, color",
       transitionTimingFunction: "default",
@@ -60,6 +65,24 @@ const combobox = defineSlotRecipe({
       _highlighted: {
         bgColor: "background.subtle",
       },
+      _disabled: {
+        color: "foreground.disabled",
+        cursor: "not-allowed",
+        _hover: {
+          bgColor: "transparent",
+        },
+      },
+    },
+    itemGroupLabel: {
+      fontWeight: "semibold",
+      textStyle: "sm",
+    },
+    itemIndicator: {
+      "& svg": {
+        width: 5,
+        height: 5,
+      },
+      color: "accent.default",
     },
   },
   defaultVariants: {
@@ -69,16 +92,33 @@ const combobox = defineSlotRecipe({
     size: {
       sm: {
         content: { p: 0.5, gap: 1 },
-        option: { textStyle: "sm", px: 2, height: 9 },
+        item: { textStyle: "sm", px: 2, height: 9 },
+        itemGroupLabel: {
+          px: 2,
+          py: 1.5,
+        },
+        label: { textStyle: "sm" },
+        trigger: { right: 2.5 },
       },
       md: {
         content: { p: 1, gap: 1 },
-        option: { textStyle: "md", px: 2, height: 10 },
-        trigger: { right: 4 },
+        item: { textStyle: "md", px: 2, height: 10 },
+        itemGroupLabel: {
+          px: 2,
+          py: 1.5,
+        },
+        label: { textStyle: "sm" },
+        trigger: { right: 3 },
       },
       lg: {
         content: { p: 1.5, gap: 1 },
-        option: { textStyle: "md", px: 2, height: 11 },
+        item: { textStyle: "md", px: 2, height: 11 },
+        itemGroupLabel: {
+          px: 2,
+          py: 1.5,
+        },
+        label: { textStyle: "sm" },
+        trigger: { right: 3.5 },
       },
     },
   },
