@@ -8,6 +8,9 @@ const article = defineRecipe({
   description: "Article style recipes",
   base: {
     maxWidth: "65ch",
+    "& :first-child": {
+      mt: "0!",
+    },
     "& :where(h1, h2)": {
       fontWeight: "bold",
     },
@@ -48,6 +51,9 @@ const article = defineRecipe({
       borderRadius: "md",
       borderWidth: "1px",
       overflowX: "auto",
+    },
+    "& :where(li > p)": {
+      m: "0!",
     },
     "& :where(blockquote)": {
       borderLeftWidth: "4px",
