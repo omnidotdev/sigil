@@ -103,5 +103,8 @@ export * from "./TagsInput/TagsInput";
 export { default as Textarea } from "./Textarea/Textarea";
 export * from "./Textarea/Textarea";
 
+export { default as ToggleGroup } from "./ToggleGroup/ToggleGroup";
+export * from "./ToggleGroup/ToggleGroup";
+
 export { default as Tooltip } from "./Tooltip/Tooltip";
 export * from "./Tooltip/Tooltip";
