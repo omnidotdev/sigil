@@ -46,6 +46,9 @@ export * from "./Editable/Editable";
 export { default as HoverCard } from "./HoverCard/HoverCard";
 export * from "./HoverCard/HoverCard";
 
+export { default as Icon } from "./Icon/Icon";
+export * from "./Icon/Icon";
+
 export { default as Input } from "./Input/Input";
 export * from "./Input/Input";
 
