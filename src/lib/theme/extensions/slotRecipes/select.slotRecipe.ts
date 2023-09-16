@@ -125,7 +125,7 @@ const select = defineSlotRecipe({
         content: { p: 0.5, gap: 1 },
         item: { textStyle: "sm", px: 2, height: 9 },
         itemIndicator: {
-          "& svg": {
+          "& :where(svg)": {
             width: 4,
             height: 4,
           },
@@ -135,15 +135,25 @@ const select = defineSlotRecipe({
           py: 1.5,
         },
         label: { textStyle: "sm" },
-        trigger: { px: 2.5, h: 9, minW: 9, fontSize: "sm", gap: 2 },
+        trigger: {
+          px: 2.5,
+          h: 9,
+          minW: 9,
+          fontSize: "sm",
+          gap: 2,
+          "& :where(svg)": {
+            width: 4,
+            height: 4,
+          },
+        },
       },
       md: {
         content: { p: 1, gap: 1 },
         item: { textStyle: "md", px: 2, height: 10 },
         itemIndicator: {
-          "& svg": {
-            width: 5,
-            height: 5,
+          "& :where(svg)": {
+            width: 4,
+            height: 4,
           },
         },
         itemGroupLabel: {
@@ -151,13 +161,23 @@ const select = defineSlotRecipe({
           py: 1.5,
         },
         label: { textStyle: "sm" },
-        trigger: { px: 3, h: 10, minW: 10, fontSize: "md", gap: 2 },
+        trigger: {
+          px: 3,
+          h: 10,
+          minW: 10,
+          fontSize: "md",
+          gap: 2,
+          "& :where(svg)": {
+            width: 4,
+            height: 4,
+          },
+        },
       },
       lg: {
         content: { p: 1.5, gap: 1 },
         item: { textStyle: "md", px: 2, height: 11 },
         itemIndicator: {
-          "& svg": {
+          "& :where(svg)": {
             width: 5,
             height: 5,
           },
@@ -167,7 +187,17 @@ const select = defineSlotRecipe({
           py: 1.5,
         },
         label: { textStyle: "sm" },
-        trigger: { px: 3.5, h: 11, minW: 11, fontSize: "md", gap: 2 },
+        trigger: {
+          px: 3.5,
+          h: 11,
+          minW: 11,
+          fontSize: "md",
+          gap: 2,
+          "& :where(svg)": {
+            width: 5,
+            height: 5,
+          },
+        },
       },
     },
   },
