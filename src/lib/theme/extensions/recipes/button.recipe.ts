@@ -25,12 +25,12 @@ const button = defineRecipe({
     whiteSpace: "nowrap",
   },
   defaultVariants: {
-    variant: "primary",
+    variant: "solid",
     size: "md",
   },
   variants: {
     variant: {
-      primary: {
+      solid: {
         bgColor: "accent.default",
         color: "accent.foreground",
         _hover: {
@@ -49,7 +49,7 @@ const button = defineRecipe({
           },
         },
       },
-      secondary: {
+      muted: {
         color: "background.muted",
         bgColor: "foreground.muted",
         _hover: {
