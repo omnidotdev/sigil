@@ -80,6 +80,9 @@ const combobox = defineSlotRecipe({
     itemIndicator: {
       color: "accent.default",
     },
+    positioner: {
+      zIndex: "dropdown",
+    },
   },
   defaultVariants: {
     size: "md",

@@ -4,7 +4,6 @@ import { defineSlotRecipe } from "@pandacss/dev";
 const itemStyle = {
   alignItems: "center",
   borderRadius: "xs",
-  color: "foreground.emphasized",
   cursor: "pointer",
   display: "flex",
   fontWeight: "medium",
@@ -13,12 +12,16 @@ const itemStyle = {
   transitionProperty: "background, color",
   transitionTimingFunction: "default",
   _hover: {
-    color: "foreground.default",
     bgColor: "background.subtle",
+    "& :where(svg)": {
+      color: "foreground.default",
+    },
   },
   _highlighted: {
-    color: "foreground.default",
     bgColor: "background.subtle",
+  },
+  "& :where(svg)": {
+    color: "foreground.muted",
   },
 } as const;
 
@@ -42,6 +45,7 @@ const menu = defineSlotRecipe({
       display: "flex",
       flexDirection: "column",
       outline: "none",
+      width: "calc(100% + 2rem)",
       _hidden: {
         display: "none",
       },
@@ -55,6 +59,9 @@ const menu = defineSlotRecipe({
     itemGroup: {
       display: "flex",
       flexDirection: "column",
+    },
+    positioner: {
+      zIndex: "dropdown",
     },
     item: itemStyle,
     optionItem: itemStyle,
@@ -77,22 +84,33 @@ const menu = defineSlotRecipe({
         content: {
           py: 1,
           gap: 1,
-          minW: 24,
         },
         item: {
           h: 8,
           px: 1.5,
           mx: 1,
+          "& :where(svg)": {
+            width: 4,
+            height: 4,
+          },
         },
         optionItem: {
           h: 8,
           px: 1.5,
           mx: 1,
+          "& :where(svg)": {
+            width: 4,
+            height: 4,
+          },
         },
         triggerItem: {
           h: 8,
           px: 1.5,
-          mx: 1.5,
+          mx: 1,
+          "& :where(svg)": {
+            width: 4,
+            height: 4,
+          },
         },
       },
       sm: {
@@ -107,22 +125,33 @@ const menu = defineSlotRecipe({
         content: {
           py: 1,
           gap: 1,
-          minW: 32,
         },
         item: {
           h: 9,
           px: 2,
           mx: 1,
+          "& :where(svg)": {
+            width: 4,
+            height: 4,
+          },
         },
         optionItem: {
           h: 9,
           px: 2,
           mx: 1,
+          "& :where(svg)": {
+            width: 4,
+            height: 4,
+          },
         },
         triggerItem: {
           h: 9,
           px: 2,
           mx: 1.5,
+          "& :where(svg)": {
+            width: 4,
+            height: 4,
+          },
         },
       },
       md: {
@@ -136,22 +165,74 @@ const menu = defineSlotRecipe({
         content: {
           py: 1,
           gap: 1,
-          minW: 44,
         },
         item: {
           h: 10,
           px: 2.5,
           mx: 1,
+          "& :where(svg)": {
+            width: 4,
+            height: 4,
+          },
         },
         optionItem: {
           h: 10,
           px: 2.5,
           mx: 1,
+          "& :where(svg)": {
+            width: 4,
+            height: 4,
+          },
         },
         triggerItem: {
           h: 10,
           px: 2.5,
           mx: 1.5,
+          "& :where(svg)": {
+            width: 4,
+            height: 4,
+          },
+        },
+      },
+      lg: {
+        itemGroup: {
+          gap: 1,
+        },
+        itemGroupLabel: {
+          py: 2.5,
+          px: 2.5,
+          mx: 1,
+        },
+        content: {
+          py: 1,
+          gap: 1,
+        },
+        item: {
+          h: 11,
+          px: 2.5,
+          mx: 1,
+          "& :where(svg)": {
+            width: 5,
+            height: 5,
+          },
+        },
+        optionItem: {
+          h: 11,
+          px: 2.5,
+          mx: 1,
+          "& :where(svg)": {
+            width: 5,
+            height: 5,
+          },
+        },
+        triggerItem: {
+          h: 11,
+          px: 2.5,
+          mx: 1.5,
+          "& :where(svg)": {
+            width: 5,
+            height: 5,
+          },
         },
       },
     },

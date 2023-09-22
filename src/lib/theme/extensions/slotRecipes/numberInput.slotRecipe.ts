@@ -11,15 +11,19 @@ const triggerStyles = {
   transitionProperty: "background, border-color, color, box-shadow",
   transitionTimingFunction: "default",
   color: "foreground.subtle",
+  "& :where(svg)": {
+    width: 4,
+    height: 4,
+  },
   _hover: {
     color: "foreground.emphasized",
-    background: "background.subtle",
+    bgColor: "background.subtle",
   },
   _disabled: {
     color: "foreground.disabled",
     cursor: "not-allowed",
     _hover: {
-      background: "transparent",
+      bgColor: "transparent",
       color: "foreground.disabled",
     },
   },
@@ -57,7 +61,7 @@ const numberInput = defineSlotRecipe({
     },
     input: {
       outline: "none",
-      background: "transparent",
+      bgColor: "transparent",
       width: "full",
       gridRow: 2,
     },

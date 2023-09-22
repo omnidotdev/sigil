@@ -17,15 +17,19 @@ const popover = defineSlotRecipe({
       bgColor: "background.default",
       borderRadius: "md",
       borderWidth: "1px",
-      boxShadow: "lg",
+      boxShadow: "md",
+      display: "flex",
+      flexDirection: "column",
       maxWidth: "sm",
-      zIndex: 1,
       p: 4,
       _open: {
         animation: "fadeIn 0.25s ease-out",
       },
       _closed: {
         animation: "fadeOut 0.2s ease-out",
+      },
+      _hidden: {
+        display: "none",
       },
     },
     title: {

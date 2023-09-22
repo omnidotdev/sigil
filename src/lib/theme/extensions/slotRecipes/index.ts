@@ -24,6 +24,7 @@ export { default as slider } from "./slider.slotRecipe";
 export { default as splitter } from "./splitter.slotRecipe";
 // ! NB: `switch` is a reserved word; so can't be exported here
 export { default as switchRecipe } from "./switch.slotRecipe";
+export { default as table } from "./table.slotRecipe";
 export { default as tabs } from "./tabs.slotRecipe";
 export { default as tagsInput } from "./tagsInput.slotRecipe";
 export { default as toast } from "./toast.slotRecipe";
