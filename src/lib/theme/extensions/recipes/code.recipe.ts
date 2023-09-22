@@ -10,16 +10,22 @@ const code = defineRecipe({
     alignItems: "center",
     bgColor: "background.subtle",
     borderRadius: "sm",
-    borderWidth: "1px",
-    color: "foreground.default",
+    color: "foreground.emphasized",
     display: "inline-flex",
     fontFamily: "var(--font-code)",
     fontWeight: "medium",
   },
   defaultVariants: {
     size: "md",
+    variant: "outline",
   },
   variants: {
+    variant: {
+      outline: {
+        borderWidth: "1px",
+      },
+      ghost: {},
+    },
     size: {
       sm: {
         height: 5,
