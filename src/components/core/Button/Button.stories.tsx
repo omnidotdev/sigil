@@ -17,7 +17,7 @@ const meta = {
  * Colorful variant for forefront actions.
  */
 export const Default: Story = {
-  name: "Primary (Default)",
+  name: "Solid (Default)",
   args: {
     children: (
       <>
@@ -27,10 +27,10 @@ export const Default: Story = {
   },
 };
 
-export const Secondary: Story = {
+export const Muted: Story = {
   args: {
     ...Default.args,
-    variant: "secondary",
+    variant: "muted",
   },
 };
 
@@ -66,7 +66,7 @@ export const Link: Story = {
   },
 };
 
-export const Icon: Story = {
+export const IconOnly: Story = {
   args: {
     ...Default.args,
     variant: "icon",

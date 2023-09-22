@@ -78,15 +78,13 @@ export const Default: Story = {
         </MenuItem>
 
         <MenuRoot positioning={{ placement: "right-start", gutter: -2 }}>
-          <MenuTriggerItem>
-            <HStack gap={12} justify="space-between" flex={1}>
-              <HStack gap={2}>
-                <FiUserPlus />
-                Inivte member
-              </HStack>
-
-              <FiChevronRight />
+          <MenuTriggerItem justifyContent="space-between">
+            <HStack gap={2}>
+              <FiUserPlus />
+              Inivte member
             </HStack>
+
+            <FiChevronRight />
           </MenuTriggerItem>
 
           <Portal>

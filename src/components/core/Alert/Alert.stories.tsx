@@ -1,7 +1,7 @@
 import { FiInfo } from "react-icons/fi";
 
-import { Alert, Text } from "components";
-import { Box, Stack } from "generated/panda/jsx";
+import { Alert, Icon, Text } from "components";
+import { Stack } from "generated/panda/jsx";
 import { Tags } from "lib/types/storybook";
 
 import type { Meta, StoryObj } from "@storybook/react";
@@ -18,9 +18,7 @@ export const Default: Story = {
   args: {
     children: (
       <Stack gap={4} direction={{ base: "column", sm: "row" }}>
-        <Box fontSize="1.25rem" color="foreground.emphasized">
-          <FiInfo />
-        </Box>
+        <Icon as={FiInfo} color="foreground.emphasized" />
 
         <Stack gap={1}>
           <Text as="h5" fontWeight="medium">

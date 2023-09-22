@@ -19,7 +19,7 @@ export const Default: Story = {
     footerProps: { gap: 3 },
     footerContent: (
       <>
-        <Button variant="secondary">Cancel</Button>
+        <Button variant="outline">Cancel</Button>
         <Button>Invite</Button>
       </>
     ),

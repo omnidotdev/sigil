@@ -7,7 +7,10 @@ import { Box, Stack, styled } from "generated/panda/jsx";
 import { popover, type PopoverVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { PopoverProps as ArkPopoverProps } from "@ark-ui/react/popover";
+import type {
+  PopoverProps as ArkPopoverProps,
+  PopoverContentProps as PopoverContentProps,
+} from "@ark-ui/react/popover";
 import type { ReactNode } from "react";
 
 // https://github.com/microsoft/TypeScript/issues/47663
@@ -19,6 +22,7 @@ export interface PopoverProps extends ArkPopoverProps, PopoverVariantProps {
   trigger: ReactNode;
   title: string;
   description: string;
+  contentProps?: PopoverContentProps;
 }
 
 export const PopoverRoot = withProvider(styled(ArkPopover.Root));
@@ -62,13 +66,19 @@ export const PopoverTrigger = withContext(
 /**
  * Popover.
  */
-const Popover = ({ trigger, title, description, ...rest }: PopoverProps) => (
+const Popover = ({
+  trigger,
+  title,
+  description,
+  contentProps,
+  ...rest
+}: PopoverProps) => (
   <PopoverRoot portalled {...rest}>
     <PopoverTrigger>{trigger}</PopoverTrigger>
 
     <Portal>
       <PopoverPositioner>
-        <PopoverContent>
+        <PopoverContent {...contentProps}>
           <PopoverArrow>
             <PopoverArrowTip />
           </PopoverArrow>

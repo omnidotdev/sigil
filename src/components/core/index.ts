@@ -94,6 +94,9 @@ export * from "./Splitter/Splitter";
 export { default as Switch } from "./Switch/Switch";
 export * from "./Switch/Switch";
 
+export { default as Table } from "./Table/Table";
+export * from "./Table/Table";
+
 export { default as Tabs } from "./Tabs/Tabs";
 export * from "./Tabs/Tabs";
 
