@@ -1,5 +1,4 @@
 import { Select } from "components";
-import { Tags } from "lib/types/storybook";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -8,14 +7,18 @@ type Story = StoryObj<typeof meta>;
 const meta = {
   title: "Components/Core/Select",
   component: Select,
-  tags: [Tags.AUTODOCS],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Select>;
 
 export const Default: Story = {
   args: {
-    label: "Color",
-    options: [
-      { value: "red", label: "Red" },
+    label: {
+      id: "color",
+      singular: "Color",
+      plural: "Colors",
+    },
+    items: [
+      { value: "red", label: "Red", disabled: true },
       { value: "green", label: "Green" },
       { value: "blue", label: "Blue" },
     ],

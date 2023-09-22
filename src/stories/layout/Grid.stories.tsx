@@ -1,6 +1,5 @@
 import { Code } from "components";
 import { Grid, GridItem } from "generated/panda/jsx";
-import { Tags } from "lib/types/storybook";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -12,7 +11,7 @@ type Story = StoryObj<typeof meta>;
 const meta = {
   title: "Components/Layout/Grid",
   component: Grid,
-  tags: [Tags.AUTODOCS],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Grid>;
 
 export const Default: Story = {

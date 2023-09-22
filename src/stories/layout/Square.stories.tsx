@@ -1,5 +1,4 @@
 import { Square } from "generated/panda/jsx";
-import { Tags } from "lib/types/storybook";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -11,7 +10,7 @@ type Story = StoryObj<typeof meta>;
 const meta = {
   title: "Components/Layout/Square",
   component: Square,
-  tags: [Tags.AUTODOCS],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Square>;
 
 export const Default: Story = {

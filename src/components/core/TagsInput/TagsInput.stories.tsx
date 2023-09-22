@@ -8,7 +8,7 @@ type Story = StoryObj<typeof meta>;
 const meta = {
   title: "Components/Core/TagsInput",
   component: TagsInput,
-  tags: [Tags.AUTODOCS],
+  tags: ["autodocs"],
 } satisfies Meta<typeof TagsInput>;
 
 export const Default: Story = {

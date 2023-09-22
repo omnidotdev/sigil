@@ -1,5 +1,4 @@
 import { RangeSlider } from "components";
-import { Tags } from "lib/types/storybook";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -8,7 +7,7 @@ type Story = StoryObj<typeof meta>;
 const meta = {
   title: "Components/Core/RangeSlider",
   component: RangeSlider,
-  tags: [Tags.AUTODOCS],
+  tags: ["autodocs"],
 } satisfies Meta<typeof RangeSlider>;
 
 export const Default: Story = {

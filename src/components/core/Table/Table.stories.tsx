@@ -1,5 +1,4 @@
 import { Table, TableCell, TableHead, TableRow } from "components";
-import { Tags } from "lib/types/storybook";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -48,7 +47,7 @@ const productData: Product[] = [
 const meta = {
   title: "Components/Core/Table",
   component: Table,
-  tags: [Tags.AUTODOCS],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Table>;
 
 export const Default: Story = {

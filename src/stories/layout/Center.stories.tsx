@@ -11,7 +11,7 @@ type Story = StoryObj<typeof meta>;
 const meta = {
   title: "Components/Layout/Center",
   component: Center,
-  tags: [Tags.AUTODOCS],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Center>;
 
 /**

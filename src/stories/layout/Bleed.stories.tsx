@@ -1,5 +1,4 @@
 import { Bleed, Flex } from "generated/panda/jsx";
-import { Tags } from "lib/types/storybook";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -13,7 +12,7 @@ const PARENT_PADDING = 6;
 const meta = {
   title: "Components/Layout/Bleed",
   component: Bleed,
-  tags: [Tags.AUTODOCS],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Bleed>;
 
 export const Default: Story = {

@@ -9,7 +9,6 @@ import {
 } from "react-icons/fi";
 
 import { Toggle, ToggleGroup } from "components";
-import { Tags } from "lib/types/storybook";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -18,7 +17,7 @@ type Story = StoryObj<typeof meta>;
 const meta = {
   title: "Components/Core/ToggleGroup",
   component: ToggleGroup,
-  tags: [Tags.AUTODOCS],
+  tags: ["autodocs"],
 } satisfies Meta<typeof ToggleGroup>;
 
 /**

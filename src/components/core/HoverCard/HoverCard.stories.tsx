@@ -3,7 +3,6 @@ import { FiMapPin } from "react-icons/fi";
 import { Avatar, HoverCard, Text } from "components";
 import { HStack, Stack, styled } from "generated/panda/jsx";
 import { app } from "lib/config";
-import { Tags } from "lib/types/storybook";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -12,7 +11,7 @@ type Story = StoryObj<typeof meta>;
 const meta = {
   title: "Components/Core/HoverCard",
   component: HoverCard,
-  tags: [Tags.AUTODOCS],
+  tags: ["autodocs"],
 } satisfies Meta<typeof HoverCard>;
 
 export const Default: Story = {

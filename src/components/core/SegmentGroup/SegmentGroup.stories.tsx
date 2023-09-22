@@ -1,5 +1,4 @@
 import { SegmentGroup } from "components";
-import { Tags } from "lib/types/storybook";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -8,7 +7,7 @@ type Story = StoryObj<typeof meta>;
 const meta = {
   title: "Components/Core/SegmentGroup",
   component: SegmentGroup,
-  tags: [Tags.AUTODOCS],
+  tags: ["autodocs"],
 } satisfies Meta<typeof SegmentGroup>;
 
 export const Default: Story = {

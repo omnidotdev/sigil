@@ -1,6 +1,5 @@
 import { Code } from "components";
 import { Box, Float } from "generated/panda/jsx";
-import { Tags } from "lib/types/storybook";
 
 import type { Meta, StoryObj } from "@storybook/react";
 import type { ComponentProps } from "react";
@@ -38,7 +37,7 @@ const containerProps = {
 const meta = {
   title: "Components/Layout/Float",
   component: Float,
-  tags: [Tags.AUTODOCS],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Float>;
 
 export const Default: Story = {

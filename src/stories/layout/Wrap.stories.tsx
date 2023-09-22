@@ -1,5 +1,4 @@
 import { Wrap } from "generated/panda/jsx";
-import { Tags } from "lib/types/storybook";
 import { FruitBasket } from "stories/data";
 
 import type { Meta, StoryObj } from "@storybook/react";
@@ -12,7 +11,7 @@ type Story = StoryObj<typeof meta>;
 const meta = {
   title: "Components/Layout/Wrap",
   component: Wrap,
-  tags: [Tags.AUTODOCS],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Wrap>;
 
 export const Default: Story = {

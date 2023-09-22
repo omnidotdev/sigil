@@ -1,6 +1,5 @@
 import { Button, Dialog, DialogCloseTrigger } from "components";
 import { Stack } from "generated/panda/jsx";
-import { Tags } from "lib/types/storybook";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -9,7 +8,7 @@ type Story = StoryObj<typeof meta>;
 const meta = {
   title: "Components/Core/Dialog",
   component: Dialog,
-  tags: [Tags.AUTODOCS],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Dialog>;
 
 export const Default: Story = {

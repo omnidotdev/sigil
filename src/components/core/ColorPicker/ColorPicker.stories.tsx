@@ -1,5 +1,4 @@
 import { ColorPicker } from "components";
-import { Tags } from "lib/types/storybook";
 
 import type { Meta, StoryObj } from "@storybook/react";
 type Story = StoryObj<typeof meta>;
@@ -7,7 +6,7 @@ type Story = StoryObj<typeof meta>;
 const meta = {
   title: "Components/Core/ColorPicker",
   component: ColorPicker,
-  tags: [Tags.AUTODOCS],
+  tags: ["autodocs"],
 } satisfies Meta<typeof ColorPicker>;
 
 export const Default: Story = {

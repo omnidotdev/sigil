@@ -1,5 +1,4 @@
 import { Combobox } from "components";
-import { Tags } from "lib/types/storybook";
 import { fruitBasket } from "stories/data";
 
 import type { Meta, StoryObj } from "@storybook/react";
@@ -8,15 +7,20 @@ type Story = StoryObj<typeof meta>;
 const meta = {
   title: "Components/Core/Combobox",
   component: Combobox,
-  tags: [Tags.AUTODOCS],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Combobox>;
 
 export const Default: Story = {
   args: {
-    label: "Fruit",
-    data: fruitBasket.map(({ name, icon }) => ({
+    label: {
+      id: "fruit",
+      singular: "Fruit",
+      plural: "Fruit",
+    },
+    items: fruitBasket.map(({ name, icon }, idx) => ({
       label: `${name} ${icon}`,
       value: name,
+      disabled: idx === 2,
     })),
   },
 };
