@@ -3,12 +3,10 @@ import { defineGlobalStyles } from "@pandacss/dev";
 // NB: relative path needed for Storybook
 import fonts from "./extensions/semanticTokens/fonts.semantic";
 
-import type { GlobalStyleObject } from "generated/panda/types";
-
 /**
  * Global CSS.
  */
-const globalCss: GlobalStyleObject = defineGlobalStyles({
+const globalCss = defineGlobalStyles({
   "html, body": {
     fontFamily: fonts.primary.value,
   },

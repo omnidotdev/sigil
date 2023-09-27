@@ -47,6 +47,21 @@ export const Vertical: Story = {
   },
 };
 
+export const Outline: Story = {
+  args: {
+    ...Default.args,
+    variant: "outline",
+  },
+};
+
+export const OutlineVertical: Story = {
+  args: {
+    ...Default.args,
+    orientation: "vertical",
+    variant: "outline",
+  },
+};
+
 export const Disabled: Story = {
   args: {
     ...Default.args,
