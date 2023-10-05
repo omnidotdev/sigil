@@ -5,9 +5,6 @@ import { button, type ButtonVariantProps } from "generated/panda/recipes";
 
 import type { HTMLArkProps } from "@ark-ui/react";
 
-// https://github.com/microsoft/TypeScript/issues/47663
-import type {} from "@zag-js/pressable";
-
 export interface ButtonProps
   extends ButtonVariantProps,
     HTMLArkProps<"button"> {}

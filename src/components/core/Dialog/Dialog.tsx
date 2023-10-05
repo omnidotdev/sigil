@@ -13,9 +13,6 @@ import type {
 } from "@ark-ui/react/dialog";
 import type { ReactNode } from "react";
 
-// https://github.com/microsoft/TypeScript/issues/47663
-import type {} from "@zag-js/types";
-
 const { withProvider, withContext } = createStyleContext(dialog);
 
 export interface DialogProps extends ArkDialogProps, DialogVariantProps {

@@ -6,7 +6,6 @@ import { pinInput, type PinInputVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { PinInputProps as ArkPINInputProps } from "@ark-ui/react/pin-input";
-import type {} from "@zag-js/pin-input";
 
 const { withProvider, withContext } = createStyleContext(pinInput);
 

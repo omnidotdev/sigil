@@ -10,9 +10,6 @@ import { createStyleContext } from "lib/util";
 
 import type { ComponentProps } from "react";
 
-// https://github.com/microsoft/TypeScript/issues/47663
-import type {} from "@zag-js/interact-outside";
-
 const { withProvider, withContext } = createStyleContext(tagsInput);
 
 export interface TagsInputProps
@@ -53,8 +50,8 @@ export const TagDeleteTrigger = withContext(
  * Input for tags.
  */
 const TagsInput = ({ label, ...rest }: TagsInputProps) => (
-  // @ts-ignore TODO
   <TagsInputRoot {...rest}>
+    {/* @ts-ignore TODO */}
     {({ value }) => (
       <>
         <TagsInputLabel asChild>
@@ -62,6 +59,7 @@ const TagsInput = ({ label, ...rest }: TagsInputProps) => (
         </TagsInputLabel>
 
         <TagsInputControl>
+          {/* @ts-ignore TODO */}
           {(value ?? []).map((value, index) => (
             <Fragment key={index}>
               <Tag index={index} value={value}>

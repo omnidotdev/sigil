@@ -8,9 +8,6 @@ import type { CheckboxProps as ArkCheckboxProps } from "@ark-ui/react/checkbox";
 
 const { withProvider, withContext } = createStyleContext(checkbox);
 
-// https://github.com/microsoft/TypeScript/issues/47663
-import type {} from "@zag-js/checkbox";
-
 export interface CheckboxProps
   extends Omit<ArkCheckboxProps, "children">,
     CheckboxVariantProps {

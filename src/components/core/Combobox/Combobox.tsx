@@ -11,6 +11,7 @@ import { createStyleContext } from "lib/util";
 
 import type { ComboboxProps as ArkComboboxProps } from "@ark-ui/react/combobox";
 import type { ComponentProps } from "react";
+
 // https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/combobox";
 

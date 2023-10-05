@@ -13,9 +13,6 @@ import type {
 } from "@ark-ui/react/popover";
 import type { ReactNode } from "react";
 
-// https://github.com/microsoft/TypeScript/issues/47663
-import type {} from "@zag-js/popper";
-
 const { withProvider, withContext } = createStyleContext(popover);
 
 export interface PopoverProps extends ArkPopoverProps, PopoverVariantProps {

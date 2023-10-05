@@ -7,7 +7,6 @@ import { editable, type EditableVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { EditableProps as ArkEditableProps } from "@ark-ui/react/editable";
-import type {} from "@zag-js/editable";
 
 const { withProvider, withContext } = createStyleContext(editable);
 
