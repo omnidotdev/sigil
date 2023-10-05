@@ -1,9 +1,11 @@
 import { defineSemanticTokens } from "@pandacss/dev";
 
+import type { SemanticTokens } from "@pandacss/dev";
+
 /**
  * Color semantic tokens.
  */
-const colors = defineSemanticTokens.colors({
+const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
   // TODO success, warning, danger, ...
   background: {
     canvas: {

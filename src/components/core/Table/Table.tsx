@@ -4,13 +4,12 @@ import { styled } from "generated/panda/jsx";
 import { table, type TableVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import type { HTMLArkProps } from "@ark-ui/react";
+import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(table);
 
-export interface TableProps
-  extends TableVariantProps,
-    ComponentPropsWithoutRef<typeof ark.table> {
+export interface TableProps extends TableVariantProps, HTMLArkProps<"table"> {
   /**
    * Table caption.
    * @see https://www.w3schools.com/tags/tag_caption.asp

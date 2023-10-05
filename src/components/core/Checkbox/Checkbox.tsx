@@ -63,6 +63,7 @@ const Checkbox = ({ label, ...rest }: CheckboxProps) => (
 
           {ctx.isIndeterminate && <MinusIcon />}
         </CheckboxControl>
+
         <CheckboxLabel>{label}</CheckboxLabel>
       </>
     )}

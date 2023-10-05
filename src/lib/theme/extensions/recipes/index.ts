@@ -1,4 +1,3 @@
-export { default as alert } from "./alert.recipe";
 export { default as article } from "./article.recipe";
 export { default as badge } from "./badge.recipe";
 export { default as button } from "./button.recipe";

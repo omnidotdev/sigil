@@ -1,8 +1,10 @@
 import { defineSemanticTokens } from "@pandacss/dev";
 
+import type { SemanticTokens } from "@pandacss/dev";
+
 /**
  * Size semantic tokens.
  */
-const sizes = defineSemanticTokens.sizes({});
+const sizes: SemanticTokens["sizes"] = defineSemanticTokens.sizes({});
 
 export default sizes;

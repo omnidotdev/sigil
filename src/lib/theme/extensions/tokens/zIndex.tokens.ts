@@ -1,9 +1,11 @@
 import { defineTokens } from "@pandacss/dev";
 
+import type { Tokens } from "@pandacss/dev";
+
 /**
  * Z-index tokens.
  */
-const zIndex = defineTokens.zIndex({
+const zIndex: Tokens["zIndex"] = defineTokens.zIndex({
   hide: {
     value: -1,
   },

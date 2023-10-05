@@ -20,7 +20,7 @@ const pandaConfig = defineConfig({
   preflight: true,
   include: ["src/**/*.{ts,tsx,mdx}"],
   outdir: "src/generated/panda",
-  presets: ["@pandacss/dev/presets", sigilPreset],
+  presets: ["@pandacss/preset-base", sigilPreset],
   jsxFramework: "react",
   studio: {
     logo: "/img/logo.png",

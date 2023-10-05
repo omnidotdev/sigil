@@ -4,13 +4,12 @@ import { styled } from "generated/panda/jsx";
 import { card, type CardVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { HTMLArkProps } from "@ark-ui/react";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(card);
 
-export interface CardProps
-  extends CardVariantProps,
-    ComponentPropsWithoutRef<typeof ark.div> {
+export interface CardProps extends CardVariantProps, HTMLArkProps<"div"> {
   /** Card description, displayed underneath header. */
   description?: string;
   /** Footer content. */

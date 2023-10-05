@@ -1,8 +1,10 @@
 import { defineSemanticTokens } from "@pandacss/dev";
 
+import type { SemanticTokens } from "@pandacss/dev";
+
 /**
  * Opacity semantic tokens.
  */
-const opacity = defineSemanticTokens.opacity({});
+const opacity: SemanticTokens["opacity"] = defineSemanticTokens.opacity({});
 
 export default opacity;

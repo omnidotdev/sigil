@@ -1,9 +1,11 @@
 import { defineSemanticTokens } from "@pandacss/dev";
 
+import type { SemanticTokens } from "@pandacss/dev";
+
 /**
  * Shadow semantic tokens.
  */
-const shadows = defineSemanticTokens.shadows({
+const shadows: SemanticTokens["shadows"] = defineSemanticTokens.shadows({
   accent: {
     value: "0 0 0 1px {colors.border.accent}",
   },

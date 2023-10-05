@@ -38,7 +38,7 @@ const slider = defineSlotRecipe({
     },
     label: {
       color: "foreground.emphasized",
-      fontWeight: "semibold",
+      fontWeight: "medium",
     },
   },
   defaultVariants: {

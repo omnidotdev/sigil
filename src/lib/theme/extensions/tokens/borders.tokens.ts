@@ -1,8 +1,12 @@
 import { defineTokens } from "@pandacss/dev";
 
+import type { Tokens } from "@pandacss/dev";
+
 /**
  * Border tokens.
  */
-const borders = defineTokens.borders({});
+const borders: Tokens["borders"] = defineTokens.borders({
+  none: { value: "none" },
+});
 
 export default borders;

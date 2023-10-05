@@ -15,7 +15,7 @@ Follow these steps to use the Sigil UI library in your project.
 
    const pandaConfig = defineConfig({
      preflight: true,
-     presets: ["@pandacss/dev/presets", sigilPreset],
+     presets: ["@pandacss/preset-base", sigilPreset],
      include: ["src/**/*.{ts,tsx}"],
      outdir: "src/generated/panda",
    });
@@ -78,7 +78,7 @@ Now you are ready to install the UI library. You can either install it [from the
 
 ## Remote
 
-Install from remote repository: `yarn add @omnidev/sigil`
+Install from remote repository along with required dependencies: `yarn add @omnidev/sigil @ark-ui/react`
 
 ## Local
 

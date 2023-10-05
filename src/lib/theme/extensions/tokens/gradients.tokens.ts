@@ -1,8 +1,10 @@
 import { defineTokens } from "@pandacss/dev";
 
+import type { Tokens } from "@pandacss/dev";
+
 /**
  * Gradient tokens.
  */
-const gradients = defineTokens.gradients({});
+const gradients: Tokens["gradients"] = defineTokens.gradients({});
 
 export default gradients;

@@ -3,11 +3,11 @@ import { ark } from "@ark-ui/react";
 import { styled } from "generated/panda/jsx";
 import { input, type InputVariantProps } from "generated/panda/recipes";
 
-import type { ComponentPropsWithoutRef } from "react";
+import type { HTMLArkProps } from "@ark-ui/react";
 
 export interface InputProps
   extends InputVariantProps,
-    Omit<ComponentPropsWithoutRef<typeof ark.input>, "size"> {}
+    Omit<HTMLArkProps<"input">, "size"> {}
 
 /**
  * Interactive input.

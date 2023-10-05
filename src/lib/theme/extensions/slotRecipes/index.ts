@@ -1,4 +1,5 @@
 export { default as accordion } from "./accordion.slotRecipe";
+export { default as alert } from "./alert.recipe";
 export { default as avatar } from "./avatar.slotRecipe";
 export { default as card } from "./card.slotRecipe";
 export { default as carousel } from "./carousel.slotRecipe";

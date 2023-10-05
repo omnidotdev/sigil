@@ -1,15 +1,12 @@
 import { styled, type HTMLStyledProps } from "generated/panda/jsx";
 
-import type { PropsWithChildren } from "react";
-
 type TagVariants = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
 
 // TODO convert to `interface`
-export type TextProps = PropsWithChildren<{
+export type TextProps = {
   /** HTML text tag to render. */
   as?: TagVariants;
-}> &
-  HTMLStyledProps<TagVariants>;
+} & HTMLStyledProps<TagVariants>;
 
 /**
  * Text.

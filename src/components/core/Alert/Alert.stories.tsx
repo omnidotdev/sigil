@@ -1,7 +1,6 @@
 import { FiInfo } from "react-icons/fi";
 
-import { Alert, Icon, Text } from "components";
-import { Stack } from "generated/panda/jsx";
+import { Alert, Icon } from "components";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -15,21 +14,17 @@ const meta = {
 
 export const Default: Story = {
   args: {
-    children: (
-      <Stack gap={4} direction={{ base: "column", sm: "row" }}>
-        <Icon as={FiInfo} color="foreground.emphasized" />
+    icon: <Icon as={FiInfo} />,
+    title: "Update available",
+    description:
+      "For the best experience, please update to the latest version.",
+  },
+};
 
-        <Stack gap={1}>
-          <Text as="h5" fontWeight="medium">
-            Update available
-          </Text>
-
-          <Text color="foreground.muted">
-            For the best experience, please update to the latest version.
-          </Text>
-        </Stack>
-      </Stack>
-    ),
+export const NoIcon: Story = {
+  args: {
+    ...Default.args,
+    icon: undefined,
   },
 };
 

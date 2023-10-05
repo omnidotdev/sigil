@@ -3,14 +3,14 @@ import { Pressable } from "@ark-ui/react";
 import { styled } from "generated/panda/jsx";
 import { button, type ButtonVariantProps } from "generated/panda/recipes";
 
-import type { ComponentPropsWithoutRef } from "react";
+import type { HTMLArkProps } from "@ark-ui/react";
 
 // https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/pressable";
 
 export interface ButtonProps
   extends ButtonVariantProps,
-    ComponentPropsWithoutRef<typeof Button> {}
+    HTMLArkProps<"button"> {}
 
 /**
  * Interactive action button.

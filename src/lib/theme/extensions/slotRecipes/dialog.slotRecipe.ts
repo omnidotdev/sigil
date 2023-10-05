@@ -13,6 +13,7 @@ const dialog = defineSlotRecipe({
       backdropFilter: "blur(4px)",
       bgColor: {
         // TODO replace when supported in Panda: background.canvas/80
+        // TODO extract colors to tokens
         base: "rgba(250, 250, 250, 0.8)",
         _dark: "rgba(10, 10, 10, 0.8)",
       },

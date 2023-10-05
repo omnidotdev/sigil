@@ -23,6 +23,12 @@ const textStyles = defineTextStyles({
   "7xl": {
     value: { fontSize: "7xl", lineHeight: "5.75rem", letterSpacing: "-0.02em" },
   },
+  "8xl": {
+    value: { fontSize: "8xl", lineHeight: "6.5rem", letterSpacing: "-0.02em" },
+  },
+  "9xl": {
+    value: { fontSize: "9xl", lineHeight: "7.5rem", letterSpacing: "-0.02em" },
+  },
 });
 
 export default textStyles;

@@ -15,6 +15,8 @@ const conditions: PresetField["conditions"] = {
     current: "&:is([data-current])",
     today: "&:is([data-today])",
     placeholderShown: "&:is(:placeholder-shown, [data-placeholder-shown])",
+    collapsed:
+      '&:is([aria-collapsed=true], [data-collapsed], [data-state="collapsed"])',
   },
 };
 

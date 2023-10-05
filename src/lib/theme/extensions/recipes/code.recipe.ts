@@ -10,7 +10,7 @@ const code = defineRecipe({
     alignItems: "center",
     bgColor: "background.subtle",
     borderRadius: "sm",
-    color: "foreground.emphasized",
+    color: "foreground.muted",
     display: "inline-flex",
     fontFamily: "var(--font-code)",
     fontWeight: "medium",
