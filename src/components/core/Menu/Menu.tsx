@@ -15,7 +15,7 @@ import type {} from "@zag-js/rect-utils";
 const { withProvider, withContext } = createStyleContext(menu);
 
 export interface MenuProps extends ArkMenuProps, MenuVariantProps {
-  trigger: ReactNode;
+  trigger?: ReactNode;
 }
 
 export const MenuRoot = withProvider(styled(ArkMenu.Root));

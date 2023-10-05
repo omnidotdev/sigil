@@ -19,7 +19,7 @@ import type {} from "@zag-js/types";
 const { withProvider, withContext } = createStyleContext(dialog);
 
 export interface DialogProps extends ArkDialogProps, DialogVariantProps {
-  trigger: ReactNode;
+  trigger?: ReactNode;
   title?: string;
   description?: string;
   contentProps?: ArkDialogContentProps;

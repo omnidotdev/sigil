@@ -14,7 +14,7 @@ const { withProvider, withContext } = createStyleContext(drawer);
 
 export interface DrawerProps extends ArkDialogProps, DrawerVariantProps {
   /** Trigger node, such as a button, used to open the drawer. */
-  trigger: ReactNode;
+  trigger?: ReactNode;
   /** Drawer title, displayed at the top. */
   title?: string;
   /** Drawer description, displayed underneath title. */

@@ -13,7 +13,7 @@ const { withProvider, withContext } = createStyleContext(hoverCard);
 export interface HoverCardProps
   extends ArkHoverCardProps,
     HoverCardVariantProps {
-  trigger: ReactNode;
+  trigger?: ReactNode;
 }
 
 export const HoverCardRoot = withProvider(styled(ArkHoverCard.Root));

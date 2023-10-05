@@ -11,7 +11,7 @@ import type { ReactNode } from "react";
 const { withProvider, withContext } = createStyleContext(tooltip);
 
 export interface TooltipProps extends ArkTooltipProps, TooltipVariantProps {
-  trigger: ReactNode;
+  trigger?: ReactNode;
   content: ReactNode;
 }
 

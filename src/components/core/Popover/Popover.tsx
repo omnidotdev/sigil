@@ -19,7 +19,7 @@ import type {} from "@zag-js/popper";
 const { withProvider, withContext } = createStyleContext(popover);
 
 export interface PopoverProps extends ArkPopoverProps, PopoverVariantProps {
-  trigger: ReactNode;
+  trigger?: ReactNode;
   title: string;
   description: string;
   contentProps?: PopoverContentProps;
