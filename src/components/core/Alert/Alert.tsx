@@ -1,4 +1,8 @@
 import { ark } from "@ark-ui/react";
+import { BiErrorAlt } from "react-icons/bi";
+import { FiCheck, FiInfo } from "react-icons/fi";
+import { IoWarningOutline } from "react-icons/io5";
+import { match } from "ts-pattern";
 
 import { styled } from "generated/panda/jsx";
 import { alert, type AlertVariantProps } from "generated/panda/recipes";
@@ -38,16 +42,25 @@ const Alert = ({
   titleProps,
   descriptionProps,
   ...rest
-}: AlertProps) => (
-  <AlertRoot {...rest}>
-    {icon && <AlertIcon asChild>{icon}</AlertIcon>}
+}: AlertProps) => {
+  const _icon = match(rest.variant)
+    .with("info", () => <FiInfo />)
+    .with("warning", () => <IoWarningOutline />)
+    .with("error", () => <BiErrorAlt />)
+    .with("success", () => <FiCheck />)
+    .otherwise(() => null);
 
-    <AlertContent {...contentProps}>
-      <AlertTitle {...titleProps}>{title}</AlertTitle>
+  return (
+    <AlertRoot {...rest}>
+      {(icon || _icon) && <AlertIcon asChild>{icon || _icon}</AlertIcon>}
 
-      <AlertDescription {...descriptionProps}>{description}</AlertDescription>
-    </AlertContent>
-  </AlertRoot>
-);
+      <AlertContent {...contentProps}>
+        <AlertTitle {...titleProps}>{title}</AlertTitle>
+
+        <AlertDescription {...descriptionProps}>{description}</AlertDescription>
+      </AlertContent>
+    </AlertRoot>
+  );
+};
 
 export default Alert;

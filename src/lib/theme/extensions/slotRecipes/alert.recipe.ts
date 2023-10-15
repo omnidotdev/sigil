@@ -1,7 +1,5 @@
 import { defineSlotRecipe } from "@pandacss/dev";
 
-// TODO add variants (e.g. MUI: https://mui.com/material-ui/react-alert/)
-
 /**
  * Alert recipe.
  */
@@ -37,6 +35,70 @@ const alert = defineSlotRecipe({
     title: {
       fontWeight: "semibold",
       textStyle: "sm",
+    },
+  },
+  variants: {
+    variant: {
+      info: {
+        root: {
+          bgColor: "blue.100",
+          borderColor: "blue.200",
+        },
+        title: {
+          color: "blue.800",
+        },
+        description: {
+          color: "blue.800",
+        },
+        icon: {
+          color: "blue.800",
+        },
+      },
+      warning: {
+        root: {
+          bgColor: "yellow.100",
+          borderColor: "yellow.200",
+        },
+        title: {
+          color: "yellow.800",
+        },
+        description: {
+          color: "yellow.800",
+        },
+        icon: {
+          color: "yellow.800",
+        },
+      },
+      error: {
+        root: {
+          bgColor: "red.100",
+          borderColor: "red.200",
+        },
+        title: {
+          color: "red.800",
+        },
+        description: {
+          color: "red.800",
+        },
+        icon: {
+          color: "red.800",
+        },
+      },
+      success: {
+        root: {
+          bgColor: "green.100",
+          borderColor: "green.200",
+        },
+        title: {
+          color: "green.800",
+        },
+        description: {
+          color: "green.800",
+        },
+        icon: {
+          color: "green.800",
+        },
+      },
     },
   },
 });
