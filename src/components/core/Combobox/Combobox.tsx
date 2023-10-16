@@ -89,23 +89,15 @@ export const ComboboxTrigger = withContext(
 const Combobox = ({ label, items, ...rest }: ComboboxProps<CollectionItem>) => {
   const [filteredItems, setFilteredItems] = useState(items);
 
-  console.log(filteredItems);
-
   const handleChange = (
     evt: Parameters<
       NonNullable<ComponentProps<typeof ComboboxRoot>["onInputChange"]>
     >[0],
   ) => {
-    console.log(evt.value);
-
     const filtered = items.filter((item) =>
       // @ts-expect-error upstream (Ark `CollectionItem`) type bug
       item.label.toLowerCase().includes(evt.value.toLowerCase()),
     );
-
-    console.group("FILTERED");
-    console.log(filtered);
-    console.groupEnd();
 
     setFilteredItems(filtered.length ? filtered : items);
   };
