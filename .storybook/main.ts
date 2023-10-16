@@ -1,7 +1,9 @@
 import { mergeConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
+import type { AddonOptionsBabel as CoverageOptions } from "@storybook/addon-coverage";
 import type { StorybookConfig } from "@storybook/react-vite";
+import type { UserConfig as ViteConfig } from "vite";
 
 /**
  * Storybook configuration.
@@ -30,8 +32,15 @@ const storybookConfig: StorybookConfig = {
     check: true,
   },
   addons: [
-    "@storybook/addon-a11y",
-    "@storybook/addon-coverage",
+    // "@storybook/addon-a11y",
+    {
+      name: "@storybook/addon-coverage",
+      options: {
+        istanbul: {
+          include: ["**/*.tsx", "**/*.stories.tsx"],
+        },
+      } as CoverageOptions,
+    },
     "@storybook/addon-interactions",
     // https://storybook.js.org/docs/react/essentials/introduction
     "@storybook/addon-essentials",
@@ -55,7 +64,8 @@ const storybookConfig: StorybookConfig = {
       optimizeDeps: {
         include: ["storybook-dark-mode"],
       },
-    }),
+      logLevel: "error",
+    } as ViteConfig),
 };
 
 export default storybookConfig;
