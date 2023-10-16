@@ -3712,13 +3712,13 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-storybook: ^0.6.15
     eslint-plugin-testing-library: ^6.1.0
-    eslint-plugin-typescript-sort-keys: ^3.0.0
+    eslint-plugin-typescript-sort-keys: ^3.1.0
     eslint-plugin-unused-imports: ^3.0.0
     http-server: ^14.1.1
     husky: ^8.0.3
     jest: ^29.7.0
     jest-environment-jsdom: ^29.7.0
-    lint-staged: ^15.0.0
+    lint-staged: ^15.0.1
     pinst: ^3.0.0
     playwright: ^1.39.0
     postcss: ^8.4.31
@@ -12477,9 +12477,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-typescript-sort-keys@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "eslint-plugin-typescript-sort-keys@npm:3.0.0"
+"eslint-plugin-typescript-sort-keys@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "eslint-plugin-typescript-sort-keys@npm:3.1.0"
   dependencies:
     "@typescript-eslint/experimental-utils": ^5.0.0
     json-schema: ^0.4.0
@@ -12488,7 +12488,7 @@ __metadata:
     "@typescript-eslint/parser": ^6
     eslint: ^7 || ^8
     typescript: ^3 || ^4 || ^5
-  checksum: 230f869e1d43f3ec27b3cbcd33add304fb9f607b224dcb0653054d7528e365c7c3694deb0e72942f039e871782ae57e37609aae5f6dd6ee72c9023bdbabd0031
+  checksum: 89aacf64ed2bccc571925f9cc21b9a46d5d5affb69f86fca3c94d631ac6e591bb7f807defb44f7f7145c27a999987a265081a461c7069f880ef87570ab5c7471
   languageName: node
   linkType: hard
 
@@ -16488,7 +16488,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^15.0.0":
+"lint-staged@npm:^15.0.1":
   version: 15.0.1
   resolution: "lint-staged@npm:15.0.1"
   dependencies:
