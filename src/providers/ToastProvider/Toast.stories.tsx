@@ -3,7 +3,6 @@ import { FiX } from "react-icons/fi";
 
 import { Button } from "components";
 import { Box, Stack } from "generated/panda/jsx";
-import { Tags } from "lib/types/storybook";
 import {
   SigilProvider,
   ToastCloseTrigger,
@@ -16,6 +15,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import type { ToastOptions } from "@zag-js/toast";
 
 type Story = StoryObj<typeof meta>;
+
+// TODO sort stories alphabetically, currently goes below component stories
 
 interface ToastDemoProps {
   toastOptions?: Partial<ToastOptions>;
@@ -46,7 +47,7 @@ const ToastDemo = ({ toastOptions }: ToastDemoProps) => {
 const meta = {
   title: "Components/Core/Toast",
   component: ToastProvider,
-  tags: [Tags.AUTODOCS],
+  tags: ["autodocs"],
 } satisfies Meta<typeof ToastProvider>;
 
 export const Default: Story = {
@@ -64,9 +65,10 @@ export const WithCustomRender: Story = {
           <>
             <Stack gap={1}>
               <ToastTitle />
-              <ToastDescription />
-              <ToastDescription />
-              <ToastDescription />
+
+              {Array.from({ length: 3 }).map((_, idx) => (
+                <ToastDescription key={idx} />
+              ))}
 
               <Stack direction="row" gap={3}>
                 <ToastCloseTrigger asChild>
@@ -95,7 +97,7 @@ export const WithCustomRender: Story = {
  * Default toast options can be specified at the provider level.
  */
 export const WithCustomDefaults: Story = {
-  tags: [Tags.DISABLE_GLOBAL_DECORATORS],
+  tags: ["disable:globaldecorators"],
   render: () => <ToastDemo />,
   decorators: [
     (Story) => (

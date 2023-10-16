@@ -5,12 +5,11 @@ import { FiX } from "react-icons/fi";
 import Button from "components/core/Button/Button";
 import { Box, Stack, styled } from "generated/panda/jsx";
 import { toast, type ToastVariantProps } from "generated/panda/recipes";
+import { useBreakpointValue } from "lib/hooks";
 import createStyleContext from "lib/util/createStyleContext";
 
 import type { ToastProviderProps as ArkToastProviderProps } from "@ark-ui/react/toast";
-
-// https://github.com/microsoft/TypeScript/issues/47663
-import type {} from "@zag-js/toast";
+import type { Placement } from "@zag-js/toast";
 
 const { withProvider, withContext } = createStyleContext(toast);
 
@@ -44,43 +43,55 @@ export const ToastGroup = withContext(styled(ArkToast.Group), "group");
 const ToastProvider = ({
   children,
   ...rest
-}: Omit<ToastProviderProps, "toast">) => (
-  <BaseToastProvider {...rest}>
-    <Portal>
-      <ToastPlacements>
-        {(placements) =>
-          placements.map((placement) => (
-            <ToastGroup key={placement} placement={placement}>
-              {(toasts) =>
-                toasts.map((toast) => (
-                  <ToastRoot key={toast.id} toast={toast} {...rest}>
-                    <Stack gap={1}>
-                      <ToastTitle />
-                      <ToastDescription />
-                    </Stack>
+}: Omit<ToastProviderProps, "toast">) => {
+  const placement = useBreakpointValue({
+    base: "bottom",
+    md: "bottom-end",
+  }) as Placement;
 
-                    <Box position="absolute" top="3" right="3">
-                      <ToastCloseTrigger asChild>
-                        <Button
-                          size="sm"
-                          variant="ghost"
-                          aria-label="Close Toast"
-                        >
-                          <FiX />
-                        </Button>
-                      </ToastCloseTrigger>
-                    </Box>
-                  </ToastRoot>
-                ))
-              }
-            </ToastGroup>
-          ))
-        }
-      </ToastPlacements>
-    </Portal>
+  return (
+    <BaseToastProvider
+      // TODO fix this (doesn't dynamically update)
+      defaultOptions={{ placement }}
+      {...rest}
+    >
+      <Portal>
+        <ToastPlacements>
+          {(placements) =>
+            placements.map((placement) => (
+              <ToastGroup key={placement} placement={placement}>
+                {(toasts) =>
+                  toasts.map((toast) => (
+                    <ToastRoot key={toast.id} toast={toast} {...rest}>
+                      <Stack gap={1}>
+                        <ToastTitle />
+                        <ToastDescription />
+                        {placement}
+                      </Stack>
 
-    {children}
-  </BaseToastProvider>
-);
+                      <Box position="absolute" top="3" right="3">
+                        <ToastCloseTrigger asChild>
+                          <Button
+                            size="sm"
+                            variant="ghost"
+                            aria-label="Close Toast"
+                          >
+                            <FiX />
+                          </Button>
+                        </ToastCloseTrigger>
+                      </Box>
+                    </ToastRoot>
+                  ))
+                }
+              </ToastGroup>
+            ))
+          }
+        </ToastPlacements>
+      </Portal>
+
+      {children}
+    </BaseToastProvider>
+  );
+};
 
 export default ToastProvider;
