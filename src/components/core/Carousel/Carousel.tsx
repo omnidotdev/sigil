@@ -21,7 +21,6 @@ export interface CarouselProps
   slides: ReactNode[];
 }
 
-// @ts-ignore type inference bug
 export const CarouselRoot = withProvider(styled(ArkCarousel.Root), "root");
 
 export const CarouselControl = withContext(
