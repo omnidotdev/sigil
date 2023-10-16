@@ -32,7 +32,11 @@ const storybookConfig: StorybookConfig = {
     check: true,
   },
   addons: [
-    // "@storybook/addon-a11y",
+    "@storybook/addon-a11y",
+    "@storybook/addon-links",
+    // https://storybook.js.org/docs/react/essentials/introduction
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
     {
       name: "@storybook/addon-coverage",
       options: {
@@ -41,10 +45,6 @@ const storybookConfig: StorybookConfig = {
         },
       } as CoverageOptions,
     },
-    "@storybook/addon-interactions",
-    // https://storybook.js.org/docs/react/essentials/introduction
-    "@storybook/addon-essentials",
-    "@storybook/addon-links",
     "@storybook/addon-storysource",
     "storybook-dark-mode",
   ],
