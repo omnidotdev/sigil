@@ -31,10 +31,11 @@ const storybookConfig: StorybookConfig = {
   },
   addons: [
     "@storybook/addon-a11y",
-    "@storybook/addon-links",
+    "@storybook/addon-coverage",
+    "@storybook/addon-interactions",
     // https://storybook.js.org/docs/react/essentials/introduction
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
+    "@storybook/addon-links",
     "@storybook/addon-storysource",
     "storybook-dark-mode",
   ],
@@ -50,10 +51,6 @@ const storybookConfig: StorybookConfig = {
       // https://github.com/storybookjs/storybook/issues/18920#issuecomment-1342865124
       define: { "process.env": {} },
       plugins: [tsconfigPaths()],
-      // https://github.com/storybookjs/builder-vite/issues/409#issuecomment-1295495352
-      build: {
-        sourcemap: false,
-      },
       // dependencies to pre-optimize
       optimizeDeps: {
         include: ["storybook-dark-mode"],
