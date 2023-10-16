@@ -21,6 +21,7 @@ jobs:
       - name: Install Playwright
         run: npx playwright install --with-deps
       - name: Build Storybook
-        run: yarn storybook:build --quiet
+        # https://github.com/storybookjs/storybook/issues/6408
+        run: NODE_OPTIONS=--max_old_space_size=8192 yarn storybook:build --quiet
       - name: Serve Storybook and run tests
         run: yarn test:ci
