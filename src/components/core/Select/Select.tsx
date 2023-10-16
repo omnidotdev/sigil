@@ -27,8 +27,6 @@ export interface SelectProps<T extends CollectionItem>
   };
 }
 
-// ? https://github.com/cschroeter/park-ui/commit/5dc710fe1b66326b3bc949dd0fae934b4a086a8e
-
 export const SelectRoot = withProvider(styled(ArkSelect.Root), "root");
 
 export const SelectClearTrigger = withContext(
