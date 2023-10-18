@@ -4,9 +4,6 @@ export * from "./Accordion/Accordion";
 export { default as Alert } from "./Alert/Alert";
 export * from "./Alert/Alert";
 
-export { default as Article } from "./Article/Article";
-export * from "./Article/Article";
-
 export { default as Avatar } from "./Avatar/Avatar";
 export * from "./Avatar/Avatar";
 
