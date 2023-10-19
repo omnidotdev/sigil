@@ -77,8 +77,8 @@
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.5.1",
-    "@types/node": "^20.8.6",
-    "@types/react": "^18.2.28",
+    "@types/node": "^20.8.7",
+    "@types/react": "^18.2.29",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0",
     "@zag-js/accordion": "^0.19.1",
@@ -96,7 +96,7 @@
     "@zag-js/splitter": "^0.19.1",
     "@zag-js/tabs": "0.19.1",
     "@zag-js/toast": "^0.19.1",
-    "concurrently": "^8.2.1",
+    "concurrently": "^8.2.2",
     "dotenv-cli": "^7.3.0",
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
@@ -131,7 +131,7 @@
     "tsup": "^7.2.0",
     "typescript": "^5.2.2",
     "usehooks-ts": "^2.9.1",
-    "vite": "^4.4.11",
+    "vite": "^4.5.0",
     "vite-tsconfig-paths": "^4.2.1",
     "wait-on": "^7.0.1"
   }
