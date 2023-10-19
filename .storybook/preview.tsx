@@ -51,6 +51,11 @@ const preview: Preview = {
     docs: {
       toc: true,
     },
+    options: {
+      storySort: {
+        order: ["Introduction", "Components", "Hooks"],
+      },
+    },
   },
 };
 
