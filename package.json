@@ -58,6 +58,7 @@
     "@jest/globals": "^29.7.0",
     "@omnidev/knit": "^0.1.2",
     "@pandacss/dev": "^0.16.0",
+    "@pandacss/types": "^0.16.0",
     "@storybook/addon-a11y": "^7.5.0",
     "@storybook/addon-coverage": "^0.0.9",
     "@storybook/addon-docs": "^7.5.0",

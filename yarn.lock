@@ -3660,6 +3660,7 @@ __metadata:
     "@jest/globals": ^29.7.0
     "@omnidev/knit": ^0.1.2
     "@pandacss/dev": ^0.16.0
+    "@pandacss/types": ^0.16.0
     "@storybook/addon-a11y": ^7.5.0
     "@storybook/addon-coverage": ^0.0.9
     "@storybook/addon-docs": ^7.5.0
@@ -3991,7 +3992,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pandacss/types@npm:0.16.0":
+"@pandacss/types@npm:0.16.0, @pandacss/types@npm:^0.16.0":
   version: 0.16.0
   resolution: "@pandacss/types@npm:0.16.0"
   checksum: 34fd58eef901060e52aa2eaa733b83dbce55322d6d1d013652803a6f9d9acd27c37e7e5687eb51f12b54da105c4e03b431e99a6d989404226392236bbd9cabe9
