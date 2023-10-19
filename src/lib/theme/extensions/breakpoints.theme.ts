@@ -1,8 +1,9 @@
+import type { Theme } from "@pandacss/types";
+
 /**
  * Device breakpoints for responsive design.
  */
-// TODO type
-const breakpoints = {
+const breakpoints: Theme["breakpoints"] = {
   base: "0em",
   sm: "40em",
   md: "48em",

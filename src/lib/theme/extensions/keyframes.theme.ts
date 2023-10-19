@@ -3,7 +3,7 @@ import { defineKeyframes } from "@pandacss/dev";
 /**
  * Animation keyframes.
  */
-const keyframes: ReturnType<typeof defineKeyframes> = defineKeyframes({
+const keyframes = defineKeyframes({
   spin: {
     to: {
       transform: "rotate(360deg)",
