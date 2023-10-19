@@ -1,9 +1,9 @@
-import type { PresetField } from "lib/types/theme";
+import type { Preset } from "@pandacss/types";
 
 /**
  * Conditions.
  */
-const conditions: PresetField["conditions"] = {
+const conditions: Preset["conditions"] = {
   extend: {
     checked:
       "&:is(:checked, [data-checked], [aria-checked=true], [data-state=checked])",
