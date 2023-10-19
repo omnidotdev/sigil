@@ -1,5 +1,7 @@
 import { defineRecipe } from "@pandacss/dev";
 
+// ! NB: not documented in Panda, see https://discord.com/channels/1118988919804010566/1120305029056831548/1148028115373789267
+
 /**
  * Link recipe.
  */
