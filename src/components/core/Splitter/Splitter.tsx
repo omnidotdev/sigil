@@ -1,4 +1,5 @@
 import { Splitter as ArkSplitter } from "@ark-ui/react/splitter";
+import { match } from "ts-pattern";
 
 import { styled } from "generated/panda/jsx";
 import { splitter, type SplitterVariantProps } from "generated/panda/recipes";
@@ -43,23 +44,21 @@ export const SplitterResizeTrigger = withContext(
  */
 const Splitter = ({ sections, ...rest }: SplitterProps) => (
   <SplitterRoot size={sections.map(({ id, size }) => ({ id, size }))} {...rest}>
-    {sections.map(({ type, id, content }) => {
-      switch (type) {
-        case "panel":
-          return (
-            <SplitterPanel key={id} id={id}>
-              {content}
-            </SplitterPanel>
-          );
-        case "resizeTrigger":
-          return (
-            <SplitterResizeTrigger
-              key={id}
-              id={id as ComponentProps<typeof SplitterResizeTrigger>["id"]}
-            />
-          );
-      }
-    })}
+    {sections.map(({ type, id, content }) =>
+      match(type)
+        .with("panel", () => (
+          <SplitterPanel key={id} id={id}>
+            {content}
+          </SplitterPanel>
+        ))
+        .with("resizeTrigger", () => (
+          <SplitterResizeTrigger
+            key={id}
+            id={id as ComponentProps<typeof SplitterResizeTrigger>["id"]}
+          />
+        ))
+        .exhaustive(),
+    )}
   </SplitterRoot>
 );
 
