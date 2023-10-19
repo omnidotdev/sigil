@@ -81,42 +81,38 @@ const Select = ({ label, items, ...rest }: SelectProps<CollectionItem>) => (
     items={items}
     {...rest}
   >
-    {/* {({ selectedOption }) => ( */}
-    <>
-      <SelectLabel>{label.singular}</SelectLabel>
+    <SelectLabel>{label.singular}</SelectLabel>
 
-      <SelectControl>
-        <SelectTrigger>
-          <SelectValue placeholder={`Select ${label.singular}...`} />
-          <BiExpandVertical />
-        </SelectTrigger>
-      </SelectControl>
+    <SelectControl>
+      <SelectTrigger>
+        <SelectValue placeholder={`Select ${label.singular}...`} />
+        <BiExpandVertical />
+      </SelectTrigger>
+    </SelectControl>
 
-      <Portal>
-        <SelectPositioner>
-          <SelectContent>
-            <SelectItemGroup id={label.id}>
-              <SelectItemGroupLabel htmlFor={label.id}>
-                {label.plural}
-              </SelectItemGroupLabel>
+    <Portal>
+      <SelectPositioner>
+        <SelectContent>
+          <SelectItemGroup id={label.id}>
+            <SelectItemGroupLabel htmlFor={label.id}>
+              {label.plural}
+            </SelectItemGroupLabel>
 
-              {items.map((item) => (
-                // @ts-expect-error upstream (Ark `CollectionItem`) type bug
-                <SelectItem key={item.value} item={item}>
-                  {/* @ts-expect-error upstream (Ark `CollectionItem`) type bug */}
-                  <SelectItemText>{item.label}</SelectItemText>
+            {items.map((item) => (
+              // @ts-expect-error upstream (Ark `CollectionItem`) type bug
+              <SelectItem key={item.value} item={item}>
+                {/* @ts-expect-error upstream (Ark `CollectionItem`) type bug */}
+                <SelectItemText>{item.label}</SelectItemText>
 
-                  <SelectItemIndicator>
-                    <BiCheck />
-                  </SelectItemIndicator>
-                </SelectItem>
-              ))}
-            </SelectItemGroup>
-          </SelectContent>
-        </SelectPositioner>
-      </Portal>
-    </>
-    {/* )} */}
+                <SelectItemIndicator>
+                  <BiCheck />
+                </SelectItemIndicator>
+              </SelectItem>
+            ))}
+          </SelectItemGroup>
+        </SelectContent>
+      </SelectPositioner>
+    </Portal>
   </SelectRoot>
 );
 
