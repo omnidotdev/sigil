@@ -28,7 +28,7 @@
     "*.config.ts",
     "*.config.cjs",
     ".storybook/**/*.ts",
-    ".storybook/preview.tsx"
+    ".storybook/**/*.tsx",
   ],
   "exclude": [
     "**/node_modules",
