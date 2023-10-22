@@ -15,7 +15,7 @@ const splitter = defineSlotRecipe({
     },
     panel: {
       borderWidth: 1,
-      bgColor: "background.subtle",
+      bgColor: "background.default",
       borderRadius: "sm",
       color: "foreground.muted",
       display: "flex",
@@ -28,12 +28,12 @@ const splitter = defineSlotRecipe({
       transitionProperty: "background",
       transitionTimingFunction: "default",
       outline: 0,
-      bgColor: "background.muted",
+      bgColor: "neutral.500",
       _hover: {
-        bgColor: "accent.default",
+        bgColor: "neutral.600",
       },
       _active: {
-        bgColor: "accent.default",
+        bgColor: "neutral.600",
       },
       _horizontal: {
         minWidth: 1,

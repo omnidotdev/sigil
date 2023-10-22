@@ -37,16 +37,16 @@ const toggleGroup = defineSlotRecipe({
       whiteSpace: "nowrap",
       zIndex: 1,
       _hover: {
-        color: "foreground.emphasized",
+        color: "foreground.default",
         bgColor: "background.subtle",
       },
       _checked: {
         bgColor: "background.subtle",
-        color: "foreground.emphasized",
+        color: "foreground.default",
       },
       _pressed: {
         bgColor: "background.subtle",
-        color: "foreground.emphasized",
+        color: "foreground.default",
       },
       _disabled: {
         borderColor: "border.disabled",
@@ -70,7 +70,7 @@ const toggleGroup = defineSlotRecipe({
         root: {
           borderWidth: "1px",
           borderRadius: "sm",
-          borderColor: "border.emphasized",
+          borderColor: "border.default",
           _horizontal: {
             divideX: "1px",
           },
@@ -79,9 +79,9 @@ const toggleGroup = defineSlotRecipe({
           },
         },
         toggle: {
-          borderColor: "border.emphasized",
+          borderColor: "border.default",
           _focusVisible: {
-            color: "foreground.emphasized",
+            color: "foreground.default",
             bgColor: "background.subtle",
           },
         },

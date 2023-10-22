@@ -7,7 +7,7 @@ const label = defineRecipe({
   className: "label",
   description: "Label style recipes",
   base: {
-    color: "foreground.emphasized",
+    color: "foreground.default",
     fontWeight: "medium",
   },
   defaultVariants: {

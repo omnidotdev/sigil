@@ -36,9 +36,9 @@ const link = defineRecipe({
         },
         _currentPage: {
           fontWeight: "semibold",
-          color: "foreground.emphasized",
+          color: "foreground.default",
           _hover: {
-            color: "foreground.emphasized",
+            color: "foreground.default",
           },
         },
       },
@@ -49,9 +49,9 @@ const link = defineRecipe({
           color: "foreground.muted",
         },
         _currentPage: {
-          color: "foreground.emphasized",
+          color: "foreground.default",
           _hover: {
-            color: "foreground.emphasized",
+            color: "foreground.default",
           },
         },
       },

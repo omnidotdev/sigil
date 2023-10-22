@@ -26,16 +26,16 @@ const badge = defineRecipe({
       },
       subtle: {
         bgColor: "background.subtle",
-        borderColor: "border.default",
+        borderColor: "border.subtle",
         borderWidth: 1,
-        color: "foreground.emphasized",
+        color: "foreground.default",
         "& svg": {
           color: "foreground.muted",
         },
       },
       outline: {
         borderWidth: 1.5,
-        borderColor: "border.emphasized",
+        borderColor: "border.default",
       },
     },
     size: {

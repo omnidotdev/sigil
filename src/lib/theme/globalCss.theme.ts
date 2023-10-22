@@ -29,7 +29,7 @@ const globalCss = defineGlobalStyles({
     },
   },
   "*, *::before, *::after": {
-    borderColor: "border.default",
+    borderColor: "border.subtle",
     borderStyle: "solid",
     boxSizing: "border-box",
   },

@@ -50,11 +50,11 @@ const select = defineSlotRecipe({
       transitionTimingFunction: "default",
       _hover: {
         color: "foreground.default",
-        bgColor: "gray.100",
+        bgColor: "neutral.100",
       },
       _highlighted: {
         color: "foreground.default",
-        bgColor: "gray.100",
+        bgColor: "neutral.100",
       },
       _selected: {
         color: "foreground.default",
@@ -75,13 +75,13 @@ const select = defineSlotRecipe({
       color: "accent.default",
     },
     label: {
-      color: "foreground.emphasized",
+      color: "foreground.default",
       fontWeight: "medium",
     },
     trigger: {
       appearance: "none",
       alignItems: "center",
-      borderColor: "border.emphasized",
+      borderColor: "border.default",
       borderRadius: "sm",
       cursor: "pointer",
       display: "inline-flex",
@@ -118,10 +118,10 @@ const select = defineSlotRecipe({
       ghost: {
         trigger: {
           _hover: {
-            bgColor: "gray.100",
+            bgColor: "neutral.100",
           },
           _focus: {
-            bgColor: "gray.100",
+            bgColor: "neutral.100",
           },
         },
       },

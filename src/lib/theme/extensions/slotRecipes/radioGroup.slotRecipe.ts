@@ -13,10 +13,10 @@ const roundedRectangleStyles = {
   radio: {
     px: "0!",
     appearance: "none",
-    borderColor: "border.emphasized",
+    borderColor: "border.default",
     borderRadius: "sm",
     borderWidth: "1px",
-    color: "foreground.emphasized",
+    color: "foreground.default",
     display: "inline-flex",
     fontWeight: "semibold",
     justifyContent: "center",
@@ -29,7 +29,7 @@ const roundedRectangleStyles = {
     verticalAlign: "middle",
     whiteSpace: "nowrap",
     _hover: {
-      background: "gray.50",
+      background: "neutral.50",
     },
     _checked: {
       cursor: "default",
@@ -73,7 +73,7 @@ const radioGroup = defineSlotRecipe({
       },
     },
     radioLabel: {
-      color: "foreground.emphasized",
+      color: "foreground.default",
       fontWeight: "medium",
       _disabled: {
         color: "foreground.disabled",
@@ -89,7 +89,7 @@ const radioGroup = defineSlotRecipe({
       regular: {
         radioControl: {
           bgColor: "transparent",
-          borderColor: "border.emphasized",
+          borderColor: "border.default",
           borderRadius: "full",
           borderWidth: "1px",
           transitionDuration: "normal",

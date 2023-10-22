@@ -37,7 +37,7 @@ const rangeSlider = defineSlotRecipe({
       cursor: "pointer",
     },
     label: {
-      color: "foreground.emphasized",
+      color: "foreground.default",
       fontWeight: "semibold",
     },
   },

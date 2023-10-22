@@ -18,7 +18,7 @@ const slider = defineSlotRecipe({
       alignItems: "center",
     },
     track: {
-      bgColor: "background.muted",
+      bgColor: "background.emphasized",
       borderRadius: "sm",
       flex: 1,
       cursor: "pointer",
@@ -37,7 +37,7 @@ const slider = defineSlotRecipe({
       cursor: "pointer",
     },
     label: {
-      color: "foreground.emphasized",
+      color: "foreground.default",
       fontWeight: "medium",
     },
   },

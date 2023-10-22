@@ -19,38 +19,32 @@ const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
     },
     subtle: {
       value: {
-        base: "{colors.neutral.100}",
-        _dark: "{colors.neutral.900}",
+        base: "{colors.neutral.50}",
+        _dark: "{colors.neutral.100}",
       },
     },
     muted: {
       value: {
-        base: "{colors.neutral.300}",
-        _dark: "{colors.neutral.600}",
+        base: "{colors.neutral.100}",
+        _dark: "{colors.neutral.200}",
       },
     },
     emphasized: {
       value: {
-        base: "{colors.neutral.300}",
-        _dark: "{colors.neutral.600}",
+        base: "{colors.neutral.200}",
+        _dark: "{colors.neutral.300}",
       },
     },
     disabled: {
       value: {
-        base: "{colors.neutral.300}",
-        _dark: "{colors.neutral.700}",
+        base: "{colors.neutral.100}",
+        _dark: "{colors.neutral.200}",
       },
     },
   },
   foreground: {
     default: {
       value: { base: "{colors.neutral.950}", _dark: "{colors.white}" },
-    },
-    emphasized: {
-      value: {
-        base: "{colors.neutral.700}",
-        _dark: "{colors.neutral.200}",
-      },
     },
     muted: {
       value: {
@@ -65,10 +59,7 @@ const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
       },
     },
     disabled: {
-      value: {
-        base: "{colors.neutral.200}",
-        _dark: "{colors.neutral.800}",
-      },
+      value: "{colors.neutral.500}",
     },
   },
   accent: {
@@ -90,31 +81,22 @@ const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
   },
   border: {
     default: {
-      value: {
-        base: "{colors.neutral.200}",
-        _dark: "{colors.neutral.800}",
-      },
+      value: "{colors.neutral.500}",
     },
-    emphasized: {
-      value: {
-        base: "{colors.neutral.300}",
-        _dark: "{colors.neutral.700}",
-      },
+    muted: {
+      value: "{colors.neutral.400}",
+    },
+    subtle: {
+      value: "{colors.neutral.200}",
+    },
+    disabled: {
+      value: "{colors.neutral.300}",
     },
     outline: {
-      value: {
-        base: "{colors.neutral.500}",
-        _dark: "{colors.neutral.400}",
-      },
+      value: "{colors.neutral.700}",
     },
     accent: {
       value: "{colors.accent.default}",
-    },
-    disabled: {
-      value: {
-        base: "{colors.neutral.200}",
-        _dark: "{colors.neutral.800}",
-      },
     },
   },
 });

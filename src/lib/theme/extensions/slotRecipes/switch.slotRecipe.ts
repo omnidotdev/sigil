@@ -17,7 +17,7 @@ const switchRecipe = defineSlotRecipe({
     },
     control: {
       alignItems: "center",
-      bgColor: "background.muted",
+      bgColor: "background.emphasized",
       borderRadius: "full",
       cursor: "pointer",
       display: "inline-flex",
@@ -44,7 +44,7 @@ const switchRecipe = defineSlotRecipe({
       zIndex: 1,
       _checked: {
         transform: "translateX(100%)",
-        bgColor: "background.default",
+        background: { base: "background.default", _dark: "accent.foreground" },
       },
     },
   },

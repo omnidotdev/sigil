@@ -19,7 +19,7 @@ const pinInput = defineSlotRecipe({
       gap: 2,
     },
     label: {
-      color: "foreground.emphasized",
+      color: "foreground.default",
       fontWeight: "medium",
     },
   },
