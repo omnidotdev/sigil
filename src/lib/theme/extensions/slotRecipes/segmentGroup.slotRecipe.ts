@@ -15,6 +15,7 @@ const segmentGroup = defineSlotRecipe({
         _horizontal: "row",
         _vertical: "column",
       },
+      alignItems: "flex-start",
       gap: {
         _horizontal: 4,
         _vertical: 1,
@@ -40,7 +41,7 @@ const segmentGroup = defineSlotRecipe({
       },
     },
     radio: {
-      color: "foreground.subtle",
+      color: "foreground.muted",
       cursor: "pointer",
       fontWeight: "medium",
       transitionDuration: "normal",
@@ -51,9 +52,9 @@ const segmentGroup = defineSlotRecipe({
       },
       _checked: {
         fontWeight: "semibold",
-        color: "foreground.emphasized",
+        color: "foreground.default",
         _hover: {
-          color: "foreground.emphasized",
+          color: "foreground.default",
         },
       },
       _disabled: {

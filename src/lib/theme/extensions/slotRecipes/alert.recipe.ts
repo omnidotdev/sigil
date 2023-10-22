@@ -33,6 +33,7 @@ const alert = defineSlotRecipe({
       height: 5,
     },
     title: {
+      color: "foreground.default",
       fontWeight: "semibold",
       textStyle: "sm",
     },

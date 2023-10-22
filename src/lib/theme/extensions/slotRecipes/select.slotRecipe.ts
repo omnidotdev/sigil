@@ -18,8 +18,7 @@ const select = defineSlotRecipe({
     content: {
       bgColor: "background.default",
       borderRadius: "sm",
-      borderWidth: "1px",
-      boxShadow: "sm",
+      boxShadow: "lg",
       display: "flex",
       flexDirection: "column",
       _hidden: {
@@ -50,10 +49,15 @@ const select = defineSlotRecipe({
       transitionProperty: "background, color",
       transitionTimingFunction: "default",
       _hover: {
-        bgColor: "background.subtle",
+        color: "foreground.default",
+        bgColor: "gray.100",
       },
       _highlighted: {
-        bgColor: "background.subtle",
+        color: "foreground.default",
+        bgColor: "gray.100",
+      },
+      _selected: {
+        color: "foreground.default",
       },
       _disabled: {
         color: "foreground.disabled",
@@ -104,7 +108,6 @@ const select = defineSlotRecipe({
     variant: {
       outline: {
         trigger: {
-          bgColor: "background.default",
           borderWidth: "1px",
           _focus: {
             borderColor: "border.accent",
@@ -115,10 +118,10 @@ const select = defineSlotRecipe({
       ghost: {
         trigger: {
           _hover: {
-            bgColor: "background.subtle",
+            bgColor: "gray.100",
           },
           _focus: {
-            bgColor: "background.subtle",
+            bgColor: "gray.100",
           },
         },
       },

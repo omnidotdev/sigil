@@ -40,7 +40,6 @@ const menu = defineSlotRecipe({
     content: {
       bgColor: "background.default",
       borderRadius: "sm",
-      borderWidth: "1px",
       boxShadow: "lg",
       display: "flex",
       flexDirection: "column",

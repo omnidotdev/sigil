@@ -13,7 +13,6 @@ const hoverCard = defineSlotRecipe({
       "--hover-card-background": "colors.background.default",
       bgColor: "var(--hover-card-background)",
       borderRadius: "md",
-      borderWidth: "1px",
       boxShadow: "lg",
       maxW: 80,
       p: 4,

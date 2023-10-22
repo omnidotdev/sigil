@@ -42,10 +42,12 @@ const button = defineRecipe({
           outlineColor: "border.accent",
         },
         _disabled: {
-          bgColor: "background.disabled",
+          color: "foreground.disabled",
+          bgColor: "gray.100",
           cursor: "not-allowed",
           _hover: {
-            bgColor: "background.disabled",
+            color: "foreground.disabled",
+            bgColor: "gray.100",
           },
         },
       },
@@ -70,22 +72,9 @@ const button = defineRecipe({
       },
       outline: {
         borderWidth: 1.5,
-        borderColor: "border.emphasized",
-        bgColor: "background.default",
-        color: "foreground.emphasized",
+        borderColor: "gray.500",
         _hover: {
-          color: "foreground.default",
-          bgColor: "background.subtle",
-        },
-        _selected: {
-          bgColor: "accent.default",
-          borderColor: "border.accent",
-          color: "accent.foreground",
-          _hover: {
-            color: "accent.foreground",
-            bgColor: "accent.default",
-            borderColor: "border.accent",
-          },
+          background: "gray.50",
         },
         _disabled: {
           borderColor: "border.disabled",
@@ -104,10 +93,8 @@ const button = defineRecipe({
         },
       },
       ghost: {
-        color: "foreground.emphasized",
         _hover: {
-          color: "foreground.default",
-          bgColor: "background.subtle",
+          background: "gray.100",
         },
         _disabled: {
           color: "foreground.disabled",
@@ -121,26 +108,14 @@ const button = defineRecipe({
           outline: "2px solid",
           outlineColor: "border.outline",
         },
-        _selected: {
-          bgColor: "accent.default",
-          color: "accent.foreground",
-          _hover: {
-            color: "accent.foreground",
-            bgColor: "accent.default",
-          },
-        },
       },
       link: {
-        color: "foreground.muted",
         verticalAlign: "baseline",
-        _hover: {
-          color: "foreground.default",
-        },
         _disabled: {
-          color: "foreground.disabled",
+          color: "border.disabled",
           cursor: "not-allowed",
           _hover: {
-            color: "foreground.disabled",
+            color: "border.disabled",
           },
         },
         height: "auto!",

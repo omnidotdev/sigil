@@ -37,7 +37,7 @@ const tabs = defineSlotRecipe({
     },
     trigger: {
       alignItems: "center",
-      color: "foreground.subtle",
+      color: "foreground.muted",
       cursor: "pointer",
       display: "inline-flex",
       flexShrink: 0,

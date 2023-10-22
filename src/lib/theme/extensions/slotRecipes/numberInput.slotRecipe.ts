@@ -4,20 +4,20 @@ import { defineSlotRecipe } from "@pandacss/dev";
 const triggerStyles = {
   alignItems: "center",
   borderColor: "border.emphasized",
+  color: "foreground.muted",
   cursor: "pointer",
   display: "inline-flex",
   justifyContent: "center",
   transitionDuration: "normal",
   transitionProperty: "background, border-color, color, box-shadow",
   transitionTimingFunction: "default",
-  color: "foreground.subtle",
   "& :where(svg)": {
     width: 4,
     height: 4,
   },
   _hover: {
-    color: "foreground.emphasized",
-    bgColor: "background.subtle",
+    color: "foreground.default",
+    bgColor: "gray.50",
   },
   _disabled: {
     color: "foreground.disabled",

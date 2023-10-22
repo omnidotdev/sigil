@@ -19,7 +19,7 @@ const combobox = defineSlotRecipe({
       position: "relative",
     },
     label: {
-      color: "foreground.emphasized",
+      color: "foreground.default",
       fontWeight: "medium",
     },
     trigger: {
@@ -31,7 +31,6 @@ const combobox = defineSlotRecipe({
     content: {
       bgColor: "background.default",
       borderRadius: "sm",
-      borderWidth: "1px",
       boxShadow: "sm",
       display: "flex",
       flexDirection: "column",
@@ -60,10 +59,10 @@ const combobox = defineSlotRecipe({
       transitionProperty: "background, color",
       transitionTimingFunction: "default",
       _hover: {
-        bgColor: "background.subtle",
+        bgColor: "background.muted",
       },
       _highlighted: {
-        bgColor: "background.subtle",
+        bgColor: "background.muted",
       },
       _disabled: {
         color: "foreground.disabled",

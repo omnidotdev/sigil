@@ -11,8 +11,7 @@ const card = defineSlotRecipe({
     root: {
       bgColor: "background.default",
       borderRadius: "md",
-      borderWidth: "1px",
-      boxShadow: "xs",
+      boxShadow: "lg",
       display: "flex",
       flexDirection: "column",
       position: "relative",
@@ -38,6 +37,7 @@ const card = defineSlotRecipe({
       px: 6,
     },
     title: {
+      color: "foreground.default",
       textStyle: "lg",
       fontWeight: "semibold",
     },

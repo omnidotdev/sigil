@@ -30,7 +30,6 @@ const datePicker = defineSlotRecipe({
     content: {
       bgColor: "background.default",
       borderRadius: "md",
-      borderWidth: "1px",
       p: 4,
       width: "fit-content",
     },

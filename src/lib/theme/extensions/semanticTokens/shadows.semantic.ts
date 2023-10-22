@@ -14,6 +14,7 @@ const shadows: SemanticTokens["shadows"] = defineSemanticTokens.shadows({
   },
   xs: {
     value: {
+      // TODO extract colors to tokens
       base: "0px 1px 2px rgba(23, 23, 23,  0.1)",
       _dark: "0px 1px 2px rgba(0, 0, 0, 1.0)",
     },
