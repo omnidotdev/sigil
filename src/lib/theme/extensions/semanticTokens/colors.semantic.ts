@@ -103,7 +103,7 @@ const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
     },
     outline: {
       value: {
-        base: "{colors.neutral.600}",
+        base: "{colors.neutral.500}",
         _dark: "{colors.neutral.400}",
       },
     },

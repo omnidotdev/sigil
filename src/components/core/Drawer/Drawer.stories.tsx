@@ -17,7 +17,14 @@ export const Default: Story = {
   args: {
     trigger: <Button variant="outline">Open Drawer</Button>,
     title: "Drawer Title",
-    description: "Drawer description.",
+    description: "Drawer description",
+    footerProps: { gap: 3 },
+    footer: (
+      <>
+        <Button variant="outline">Provide Feedback</Button>
+        <Button>Get Help</Button>
+      </>
+    ),
     children: (
       <>
         <Stack gap={4}>
@@ -33,7 +40,7 @@ export const Default: Story = {
         </Stack>
 
         <DrawerCloseTrigger asChild>
-          <Button>
+          <Button mt={8}>
             Continue <FiArrowRight />
           </Button>
         </DrawerCloseTrigger>

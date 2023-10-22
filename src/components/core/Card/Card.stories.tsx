@@ -16,7 +16,7 @@ export const Default: Story = {
     title: "Team Members",
     description: "Add new members to your organization.",
     footerProps: { gap: 3 },
-    footerContent: (
+    footer: (
       <>
         <Button variant="outline">Cancel</Button>
         <Button>Invite</Button>

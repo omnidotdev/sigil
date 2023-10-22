@@ -12,12 +12,12 @@ const { withProvider, withContext } = createStyleContext(card);
 export interface CardProps extends CardVariantProps, HTMLArkProps<"div"> {
   /** Card description, displayed underneath header. */
   description?: string;
-  /** Footer content. */
-  footerContent?: ReactNode;
+  /** Footer render. */
+  footer?: ReactNode;
   /** Card header container props. */
   headerProps?: ComponentPropsWithoutRef<typeof CardHeader>;
-  /** Card content (body) container props. */
-  contentProps?: ComponentPropsWithoutRef<typeof CardContent>;
+  /** Card body container props. */
+  bodyProps?: ComponentPropsWithoutRef<typeof CardBody>;
   /** Card footer container props. */
   footerProps?: ComponentPropsWithoutRef<typeof CardFooter>;
 }
@@ -26,7 +26,7 @@ export const CardRoot = withProvider(styled(ark.div), "root");
 
 export const CardHeader = withContext(styled(ark.div), "header");
 
-export const CardContent = withContext(styled(ark.div), "content");
+export const CardBody = withContext(styled(ark.div), "body");
 
 export const CardFooter = withContext(styled(ark.div), "footer");
 
@@ -41,9 +41,9 @@ const Card = ({
   title,
   description,
   children,
-  footerContent,
+  footer,
   headerProps,
-  contentProps,
+  bodyProps,
   footerProps,
   ...rest
 }: CardProps) => (
@@ -54,9 +54,9 @@ const Card = ({
       {description && <CardDescription>{description}</CardDescription>}
     </CardHeader>
 
-    <CardContent {...contentProps}>{children}</CardContent>
+    <CardBody {...bodyProps}>{children}</CardBody>
 
-    {footerContent && <CardFooter {...footerProps}>{footerContent}</CardFooter>}
+    {footer && <CardFooter {...footerProps}>{footer}</CardFooter>}
   </CardRoot>
 );
 

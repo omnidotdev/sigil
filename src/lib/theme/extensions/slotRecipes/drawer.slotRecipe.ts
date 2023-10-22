@@ -1,21 +1,21 @@
 import { dialogAnatomy } from "@ark-ui/anatomy";
 import { defineSlotRecipe } from "@pandacss/dev";
 
+const anatomy = dialogAnatomy.extendWith("root", "header", "body", "footer");
+
 /**
  * Drawer recipe.
  */
 const drawer = defineSlotRecipe({
   className: "drawer",
   description: "Drawer style recipes",
-  slots: [...dialogAnatomy.keys(), "root"],
+  slots: [...anatomy.keys()],
   base: {
     backdrop: {
       backdropFilter: "blur(4px)",
       bgColor: {
-        // TODO replace when supported in Panda: `background.canvas/80`
-        // TODO extract colors to tokens
-        base: "rgba(250, 250, 250, 0.8)",
-        _dark: "rgba(10, 10, 10, 0.8)",
+        base: "whiteAlpha.800",
+        _dark: "blackAlpha.800",
       },
       inset: 0,
       position: "fixed",
@@ -34,27 +34,52 @@ const drawer = defineSlotRecipe({
       bottom: 0,
       justifyContent: "center",
       position: "fixed",
+      width: { base: "full", sm: "sm" },
       zIndex: "modal",
     },
     content: {
       bgColor: "background.default",
       boxShadow: "xl",
-      display: "flex",
-      flexDirection: "column",
+      display: "grid",
+      divideY: "1px",
+      gridTemplateColumns: "1fr",
+      gridTemplateRows: "auto 1fr auto",
+      gridTemplateAreas: `
+        "header"
+        "body"
+        "footer"
+      `,
       height: "full",
-      width: { base: "full", sm: "sm" },
-      overflowY: "auto",
-      position: "relative",
+      width: "full",
       _hidden: {
         display: "none",
       },
-      px: {
-        base: 4,
-        md: 6,
-      },
-      py: 6,
+    },
+    header: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 1,
+      gridArea: "header",
+      pt: { base: 4, md: 6 },
+      pb: 4,
+      px: { base: 4, md: 6 },
+    },
+    body: {
+      display: "flex",
+      flexDirection: "column",
+      gridArea: "body",
+      overflow: "auto",
+      p: { base: 4, md: 6 },
+    },
+    footer: {
+      display: "flex",
+      gridArea: "footer",
+      justifyContent: "flex-end",
+      py: 4,
+      px: { base: 4, md: 6 },
     },
     title: {
+      color: "foreground.default",
       fontWeight: "semibold",
       textStyle: "xl",
     },

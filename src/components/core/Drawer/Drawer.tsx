@@ -1,9 +1,7 @@
-import { Portal } from "@ark-ui/react";
+import { ark, Portal } from "@ark-ui/react";
 import { Dialog as ArkDialog } from "@ark-ui/react/dialog";
-import { FiX } from "react-icons/fi";
 
-import Button from "components/core/Button/Button";
-import { Stack, styled } from "generated/panda/jsx";
+import { styled } from "generated/panda/jsx";
 import { drawer, type DrawerVariantProps } from "generated/panda/recipes";
 import { createStyleContext, getContextualChildren } from "lib/util";
 
@@ -19,11 +17,16 @@ export interface DrawerProps extends ArkDialogProps, DrawerVariantProps {
   title?: string;
   /** Drawer description, displayed underneath title. */
   description?: string;
+  /** Drawer footer, displayed at the bottom. */
+  footer?: ReactNode;
   /** Drawer content (body) container props. */
   contentProps?: ComponentPropsWithoutRef<typeof DrawerContent>;
+  footerProps?: ComponentPropsWithoutRef<typeof DrawerFooter>;
 }
 
 export const DrawerRoot = withProvider(styled(ArkDialog.Root));
+
+export const DrawerTrigger = withContext(styled(ArkDialog.Trigger), "trigger");
 
 export const DrawerBackdrop = withContext(
   styled(ArkDialog.Backdrop),
@@ -42,14 +45,18 @@ export const DrawerContainer = withContext(
 
 export const DrawerContent = withContext(styled(ArkDialog.Content), "content");
 
+export const DrawerTitle = withContext(styled(ArkDialog.Title), "title");
+
 export const DrawerDescription = withContext(
   styled(ArkDialog.Description),
   "description",
 );
 
-export const DrawerTitle = withContext(styled(ArkDialog.Title), "title");
+export const DrawerHeader = withContext(styled(ark.div), "header");
 
-export const DrawerTrigger = withContext(styled(ArkDialog.Trigger), "trigger");
+export const DrawerBody = withContext(styled(ark.div), "body");
+
+export const DrawerFooter = withContext(styled(ark.div), "footer");
 
 /**
  * Drawer.
@@ -58,8 +65,10 @@ const Drawer = ({
   trigger,
   title,
   description,
+  footer,
   children,
   contentProps,
+  footerProps,
   ...rest
 }: DrawerProps) => (
   <DrawerRoot {...rest}>
@@ -72,23 +81,21 @@ const Drawer = ({
 
           <DrawerContainer>
             <DrawerContent {...contentProps}>
-              <Stack gap={6}>
-                <Stack gap={1}>
-                  {title && <DrawerTitle mb={1}>{title}</DrawerTitle>}
+              {(title || description) && (
+                <DrawerHeader>
+                  {title && <DrawerTitle>{title}</DrawerTitle>}
 
                   {description && (
                     <DrawerDescription>{description}</DrawerDescription>
                   )}
-                </Stack>
+                </DrawerHeader>
+              )}
 
+              <DrawerBody>
                 {getContextualChildren({ ctx, children })}
-              </Stack>
+              </DrawerBody>
 
-              <DrawerCloseTrigger asChild position="absolute" top="3" right="4">
-                <Button aria-label="Close Drawer" variant="ghost">
-                  <FiX />
-                </Button>
-              </DrawerCloseTrigger>
+              {footer && <DrawerFooter {...footerProps}>{footer}</DrawerFooter>}
             </DrawerContent>
           </DrawerContainer>
         </Portal>
