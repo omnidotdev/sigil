@@ -382,7 +382,7 @@ export const baseColors: Tokens["colors"] = {
  */
 // TODO extract a semantic alias palette to easily toggle between neutral color ranges
 export const neutralColors: Tokens["colors"] = {
-  neutral: {
+  silver: {
     25: { value: "#fdfdfd" },
     50: { value: "#fafafa" },
     100: { value: "#f5f5f5" },
@@ -463,6 +463,8 @@ const colors: Tokens["colors"] = defineTokens.colors({
   ...utilityColors,
   ...baseColors,
   ...neutralColors,
+  // TODO allow dynamic palette (theme picker), also for accent/core/base colors, border radii, ...
+  neutral: neutralColors.silver,
 });
 
 export default colors;
