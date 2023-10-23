@@ -3725,6 +3725,7 @@ __metadata:
     playwright: ^1.39.0
     postcss: ^8.4.31
     prettier: ^3.0.3
+    radash: ^11.0.0
     react: ^18.2.0
     react-dom: ^18.2.0
     react-icons: ^4.11.0
@@ -19595,6 +19596,13 @@ __metadata:
   version: 4.0.1
   resolution: "quick-lru@npm:4.0.1"
   checksum: bea46e1abfaa07023e047d3cf1716a06172c4947886c053ede5c50321893711577cb6119360f810cc3ffcd70c4d7db4069c3cee876b358ceff8596e062bd1154
+  languageName: node
+  linkType: hard
+
+"radash@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "radash@npm:11.0.0"
+  checksum: c9203ac64d65dee57aa6bd722a66db83d9910f998086ad15bc6e1a2c0dd8e4d874909d09855932ad00950d03d431ccd3866a250dfc154edce681eb3382604def
   languageName: node
   linkType: hard
 
