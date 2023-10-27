@@ -43,11 +43,11 @@ const button = defineRecipe({
         },
         _disabled: {
           color: "foreground.disabled",
-          bgColor: "neutral.100",
+          bgColor: "neutral.100a",
           cursor: "not-allowed",
           _hover: {
             color: "foreground.disabled",
-            bgColor: "neutral.100",
+            bgColor: "neutral.100a",
           },
         },
       },
@@ -74,7 +74,7 @@ const button = defineRecipe({
         borderWidth: 1.5,
         borderColor: "border.default",
         _hover: {
-          background: "neutral.50",
+          background: "neutral.50a",
         },
         _disabled: {
           borderColor: "border.disabled",
@@ -94,7 +94,7 @@ const button = defineRecipe({
       },
       ghost: {
         _hover: {
-          background: "neutral.100",
+          background: "neutral.100a",
         },
         _disabled: {
           color: "foreground.disabled",

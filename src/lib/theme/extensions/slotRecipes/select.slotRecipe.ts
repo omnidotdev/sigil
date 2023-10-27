@@ -50,11 +50,11 @@ const select = defineSlotRecipe({
       transitionTimingFunction: "default",
       _hover: {
         color: "foreground.default",
-        bgColor: "neutral.100",
+        bgColor: "neutral.100a",
       },
       _highlighted: {
         color: "foreground.default",
-        bgColor: "neutral.100",
+        bgColor: "neutral.100a",
       },
       _selected: {
         color: "foreground.default",
@@ -118,10 +118,10 @@ const select = defineSlotRecipe({
       ghost: {
         trigger: {
           _hover: {
-            bgColor: "neutral.100",
+            bgColor: "neutral.100a",
           },
           _focus: {
-            bgColor: "neutral.100",
+            bgColor: "neutral.100a",
           },
         },
       },

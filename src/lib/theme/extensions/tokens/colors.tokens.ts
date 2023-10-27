@@ -1,6 +1,36 @@
 import { defineTokens } from "@pandacss/dev";
+import { assign } from "radash";
+
+import { hexToRgba } from "lib/util";
 
 import type { Tokens } from "@pandacss/dev";
+import type { Recursive, Token } from "@pandacss/types";
+
+/**
+ * Generate alpha (transparent) colors from base colors.
+ */
+export const generateAlphaColors = (
+  colors: Tokens["colors"],
+): Recursive<Token<string>> => {
+  const alphaColors: Tokens["colors"] = {};
+
+  Object.entries(colors as Recursive<Token<string>>).forEach(
+    ([key, colorValue]) => {
+      Object.entries(colorValue).forEach(([valueKey, { value }]) => {
+        const alphaValue = `${valueKey}a` as const;
+
+        if (!alphaColors[key]) alphaColors[key] = {};
+
+        // @ts-ignore indexing against Panda `Token`s is safe here
+        alphaColors[key][alphaValue] = {
+          value: hexToRgba({ hex: value, alpha: +`0.${valueKey}` }),
+        };
+      });
+    },
+  );
+
+  return alphaColors;
+};
 
 /**
  * Omni colors, represented by 6 gemstones.
@@ -104,6 +134,36 @@ export const brandColors: Tokens["colors"] = {
 export const utilityColors: Tokens["colors"] = {
   current: { value: "currentColor" },
   transparent: { value: "rgb(0 0 0 / 0)" },
+  black: {
+    DEFAULT: { value: "#000" },
+    "50a": { value: "rgba(0, 0, 0, 0.05)" },
+    "100a": { value: "rgba(0, 0, 0, 0.1)" },
+    "150a": { value: "rgba(0, 0, 0, 0.15)" },
+    "200a": { value: "rgba(0, 0, 0, 0.2)" },
+    "300a": { value: "rgba(0, 0, 0, 0.3)" },
+    "400a": { value: "rgba(0, 0, 0, 0.4)" },
+    "500a": { value: "rgba(0, 0, 0, 0.5)" },
+    "600a": { value: "rgba(0, 0, 0, 0.6)" },
+    "700a": { value: "rgba(0, 0, 0, 0.7)" },
+    "800a": { value: "rgba(0, 0, 0, 0.8)" },
+    "900a": { value: "rgba(0, 0, 0, 0.9)" },
+    "950a": { value: "rgba(0, 0, 0, 0.95)" },
+  },
+  white: {
+    DEFAULT: { value: "#fff" },
+    "50a": { value: "rgba(255, 255, 255, 0.05)" },
+    "100a": { value: "rgba(255, 255, 255, 0.1)" },
+    "150a": { value: "rgba(255, 255, 255, 0.15)" },
+    "200a": { value: "rgba(255, 255, 255, 0.2)" },
+    "300a": { value: "rgba(255, 255, 255, 0.3)" },
+    "400a": { value: "rgba(255, 255, 255, 0.4)" },
+    "500a": { value: "rgba(255, 255, 255, 0.5)" },
+    "600a": { value: "rgba(255, 255, 255, 0.6)" },
+    "700a": { value: "rgba(255, 255, 255, 0.7)" },
+    "800a": { value: "rgba(255, 255, 255, 0.8)" },
+    "900a": { value: "rgba(255, 255, 255, 0.9)" },
+    "950a": { value: "rgba(255, 255, 255, 0.95)" },
+  },
 };
 
 /**
@@ -111,36 +171,6 @@ export const utilityColors: Tokens["colors"] = {
  */
 // TODO extract a semantic alias palette to easily toggle between base color ranges
 export const baseColors: Tokens["colors"] = {
-  black: { value: "#000" },
-  white: { value: "#fff" },
-  blackAlpha: {
-    50: { value: "rgba(0, 0, 0, 0.05)" },
-    100: { value: "rgba(0, 0, 0, 0.1)" },
-    150: { value: "rgba(0, 0, 0, 0.15)" },
-    200: { value: "rgba(0, 0, 0, 0.2)" },
-    300: { value: "rgba(0, 0, 0, 0.3)" },
-    400: { value: "rgba(0, 0, 0, 0.4)" },
-    500: { value: "rgba(0, 0, 0, 0.5)" },
-    600: { value: "rgba(0, 0, 0, 0.6)" },
-    700: { value: "rgba(0, 0, 0, 0.7)" },
-    800: { value: "rgba(0, 0, 0, 0.8)" },
-    900: { value: "rgba(0, 0, 0, 0.9)" },
-    950: { value: "rgba(0, 0, 0, 0.95)" },
-  },
-  whiteAlpha: {
-    50: { value: "rgba(255, 255, 255, 0.05)" },
-    100: { value: "rgba(255, 255, 255, 0.1)" },
-    150: { value: "rgba(255, 255, 255, 0.15)" },
-    200: { value: "rgba(255, 255, 255, 0.2)" },
-    300: { value: "rgba(255, 255, 255, 0.3)" },
-    400: { value: "rgba(255, 255, 255, 0.4)" },
-    500: { value: "rgba(255, 255, 255, 0.5)" },
-    600: { value: "rgba(255, 255, 255, 0.6)" },
-    700: { value: "rgba(255, 255, 255, 0.7)" },
-    800: { value: "rgba(255, 255, 255, 0.8)" },
-    900: { value: "rgba(255, 255, 255, 0.9)" },
-    950: { value: "rgba(255, 255, 255, 0.95)" },
-  },
   rose: {
     50: { value: "#fff1f2" },
     100: { value: "#ffe4e6" },
@@ -454,17 +484,22 @@ export const neutralColors: Tokens["colors"] = {
   },
 };
 
+export const neutrals = assign(
+  neutralColors,
+  generateAlphaColors(neutralColors),
+);
+
+const bases = assign(baseColors, generateAlphaColors(baseColors));
+
 /**
  * Color tokens. Default Panda colors: https://panda-css.com/docs/customization/theme#colors
  */
 const colors: Tokens["colors"] = defineTokens.colors({
-  omni: omniColors,
-  brand: brandColors,
+  omni: assign(omniColors, generateAlphaColors(omniColors)),
+  brand: assign(brandColors, generateAlphaColors(brandColors)),
   ...utilityColors,
-  ...baseColors,
-  ...neutralColors,
-  // TODO allow dynamic palette (theme picker), also for accent/core/base colors, border radii, ...
-  neutral: neutralColors.silver,
+  ...bases,
+  ...neutrals,
 });
 
 export default colors;

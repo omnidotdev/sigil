@@ -8,7 +8,7 @@ import fonts from "./extensions/semanticTokens/fonts.semantic";
  */
 const globalCss = defineGlobalStyles({
   "html, body": {
-    fontFamily: fonts.primary.value,
+    fontFamily: fonts!.primary.value as string,
   },
   html: {
     lineHeight: 1.5,
@@ -18,8 +18,8 @@ const globalCss = defineGlobalStyles({
     WebkitTextSizeAdjust: "100%",
   },
   body: {
-    bgColor: "background.canvas",
     color: "foreground.default",
+    bgColor: "background.canvas",
     fontFamily: "var(--font-primary), sans-serif",
     _light: {
       colorScheme: "light",
@@ -36,6 +36,9 @@ const globalCss = defineGlobalStyles({
   "*::placeholder": {
     opacity: 1,
     color: "foreground.subtle",
+  },
+  "*::selection": {
+    bgColor: "accent.emphasized",
   },
 });
 

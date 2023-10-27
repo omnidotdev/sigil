@@ -17,7 +17,7 @@ const triggerStyles = {
   },
   _hover: {
     color: "foreground.default",
-    bgColor: "neutral.50",
+    bgColor: "neutral.50a",
   },
   _disabled: {
     color: "foreground.disabled",
