@@ -16,12 +16,12 @@ jobs:
         with:
           node-version: "18.x"
       - name: Install dependencies
-        run: yarn
+        run: bun i
       - name: Create release PR or publish package
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: yarn release
+          publish: bun release
           title: "feature(release): version packages"
           commit: "ci(changesets): version packages"
         env:

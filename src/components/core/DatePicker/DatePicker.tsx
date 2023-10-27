@@ -183,7 +183,7 @@ const DatePicker = (props: DatePickerProps) => (
                           {week.map((day, id) => (
                             <DatePickerDayCell key={id} value={day}>
                               <DatePickerDayCellTrigger asChild>
-                                <Button variant="ghost" px="0">
+                                <Button variant="ghost" px={0}>
                                   {day.day}
                                 </Button>
                               </DatePickerDayCellTrigger>

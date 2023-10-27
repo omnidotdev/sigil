@@ -4,7 +4,7 @@ Follow these steps to use the Sigil UI library in your project.
 
 ## Prerequisites
 
-1. Install [Panda 🐼](https://panda-css.com/): `yarn add -D @pandacss/dev`
+1. Install [Panda 🐼](https://panda-css.com/): `bun add -D @pandacss/dev`
 
 2. Create a Panda config file similar to this (Panda looks for `panda.config.ts` by default):
 
@@ -52,6 +52,8 @@ Follow these steps to use the Sigil UI library in your project.
    const App = () => <></>;
    ```
 
+<!-- ? this step might need to be changed/updated once new toasts implemented -->
+
 5. (**_optional_**) Wrap your application in either `SigilProvider`, which wraps all library providers, or individual providers to allow access to provider-related functionality, such as toasts.
 
    `SigilProvider`:
@@ -78,29 +80,29 @@ Now you are ready to install the UI library. You can either install it [from the
 
 ## Remote
 
-Install from remote repository along with required dependencies: `yarn add @omnidev/sigil @ark-ui/react`
+Install from remote repository along with required dependencies: `bun add @omnidev/sigil @ark-ui/react`
 
 ## Local
 
 This workflow is ideal for local development.
 
 1. Install [knit](https://github.com/coopbri/knit)
-2. **Within the root UI library directory**, build the UI library: `yarn build` (or `yarn dev` for continuous builds)
+2. **Within the root UI library directory**, build the UI library: `bun run build` (or `bun dev` for continuous builds)
 3. **Within the project directory:**
 
-   1. Install dependencies: `yarn`
+   1. Install dependencies: `bun i`
    2. Link the UI library: `knit link @omnidev/sigil`. Linking will not modify `package.json`, it will just symlink the package into your `node_modules`. Note that the package must be published to the `knit` store first (this happens automatically after a successful build of the UI library)
 
-      > 💡 **Note:** if you receive a `Cannot find module '@omnidev/sigil' [...]` error and `yarn && knit link @omnidev/sigil` does not resolve the issue, try removing the `knit.lock` file and then relink:
+      > 💡 **Note:** if you receive a `Cannot find module '@omnidev/sigil' [...]` error and `bun i && knit link @omnidev/sigil` does not resolve the issue, try removing the `knit.lock` file and then relink:
       >
       > ```sh
       >  rm knit.lock && knit link @omnidev/sigil
       > ```
 
-      > 💡 **Note:** every time you install or modify dependencies (e.g. run `yarn` or `yarn add [...]`), the package symlink will be cleared, and will need to be relinked:
+      > 💡 **Note:** every time you install or modify dependencies (e.g. run `bun i` or `bun add [...]`), the package symlink will be cleared, and will need to be relinked:
       >
       > ```sh
-      >  yarn && knit link @omnidev/sigil
+      >  bun i && knit link @omnidev/sigil
       > ```
 
       > 💡 **Note:** if the UI library build fails, this will cause trickling errors. Make sure the UI library builds successfully if you are still having issues.
