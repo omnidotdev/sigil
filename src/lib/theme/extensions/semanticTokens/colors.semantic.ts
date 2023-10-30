@@ -14,30 +14,30 @@ const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
   danger: { value: "{colors.red}" },
   // TODO condense into function
   neutral: {
-    25: { value: `{colors[${NEUTRAL_PALETTE}].25}` },
-    50: { value: `{colors[${NEUTRAL_PALETTE}].50}` },
-    100: { value: `{colors[${NEUTRAL_PALETTE}]100}` },
-    200: { value: `{colors[${NEUTRAL_PALETTE}]200}` },
-    300: { value: `{colors[${NEUTRAL_PALETTE}]300}` },
-    400: { value: `{colors[${NEUTRAL_PALETTE}]400}` },
-    500: { value: `{colors[${NEUTRAL_PALETTE}]500}` },
-    600: { value: `{colors[${NEUTRAL_PALETTE}]600}` },
-    700: { value: `{colors[${NEUTRAL_PALETTE}]700}` },
-    800: { value: `{colors[${NEUTRAL_PALETTE}]800}` },
-    900: { value: `{colors[${NEUTRAL_PALETTE}]900}` },
-    950: { value: `{colors[${NEUTRAL_PALETTE}]950}` },
-    "25a": { value: `{colors[${NEUTRAL_PALETTE}]25a}` },
-    "50a": { value: `{colors[${NEUTRAL_PALETTE}]50a}` },
-    "100a": { value: `{colors[${NEUTRAL_PALETTE}]00a}` },
-    "200a": { value: `{colors[${NEUTRAL_PALETTE}]00a}` },
-    "300a": { value: `{colors[${NEUTRAL_PALETTE}]00a}` },
-    "400a": { value: `{colors[${NEUTRAL_PALETTE}]00a}` },
-    "500a": { value: `{colors[${NEUTRAL_PALETTE}]00a}` },
-    "600a": { value: `{colors[${NEUTRAL_PALETTE}]00a}` },
-    "700a": { value: `{colors[${NEUTRAL_PALETTE}]00a}` },
-    "800a": { value: `{colors[${NEUTRAL_PALETTE}]00a}` },
-    "900a": { value: `{colors[${NEUTRAL_PALETTE}]00a}` },
-    "950a": { value: `{colors[${NEUTRAL_PALETTE}]50a}` },
+    25: { value: `{colors.${NEUTRAL_PALETTE}.25}` },
+    50: { value: `{colors.${NEUTRAL_PALETTE}.50}` },
+    100: { value: `{colors.${NEUTRAL_PALETTE}.100}` },
+    200: { value: `{colors.${NEUTRAL_PALETTE}.200}` },
+    300: { value: `{colors.${NEUTRAL_PALETTE}.300}` },
+    400: { value: `{colors.${NEUTRAL_PALETTE}.400}` },
+    500: { value: `{colors.${NEUTRAL_PALETTE}.500}` },
+    600: { value: `{colors.${NEUTRAL_PALETTE}.600}` },
+    700: { value: `{colors.${NEUTRAL_PALETTE}.700}` },
+    800: { value: `{colors.${NEUTRAL_PALETTE}.800}` },
+    900: { value: `{colors.${NEUTRAL_PALETTE}.900}` },
+    950: { value: `{colors.${NEUTRAL_PALETTE}.950}` },
+    "25a": { value: `{colors.${NEUTRAL_PALETTE}.25a}` },
+    "50a": { value: `{colors.${NEUTRAL_PALETTE}.50a}` },
+    "100a": { value: `{colors.${NEUTRAL_PALETTE}.100a}` },
+    "200a": { value: `{colors.${NEUTRAL_PALETTE}.200a}` },
+    "300a": { value: `{colors.${NEUTRAL_PALETTE}.300a}` },
+    "400a": { value: `{colors.${NEUTRAL_PALETTE}.400a}` },
+    "500a": { value: `{colors.${NEUTRAL_PALETTE}.500a}` },
+    "600a": { value: `{colors.${NEUTRAL_PALETTE}.600a}` },
+    "700a": { value: `{colors.${NEUTRAL_PALETTE}.700a}` },
+    "800a": { value: `{colors.${NEUTRAL_PALETTE}.800a}` },
+    "900a": { value: `{colors.${NEUTRAL_PALETTE}.900a}` },
+    "950a": { value: `{colors.${NEUTRAL_PALETTE}.950a}` },
   },
   background: {
     canvas: {
@@ -47,7 +47,10 @@ const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
       },
     },
     default: {
-      value: { base: "{colors.white}", _dark: "{colors.neutral.950}" },
+      value: {
+        base: "{colors.white}",
+        _dark: "{colors.neutral.950}",
+      },
     },
     subtle: {
       value: {
@@ -76,7 +79,10 @@ const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
   },
   foreground: {
     default: {
-      value: { base: "{colors.neutral.950}", _dark: "{colors.white}" },
+      value: {
+        base: "{colors.neutral.950}",
+        _dark: "{colors.white}",
+      },
     },
     muted: {
       value: {
@@ -108,31 +114,46 @@ const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
       },
     },
     foreground: {
-      value: { base: "{colors.white}", _dark: "{colors.neutral.950}" },
+      value: {
+        base: "{colors.white}",
+        _dark: "{colors.neutral.950}",
+      },
     },
   },
   border: {
     default: {
-      value: "{colors.neutral.500}",
+      value: {
+        base: "{colors.neutral.500}",
+      },
     },
     muted: {
-      value: "{colors.neutral.400}",
-      _dark: "{colors.neutral.500}",
+      value: {
+        base: "{colors.neutral.400}",
+        _dark: "{colors.neutral.500}",
+      },
     },
     subtle: {
-      value: "{colors.neutral.200}",
-      _dark: "{colors.neutral.700}",
+      value: {
+        base: "{colors.neutral.200}",
+        _dark: "{colors.neutral.700}",
+      },
     },
     disabled: {
-      value: "{colors.neutral.300}",
-      _dark: "{colors.neutral.600}",
+      value: {
+        base: "{colors.neutral.300}",
+        _dark: "{colors.neutral.600}",
+      },
     },
     outline: {
-      value: "{colors.neutral.700a}",
-      _dark: "{colors.neutral.300a}",
+      value: {
+        base: "{colors.neutral.700a}",
+        _dark: "{colors.neutral.300a}",
+      },
     },
     accent: {
-      value: "{colors.accent.default}",
+      value: {
+        base: "{colors.accent.default}",
+      },
     },
   },
 });

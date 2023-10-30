@@ -96,6 +96,9 @@ const button = defineRecipe({
         _hover: {
           background: "neutral.100a",
         },
+        _selected: {
+          background: "neutral.100a",
+        },
         _disabled: {
           color: "foreground.disabled",
           cursor: "not-allowed",
