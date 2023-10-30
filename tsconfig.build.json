@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    // enable declaration generation
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "moduleResolution": "node",
+    // generate declaration source map
+    "declarationMap": true,
+    "noImplicitAny": false
+  },
+  // overwrite include from composed `tsconfig`
+  "include": [],
+  "files": ["src/index.ts"]
+}
