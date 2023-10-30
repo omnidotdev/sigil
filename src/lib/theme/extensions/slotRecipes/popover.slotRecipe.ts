@@ -15,6 +15,7 @@ const popover = defineSlotRecipe({
     },
     content: {
       bgColor: "background.default",
+      borderWidth: "1px",
       borderRadius: "md",
       boxShadow: "md",
       display: "flex",
