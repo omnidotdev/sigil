@@ -410,7 +410,6 @@ export const baseColors: Tokens["colors"] = {
 /**
  * Neutral colors.
  */
-// TODO extract a semantic alias palette to easily toggle between neutral color ranges
 export const neutralColors: Tokens["colors"] = {
   silver: {
     25: { value: "#fdfdfd" },
