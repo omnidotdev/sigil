@@ -1,5 +1,11 @@
 # @omnidev/sigil
 
+## 0.1.1
+
+### Patch Changes
+
+- [#10](https://github.com/omnidotdev/sigil/pull/10) [`13968e2`](https://github.com/omnidotdev/sigil/commit/13968e27fbc959b34b9afc747385c76c1f574b7b) Thanks [@coopbri](https://github.com/coopbri)! - Migrate `react-icons` imports from CJS to ESM
+
 ## 0.1.0
 
 ### Minor Changes
