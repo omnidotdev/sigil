@@ -2,4 +2,4 @@
 "@omnidev/sigil": patch
 ---
 
-Migrate 'react-icons' imports from CJS to ESM
+Migrate `react-icons` imports from CJS to ESM
