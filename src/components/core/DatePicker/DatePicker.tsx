@@ -1,6 +1,10 @@
 import { Portal } from "@ark-ui/react";
 import { DatePicker as ArkDatePicker } from "@ark-ui/react/date-picker";
-import { FiCalendar, FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import {
+  FiCalendar,
+  FiChevronLeft,
+  FiChevronRight,
+} from "react-icons/fi/index.js";
 
 import Button from "components/core/Button/Button";
 import Input from "components/core/Input/Input";

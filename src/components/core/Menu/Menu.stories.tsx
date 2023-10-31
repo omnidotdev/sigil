@@ -9,7 +9,7 @@ import {
   FiMessageSquare,
   FiPlusCircle,
   FiLogOut,
-} from "react-icons/fi";
+} from "react-icons/fi/index.js";
 
 import {
   Button,

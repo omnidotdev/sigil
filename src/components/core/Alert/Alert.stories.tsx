@@ -1,4 +1,4 @@
-import { FiDownload } from "react-icons/fi";
+import { FiDownload } from "react-icons/fi/index.js";
 
 import { Alert, Icon } from "components";
 

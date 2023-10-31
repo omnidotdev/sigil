@@ -1,5 +1,5 @@
 import { ColorPicker as ArkColorPicker } from "@ark-ui/react/color-picker";
-import { IoMdColorFilter } from "react-icons/io";
+import { IoMdColorFilter } from "react-icons/io/index.js";
 
 import Button from "components/core/Button/Button";
 import Input from "components/core/Input/Input";

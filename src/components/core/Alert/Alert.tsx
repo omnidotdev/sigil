@@ -1,7 +1,7 @@
 import { ark } from "@ark-ui/react";
-import { BiErrorAlt } from "react-icons/bi";
-import { FiCheck, FiInfo } from "react-icons/fi";
-import { IoWarningOutline } from "react-icons/io5";
+import { BiErrorAlt } from "react-icons/bi/index.js";
+import { FiCheck, FiInfo } from "react-icons/fi/index.js";
+import { IoWarningOutline } from "react-icons/io5/index.js";
 import { match } from "ts-pattern";
 
 import { styled } from "generated/panda/jsx";

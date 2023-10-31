@@ -6,7 +6,7 @@ import {
   FiBold,
   FiItalic,
   FiUnderline,
-} from "react-icons/fi";
+} from "react-icons/fi/index.js";
 
 import { Toggle, ToggleGroup } from "components";
 

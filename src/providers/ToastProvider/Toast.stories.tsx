@@ -1,5 +1,5 @@
 import { useToast } from "@ark-ui/react";
-import { FiX } from "react-icons/fi";
+import { FiX } from "react-icons/fi/index.js";
 
 import { Button } from "components";
 import { Box, Stack } from "generated/panda/jsx";

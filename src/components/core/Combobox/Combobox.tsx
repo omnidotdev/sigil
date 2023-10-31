@@ -1,7 +1,7 @@
 import { Portal, type CollectionItem } from "@ark-ui/react";
 import { Combobox as ArkCombobox } from "@ark-ui/react/combobox";
 import { useState } from "react";
-import { BiCheck, BiExpandVertical } from "react-icons/bi";
+import { BiCheck, BiExpandVertical } from "react-icons/bi/index.js";
 
 import Button from "components/core/Button/Button";
 import Input from "components/core/Input/Input";

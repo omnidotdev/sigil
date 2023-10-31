@@ -1,4 +1,4 @@
-import { FiMapPin } from "react-icons/fi";
+import { FiMapPin } from "react-icons/fi/index.js";
 
 import { Avatar, HoverCard, Text } from "components";
 import { HStack, Stack, styled } from "generated/panda/jsx";

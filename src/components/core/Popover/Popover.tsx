@@ -1,6 +1,6 @@
 import { Portal } from "@ark-ui/react";
 import { Popover as ArkPopover } from "@ark-ui/react/popover";
-import { FiX } from "react-icons/fi";
+import { FiX } from "react-icons/fi/index.js";
 
 import Button from "components/core/Button/Button";
 import { Box, Stack, styled } from "generated/panda/jsx";

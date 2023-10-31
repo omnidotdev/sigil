@@ -1,4 +1,4 @@
-import { FiArrowRight } from "react-icons/fi";
+import { FiArrowRight } from "react-icons/fi/index.js";
 
 import { Button } from "components";
 

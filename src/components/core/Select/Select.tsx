@@ -1,6 +1,6 @@
 import { Portal } from "@ark-ui/react";
 import { Select as ArkSelect } from "@ark-ui/react/select";
-import { BiCheck, BiExpandVertical } from "react-icons/bi";
+import { BiCheck, BiExpandVertical } from "react-icons/bi/index.js";
 
 import { styled } from "generated/panda/jsx";
 import { select, type SelectVariantProps } from "generated/panda/recipes";
