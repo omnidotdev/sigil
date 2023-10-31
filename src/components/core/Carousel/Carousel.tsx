@@ -1,5 +1,5 @@
 import { Carousel as ArkCarousel } from "@ark-ui/react/carousel";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi/index.js";
 
 import Button from "components/core/Button/Button";
 import { styled } from "generated/panda/jsx";

@@ -1,4 +1,4 @@
-import { FiArrowRight } from "react-icons/fi";
+import { FiArrowRight } from "react-icons/fi/index.js";
 
 import { Button, Drawer, DrawerCloseTrigger, Input, Label } from "components";
 import { Stack } from "generated/panda/jsx";

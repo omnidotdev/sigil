@@ -1,6 +1,6 @@
 import { TagsInput as ArkTagsInput } from "@ark-ui/react/tags-input";
 import { Fragment } from "react";
-import { FiX } from "react-icons/fi";
+import { FiX } from "react-icons/fi/index.js";
 
 import Button from "components/core/Button/Button";
 import Label from "components/core/Label/Label";

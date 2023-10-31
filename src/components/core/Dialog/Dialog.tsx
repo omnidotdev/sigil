@@ -1,6 +1,6 @@
 import { Portal } from "@ark-ui/react";
 import { Dialog as ArkDialog } from "@ark-ui/react/dialog";
-import { FiX } from "react-icons/fi";
+import { FiX } from "react-icons/fi/index.js";
 
 import Button from "components/core/Button/Button";
 import { Stack, styled } from "generated/panda/jsx";

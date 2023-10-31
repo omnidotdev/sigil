@@ -1,5 +1,5 @@
 import { Accordion as ArkAccordion } from "@ark-ui/react/accordion";
-import { FiChevronDown } from "react-icons/fi";
+import { FiChevronDown } from "react-icons/fi/index.js";
 
 import { styled } from "generated/panda/jsx";
 import { accordion, type AccordionVariantProps } from "generated/panda/recipes";

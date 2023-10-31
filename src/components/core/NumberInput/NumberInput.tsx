@@ -1,5 +1,5 @@
 import { NumberInput as ArkNumberInput } from "@ark-ui/react/number-input";
-import { FiChevronUp, FiChevronDown } from "react-icons/fi";
+import { FiChevronUp, FiChevronDown } from "react-icons/fi/index.js";
 
 import { styled } from "generated/panda/jsx";
 import {

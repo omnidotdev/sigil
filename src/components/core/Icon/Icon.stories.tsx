@@ -1,4 +1,4 @@
-import { BiAperture } from "react-icons/bi";
+import { BiAperture } from "react-icons/bi/index.js";
 
 import { Icon } from "components";
 

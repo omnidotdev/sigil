@@ -1,5 +1,5 @@
 import { Pagination as ArkPagination } from "@ark-ui/react/pagination";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi/index.js";
 import { useMediaQuery } from "usehooks-ts";
 
 import Button from "components/core/Button/Button";

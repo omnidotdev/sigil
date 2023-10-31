@@ -3,7 +3,7 @@ import {
   BsStarHalf as IconHalf,
   BsStar as IconEmpty,
   BsStarFill as IconFull,
-} from "react-icons/bs";
+} from "react-icons/bs/index.js";
 
 import { styled } from "generated/panda/jsx";
 import { rating, type RatingVariantProps } from "generated/panda/recipes";
