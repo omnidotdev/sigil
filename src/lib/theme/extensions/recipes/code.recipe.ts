@@ -10,7 +10,7 @@ const code = defineRecipe({
     alignItems: "center",
     bgColor: "background.subtle",
     borderRadius: "sm",
-    color: "foreground.muted",
+    color: "foreground.default",
     display: "inline-flex",
     fontFamily: "var(--font-code)",
     fontWeight: "medium",
@@ -28,18 +28,20 @@ const code = defineRecipe({
     },
     size: {
       sm: {
-        height: 5,
+        minHeight: 5,
         px: 0.5,
         textStyle: "xs",
       },
       md: {
-        height: 6,
+        minHeight: 6,
         px: 1,
+        py: "1px",
         textStyle: "sm",
       },
       lg: {
-        height: 7,
+        minHeight: 7,
         px: 1.5,
+        py: "1px",
         textStyle: "md",
       },
     },
