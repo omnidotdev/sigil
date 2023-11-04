@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 type Story = StoryObj<typeof meta>;
 
 const dividerProps = {
-  color: "brand.primary.500",
+  color: "brand.primary",
   thickness: "2",
 };
 

@@ -17,6 +17,9 @@ export const generateAlphaColors = (
   Object.entries(colors as Recursive<Token<string>>).forEach(
     ([key, colorValue]) => {
       Object.entries(colorValue).forEach(([valueKey, { value }]) => {
+        // skip default color
+        if (valueKey === "DEFAULT") return;
+
         const alphaValue = `${valueKey}a` as const;
 
         if (!alphaColors[key]) alphaColors[key] = {};
@@ -37,6 +40,7 @@ export const generateAlphaColors = (
  */
 export const omniColors: Tokens["colors"] = {
   amethyst: {
+    DEFAULT: { value: "{colors.omni.amethyst.500}" },
     50: { value: "#fdf4ff" },
     100: { value: "#fae9fe" },
     200: { value: "#f5d1fd" },
@@ -50,6 +54,7 @@ export const omniColors: Tokens["colors"] = {
     950: { value: "#49064c" },
   },
   citrine: {
+    DEFAULT: { value: "{colors.omni.citrine.500}" },
     50: { value: "#fcf7ee" },
     100: { value: "#f7eace" },
     200: { value: "#eed399" },
@@ -63,6 +68,7 @@ export const omniColors: Tokens["colors"] = {
     950: { value: "#3d170b" },
   },
   emerald: {
+    DEFAULT: { value: "{colors.omni.emerald.500}" },
     50: { value: "#effef7" },
     100: { value: "#dafeef" },
     200: { value: "#b8fadd" },
@@ -76,6 +82,7 @@ export const omniColors: Tokens["colors"] = {
     950: { value: "#03301f" },
   },
   labradorite: {
+    DEFAULT: { value: "{colors.omni.labradorite.700}" },
     50: { value: "#effefc" },
     100: { value: "#c7fff9" },
     200: { value: "#8ffff3" },
@@ -89,6 +96,7 @@ export const omniColors: Tokens["colors"] = {
     950: { value: "#003134" },
   },
   ruby: {
+    DEFAULT: { value: "{colors.omni.ruby.500}" },
     50: { value: "#fff1f2" },
     100: { value: "#ffe0e3" },
     200: { value: "#ffc6cb" },
@@ -102,6 +110,7 @@ export const omniColors: Tokens["colors"] = {
     950: { value: "#49060c" },
   },
   sapphire: {
+    DEFAULT: { value: "{colors.omni.sapphire.500}" },
     50: { value: "#ebf7ff" },
     100: { value: "#d2ecff" },
     200: { value: "#afdfff" },
@@ -172,6 +181,7 @@ export const utilityColors: Tokens["colors"] = {
 // TODO extract a semantic alias palette to easily toggle between base color ranges
 export const baseColors: Tokens["colors"] = {
   rose: {
+    DEFAULT: { value: "{colors.rose.500}" },
     50: { value: "#fff1f2" },
     100: { value: "#ffe4e6" },
     200: { value: "#fecdd3" },
@@ -185,6 +195,7 @@ export const baseColors: Tokens["colors"] = {
     950: { value: "#4c0519" },
   },
   "dusty-rose": {
+    DEFAULT: { value: "{colors.dusty-rose.500}" },
     50: { value: "#faf5f8" },
     100: { value: "#f6edf2" },
     200: { value: "#eedce7" },
@@ -198,6 +209,7 @@ export const baseColors: Tokens["colors"] = {
     950: { value: "#3a1d2a" },
   },
   pink: {
+    DEFAULT: { value: "{colors.pink.500}" },
     50: { value: "#fdf2f8" },
     100: { value: "#fce7f3" },
     200: { value: "#fbcfe8" },
@@ -211,6 +223,7 @@ export const baseColors: Tokens["colors"] = {
     950: { value: "#500724" },
   },
   fuchsia: {
+    DEFAULT: { value: "{colors.fuchsia.500}" },
     50: { value: "#fdf4ff" },
     100: { value: "#fae8ff" },
     200: { value: "#f5d0fe" },
@@ -224,6 +237,7 @@ export const baseColors: Tokens["colors"] = {
     950: { value: "#4a044e" },
   },
   purple: {
+    DEFAULT: { value: "{colors.purple.500}" },
     50: { value: "#faf5ff" },
     100: { value: "#f3e8ff" },
     200: { value: "#e9d5ff" },
@@ -237,6 +251,7 @@ export const baseColors: Tokens["colors"] = {
     950: { value: "#3b0764" },
   },
   violet: {
+    DEFAULT: { value: "{colors.violet.500}" },
     50: { value: "#f5f3ff" },
     100: { value: "#ede9fe" },
     200: { value: "#ddd6fe" },
@@ -250,6 +265,7 @@ export const baseColors: Tokens["colors"] = {
     950: { value: "#2e1065" },
   },
   indigo: {
+    DEFAULT: { value: "{colors.indigo.500}" },
     50: { value: "#eef2ff" },
     100: { value: "#e0e7ff" },
     200: { value: "#c7d2fe" },
@@ -263,6 +279,7 @@ export const baseColors: Tokens["colors"] = {
     950: { value: "#1e1b4b" },
   },
   blue: {
+    DEFAULT: { value: "{colors.blue.500}" },
     50: { value: "#eff6ff" },
     100: { value: "#dbeafe" },
     200: { value: "#bfdbfe" },
@@ -276,6 +293,7 @@ export const baseColors: Tokens["colors"] = {
     950: { value: "#172554" },
   },
   sky: {
+    DEFAULT: { value: "{colors.sky.500}" },
     50: { value: "#f0f9ff" },
     100: { value: "#e0f2fe" },
     200: { value: "#bae6fd" },
@@ -289,6 +307,7 @@ export const baseColors: Tokens["colors"] = {
     950: { value: "#082f49" },
   },
   cyan: {
+    DEFAULT: { value: "{colors.cyan.500}" },
     50: { value: "#ecfeff" },
     100: { value: "#cffafe" },
     200: { value: "#a5f3fc" },
@@ -302,6 +321,7 @@ export const baseColors: Tokens["colors"] = {
     950: { value: "#083344" },
   },
   teal: {
+    DEFAULT: { value: "{colors.teal.500}" },
     50: { value: "#f0fdfa" },
     100: { value: "#ccfbf1" },
     200: { value: "#99f6e4" },
@@ -315,6 +335,7 @@ export const baseColors: Tokens["colors"] = {
     950: { value: "#042f2e" },
   },
   emerald: {
+    DEFAULT: { value: "{colors.emerald.500}" },
     50: { value: "#ecfdf5" },
     100: { value: "#d1fae5" },
     200: { value: "#a7f3d0" },
@@ -328,6 +349,7 @@ export const baseColors: Tokens["colors"] = {
     950: { value: "#022c22" },
   },
   green: {
+    DEFAULT: { value: "{colors.green.500}" },
     50: { value: "#f0fdf4" },
     100: { value: "#dcfce7" },
     200: { value: "#bbf7d0" },
@@ -341,6 +363,7 @@ export const baseColors: Tokens["colors"] = {
     950: { value: "#052e16" },
   },
   lime: {
+    DEFAULT: { value: "{colors.lime.500}" },
     50: { value: "#f7fee7" },
     100: { value: "#ecfccb" },
     200: { value: "#d9f99d" },
@@ -354,6 +377,7 @@ export const baseColors: Tokens["colors"] = {
     950: { value: "#1a2e05" },
   },
   yellow: {
+    DEFAULT: { value: "{colors.yellow.500}" },
     50: { value: "#fefce8" },
     100: { value: "#fef9c3" },
     200: { value: "#fef08a" },
@@ -367,6 +391,7 @@ export const baseColors: Tokens["colors"] = {
     950: { value: "#422006" },
   },
   amber: {
+    DEFAULT: { value: "{colors.amber.500}" },
     50: { value: "#fffbeb" },
     100: { value: "#fef3c7" },
     200: { value: "#fde68a" },
@@ -380,6 +405,7 @@ export const baseColors: Tokens["colors"] = {
     950: { value: "#451a03" },
   },
   orange: {
+    DEFAULT: { value: "{colors.orange.500}" },
     50: { value: "#fff7ed" },
     100: { value: "#ffedd5" },
     200: { value: "#fed7aa" },
@@ -393,6 +419,7 @@ export const baseColors: Tokens["colors"] = {
     950: { value: "#431407" },
   },
   red: {
+    DEFAULT: { value: "{colors.red.500}" },
     50: { value: "#fef2f2" },
     100: { value: "#fee2e2" },
     200: { value: "#fecaca" },
@@ -412,6 +439,7 @@ export const baseColors: Tokens["colors"] = {
  */
 export const neutralColors: Tokens["colors"] = {
   silver: {
+    DEFAULT: { value: "{colors.silver.500}" },
     25: { value: "#fdfdfd" },
     50: { value: "#fafafa" },
     100: { value: "#f5f5f5" },
@@ -426,6 +454,7 @@ export const neutralColors: Tokens["colors"] = {
     950: { value: "#0a0a0a" },
   },
   stone: {
+    DEFAULT: { value: "{colors.stone.500}" },
     25: { value: "#fcfcfc" },
     50: { value: "#fafaf9" },
     100: { value: "#f5f5f4" },
@@ -440,6 +469,7 @@ export const neutralColors: Tokens["colors"] = {
     950: { value: "#0c0a09" },
   },
   zinc: {
+    DEFAULT: { value: "{colors.zinc.500}" },
     25: { value: "#fcfcfc" },
     50: { value: "#fafafa" },
     100: { value: "#f4f4f5" },
@@ -454,6 +484,7 @@ export const neutralColors: Tokens["colors"] = {
     950: { value: "#09090b" },
   },
   gray: {
+    DEFAULT: { value: "{colors.gray.500}" },
     25: { value: "#fcfcfd" },
     50: { value: "#f9fafb" },
     100: { value: "#f3f4f6" },
@@ -468,6 +499,7 @@ export const neutralColors: Tokens["colors"] = {
     950: { value: "#030712" },
   },
   slate: {
+    DEFAULT: { value: "{colors.slate.500}" },
     25: { value: "#fcfcfd" },
     50: { value: "#f8fafc" },
     100: { value: "#f1f5f9" },

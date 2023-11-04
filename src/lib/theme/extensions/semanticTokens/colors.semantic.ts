@@ -14,6 +14,7 @@ const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
   danger: { value: "{colors.red}" },
   // TODO condense into function
   neutral: {
+    DEFAULT: { value: `{colors.${NEUTRAL_PALETTE}.500}` },
     25: { value: `{colors.${NEUTRAL_PALETTE}.25}` },
     50: { value: `{colors.${NEUTRAL_PALETTE}.50}` },
     100: { value: `{colors.${NEUTRAL_PALETTE}.100}` },
@@ -103,14 +104,14 @@ const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
   accent: {
     default: {
       value: {
-        base: "{colors.brand.primary.500}",
-        _dark: "{colors.brand.primary.300}",
+        base: "{colors.brand.primary}",
+        _dark: "{colors.brand.primary.500}",
       },
     },
     emphasized: {
       value: {
-        base: "{colors.brand.primary.600}",
-        _dark: "{colors.brand.primary.400}",
+        base: "{colors.brand.primary.800}",
+        _dark: "{colors.brand.primary.600}",
       },
     },
     foreground: {
