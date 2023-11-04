@@ -15,4 +15,11 @@ export const Default: Story = {
   },
 };
 
+export const Indeterminate: Story = {
+  args: {
+    ...Default.args,
+    defaultChecked: "indeterminate",
+  },
+};
+
 export default meta;
