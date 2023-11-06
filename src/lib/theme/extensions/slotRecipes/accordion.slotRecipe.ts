@@ -12,6 +12,7 @@ const accordion = defineSlotRecipe({
     root: {
       divideY: "1px",
       width: "full",
+      borderYWidth: "1px",
     },
     trigger: {
       alignItems: "center",
@@ -19,8 +20,10 @@ const accordion = defineSlotRecipe({
       cursor: "pointer",
       display: "flex",
       fontWeight: "semibold",
+      gap: 3,
       justifyContent: "space-between",
       textStyle: "lg",
+      textAlign: "left",
       width: "full",
     },
     content: {

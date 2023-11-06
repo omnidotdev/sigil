@@ -39,6 +39,13 @@ const checkbox = defineSlotRecipe({
           bgColor: "accent.default",
         },
       },
+      _indeterminate: {
+        bgColor: "accent.default",
+        borderColor: "border.accent",
+        _hover: {
+          bgColor: "accent.default",
+        },
+      },
     },
   },
   defaultVariants: {

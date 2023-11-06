@@ -1,7 +1,5 @@
 import { defineRecipe } from "@pandacss/dev";
 
-// ! NB: not documented in Panda, see https://discord.com/channels/1118988919804010566/1120305029056831548/1148028115373789267
-
 /**
  * Link recipe.
  */
@@ -9,52 +7,23 @@ const link = defineRecipe({
   className: "link",
   description: "Link style recipes",
   base: {
-    color: "foreground.subtle",
+    alignItems: "center",
+    color: "foreground.default",
     cursor: "pointer",
     display: "inline-flex",
-    alignItems: "center",
+    fontWeight: "medium",
     gap: 2,
-    transitionDuration: "normal",
-    transitionProperty: "color, font-weight",
+    textDecoration: "underline 0.1em transparent",
+    textUnderlineOffset: "0.125em",
+    transitionDuration: "fast",
+    transitionProperty: "text-decoration-color",
     transitionTimingFunction: "default",
-  },
-  defaultVariants: {
-    variant: "text",
-  },
-  variants: {
-    variant: {
-      text: {
-        fontWeight: "medium",
-        color: "foreground.default",
-        textDecoration: "underline",
-      },
-      toc: {
-        fontWeight: "medium",
-        textStyle: "sm",
-        _hover: {
-          color: "foreground.muted",
-        },
-        _currentPage: {
-          fontWeight: "semibold",
-          color: "foreground.default",
-          _hover: {
-            color: "foreground.default",
-          },
-        },
-      },
-      navbar: {
-        fontWeight: "semibold",
-        textStyle: "md",
-        _hover: {
-          color: "foreground.muted",
-        },
-        _currentPage: {
-          color: "foreground.default",
-          _hover: {
-            color: "foreground.default",
-          },
-        },
-      },
+    _hover: {
+      textDecorationColor: "accent.default",
+    },
+    "& svg": {
+      width: "1em",
+      height: "1em",
     },
   },
 });

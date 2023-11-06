@@ -24,7 +24,7 @@ export const CheckboxControl = withContext(
 
 export const CheckboxLabel = withContext(styled(ArkCheckbox.Label), "label");
 
-// TODO change to react-icons icon
+// TODO change to react-icons icon, and make sure can click icon to toggle state
 const CheckIcon = () => (
   <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
@@ -37,7 +37,7 @@ const CheckIcon = () => (
   </svg>
 );
 
-// TODO change to react-icons icon
+// TODO change to react-icons icon, and make sure can click icon to toggle state
 const MinusIcon = () => (
   <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path

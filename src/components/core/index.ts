@@ -52,6 +52,9 @@ export * from "./Input/Input";
 export { default as Label } from "./Label/Label";
 export * from "./Label/Label";
 
+export { default as Link } from "./Link/Link";
+export * from "./Link/Link";
+
 export { default as Menu } from "./Menu/Menu";
 export * from "./Menu/Menu";
 
