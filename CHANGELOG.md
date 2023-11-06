@@ -1,5 +1,16 @@
 # @omnidev/sigil
 
+## 0.2.0
+
+### Minor Changes
+
+- [#16](https://github.com/omnidotdev/sigil/pull/16) [`5a7cb87`](https://github.com/omnidotdev/sigil/commit/5a7cb87206be8615dacb4510d30266f62b805bd9) Thanks [@coopbri](https://github.com/coopbri)!
+  - Added `Link` component
+  - Updated brand colors and semantic tokens
+  - Added default color token to each color scale
+  - Added styles for indeterminate checkbox state
+  - Updated accordion and code style recipes
+
 ## 0.1.1
 
 ### Patch Changes
