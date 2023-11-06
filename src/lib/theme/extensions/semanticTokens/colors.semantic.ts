@@ -110,8 +110,8 @@ const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
     },
     emphasized: {
       value: {
-        base: "{colors.brand.primary.800}",
-        _dark: "{colors.brand.primary.600}",
+        base: "{colors.brand.primary.700}",
+        _dark: "{colors.brand.primary.400}",
       },
     },
     foreground: {

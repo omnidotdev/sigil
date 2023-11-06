@@ -82,7 +82,7 @@ export const omniColors: Tokens["colors"] = {
     950: { value: "#03301f" },
   },
   labradorite: {
-    DEFAULT: { value: "{colors.omni.labradorite.700}" },
+    DEFAULT: { value: "{colors.omni.labradorite.600}" },
     50: { value: "#effefc" },
     100: { value: "#c7fff9" },
     200: { value: "#8ffff3" },
