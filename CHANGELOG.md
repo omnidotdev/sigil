@@ -1,5 +1,11 @@
 # @omnidev/sigil
 
+## 0.2.1
+
+### Patch Changes
+
+- [#20](https://github.com/omnidotdev/sigil/pull/20) [`dc54771`](https://github.com/omnidotdev/sigil/commit/dc54771644ce4f4d312d4d3536feeb69f6ec25d6) Thanks [@coopbri](https://github.com/coopbri)! - Fix type errors in breakpoint hooks preventing type declaration file emission
+
 ## 0.2.0
 
 ### Minor Changes
