@@ -35,6 +35,13 @@ const pandaConfig = defineConfig({
           // manually declare `switch` recipe generation, since `switch` is a reserved keyword
           switch: ["*"],
         },
+        css: [
+          {
+            properties: {
+              backgroundColor: ["*"],
+            },
+          },
+        ],
       }
     : {},
 });
