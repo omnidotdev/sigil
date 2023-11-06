@@ -11,7 +11,7 @@ import type { BreakpointToken } from "generated/panda/tokens";
  * @returns The closest value to the current breakpoint.
  */
 const getClosestValue = <T,>(values: Record<string, T>, breakpoint: string) => {
-  const breakpoints = Object.keys(defaultBreakpoints);
+  const breakpoints = Object.keys(defaultBreakpoints!);
 
   let index = Object.keys(values).indexOf(breakpoint);
 

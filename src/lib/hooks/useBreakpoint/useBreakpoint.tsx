@@ -38,7 +38,7 @@ const useBreakpoint = ({ fallback = "base" }: Options = {}) => {
     handleResize();
 
     // create tuple mapping of semantic breakpoint keys with their values
-    const range = Object.entries(breakpoints)
+    const range = Object.entries(breakpoints!)
       .map(([key, breakpoint]) => [key, emToPx(breakpoint as `${number}em`)])
       // reverse to set largest breakpoint at the start (top-down; decreasing order)
       .reverse();
