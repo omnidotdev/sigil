@@ -117,6 +117,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "jsonfile": "^6.1.0",
     "lint-staged": "^15.0.2",
+    "next": "^14.0.1",
     "playwright": "^1.39.0",
     "postcss": "^8.4.31",
     "prettier": "^3.0.3",
