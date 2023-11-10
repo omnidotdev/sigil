@@ -29,7 +29,7 @@ const roundedRectangleStyles = {
     verticalAlign: "middle",
     whiteSpace: "nowrap",
     _hover: {
-      background: "neutral.50a",
+      bgColor: "neutral.50a",
     },
     _checked: {
       cursor: "default",

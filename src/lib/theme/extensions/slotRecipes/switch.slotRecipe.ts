@@ -44,7 +44,7 @@ const switchRecipe = defineSlotRecipe({
       zIndex: 1,
       _checked: {
         transform: "translateX(100%)",
-        background: {
+        bgColor: {
           base: "background.default",
           _dark: "accent.foreground",
         },

@@ -48,7 +48,7 @@ const slider = defineSlotRecipe({
       mt: -1,
     },
     marker: {
-      "--before-background": {
+      "--before-bgColor": {
         base: "colors.white",
         _dark: "colors.accent.foreground",
       },
@@ -64,7 +64,7 @@ const slider = defineSlotRecipe({
       },
       _underValue: {
         _before: {
-          background: "var(--before-background)",
+          bgColor: "var(--before-bgColor)",
         },
       },
     },

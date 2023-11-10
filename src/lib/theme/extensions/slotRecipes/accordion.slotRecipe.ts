@@ -14,7 +14,7 @@ const accordion = defineSlotRecipe({
       width: "full",
       borderYWidth: "1px",
     },
-    trigger: {
+    itemTrigger: {
       alignItems: "center",
       color: "foreground.default",
       cursor: "pointer",
@@ -26,7 +26,17 @@ const accordion = defineSlotRecipe({
       textAlign: "left",
       width: "full",
     },
-    content: {
+    itemIndicator: {
+      color: "foreground.muted",
+      transformOrigin: "center",
+      transitionDuration: "normal",
+      transitionProperty: "transform",
+      transitionTimingFunction: "default",
+      _open: {
+        transform: "rotate(-180deg)",
+      },
+    },
+    itemContent: {
       color: "foreground.muted",
       display: "grid",
       gridTemplateRows: "0fr",
@@ -47,10 +57,10 @@ const accordion = defineSlotRecipe({
   variants: {
     size: {
       md: {
-        trigger: {
+        itemTrigger: {
           py: 4,
         },
-        content: {
+        itemContent: {
           pb: 6,
           pr: 8,
           _closed: {
