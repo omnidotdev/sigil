@@ -16,6 +16,7 @@ export const Default: Story = {
     max: 100,
     defaultValue: 33,
     markerValues: [25, 50, 75],
+    label: "Slider",
   },
 };
 

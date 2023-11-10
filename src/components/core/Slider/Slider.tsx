@@ -11,6 +11,8 @@ const { withProvider, withContext } = createStyleContext(slider);
 export interface SliderProps extends ArkSliderProps, SliderVariantProps {
   /** Track values to mark. */
   markerValues: number[];
+  /** Label to represent the slider. */
+  label?: string;
 }
 
 export const SliderRoot = withProvider(styled(ArkSlider.Root), "root");
@@ -37,8 +39,10 @@ export const SliderTrack = withContext(styled(ArkSlider.Track), "track");
 /**
  * Track slider with a single thumb for selecting a scalar value in a range.
  */
-const Slider = ({ markerValues, ...rest }: SliderProps) => (
+const Slider = ({ markerValues, label, ...rest }: SliderProps) => (
   <SliderRoot {...rest}>
+    {label && <SliderLabel>{label}</SliderLabel>}
+
     <SliderControl>
       <SliderTrack>
         <SliderRange />
