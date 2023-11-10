@@ -41,7 +41,6 @@ const switchRecipe = defineSlotRecipe({
       transitionDuration: "normal",
       transitionProperty: "transform, background",
       transitionTimingFunction: "default",
-      zIndex: 1,
       _checked: {
         transform: "translateX(100%)",
         bgColor: {

@@ -9,10 +9,19 @@ const rating = defineSlotRecipe({
   description: "Rating style recipes",
   slots: ratingGroupAnatomy.keys(),
   base: {
+    root: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 1.5,
+    },
+    label: {
+      color: "foreground.default",
+      fontWeight: "medium",
+    },
     control: {
       display: "flex",
     },
-    rating: {
+    item: {
       cursor: "pointer",
       transitionDuration: "normal",
       transitionProperty: "color, fill",
@@ -45,6 +54,9 @@ const rating = defineSlotRecipe({
             height: 4,
           },
         },
+        label: {
+          textStyle: "sm",
+        },
       },
       md: {
         control: {
@@ -56,6 +68,9 @@ const rating = defineSlotRecipe({
             height: 5,
           },
         },
+        label: {
+          textStyle: "sm",
+        },
       },
       lg: {
         control: {
@@ -66,6 +81,9 @@ const rating = defineSlotRecipe({
             width: 6,
             height: 6,
           },
+        },
+        label: {
+          textStyle: "sm",
         },
       },
     },

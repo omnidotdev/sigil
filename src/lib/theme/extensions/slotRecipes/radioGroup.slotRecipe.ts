@@ -4,13 +4,14 @@ import { defineSlotRecipe } from "@pandacss/dev";
 /**
  * Rounded rectangle radio button variant styles.
  */
+// TODO type
 const roundedRectangleStyles = {
-  radioLabel: {
+  itemText: {
     _checked: {
       color: "background.default",
     },
   },
-  radio: {
+  item: {
     px: "0!",
     appearance: "none",
     borderColor: "border.default",
@@ -64,7 +65,7 @@ const radioGroup = defineSlotRecipe({
         _horizontal: "row",
       },
     },
-    radio: {
+    item: {
       alignItems: "center",
       cursor: "pointer",
       display: "flex",
@@ -72,7 +73,7 @@ const radioGroup = defineSlotRecipe({
         cursor: "not-allowed",
       },
     },
-    radioLabel: {
+    itemText: {
       color: "foreground.default",
       fontWeight: "medium",
       _disabled: {
@@ -87,7 +88,7 @@ const radioGroup = defineSlotRecipe({
   variants: {
     variant: {
       regular: {
-        radioControl: {
+        itemControl: {
           bgColor: "transparent",
           borderColor: "border.default",
           borderRadius: "full",
@@ -119,10 +120,10 @@ const radioGroup = defineSlotRecipe({
       },
       solid: {
         ...roundedRectangleStyles,
-        radio: {
-          ...roundedRectangleStyles.radio,
+        item: {
+          ...roundedRectangleStyles.item,
           _checked: {
-            ...roundedRectangleStyles.radio._checked,
+            ...roundedRectangleStyles.item._checked,
             bgColor: "accent.default",
             color: "background.default",
             _hover: {
@@ -134,15 +135,15 @@ const radioGroup = defineSlotRecipe({
       },
       outline: {
         ...roundedRectangleStyles,
-        radioLabel: {
+        itemText: {
           _checked: {
             color: "accent.default",
           },
         },
-        radio: {
-          ...roundedRectangleStyles.radio,
+        item: {
+          ...roundedRectangleStyles.item,
           _checked: {
-            ...roundedRectangleStyles.radio._checked,
+            ...roundedRectangleStyles.item._checked,
             boxShadow: "accent",
             _hover: {
               bgColor: "initial",
@@ -156,7 +157,7 @@ const radioGroup = defineSlotRecipe({
         root: {
           gap: 2,
         },
-        radio: {
+        item: {
           h: 9,
           minW: 9,
           textStyle: "sm",
@@ -166,7 +167,7 @@ const radioGroup = defineSlotRecipe({
             height: 4.5,
           },
         },
-        radioLabel: {
+        itemText: {
           gap: 2,
         },
       },
@@ -174,7 +175,7 @@ const radioGroup = defineSlotRecipe({
         root: {
           gap: 3,
         },
-        radio: {
+        item: {
           h: 10,
           minW: 10,
           textStyle: "sm",
@@ -184,7 +185,7 @@ const radioGroup = defineSlotRecipe({
             height: 5,
           },
         },
-        radioLabel: {
+        itemText: {
           gap: 2,
         },
       },
@@ -192,7 +193,7 @@ const radioGroup = defineSlotRecipe({
         root: {
           gap: 3,
         },
-        radio: {
+        item: {
           h: 11,
           minW: 11,
           textStyle: "md",
@@ -202,7 +203,7 @@ const radioGroup = defineSlotRecipe({
             height: 5,
           },
         },
-        radioLabel: {
+        itemText: {
           gap: 2,
         },
       },
@@ -210,7 +211,7 @@ const radioGroup = defineSlotRecipe({
         root: {
           gap: 3,
         },
-        radio: {
+        item: {
           h: 12,
           minW: 12,
           textStyle: "md",
@@ -220,7 +221,7 @@ const radioGroup = defineSlotRecipe({
             height: 5,
           },
         },
-        radioLabel: {
+        itemText: {
           gap: 2.5,
         },
       },
@@ -237,10 +238,10 @@ const radioGroup = defineSlotRecipe({
             _horizontal: 4,
           },
         },
-        radio: {
+        item: {
           gap: 2,
         },
-        radioControl: {
+        itemControl: {
           width: 4,
           height: 4,
           _checked: {
@@ -248,7 +249,7 @@ const radioGroup = defineSlotRecipe({
             outlineOffset: "-4px",
           },
         },
-        radioLabel: {
+        itemText: {
           textStyle: "sm",
         },
       },
@@ -263,10 +264,10 @@ const radioGroup = defineSlotRecipe({
             _horizontal: 6,
           },
         },
-        radio: {
+        item: {
           gap: 3,
         },
-        radioControl: {
+        itemControl: {
           width: 5,
           height: 5,
           _checked: {
@@ -274,7 +275,7 @@ const radioGroup = defineSlotRecipe({
             outlineOffset: "-5px",
           },
         },
-        radioLabel: {
+        itemText: {
           textStyle: "md",
         },
       },
@@ -289,10 +290,10 @@ const radioGroup = defineSlotRecipe({
             _horizontal: 8,
           },
         },
-        radio: {
+        item: {
           gap: 4,
         },
-        radioControl: {
+        itemControl: {
           width: 6,
           height: 6,
           _checked: {
@@ -300,7 +301,7 @@ const radioGroup = defineSlotRecipe({
             outlineOffset: "-6px",
           },
         },
-        radioLabel: {
+        itemText: {
           textStyle: "lg",
         },
       },
