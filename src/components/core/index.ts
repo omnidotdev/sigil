@@ -73,9 +73,6 @@ export * from "./Popover/Popover";
 export { default as RadioGroup } from "./RadioGroup/RadioGroup";
 export * from "./RadioGroup/RadioGroup";
 
-export { default as RangeSlider } from "./RangeSlider/RangeSlider";
-export * from "./RangeSlider/RangeSlider";
-
 export { default as Rating } from "./Rating/Rating";
 export * from "./Rating/Rating";
 
