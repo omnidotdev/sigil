@@ -9,9 +9,12 @@ import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(card);
 
-export interface CardProps extends CardVariantProps, HTMLArkProps<"div"> {
+export interface CardProps
+  extends CardVariantProps,
+    Omit<HTMLArkProps<"div">, "title"> {
+  title?: ReactNode;
   /** Card description, displayed underneath header. */
-  description?: string;
+  description?: ReactNode;
   /** Footer render. */
   footer?: ReactNode;
   /** Card header container props. */
