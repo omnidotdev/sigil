@@ -1,7 +1,7 @@
 import { ColorPicker as ArkColorPicker } from "@ark-ui/react/color-picker";
 import { IoMdColorFilter } from "react-icons/io";
 
-import Button from "../Button/Button";
+import Button from "components/core/Button/Button";
 import Input from "components/core/Input/Input";
 import Text from "components/typography/Text/Text";
 import { HStack, Stack, styled } from "generated/panda/jsx";
