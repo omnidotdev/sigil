@@ -91,7 +91,7 @@ const Combobox = ({ label, items, ...rest }: ComboboxProps<CollectionItem>) => {
 
   const handleChange = (
     evt: Parameters<
-      NonNullable<ComponentProps<typeof ComboboxRoot>["onInputChange"]>
+      NonNullable<ComponentProps<typeof ComboboxRoot>["onInputValueChange"]>
     >[0],
   ) => {
     const filtered = items.filter((item) =>
@@ -105,7 +105,7 @@ const Combobox = ({ label, items, ...rest }: ComboboxProps<CollectionItem>) => {
   return (
     <ComboboxRoot
       width="2xs"
-      onInputChange={handleChange}
+      onInputValueChange={handleChange}
       items={filteredItems}
       {...rest}
     >

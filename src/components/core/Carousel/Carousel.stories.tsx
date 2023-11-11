@@ -19,7 +19,7 @@ const imageUrls = [
 
 export const Default: Story = {
   args: {
-    slides: imageUrls.map((src, idx) => (
+    items: imageUrls.map((src, idx) => (
       <img
         key={idx}
         src={src}

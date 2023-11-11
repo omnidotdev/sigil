@@ -18,7 +18,7 @@ export const Default: Story = {
   args: {
     trigger: (
       <styled.span textStyle="sm" fontWeight="semibold" cursor="default">
-        {app.organization.twitter.handle} (hover me)
+        {app.organization.x.handle} (hover me)
       </styled.span>
     ),
     children: (
@@ -28,12 +28,12 @@ export const Default: Story = {
         <Stack gap={3}>
           <Stack gap={1}>
             <styled.a
-              href={app.organization.twitter.url}
+              href={app.organization.x.url}
               target="_blank"
               textStyle="sm"
               fontWeight="semibold"
             >
-              {app.organization.twitter.handle}
+              {app.organization.x.handle}
             </styled.a>
 
             <Text textStyle="sm" color="foreground.muted">

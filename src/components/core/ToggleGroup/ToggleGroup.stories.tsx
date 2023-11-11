@@ -8,7 +8,7 @@ import {
   FiUnderline,
 } from "react-icons/fi/index.js";
 
-import { Toggle, ToggleGroup } from "components";
+import { ToggleGroupItem, ToggleGroup } from "components";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -28,21 +28,21 @@ export const Default: Story = {
     defaultValue: ["left"],
     children: (
       <>
-        <Toggle value="left" aria-label="Align Left">
+        <ToggleGroupItem value="left" aria-label="Align Left">
           <FiAlignLeft />
-        </Toggle>
+        </ToggleGroupItem>
 
-        <Toggle value="center" aria-label="Align Center">
+        <ToggleGroupItem value="center" aria-label="Align Center">
           <FiAlignCenter />
-        </Toggle>
+        </ToggleGroupItem>
 
-        <Toggle value="right" aria-label="Align Right">
+        <ToggleGroupItem value="right" aria-label="Align Right">
           <FiAlignRight />
-        </Toggle>
+        </ToggleGroupItem>
 
-        <Toggle value="justify" aria-label="Align Justify">
+        <ToggleGroupItem value="justify" aria-label="Align Justify">
           <FiAlignJustify />
-        </Toggle>
+        </ToggleGroupItem>
       </>
     ),
   },
@@ -56,17 +56,17 @@ export const MultipleSelectable: Story = {
     multiple: true,
     children: (
       <>
-        <Toggle value="bold" aria-label="Toggle Bold">
+        <ToggleGroupItem value="bold" aria-label="Toggle Bold">
           <FiBold />
-        </Toggle>
+        </ToggleGroupItem>
 
-        <Toggle value="italic" aria-label="Toggle Italic">
+        <ToggleGroupItem value="italic" aria-label="Toggle Italic">
           <FiItalic />
-        </Toggle>
+        </ToggleGroupItem>
 
-        <Toggle value="underline" aria-label="Toggle Underline">
+        <ToggleGroupItem value="underline" aria-label="Toggle Underline">
           <FiUnderline />
-        </Toggle>
+        </ToggleGroupItem>
       </>
     ),
   },

@@ -18,6 +18,7 @@ export interface MenuProps extends ArkMenuProps, MenuVariantProps {
   trigger?: ReactNode;
 }
 
+// TODO ..., "root"
 export const MenuRoot = withProvider(styled(ArkMenu.Root));
 
 export const MenuArrow = withContext(styled(ArkMenu.Arrow), "arrow");
@@ -72,7 +73,8 @@ const Menu = ({ trigger, children, ...rest }: MenuProps) => (
   <MenuRoot {...rest}>
     {(ctx) => (
       <>
-        <MenuTrigger>{trigger}</MenuTrigger>
+        {/* ? keep `asChild`? */}
+        <MenuTrigger asChild>{trigger}</MenuTrigger>
 
         <Portal>
           <MenuPositioner>

@@ -22,18 +22,13 @@ export interface DialogProps extends ArkDialogProps, DialogVariantProps {
   contentProps?: ArkDialogContentProps;
 }
 
-export const DialogRoot = withProvider(styled(ArkDialog.Root));
+export const DialogRoot = withProvider(styled(ArkDialog.Root), "root");
 
 export const DialogTrigger = withContext(styled(ArkDialog.Trigger), "trigger");
 
 export const DialogBackdrop = withContext(
   styled(ArkDialog.Backdrop),
   "backdrop",
-);
-
-export const DialogContainer = withContext(
-  styled(ArkDialog.Container),
-  "container",
 );
 
 export const DialogContent = withContext(styled(ArkDialog.Content), "content");
@@ -48,6 +43,11 @@ export const DialogTitle = withContext(styled(ArkDialog.Title), "title");
 export const DialogDescription = withContext(
   styled(ArkDialog.Description),
   "description",
+);
+
+export const DialogPositioner = withContext(
+  styled(ArkDialog.Positioner),
+  "positioner",
 );
 
 // TODO fix animations not working
@@ -71,7 +71,7 @@ const Dialog = ({
         <Portal>
           <DialogBackdrop />
 
-          <DialogContainer>
+          <DialogPositioner>
             <DialogContent
               // TODO remove this hack (https://github.com/chakra-ui/ark/discussions/1282)
               hidden={!ctx.isOpen}
@@ -95,7 +95,7 @@ const Dialog = ({
                 </Button>
               </DialogCloseTrigger>
             </DialogContent>
-          </DialogContainer>
+          </DialogPositioner>
         </Portal>
       </>
     )}

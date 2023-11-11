@@ -6,8 +6,8 @@ import { fonts } from "../src/lib/theme/extensions/semanticTokens";
 import type { ThemeVars } from "@storybook/theming";
 
 const typography: Pick<ThemeVars, "fontBase" | "fontCode"> = {
-  fontBase: fonts.primary.value,
-  fontCode: fonts.code.value,
+  fontBase: fonts!.primary.value as string,
+  fontCode: fonts!.code.value as string,
 };
 
 /**

@@ -69,7 +69,10 @@ export const SelectPositioner = withContext(
 
 export const SelectTrigger = withContext(styled(ArkSelect.Trigger), "trigger");
 
-export const SelectValue = withContext(styled(ArkSelect.Value), "value");
+export const SelectValueText = withContext(
+  styled(ArkSelect.ValueText),
+  "valueText",
+);
 
 /**
  * Select.
@@ -85,7 +88,7 @@ const Select = ({ label, items, ...rest }: SelectProps<CollectionItem>) => (
 
     <SelectControl>
       <SelectTrigger>
-        <SelectValue placeholder={`Select ${label.singular}...`} />
+        <SelectValueText placeholder={`Select ${label.singular}...`} />
         <BiExpandVertical />
       </SelectTrigger>
     </SelectControl>

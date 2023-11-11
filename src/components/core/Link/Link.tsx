@@ -11,6 +11,8 @@ export interface LinkProps extends ComponentProps<typeof ArkLink> {
   isExternal?: boolean;
 }
 
+// ? move to typography module?
+
 /**
  * External link props.
  */

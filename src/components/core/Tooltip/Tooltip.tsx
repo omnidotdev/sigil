@@ -15,6 +15,7 @@ export interface TooltipProps extends ArkTooltipProps, TooltipVariantProps {
   content: ReactNode;
 }
 
+// TODO ..., "root"
 export const TooltipRoot = withProvider(styled(ArkTooltip.Root));
 
 export const TooltipArrow = withContext(styled(ArkTooltip.Arrow), "arrow");
@@ -51,6 +52,7 @@ const Tooltip = ({ trigger, content, ...rest }: TooltipProps) => (
         <TooltipArrow>
           <TooltipArrowTip />
         </TooltipArrow>
+
         <TooltipContent>{content}</TooltipContent>
       </TooltipPositioner>
     </Portal>

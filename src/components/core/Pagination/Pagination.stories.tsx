@@ -10,6 +10,10 @@ const meta = {
   tags: ["autodocs"],
 } satisfies Meta<typeof Pagination>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    count: 90,
+  },
+};
 
 export default meta;

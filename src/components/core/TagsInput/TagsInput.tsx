@@ -3,7 +3,6 @@ import { Fragment } from "react";
 import { FiX } from "react-icons/fi/index.js";
 
 import Button from "components/core/Button/Button";
-import Label from "components/core/Label/Label";
 import { styled } from "generated/panda/jsx";
 import { tagsInput, type TagsInputVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
@@ -35,56 +34,61 @@ export const TagsInputControl = withContext(
 
 export const TagsInputInput = withContext(styled(ArkTagsInput.Input), "input");
 
-export const TagsInputLabel = withContext(styled(ArkTagsInput.Label), "label");
+export const TagsInputItem = withContext(styled(ArkTagsInput.Item), "item");
 
-export const Tag = withContext(styled(ArkTagsInput.Tag), "tag");
-
-export const TagInput = withContext(styled(ArkTagsInput.TagInput), "tagInput");
-
-export const TagDeleteTrigger = withContext(
-  styled(ArkTagsInput.TagDeleteTrigger),
-  "tagDeleteTrigger",
+export const TagsInputItemDeleteTrigger = withContext(
+  styled(ArkTagsInput.ItemDeleteTrigger),
+  "itemDeleteTrigger",
 );
+
+export const TagsInputItemInput = withContext(
+  styled(ArkTagsInput.ItemInput),
+  "itemInput",
+);
+
+export const TagsInputItemText = withContext(
+  styled(ArkTagsInput.ItemText),
+  "itemText",
+);
+
+export const TagsInputLabel = withContext(styled(ArkTagsInput.Label), "label");
 
 /**
  * Input for tags.
  */
 const TagsInput = ({ label, ...rest }: TagsInputProps) => (
   <TagsInputRoot {...rest}>
-    {/* @ts-ignore TODO */}
-    {({ value }) => (
+    {(api) => (
       <>
-        <TagsInputLabel asChild>
-          <Label>{label}</Label>
-        </TagsInputLabel>
+        <TagsInputLabel>{label}</TagsInputLabel>
 
         <TagsInputControl>
-          {/* @ts-ignore TODO */}
-          {(value ?? []).map((value, index) => (
-            <Fragment key={index}>
-              <Tag index={index} value={value}>
-                {value}
+          {api.value.map((value, idx) => (
+            <TagsInputItem key={idx} index={idx} value={value}>
+              <TagsInputItemText>{value}</TagsInputItemText>
 
-                <TagDeleteTrigger index={index} value={value} asChild>
-                  <Button
-                    aria-label="Delete tag"
-                    variant="ghost"
-                    px={0}
-                    size="xs"
-                    _hover={{
-                      color: "accent.default",
-                      bgColor: "transparent",
-                    }}
-                  >
-                    <FiX />
-                  </Button>
-                </TagDeleteTrigger>
-              </Tag>
-              <TagInput index={index} value={value} />
-            </Fragment>
+              <TagsInputItemDeleteTrigger asChild>
+                <Button
+                  aria-label="Delete tag"
+                  variant="ghost"
+                  px={0}
+                  size="xs"
+                  _hover={{
+                    color: "accent.default",
+                    bgColor: "transparent",
+                  }}
+                >
+                  <FiX />
+                </Button>
+              </TagsInputItemDeleteTrigger>
+            </TagsInputItem>
           ))}
           <TagsInputInput placeholder="Add tag" />
         </TagsInputControl>
+
+        <TagsInputClearTrigger asChild>
+          <Button variant="outline">Clear</Button>
+        </TagsInputClearTrigger>
       </>
     )}
   </TagsInputRoot>

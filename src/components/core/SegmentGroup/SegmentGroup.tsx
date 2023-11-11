@@ -40,16 +40,19 @@ export const SegmentGroupIndicator = withContext(
   "indicator",
 );
 
-export const Segment = withContext(styled(ArkSegmentGroup.Segment), "radio");
-
-export const SegmentLabel = withContext(
-  styled(ArkSegmentGroup.SegmentLabel),
-  "radioLabel",
+export const SegmentGroupItem = withContext(
+  styled(ArkSegmentGroup.Item),
+  "item",
 );
 
-export const SegmentControl = withContext(
-  styled(ArkSegmentGroup.SegmentControl),
-  "radioControl",
+export const SegmentGroupItemText = withContext(
+  styled(ArkSegmentGroup.ItemText),
+  "itemText",
+);
+
+export const SegmentGroupItemControl = withContext(
+  styled(ArkSegmentGroup.ItemControl),
+  "itemControl",
 );
 
 /**
@@ -62,11 +65,11 @@ const SegmentGroup = ({ options, ...rest }: SegmentGroupProps) => (
     {...rest}
   >
     {options.map(({ label, value, isDisabled }) => (
-      <Segment key={value} value={value} disabled={isDisabled}>
-        <SegmentControl />
+      <SegmentGroupItem key={value} value={value} disabled={isDisabled}>
+        <SegmentGroupItemControl />
 
-        <SegmentLabel>{label}</SegmentLabel>
-      </Segment>
+        <SegmentGroupLabel>{label}</SegmentGroupLabel>
+      </SegmentGroupItem>
     ))}
     <SegmentGroupIndicator />
   </SegmentGroupRoot>
