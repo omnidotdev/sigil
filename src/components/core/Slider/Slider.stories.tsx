@@ -1,6 +1,7 @@
 import {
   Slider,
   SliderControl,
+  SliderLabel,
   SliderRange,
   SliderRoot,
   SliderThumb,
@@ -27,25 +28,25 @@ export const Default: Story = {
   },
 };
 
+/**
+ * Slider with multiple thumbs to represent a range.
+ */
 export const RangeSlider: Story = {
-  ...Default,
+  args: {
+    ...Default.args,
+  },
   render: () => (
-    <SliderRoot>
+    <SliderRoot {...Default.args} defaultValue={[33, 66]}>
+      <SliderLabel>Range Slider Label</SliderLabel>
+
       <SliderControl>
         <SliderTrack>
           <SliderRange />
         </SliderTrack>
-
-        <SliderThumb index={0} />
-      </SliderControl>
-
-      {/* <SliderMarkerGroup>
-        {markerValues.map((value) => (
-          <SliderMarker key={value} value={value}>
-            {value}
-          </SliderMarker>
+        {[33, 66].map((_, idx) => (
+          <SliderThumb key={idx} index={idx} />
         ))}
-      </SliderMarkerGroup> */}
+      </SliderControl>
     </SliderRoot>
   ),
 };
