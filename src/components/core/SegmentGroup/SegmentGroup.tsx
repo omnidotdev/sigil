@@ -30,6 +30,7 @@ export const SegmentGroupRoot = withProvider(
   "root",
 );
 
+// TODO use
 export const SegmentGroupLabel = withContext(
   styled(ArkSegmentGroup.Label),
   "label",
@@ -68,7 +69,7 @@ const SegmentGroup = ({ options, ...rest }: SegmentGroupProps) => (
       <SegmentGroupItem key={value} value={value} disabled={isDisabled}>
         <SegmentGroupItemControl />
 
-        <SegmentGroupLabel>{label}</SegmentGroupLabel>
+        <SegmentGroupItemText>{label}</SegmentGroupItemText>
       </SegmentGroupItem>
     ))}
     <SegmentGroupIndicator />
