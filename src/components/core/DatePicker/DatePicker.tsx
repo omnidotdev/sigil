@@ -10,8 +10,8 @@ import {
 } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-// https://github.com/microsoft/TypeScript/issues/47663
 import type { DatePickerProps as ArkDatePickerProps } from "@ark-ui/react/date-picker";
+// https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/date-picker";
 import type { ReactNode } from "react";
 

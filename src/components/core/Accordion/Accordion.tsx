@@ -5,8 +5,8 @@ import { styled } from "generated/panda/jsx";
 import { accordion, type AccordionVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-// https://github.com/microsoft/TypeScript/issues/47663
 import type { AccordionProps as ArkAccordionProps } from "@ark-ui/react/accordion";
+// https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/accordion";
 import type { ReactNode } from "react";
 

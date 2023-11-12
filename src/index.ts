@@ -21,7 +21,3 @@ export * from "lib/hooks";
 // @ts-expect-error ts(2308): warns about duplicate exports, but intended for composable overrides
 // eslint-disable-next-line import/export
 export * from "components";
-
-// @ts-expect-error ts(2308): warns about duplicate exports, but intended for composable overrides
-// eslint-disable-next-line import/export
-export * from "providers";

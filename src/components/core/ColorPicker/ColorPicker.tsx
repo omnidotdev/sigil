@@ -11,8 +11,8 @@ import {
 } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-// https://github.com/microsoft/TypeScript/issues/47663
 import type { ColorPickerProps as ArkColorPickerProps } from "@ark-ui/react/color-picker";
+// https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/color-picker";
 import type {} from "@zag-js/color-utils";
 import type { ReactNode } from "react";

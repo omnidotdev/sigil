@@ -9,8 +9,8 @@ import { styled } from "generated/panda/jsx";
 import { rating, type RatingVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-// https://github.com/microsoft/TypeScript/issues/47663
 import type { RatingGroupProps as ArkRatingGroupProps } from "@ark-ui/react/rating-group";
+// https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/rating-group";
 import type { ReactNode } from "react";
 
