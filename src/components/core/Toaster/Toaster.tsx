@@ -32,7 +32,7 @@ export const ToastCloseTrigger = withContext(
 
 // TODO allow passing in custom default props
 // TODO JSDoc `Toaster` and `toast`
-export const [Toaster, toast] = createToaster({
+const [Toaster, toast] = createToaster({
   // TODO `top-end` on desktop, `top` on mobile
   placement: "top-end",
   render: (toast) => (
@@ -49,3 +49,7 @@ export const [Toaster, toast] = createToaster({
     </ToastRoot>
   ),
 });
+
+export { toast };
+
+export default Toaster;

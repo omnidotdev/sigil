@@ -103,7 +103,7 @@ export * from "./TagsInput/TagsInput";
 export { default as Textarea } from "./Textarea/Textarea";
 export * from "./Textarea/Textarea";
 
-// export { default as Toaster } from "./Toaster/Toaster";
+export { default as Toaster } from "./Toaster/Toaster";
 export * from "./Toaster/Toaster";
 
 export { default as ToggleGroup } from "./ToggleGroup/ToggleGroup";
