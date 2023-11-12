@@ -31,6 +31,7 @@ export const Default: Story = {
 /**
  * Slider with multiple thumbs to represent a range.
  */
+// TODO bake into `Slider` component
 export const RangeSlider: Story = {
   args: {
     ...Default.args,
