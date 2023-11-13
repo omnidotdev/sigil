@@ -22,7 +22,7 @@ const UseBreakpointValueDemo = () => {
         h={40}
         p={4}
         textAlign="center"
-        color="bg.default"
+        color="background.default"
         fontWeight="bold"
         style={{ backgroundColor: color }}
       >

@@ -50,7 +50,7 @@ const badge = defineRecipe({
         },
       },
       md: {
-        textStyle: "sm",
+        textStyle: "xs",
         px: 2.5,
         h: 6,
         gap: 1.5,

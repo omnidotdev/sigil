@@ -73,9 +73,6 @@ export * from "./Popover/Popover";
 export { default as RadioGroup } from "./RadioGroup/RadioGroup";
 export * from "./RadioGroup/RadioGroup";
 
-export { default as RangeSlider } from "./RangeSlider/RangeSlider";
-export * from "./RangeSlider/RangeSlider";
-
 export { default as Rating } from "./Rating/Rating";
 export * from "./Rating/Rating";
 
@@ -105,6 +102,9 @@ export * from "./TagsInput/TagsInput";
 
 export { default as Textarea } from "./Textarea/Textarea";
 export * from "./Textarea/Textarea";
+
+export { default as Toaster } from "./Toaster/Toaster";
+export * from "./Toaster/Toaster";
 
 export { default as ToggleGroup } from "./ToggleGroup/ToggleGroup";
 export * from "./ToggleGroup/ToggleGroup";

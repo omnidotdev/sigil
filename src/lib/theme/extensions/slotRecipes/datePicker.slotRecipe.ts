@@ -9,7 +9,63 @@ const datePicker = defineSlotRecipe({
   description: "Date picker style recipes",
   slots: [...datePickerAnatomy.keys()],
   base: {
-    cellTrigger: {
+    root: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 1.5,
+    },
+    content: {
+      bgColor: "background.default",
+      borderRadius: "md",
+      boxShadow: "lg",
+      display: "flex",
+      flexDirection: "column",
+      gap: 3,
+      p: 4,
+      width: "344px",
+      zIndex: "dropdown",
+      _open: {
+        animation: "fadeIn 0.25s ease-out",
+      },
+      _closed: {
+        animation: "fadeOut 0.2s ease-out",
+      },
+      _hidden: {
+        display: "none",
+      },
+    },
+    control: {
+      display: "flex",
+      flexDirection: "row",
+      gap: 2,
+    },
+    label: {
+      color: "foreground.default",
+      fontWeight: "medium",
+      textStyle: "sm",
+    },
+    tableHeader: {
+      color: "foreground.muted",
+      fontWeight: "semibold",
+      height: 10,
+      textStyle: "sm",
+    },
+    viewControl: {
+      display: "flex",
+      gap: 2,
+      justifyContent: "space-between",
+    },
+    table: {
+      width: "full",
+      borderCollapse: "separate",
+      borderSpacing: 1,
+      m: -1,
+    },
+    tableCell: {
+      textAlign: "center",
+    },
+    tableCellTrigger: {
+      width: "100%",
       _today: {
         _before: {
           content: "'−'",
@@ -19,7 +75,7 @@ const datePicker = defineSlotRecipe({
         },
       },
       "&[data-in-range]": {
-        bgColor: "background.subtle",
+        bgColor: "background.muted",
       },
       _selected: {
         _before: {
@@ -27,47 +83,13 @@ const datePicker = defineSlotRecipe({
         },
       },
     },
-    content: {
-      bgColor: "background.default",
-      borderRadius: "md",
-      p: 4,
-      width: "fit-content",
-    },
-    grid: {
+    view: {
       display: "flex",
       flexDirection: "column",
-      gap: 1,
-      '&[data-type="day"] [data-part="row"]': {
-        gridTemplateColumns: "repeat(7, 1fr)",
+      gap: 3,
+      _hidden: {
+        display: "none",
       },
-      '&[data-type="month"] [data-part="row"]': {
-        gridTemplateColumns: "repeat(4, 1fr)",
-      },
-      '&[data-type="year"] [data-part="row"]': {
-        gridTemplateColumns: "repeat(4, 1fr)",
-      },
-    },
-    rowGroup: {
-      display: "flex",
-      flexDirection: "column",
-      gap: 1,
-    },
-    row: {
-      display: "grid",
-    },
-    rowHeader: {
-      display: "grid",
-      gridTemplateColumns: "repeat(7, 1fr)",
-    },
-    columnHeader: {
-      alignItems: "center",
-      color: "foreground.subtle",
-      display: "inline-flex",
-      fontWeight: "semibold",
-      height: 10,
-      justifyContent: "center",
-      textStyle: "sm",
-      width: 10,
     },
   },
 });

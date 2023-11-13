@@ -17,10 +17,9 @@ const toggleGroup = defineSlotRecipe({
         flexDirection: "column",
       },
     },
-    toggle: {
+    item: {
       alignItems: "center",
       appearance: "none",
-      bgColor: "background.default",
       cursor: "pointer",
       color: "foreground.subtle",
       display: "inline-flex",
@@ -35,18 +34,17 @@ const toggleGroup = defineSlotRecipe({
       userSelect: "none",
       verticalAlign: "middle",
       whiteSpace: "nowrap",
-      zIndex: 1,
       _hover: {
         color: "foreground.default",
-        bgColor: "background.subtle",
+        bgColor: "gray.300a",
       },
       _checked: {
-        bgColor: "background.subtle",
         color: "foreground.default",
+        bgColor: "gray.300a",
       },
       _pressed: {
-        bgColor: "background.subtle",
         color: "foreground.default",
+        bgColor: "gray.300a",
       },
       _disabled: {
         borderColor: "border.disabled",
@@ -78,11 +76,11 @@ const toggleGroup = defineSlotRecipe({
             divideY: "1px",
           },
         },
-        toggle: {
+        item: {
           borderColor: "border.default",
           _focusVisible: {
             color: "foreground.default",
-            bgColor: "background.subtle",
+            bgColor: "gray.300a",
           },
         },
       },
@@ -90,7 +88,7 @@ const toggleGroup = defineSlotRecipe({
         root: {
           gap: 1,
         },
-        toggle: {
+        item: {
           borderRadius: "sm",
           _focusVisible: {
             outlineOffset: "2px",
@@ -102,7 +100,7 @@ const toggleGroup = defineSlotRecipe({
     },
     size: {
       sm: {
-        toggle: {
+        item: {
           h: 9,
           minW: 9,
           textStyle: "sm",
@@ -114,7 +112,7 @@ const toggleGroup = defineSlotRecipe({
         },
       },
       md: {
-        toggle: {
+        item: {
           h: 10,
           minW: 10,
           textStyle: "sm",
@@ -126,7 +124,7 @@ const toggleGroup = defineSlotRecipe({
         },
       },
       lg: {
-        toggle: {
+        item: {
           h: 11,
           minW: 11,
           textStyle: "md",

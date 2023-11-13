@@ -20,38 +20,39 @@ export interface RadioGroupProps
 
 export const RadioGroupRoot = withProvider(styled(ArkRadioGroup.Root), "root");
 
+export const RadioGroupIndicator = withContext(
+  styled(ArkRadioGroup.Indicator),
+  "indicator",
+);
+
+export const RadioGroupItem = withContext(styled(ArkRadioGroup.Item), "item");
+
+export const RadioGroupItemControl = withContext(
+  styled(ArkRadioGroup.ItemControl),
+  "itemControl",
+);
+
+export const RadioGroupItemText = withContext(
+  styled(ArkRadioGroup.ItemText),
+  "itemText",
+);
+
 export const RadioGroupLabel = withContext(
   styled(ArkRadioGroup.Label),
   "label",
-);
-
-export const Radio = withContext(styled(ArkRadioGroup.Radio), "radio");
-
-export const RadioLabel = withContext(
-  styled(ArkRadioGroup.RadioLabel),
-  "radioLabel",
-);
-
-export const RadioControl = withContext(
-  styled(ArkRadioGroup.RadioControl),
-  "radioControl",
 );
 
 /**
  * Radio group.
  */
 const RadioGroup = ({ options, ...rest }: RadioGroupProps) => (
-  <RadioGroupRoot
-    orientation="horizontal"
-    defaultValue={options[0].value}
-    {...rest}
-  >
+  <RadioGroupRoot defaultValue={options[0].value} {...rest}>
     {options.map(({ label, value, isDisabled }) => (
-      <Radio key={value} value={value} disabled={isDisabled}>
-        <RadioControl />
+      <RadioGroupItem key={value} value={value} disabled={isDisabled}>
+        <RadioGroupItemControl />
 
-        <RadioLabel>{label}</RadioLabel>
-      </Radio>
+        <RadioGroupItemText>{label}</RadioGroupItemText>
+      </RadioGroupItem>
     ))}
   </RadioGroupRoot>
 );

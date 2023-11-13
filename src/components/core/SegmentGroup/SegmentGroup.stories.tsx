@@ -13,7 +13,6 @@ const meta = {
 export const Default: Story = {
   name: "Vertical (Default)",
   args: {
-    orientation: "vertical",
     options: [
       { value: "react", label: "React" },
       { value: "solid", label: "Solid" },

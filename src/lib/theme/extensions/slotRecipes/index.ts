@@ -17,7 +17,6 @@ export { default as pagination } from "./pagination.slotRecipe";
 export { default as pinInput } from "./pinInput.slotRecipe";
 export { default as popover } from "./popover.slotRecipe";
 export { default as radioGroup } from "./radioGroup.slotRecipe";
-export { default as rangeSlider } from "./rangeSlider.slotRecipe";
 export { default as rating } from "./rating.slotRecipe";
 export { default as segmentGroup } from "./segmentGroup.slotRecipe";
 export { default as select } from "./select.slotRecipe";

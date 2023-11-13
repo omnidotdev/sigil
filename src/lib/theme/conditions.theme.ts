@@ -17,6 +17,7 @@ const conditions: Preset["conditions"] = {
     placeholderShown: "&:is(:placeholder-shown, [data-placeholder-shown])",
     collapsed:
       '&:is([aria-collapsed=true], [data-collapsed], [data-state="collapsed"])',
+    underValue: '&:is([data-state="under-value"])',
   },
 };
 

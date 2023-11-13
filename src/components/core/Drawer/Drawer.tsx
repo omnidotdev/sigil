@@ -1,6 +1,8 @@
 import { ark, Portal } from "@ark-ui/react";
 import { Dialog as ArkDialog } from "@ark-ui/react/dialog";
+import { FiX } from "react-icons/fi";
 
+import Button from "components/core/Button/Button";
 import { styled } from "generated/panda/jsx";
 import { drawer, type DrawerVariantProps } from "generated/panda/recipes";
 import { createStyleContext, getContextualChildren } from "lib/util";
@@ -24,7 +26,7 @@ export interface DrawerProps extends ArkDialogProps, DrawerVariantProps {
   footerProps?: ComponentPropsWithoutRef<typeof DrawerFooter>;
 }
 
-export const DrawerRoot = withProvider(styled(ArkDialog.Root));
+export const DrawerRoot = withProvider(styled(ArkDialog.Root), "root");
 
 export const DrawerTrigger = withContext(styled(ArkDialog.Trigger), "trigger");
 
@@ -38,9 +40,9 @@ export const DrawerCloseTrigger = withContext(
   "closeTrigger",
 );
 
-export const DrawerContainer = withContext(
-  styled(ArkDialog.Container),
-  "container",
+export const DrawerPositioner = withContext(
+  styled(ArkDialog.Positioner),
+  "positioner",
 );
 
 export const DrawerContent = withContext(styled(ArkDialog.Content), "content");
@@ -79,7 +81,7 @@ const Drawer = ({
         <Portal>
           <DrawerBackdrop />
 
-          <DrawerContainer>
+          <DrawerPositioner>
             <DrawerContent {...contentProps}>
               {(title || description) && (
                 <DrawerHeader>
@@ -88,6 +90,17 @@ const Drawer = ({
                   {description && (
                     <DrawerDescription>{description}</DrawerDescription>
                   )}
+
+                  <DrawerCloseTrigger
+                    asChild
+                    position="absolute"
+                    top={3}
+                    right={4}
+                  >
+                    <Button variant="ghost">
+                      <FiX />
+                    </Button>
+                  </DrawerCloseTrigger>
                 </DrawerHeader>
               )}
 
@@ -97,7 +110,7 @@ const Drawer = ({
 
               {footer && <DrawerFooter {...footerProps}>{footer}</DrawerFooter>}
             </DrawerContent>
-          </DrawerContainer>
+          </DrawerPositioner>
         </Portal>
       </>
     )}

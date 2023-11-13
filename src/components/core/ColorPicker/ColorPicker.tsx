@@ -1,5 +1,5 @@
 import { ColorPicker as ArkColorPicker } from "@ark-ui/react/color-picker";
-import { IoMdColorFilter } from "react-icons/io/index.js";
+import { IoMdColorFilter } from "react-icons/io";
 
 import Button from "components/core/Button/Button";
 import Input from "components/core/Input/Input";
@@ -12,26 +12,32 @@ import {
 import { createStyleContext } from "lib/util";
 
 import type { ColorPickerProps as ArkColorPickerProps } from "@ark-ui/react/color-picker";
-
 // https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/color-picker";
 import type {} from "@zag-js/color-utils";
+import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(colorPicker);
 
 export interface ColorPickerProps
   extends ArkColorPickerProps,
     ColorPickerVariantProps {
+  /** Label for the color picker. Defaults to "Color Picker". */
+  label?: ReactNode;
+  /** Color swatch presets. */
   presets?: string[];
 }
 
-export const ColorPickerRoot = withProvider(styled(ArkColorPicker.Root));
+export const ColorPickerRoot = withProvider(
+  styled(ArkColorPicker.Root),
+  "root",
+);
 
 export const ColorPickerArea = withContext(styled(ArkColorPicker.Area), "area");
 
-export const ColorPickerAreaGradient = withContext(
-  styled(ArkColorPicker.AreaGradient),
-  "areaGradient",
+export const ColorPickerAreaBackground = withContext(
+  styled(ArkColorPicker.AreaBackground),
+  "areaBackground",
 );
 
 export const ColorPickerAreaThumb = withContext(
@@ -44,9 +50,9 @@ export const ColorPickerChannelInput = withContext(
   "channelInput",
 );
 
-export const ColorPickerChannelSliderBackground = withContext(
-  styled(ArkColorPicker.ChannelSliderBackground),
-  "channelSliderTrackBackground",
+export const ColorPickerChannelSlider = withContext(
+  styled(ArkColorPicker.ChannelSlider),
+  "channelSlider",
 );
 
 export const ColorPickerChannelSliderThumb = withContext(
@@ -64,9 +70,24 @@ export const ColorPickerContent = withContext(
   "content",
 );
 
+export const ColorPickerControl = withContext(
+  styled(ArkColorPicker.Control),
+  "control",
+);
+
 export const ColorPickerEyeDropperTrigger = withContext(
   styled(ArkColorPicker.EyeDropperTrigger),
   "eyeDropperTrigger",
+);
+
+export const ColorPickerLabel = withContext(
+  styled(ArkColorPicker.Label),
+  "label",
+);
+
+export const ColorPickerPositioner = withContext(
+  styled(ArkColorPicker.Positioner),
+  "positioner",
 );
 
 export const ColorPickerSwatch = withContext(
@@ -74,83 +95,111 @@ export const ColorPickerSwatch = withContext(
   "swatch",
 );
 
-export const ColorPickerSwatchBackground = withContext(
-  styled(ArkColorPicker.SwatchBackground),
-  "swatchBackground",
-);
-
 export const ColorPickerSwatchGroup = withContext(
   styled(ArkColorPicker.SwatchGroup),
   "swatchGroup",
 );
 
+export const ColorPickerSwatchTrigger = withContext(
+  styled(ArkColorPicker.SwatchTrigger),
+  "swatchTrigger",
+);
+
+export const ColorPickerTransparencyGrid = withContext(
+  styled(ArkColorPicker.TransparencyGrid),
+  "transparencyGrid",
+);
+
+export const ColorPickerTrigger = withContext(
+  styled(ArkColorPicker.Trigger),
+  "trigger",
+);
+
 /**
  * Color picker.
  */
-const ColorPicker = ({ presets, ...rest }: ColorPickerProps) => (
-  <ColorPickerRoot defaultValue={presets?.[0]} {...rest}>
-    {(ctx) => {
-      const [hue, saturation, lightness] = ctx.channels;
+const ColorPicker = ({
+  label = "Color Picker",
+  presets,
+  ...rest
+}: ColorPickerProps) => (
+  <ColorPickerRoot {...rest}>
+    {(ctx) => (
+      <>
+        <ColorPickerLabel>{label}</ColorPickerLabel>
 
-      return (
-        <ColorPickerContent>
-          <Stack gap={4}>
-            <ColorPickerArea xChannel={saturation} yChannel={lightness}>
-              <ColorPickerAreaGradient />
-              <ColorPickerAreaThumb />
-            </ColorPickerArea>
+        <ColorPickerControl>
+          <ColorPickerChannelInput channel="hex" asChild>
+            <Input />
+          </ColorPickerChannelInput>
 
-            <HStack gap={3}>
-              <ColorPickerEyeDropperTrigger asChild>
-                <Button size="xs" variant="outline" aria-label="Pick color">
-                  <IoMdColorFilter />
-                </Button>
-              </ColorPickerEyeDropperTrigger>
-              <Stack gap={3} width="full">
-                <ColorPickerChannelSliderTrack channel={hue}>
-                  <ColorPickerChannelSliderBackground />
-                  <ColorPickerChannelSliderThumb />
-                </ColorPickerChannelSliderTrack>
-                <ColorPickerChannelSliderTrack channel="alpha">
-                  <ColorPickerChannelSliderBackground />
-                  <ColorPickerChannelSliderThumb />
-                </ColorPickerChannelSliderTrack>
-              </Stack>
-            </HStack>
+          <ColorPickerTrigger asChild>
+            <Button variant="outline">
+              <ColorPickerSwatch value={ctx.value} />
+            </Button>
+          </ColorPickerTrigger>
+        </ColorPickerControl>
 
-            <HStack gap={2}>
-              <ColorPickerChannelInput channel="hex" asChild>
-                <Input size="2xs" />
-              </ColorPickerChannelInput>
+        <ColorPickerPositioner>
+          <ColorPickerContent>
+            <Stack gap={3}>
+              <ColorPickerArea>
+                <ColorPickerAreaBackground />
+                <ColorPickerAreaThumb />
+              </ColorPickerArea>
 
-              <ColorPickerChannelInput channel="alpha" asChild>
-                <Input size="2xs" />
-              </ColorPickerChannelInput>
-            </HStack>
+              <HStack gap={3}>
+                <ColorPickerEyeDropperTrigger asChild>
+                  <Button size="xs" variant="outline" aria-label="Pick color">
+                    <IoMdColorFilter />
+                  </Button>
+                </ColorPickerEyeDropperTrigger>
 
-            {presets && (
-              <>
-                <Text textStyle="xs" fontWeight="medium">
+                <Stack gap={2} flex={1}>
+                  <ColorPickerChannelSlider channel="hue">
+                    <ColorPickerChannelSliderTrack />
+                    <ColorPickerChannelSliderThumb />
+                  </ColorPickerChannelSlider>
+
+                  <ColorPickerChannelSlider channel="alpha">
+                    <ColorPickerTransparencyGrid size="8px" />
+                    <ColorPickerChannelSliderTrack />
+                    <ColorPickerChannelSliderThumb />
+                  </ColorPickerChannelSlider>
+                </Stack>
+              </HStack>
+
+              <HStack>
+                <ColorPickerChannelInput channel="hex" asChild>
+                  <Input size="2xs" />
+                </ColorPickerChannelInput>
+                <ColorPickerChannelInput channel="alpha" asChild>
+                  <Input size="2xs" />
+                </ColorPickerChannelInput>
+              </HStack>
+
+              <Stack gap={1.5}>
+                <Text
+                  textStyle="xs"
+                  fontWeight="medium"
+                  color="foreground.default"
+                >
                   Saved Colors
                 </Text>
 
                 <ColorPickerSwatchGroup>
-                  {presets.map((color) => (
-                    <ColorPickerSwatch
-                      key={color}
-                      value={color}
-                      aria-label={`Pick color ${color}`}
-                    >
-                      <ColorPickerSwatchBackground />
-                    </ColorPickerSwatch>
+                  {presets?.map((color, id) => (
+                    <ColorPickerSwatchTrigger key={id} value={color}>
+                      <ColorPickerSwatch value={color} />
+                    </ColorPickerSwatchTrigger>
                   ))}
                 </ColorPickerSwatchGroup>
-              </>
-            )}
-          </Stack>
-        </ColorPickerContent>
-      );
-    }}
+              </Stack>
+            </Stack>
+          </ColorPickerContent>
+        </ColorPickerPositioner>
+      </>
+    )}
   </ColorPickerRoot>
 );
 

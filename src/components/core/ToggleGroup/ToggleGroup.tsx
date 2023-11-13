@@ -18,7 +18,7 @@ export const ToggleGroupRoot = withProvider(
   "root",
 );
 
-export const Toggle = withContext(styled(ArkToggleGroup.Toggle), "toggle");
+export const ToggleGroupItem = withContext(styled(ArkToggleGroup.Item), "item");
 
 /**
  * Toggle group.

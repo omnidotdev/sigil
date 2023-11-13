@@ -15,7 +15,7 @@ const link = defineRecipe({
     gap: 2,
     textDecoration: "underline 0.1em transparent",
     textUnderlineOffset: "0.125em",
-    transitionDuration: "fast",
+    transitionDuration: "normal",
     transitionProperty: "text-decoration-color",
     transitionTimingFunction: "default",
     _hover: {

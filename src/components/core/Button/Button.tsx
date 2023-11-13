@@ -12,8 +12,6 @@ export interface ButtonProps
 /**
  * Interactive action button.
  */
-// TODO use `Pressable` below, causes strange errors such as `Converting circular structure to JSON` in Storybook autodocs pages
-// const Button = styled(Pressable, button);
 const Button = styled(ark.button, button);
 
 export default Button;

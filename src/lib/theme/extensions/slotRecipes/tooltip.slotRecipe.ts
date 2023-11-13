@@ -10,7 +10,7 @@ const tooltip = defineSlotRecipe({
   slots: tooltipAnatomy.keys(),
   base: {
     content: {
-      bgColor: "foreground.default",
+      bgColor: "gray.950",
       borderRadius: "sm",
       boxShadow: "sm",
       color: "background.default",

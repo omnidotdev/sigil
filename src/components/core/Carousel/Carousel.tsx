@@ -17,8 +17,8 @@ const { withProvider, withContext } = createStyleContext(carousel);
 export interface CarouselProps
   extends Omit<ArkCarouselProps, "children">,
     CarouselVariantProps {
-  /** Slide content to render. */
-  slides: ReactNode[];
+  /** Item content to render. */
+  items: ReactNode[];
 }
 
 export const CarouselRoot = withProvider(styled(ArkCarousel.Root), "root");
@@ -38,21 +38,21 @@ export const CarouselIndicatorGroup = withContext(
   "indicatorGroup",
 );
 
-export const CarouselNextSlideTrigger = withContext(
-  styled(ArkCarousel.NextSlideTrigger),
-  "nextSlideTrigger",
+export const CarouselItem = withContext(styled(ArkCarousel.Item), "item");
+
+export const CarouselItemGroup = withContext(
+  styled(ArkCarousel.ItemGroup),
+  "itemGroup",
 );
 
-export const CarouselPrevSlideTrigger = withContext(
-  styled(ArkCarousel.PrevSlideTrigger),
-  "prevSlideTrigger",
+export const CarouselNextTrigger = withContext(
+  styled(ArkCarousel.NextTrigger),
+  "nextTrigger",
 );
 
-export const CarouselSlide = withContext(styled(ArkCarousel.Slide), "slide");
-
-export const CarouselSlideGroup = withContext(
-  styled(ArkCarousel.SlideGroup),
-  "slideGroup",
+export const CarouselPrevTrigger = withContext(
+  styled(ArkCarousel.PrevTrigger),
+  "prevTrigger",
 );
 
 export const CarouselViewport = withContext(
@@ -63,39 +63,39 @@ export const CarouselViewport = withContext(
 /**
  * Carousel.
  */
-const Carousel = ({ slides, ...rest }: CarouselProps) => (
+const Carousel = ({ items, ...rest }: CarouselProps) => (
   <CarouselRoot {...rest}>
     <CarouselViewport>
-      <CarouselSlideGroup>
-        {slides.map((slide, idx) => (
-          <CarouselSlide key={idx} index={idx}>
-            {slide}
-          </CarouselSlide>
+      <CarouselItemGroup>
+        {items.map((item, idx) => (
+          <CarouselItem key={idx} index={idx}>
+            {item}
+          </CarouselItem>
         ))}
-      </CarouselSlideGroup>
+      </CarouselItemGroup>
 
       <CarouselControl>
-        <CarouselPrevSlideTrigger asChild>
-          <Button size="sm" variant="ghost" aria-label="Previous Slide">
+        <CarouselPrevTrigger asChild>
+          <Button size="sm" variant="ghost" aria-label="Previous Item">
             <FiChevronLeft />
           </Button>
-        </CarouselPrevSlideTrigger>
+        </CarouselPrevTrigger>
 
         <CarouselIndicatorGroup>
-          {Array.from({ length: slides.length }).map((_, idx) => (
+          {Array.from({ length: items.length }).map((_, idx) => (
             <CarouselIndicator
               key={idx}
               index={idx}
-              aria-label={`Go to slide ${idx + 1}`}
+              aria-label={`Go to item ${idx + 1}`}
             />
           ))}
         </CarouselIndicatorGroup>
 
-        <CarouselNextSlideTrigger asChild>
-          <Button size="sm" variant="ghost" aria-label="Next Slide">
+        <CarouselNextTrigger asChild>
+          <Button size="sm" variant="ghost" aria-label="Next Item">
             <FiChevronRight />
           </Button>
-        </CarouselNextSlideTrigger>
+        </CarouselNextTrigger>
       </CarouselControl>
     </CarouselViewport>
   </CarouselRoot>

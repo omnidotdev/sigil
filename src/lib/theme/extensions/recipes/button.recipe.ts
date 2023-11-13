@@ -16,13 +16,15 @@ const button = defineRecipe({
     minWidth: 0,
     justifyContent: "center",
     outline: "none",
-    position: "relative",
     transitionDuration: "normal",
     transitionProperty: "background, border-color, color, box-shadow",
     transitionTimingFunction: "default",
     userSelect: "none",
     verticalAlign: "middle",
     whiteSpace: "nowrap",
+    _hidden: {
+      display: "none",
+    },
   },
   defaultVariants: {
     variant: "solid",
@@ -74,7 +76,7 @@ const button = defineRecipe({
         borderWidth: 1.5,
         borderColor: "border.default",
         _hover: {
-          background: "neutral.50a",
+          bgColor: "neutral.50a",
         },
         _disabled: {
           borderColor: "border.disabled",
@@ -91,13 +93,16 @@ const button = defineRecipe({
           outline: "2px solid",
           outlineColor: "border.outline",
         },
+        _selected: {
+          bgColor: "gray.300a",
+        },
       },
       ghost: {
         _hover: {
-          background: "neutral.100a",
+          bgColor: "neutral.100a",
         },
         _selected: {
-          background: "neutral.100a",
+          bgColor: "neutral.100a",
         },
         _disabled: {
           color: "foreground.disabled",

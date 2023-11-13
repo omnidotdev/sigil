@@ -3,11 +3,11 @@
  */
 const app = {
   name: { short: "Sigil", full: "Omni Sigil" },
-  // TODO extract to `omni/common` repo
+  // TODO extract to `omni/common` repo (JSON)
   organization: {
     name: "Omni",
     url: "https://omni.dev",
-    twitter: { handle: "@omnidotdev", url: "https://twitter.com/omnidotdev" },
+    x: { handle: "@omnidotdev", url: "https://x.com/omnidotdev" },
   },
 };
 

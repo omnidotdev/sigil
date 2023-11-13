@@ -9,7 +9,7 @@ const alert = defineSlotRecipe({
   description: "Alert style recipes",
   base: {
     root: {
-      background: "background.default",
+      bgColor: "background.default",
       borderWidth: "1px",
       borderRadius: "md",
       display: "flex",

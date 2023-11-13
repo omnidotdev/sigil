@@ -1,6 +1,5 @@
 import { Pagination as ArkPagination } from "@ark-ui/react/pagination";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi/index.js";
-import { useMediaQuery } from "usehooks-ts";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 import Button from "components/core/Button/Button";
 import { styled } from "generated/panda/jsx";
@@ -28,72 +27,58 @@ export const PaginationEllipsis = withContext(
   "ellipsis",
 );
 
-export const PaginationList = withContext(styled(ArkPagination.List), "list");
-
-export const PaginationListItem = withContext(
-  styled(ArkPagination.ListItem),
-  "listItem",
+export const PaginationNextTrigger = withContext(
+  styled(ArkPagination.NextTrigger),
+  "nextTrigger",
 );
 
-export const PaginationNextPageTrigger = withContext(
-  styled(ArkPagination.NextPageTrigger),
-  "nextPageTrigger",
-);
+export const PaginationItem = withContext(styled(ArkPagination.Item), "item");
 
-export const PaginationPageTrigger = withContext(
-  styled(ArkPagination.PageTrigger),
-  "pageTrigger",
-);
-
-export const PaginationPrevPageTrigger = withContext(
-  styled(ArkPagination.PrevPageTrigger),
-  "prevPageTrigger",
+export const PaginationPrevTrigger = withContext(
+  styled(ArkPagination.PrevTrigger),
+  "prevTrigger",
 );
 
 /**
  * Pagination.
  */
-const Pagination = () => {
-  const matches = useMediaQuery("(max-width: 600px)");
+const Pagination = (props: PaginationProps) => (
+  <PaginationRoot
+    // TODO move to stories
+    pageSize={10}
+    siblingCount={1}
+    defaultPage={2}
+    {...props}
+  >
+    {/* @ts-ignore broken context */}
+    {({ pages }) => (
+      <>
+        <PaginationPrevTrigger asChild>
+          <Button variant="ghost" aria-label="Next Page">
+            <FiChevronLeft />
+          </Button>
+        </PaginationPrevTrigger>
 
-  return (
-    <PaginationRoot
-      count={90}
-      pageSize={10}
-      siblingCount={matches ? 0 : 1}
-      defaultPage={2}
-    >
-      {({ pages }) => (
-        <>
-          <PaginationList>
-            <PaginationPrevPageTrigger asChild>
-              <Button variant="ghost" aria-label="Next Page">
-                <FiChevronLeft />
-              </Button>
-            </PaginationPrevPageTrigger>
-
-            {pages.map((page, idx) =>
-              page.type === "page" ? (
-                <PaginationPageTrigger key={idx} {...page} asChild>
-                  <Button variant="outline">{page.value}</Button>
-                </PaginationPageTrigger>
-              ) : (
-                <PaginationEllipsis key={idx} index={idx}>
-                  &#8230;
-                </PaginationEllipsis>
-              ),
-            )}
-
-            <PaginationNextPageTrigger asChild>
-              <Button variant="ghost" aria-label="Next Page">
-                <FiChevronRight />
-              </Button>
-            </PaginationNextPageTrigger>
-          </PaginationList>
-        </>
-      )}
-    </PaginationRoot>
-  );
-};
+        {/* @ts-ignore broken context */}
+        {pages.map((page, index) =>
+          page.type === "page" ? (
+            <PaginationItem key={index} {...page} asChild>
+              <Button variant="outline">{page.value}</Button>
+            </PaginationItem>
+          ) : (
+            <PaginationEllipsis key={index} index={index}>
+              &#8230;
+            </PaginationEllipsis>
+          ),
+        )}
+        <PaginationNextTrigger asChild>
+          <Button variant="ghost" aria-label="Next Page">
+            <FiChevronRight />
+          </Button>
+        </PaginationNextTrigger>
+      </>
+    )}
+  </PaginationRoot>
+);
 
 export default Pagination;

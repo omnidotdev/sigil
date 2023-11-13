@@ -10,6 +10,9 @@ const slider = defineSlotRecipe({
   slots: sliderAnatomy.keys(),
   base: {
     root: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 1,
       width: "full",
     },
     control: {
@@ -19,13 +22,13 @@ const slider = defineSlotRecipe({
     },
     track: {
       bgColor: "background.emphasized",
-      borderRadius: "sm",
+      borderRadius: "full",
+      overflow: "hidden",
       flex: 1,
       cursor: "pointer",
     },
     range: {
       bgColor: "accent.default",
-      borderRadius: "sm",
     },
     thumb: {
       bgColor: "background.default",
@@ -34,11 +37,36 @@ const slider = defineSlotRecipe({
       borderWidth: 3,
       boxShadow: "sm",
       outline: "none",
+      zIndex: 1,
       cursor: "pointer",
     },
     label: {
       color: "foreground.default",
       fontWeight: "medium",
+    },
+    markerGroup: {
+      mt: -1,
+    },
+    marker: {
+      "--before-bgColor": {
+        base: "colors.white",
+        _dark: "colors.accent.foreground",
+      },
+      color: "foreground.muted",
+      _before: {
+        bgColor: "white",
+        borderRadius: "full",
+        content: "''",
+        display: "block",
+        left: "50%",
+        position: "relative",
+        transform: "translateX(-50%)",
+      },
+      _underValue: {
+        _before: {
+          bgColor: "var(--before-bgColor)",
+        },
+      },
     },
   },
   defaultVariants: {
@@ -46,9 +74,35 @@ const slider = defineSlotRecipe({
   },
   variants: {
     size: {
+      sm: {
+        control: {
+          height: 4,
+        },
+        range: {
+          height: 1.5,
+        },
+        track: {
+          height: 1.5,
+        },
+        thumb: {
+          height: 4,
+          width: 4,
+        },
+        marker: {
+          _before: {
+            height: 1,
+            top: -2.5,
+            width: 1,
+          },
+          textStyle: "sm",
+        },
+        label: {
+          textStyle: "sm",
+        },
+      },
       md: {
         control: {
-          py: 2,
+          height: 5,
         },
         range: {
           height: 2,
@@ -57,15 +111,45 @@ const slider = defineSlotRecipe({
           height: 2,
         },
         thumb: {
-          height: 6,
-          width: 6,
+          height: 5,
+          width: 5,
         },
         marker: {
-          mt: 2,
+          _before: {
+            height: 1,
+            top: -3,
+            width: 1,
+          },
           textStyle: "sm",
         },
         label: {
           textStyle: "sm",
+        },
+      },
+      lg: {
+        control: {
+          height: 6,
+        },
+        range: {
+          height: 2.5,
+        },
+        track: {
+          height: 2.5,
+        },
+        thumb: {
+          height: 6,
+          width: 6,
+        },
+        marker: {
+          _before: {
+            height: 1.5,
+            top: "-15px",
+            width: 1.5,
+          },
+          textStyle: "md",
+        },
+        label: {
+          textStyle: "md",
         },
       },
     },

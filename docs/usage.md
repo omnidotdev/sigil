@@ -52,29 +52,7 @@ Follow these steps to use the Sigil UI library in your project.
    const App = () => <></>;
    ```
 
-<!-- ? this step might need to be changed/updated once new toasts implemented -->
-
-5. (**_optional_**) Wrap your application in either `SigilProvider`, which wraps all library providers, or individual providers to allow access to provider-related functionality, such as toasts.
-
-   `SigilProvider`:
-
-   ```tsx
-   // App.tsx
-   import { SigilProvider } from "@omnidev/sigil";
-
-   const App = () => <SigilProvider>{/* ... */}</SigilProvider>;
-   ```
-
-   As an alternative option, you can wrap your application in individual providers. Example with `ToastProvider`:
-
-   ```tsx
-   // App.tsx
-   import { ToastProvider } from "@omnidev/sigil";
-
-   const App = () => <ToastProvider>{/* ... */}</ToastProvider>;
-   ```
-
-6. (**_for TypeScript users_**) If you are using TypeScript, make sure your consuming application has `compilerOptions.moduleResolution` set to `node16` or higher (e.g. `nodenext`) in `tsconfig.json`. This will allow you to properly import from subpaths from the library. Read more about this [here](https://devblogs.microsoft.com/typescript/announcing-typescript-4-7/#ecmascript-module-support-in-node-js).
+5. (**_for TypeScript users_**) If you are using TypeScript, make sure your consuming application has `compilerOptions.moduleResolution` set to `node16` or higher (e.g. `nodenext`) in `tsconfig.json`. This will allow you to properly import from subpaths from the library. Read more about this [here](https://devblogs.microsoft.com/typescript/announcing-typescript-4-7/#ecmascript-module-support-in-node-js).
 
 Now you are ready to install the UI library. You can either install it [from the published package](#from-published-package) or from a [local clone](#local) on your local filesystem. The latter is useful if you are developing the library.
 

@@ -23,7 +23,8 @@ const combobox = defineSlotRecipe({
       fontWeight: "medium",
     },
     trigger: {
-      position: "absolute!",
+      color: "foreground.muted",
+      position: "absolute",
       right: 0,
       bottom: 0,
       top: 0,
@@ -31,9 +32,10 @@ const combobox = defineSlotRecipe({
     content: {
       bgColor: "background.default",
       borderRadius: "sm",
-      boxShadow: "sm",
+      boxShadow: "lg",
       display: "flex",
       flexDirection: "column",
+      zIndex: "dropdown",
       _hidden: {
         display: "none",
       },
@@ -78,9 +80,6 @@ const combobox = defineSlotRecipe({
     },
     itemIndicator: {
       color: "accent.default",
-    },
-    positioner: {
-      zIndex: "dropdown",
     },
   },
   defaultVariants: {

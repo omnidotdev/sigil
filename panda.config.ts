@@ -7,10 +7,7 @@ import { sigilPreset } from "lib/theme/presets";
 import { mapArrayToObject } from "lib/util";
 
 const recipeKeys = Object.keys(recipes);
-const slotRecipeKeys = Object.keys(slotRecipes).filter(
-  // ! NB: `switch` is a reserved keyword, so the switch recipe is exported as `switchRecipe` and switch static CSS generation is manually specified below
-  (key) => key !== "switchRecipe",
-);
+const slotRecipeKeys = Object.keys(slotRecipes);
 
 /**
  * 🐼 Panda configuration.
@@ -32,8 +29,6 @@ const pandaConfig = defineConfig({
         recipes: {
           ...mapArrayToObject(recipeKeys, ["*"]),
           ...mapArrayToObject(slotRecipeKeys, ["*"]),
-          // manually declare `switch` recipe generation, since `switch` is a reserved keyword
-          switch: ["*"],
         },
         css: [
           {

@@ -24,7 +24,6 @@ const carousel = defineSlotRecipe({
       opacity: 0.9,
       position: "absolute",
       transform: "translateX(-50%)",
-      zIndex: "docked",
     },
     indicatorGroup: {
       display: "flex",
