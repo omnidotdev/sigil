@@ -38,11 +38,8 @@ export const Default: Story = {
 export const LazyMount: Story = {
   args: {
     ...Default.args,
-    contentProps: {
-      ...Default.args.contentProps,
-      lazyMount: true,
-      unmountOnExit: true,
-    },
+    lazyMount: true,
+    unmountOnExit: true,
   },
 };
 
