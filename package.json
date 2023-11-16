@@ -82,7 +82,7 @@
     "@typescript-eslint/parser": "^6.10.0",
     "@zag-js/accordion": "^0.29.0",
     "@zag-js/carousel": "^0.29.0",
-    "@zag-js/color-picker": "^0.29.0",
+    "@zag-js/color-picker": "^0.30.0",
     "@zag-js/color-utils": "^0.29.0",
     "@zag-js/combobox": "^0.29.0",
     "@zag-js/date-picker": "^0.29.0",
