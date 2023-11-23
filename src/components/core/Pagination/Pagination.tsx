@@ -43,6 +43,7 @@ export const PaginationPrevTrigger = withContext(
  * Pagination.
  */
 const Pagination = (props: PaginationProps) => (
+  // @ts-ignore upstream (Ark `Pagination`) type bug
   <PaginationRoot
     // TODO move to stories
     pageSize={10}

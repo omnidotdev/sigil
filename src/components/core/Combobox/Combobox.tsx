@@ -95,7 +95,7 @@ const Combobox = ({ label, items, ...rest }: ComboboxProps<CollectionItem>) => {
     >[0],
   ) => {
     const filtered = items.filter((item) =>
-      // @ts-expect-error upstream (Ark `CollectionItem`) type bug
+      // @ts-ignore upstream (Ark `CollectionItem`) type bug
       item.label.toLowerCase().includes(evt.value.toLowerCase()),
     );
 
@@ -135,9 +135,9 @@ const Combobox = ({ label, items, ...rest }: ComboboxProps<CollectionItem>) => {
               </ComboboxItemGroupLabel>
 
               {filteredItems.map((item) => (
-                // @ts-expect-error upstream (Ark `CollectionItem`) type bug
+                // @ts-ignore upstream (Ark `CollectionItem`) type bug
                 <ComboboxItem key={item.value} item={item}>
-                  {/* @ts-expect-error upstream (Ark `CollectionItem`) type bug */}
+                  {/* @ts-ignore upstream (Ark `CollectionItem`) type bug */}
                   <ComboboxItemText>{item.label}</ComboboxItemText>
 
                   <ComboboxItemIndicator>

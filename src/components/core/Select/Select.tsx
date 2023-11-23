@@ -102,9 +102,9 @@ const Select = ({ label, items, ...rest }: SelectProps<CollectionItem>) => (
             </SelectItemGroupLabel>
 
             {items.map((item) => (
-              // @ts-expect-error upstream (Ark `CollectionItem`) type bug
+              // @ts-ignore upstream (Ark `CollectionItem`) type bug
               <SelectItem key={item.value} item={item}>
-                {/* @ts-expect-error upstream (Ark `CollectionItem`) type bug */}
+                {/* @ts-ignore upstream (Ark `CollectionItem`) type bug */}
                 <SelectItemText>{item.label}</SelectItemText>
 
                 <SelectItemIndicator>
