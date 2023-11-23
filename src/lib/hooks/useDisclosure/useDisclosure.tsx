@@ -37,8 +37,8 @@ const useDisclosure = ({
     !isControlled
       ? setIsOpen(!isOpen)
       : isOpenControlled
-      ? onClose()
-      : onOpen();
+        ? onClose()
+        : onOpen();
   }, [isControlled, isOpen, isOpenControlled, onClose, onOpen]);
 
   return {

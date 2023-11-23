@@ -38,7 +38,8 @@ const globalCss = defineGlobalStyles({
     color: "foreground.subtle",
   },
   "*::selection": {
-    bgColor: "accent.emphasized",
+    color: "background.default",
+    bgColor: "accent.default",
   },
 });
 
