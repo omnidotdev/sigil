@@ -10,6 +10,7 @@ export { default as datePicker } from "./datePicker.slotRecipe";
 export { default as dialog } from "./dialog.slotRecipe";
 export { default as drawer } from "./drawer.slotRecipe";
 export { default as editable } from "./editable.slotRecipe";
+export { default as fileUpload } from "./fileUpload.slotRecipe";
 export { default as hoverCard } from "./hoverCard.slotRecipe";
 export { default as menu } from "./menu.slotRecipe";
 export { default as numberInput } from "./numberInput.slotRecipe";
