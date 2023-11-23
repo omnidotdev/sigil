@@ -73,7 +73,7 @@ const Menu = ({ trigger, children, ...rest }: MenuProps) => (
   <MenuRoot {...rest}>
     {(ctx) => (
       <>
-        <MenuTrigger asChild>{trigger}</MenuTrigger>
+        {trigger && <MenuTrigger asChild>{trigger}</MenuTrigger>}
 
         <Portal>
           <MenuPositioner>

@@ -76,7 +76,7 @@ const Drawer = ({
   <DrawerRoot {...rest}>
     {(ctx) => (
       <>
-        <DrawerTrigger asChild>{trigger}</DrawerTrigger>
+        {trigger && <DrawerTrigger asChild>{trigger}</DrawerTrigger>}
 
         <Portal>
           <DrawerBackdrop />
