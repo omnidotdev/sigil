@@ -17,8 +17,11 @@ const drawer = defineSlotRecipe({
         base: "white.800a",
         _dark: "black.800a",
       },
-      inset: 0,
+      height: "100vh",
+      left: 0,
       position: "fixed",
+      top: 0,
+      width: "100vw",
       zIndex: "overlay",
       _open: {
         animation: "backdrop-in",
@@ -30,11 +33,11 @@ const drawer = defineSlotRecipe({
     positioner: {
       alignItems: "center",
       display: "flex",
-      top: 0,
-      bottom: 0,
+      height: "100dvh",
       justifyContent: "center",
       position: "fixed",
-      width: { base: "full", sm: "sm" },
+      top: 0,
+      width: { base: "100vw", sm: "sm" },
       zIndex: "modal",
     },
     content: {
