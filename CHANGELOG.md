@@ -27,7 +27,7 @@
 ### Minor Changes
 
 - [#16](https://github.com/omnidotdev/sigil/pull/16) [`5a7cb87`](https://github.com/omnidotdev/sigil/commit/5a7cb87206be8615dacb4510d30266f62b805bd9) Thanks [@coopbri](https://github.com/coopbri)!
-  - Adde `Link` component
+  - Add `Link` component
   - Update brand colors and semantic tokens
   - Add default color token to each color scale
   - Add styles for indeterminate checkbox state
