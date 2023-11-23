@@ -1,4 +1,4 @@
-import { Accordion } from "components";
+import { Accordion, Button } from "components";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -25,6 +25,11 @@ export const Default: Story = {
         title: "Extended Reality",
         body: "Extended Reality (XR) is a marketing term used to represent the spectrum of virtual reality (VR) and augmented reality (AR) technologies.",
       },
+      {
+        isDisabled: true,
+        title: "Mixed Reality",
+        body: "Mixed reality (MR) is a marketing term coined by Microsoft and occasionally used by other companies to describe a technology that blends real and virtual worlds to produce new environments and visualizations where physical and digital objects coexist and interact in real time.",
+      },
     ],
   },
 };
@@ -35,7 +40,20 @@ export const Default: Story = {
 export const DefaultOpen: Story = {
   args: {
     ...Default.args,
-    defaultValue: [Default.args.items[0].title],
+    defaultValue: [Default.args.items[0].title!.toString()],
+  },
+};
+
+export const CustomTitle: Story = {
+  args: {
+    ...Default.args,
+    items: [
+      {
+        ...Default.args.items[0],
+        title: <Button bgColor="red">{Default.args.items[0].title}</Button>,
+      },
+      ...Default.args.items.slice(1),
+    ],
   },
 };
 
