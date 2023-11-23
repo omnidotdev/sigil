@@ -72,7 +72,7 @@ const Popover = ({
   ...rest
 }: PopoverProps) => (
   <PopoverRoot portalled {...rest}>
-    <PopoverTrigger>{trigger}</PopoverTrigger>
+    {trigger && <PopoverTrigger>{trigger}</PopoverTrigger>}
 
     <Portal>
       <PopoverPositioner>

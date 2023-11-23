@@ -25,6 +25,10 @@ const accordion = defineSlotRecipe({
       textStyle: "lg",
       textAlign: "left",
       width: "full",
+      _disabled: {
+        color: "foreground.disabled",
+        cursor: "not-allowed",
+      },
     },
     itemIndicator: {
       color: "foreground.muted",

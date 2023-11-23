@@ -66,7 +66,7 @@ const Dialog = ({
   <DialogRoot {...rest}>
     {(ctx) => (
       <>
-        <DialogTrigger>{trigger}</DialogTrigger>
+        {trigger && <DialogTrigger>{trigger}</DialogTrigger>}
 
         <Portal>
           <DialogBackdrop />

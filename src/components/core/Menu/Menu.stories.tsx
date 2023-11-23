@@ -26,6 +26,7 @@ import {
   Text,
 } from "components";
 import { HStack } from "generated/panda/jsx";
+import { useDisclosure } from "lib/hooks";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -39,7 +40,7 @@ const meta = {
 
 export const Default: Story = {
   args: {
-    trigger: <Button variant="outline">Open menu</Button>,
+    trigger: <Button variant="outline">Open Menu</Button>,
     children: (
       <MenuItemGroup id="group-1">
         <MenuItemGroupLabel htmlFor="group-1">My Account</MenuItemGroupLabel>
@@ -123,6 +124,33 @@ export const Default: Story = {
         </MenuItem>
       </MenuItemGroup>
     ),
+  },
+};
+
+/**
+ * Menu with no trigger; controlled by decoupled external state.
+ */
+export const Controlled: Story = {
+  args: {
+    ...Default.args,
+    trigger: undefined,
+  },
+  render: (args) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { isOpen, onOpen, onClose } = useDisclosure();
+
+    return (
+      <>
+        <Button onClick={onOpen}>Open Menu (Controlled)</Button>
+
+        <Menu
+          open={isOpen}
+          onOpenChange={({ open }) => (open ? onOpen() : onClose())}
+        >
+          {args.children}
+        </Menu>
+      </>
+    );
   },
 };
 

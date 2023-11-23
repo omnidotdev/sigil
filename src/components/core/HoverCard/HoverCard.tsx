@@ -48,7 +48,7 @@ const HoverCard = ({ trigger, children, ...rest }: HoverCardProps) => (
   <HoverCardRoot openDelay={0} closeDelay={100} {...rest}>
     {(ctx) => (
       <>
-        <HoverCardTrigger asChild>{trigger}</HoverCardTrigger>
+        {trigger && <HoverCardTrigger asChild>{trigger}</HoverCardTrigger>}
 
         <Portal>
           <HoverCardPositioner>

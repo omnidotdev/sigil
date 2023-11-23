@@ -30,19 +30,19 @@ export interface FileUploadProps
   label?: ReactNode;
   /** File upload dialog trigger. */
   dialogTrigger?: ReactNode;
-  /** Props for the file upload dropzone. */
+  /** File upload dropzone props. */
   dropzoneProps?: ArkFileUploadDropzoneProps;
-  /** Props for the file upload item group. */
+  /** File upload item group props. */
   itemGroupProps?: ArkFileUploadItemGroupProps;
-  /** Props for the file upload item. */
+  /** File upload item props. */
   itemProps?: ArkFileUploadItemProps;
-  /** Props for the file upload item preview. */
+  /** File upload item preview props. */
   itemPreviewProps?: ArkFileUploadItemPreviewProps;
-  /** Props for the file upload item name. */
+  /** File upload item name props. */
   itemNameProps?: ArkFileUploadItemNameProps;
-  /** Props for the file upload item size text. */
+  /** File upload item size text props. */
   itemSizeTextProps?: ArkFileUploadItemSizeTextProps;
-  /** Props for the file upload item delete trigger. */
+  /** File upload item delete trigger props. */
   itemDeleteTriggerProps?: ArkFileUploadItemDeleteTriggerProps;
 }
 

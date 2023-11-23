@@ -45,7 +45,7 @@ export const TooltipTrigger = withContext(
  */
 const Tooltip = ({ trigger, content, ...rest }: TooltipProps) => (
   <TooltipRoot {...rest}>
-    <TooltipTrigger>{trigger}</TooltipTrigger>
+    {trigger && <TooltipTrigger>{trigger}</TooltipTrigger>}
 
     <Portal>
       <TooltipPositioner>

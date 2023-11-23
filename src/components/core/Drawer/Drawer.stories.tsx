@@ -2,6 +2,7 @@ import { FiArrowRight } from "react-icons/fi/index.js";
 
 import { Button, Drawer, DrawerCloseTrigger, Input, Label } from "components";
 import { Stack } from "generated/panda/jsx";
+import { useDisclosure } from "lib/hooks";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -15,7 +16,7 @@ const meta = {
 
 export const Default: Story = {
   args: {
-    trigger: <Button variant="outline">Open Drawer</Button>,
+    trigger: <Button>Open Drawer</Button>,
     title: "Drawer Title",
     description: "Drawer description",
     footerProps: { gap: 3 },
@@ -46,6 +47,35 @@ export const Default: Story = {
         </DrawerCloseTrigger>
       </>
     ),
+  },
+};
+
+/**
+ * Drawer with no trigger; controlled by decoupled external state.
+ */
+export const Controlled: Story = {
+  args: {
+    ...Default.args,
+    trigger: undefined,
+  },
+  render: (args) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { isOpen, onOpen, onClose } = useDisclosure();
+
+    return (
+      <>
+        <Button onClick={onOpen}>Open Drawer (Controlled)</Button>
+
+        <Drawer
+          open={isOpen}
+          onOpenChange={({ open }) => (open ? onOpen() : onClose())}
+          title={args.title}
+          description={args.description}
+        >
+          {args.children}
+        </Drawer>
+      </>
+    );
   },
 };
 

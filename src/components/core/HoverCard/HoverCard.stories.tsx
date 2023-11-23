@@ -1,8 +1,9 @@
 import { FiMapPin } from "react-icons/fi/index.js";
 
-import { Avatar, HoverCard, Text } from "components";
+import { Avatar, Button, HoverCard, Text } from "components";
 import { HStack, Stack, styled } from "generated/panda/jsx";
 import { app } from "lib/config";
+import { useDisclosure } from "lib/hooks";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -49,6 +50,33 @@ export const Default: Story = {
         </Stack>
       </Stack>
     ),
+  },
+};
+
+/**
+ * Hover card with no trigger; controlled by decoupled external state.
+ */
+export const Controlled: Story = {
+  args: {
+    ...Default.args,
+    trigger: undefined,
+  },
+  render: (args) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { isOpen, onOpen, onClose } = useDisclosure();
+
+    return (
+      <>
+        <Button onClick={onOpen}>Open Hover card (Controlled)</Button>
+
+        <HoverCard
+          open={isOpen}
+          onOpenChange={({ open }) => (open ? onOpen() : onClose())}
+        >
+          {args.children}
+        </HoverCard>
+      </>
+    );
   },
 };
 
