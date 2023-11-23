@@ -1,5 +1,21 @@
 # @omnidev/sigil
 
+## 0.3.0
+
+### Minor Changes
+
+- [#28](https://github.com/omnidotdev/sigil/pull/28) [`1c25e59`](https://github.com/omnidotdev/sigil/commit/1c25e593051d197950588b3ffbd07f81047266a0) Thanks [@coopbri](https://github.com/coopbri)! - Add `FileUpload` component for uploading files in a dropzone
+
+### Patch Changes
+
+- [#29](https://github.com/omnidotdev/sigil/pull/29) [`431d0ec`](https://github.com/omnidotdev/sigil/commit/431d0ec39403187945c44f8ae5ed213f439f048a) Thanks [@coopbri](https://github.com/coopbri)! - Made trigger-enabled components conditionally render trigger only if passed (`Drawer`, `HoverCard`, `Menu`, `Popover`, `Tooltip`)
+
+- [#26](https://github.com/omnidotdev/sigil/pull/26) [`ba71618`](https://github.com/omnidotdev/sigil/commit/ba71618cf7e9f66abdb445705fe22b4e4def30a5) Thanks [@coopbri](https://github.com/coopbri)! - Improve legibility of text selection (highlight) styles
+
+- [#29](https://github.com/omnidotdev/sigil/pull/29) [`431d0ec`](https://github.com/omnidotdev/sigil/commit/431d0ec39403187945c44f8ae5ed213f439f048a) Thanks [@coopbri](https://github.com/coopbri)! - Update style recipes for accordion, checkbox, dialog, and drawer
+
+- [#29](https://github.com/omnidotdev/sigil/pull/29) [`431d0ec`](https://github.com/omnidotdev/sigil/commit/431d0ec39403187945c44f8ae5ed213f439f048a) Thanks [@coopbri](https://github.com/coopbri)! - Improve ability to customize and compose `Accordion`
+
 ## 0.2.1
 
 ### Patch Changes
@@ -11,11 +27,11 @@
 ### Minor Changes
 
 - [#16](https://github.com/omnidotdev/sigil/pull/16) [`5a7cb87`](https://github.com/omnidotdev/sigil/commit/5a7cb87206be8615dacb4510d30266f62b805bd9) Thanks [@coopbri](https://github.com/coopbri)!
-  - Added `Link` component
-  - Updated brand colors and semantic tokens
-  - Added default color token to each color scale
-  - Added styles for indeterminate checkbox state
-  - Updated accordion and code style recipes
+  - Add `Link` component
+  - Update brand colors and semantic tokens
+  - Add default color token to each color scale
+  - Add styles for indeterminate checkbox state
+  - Update accordion and code style recipes
 
 ## 0.1.1
 
