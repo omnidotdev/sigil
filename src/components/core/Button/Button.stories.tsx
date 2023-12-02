@@ -79,18 +79,15 @@ export const IconOnly: Story = {
  * A custom color palette can be applied to atomically modify the base color.
  */
 export const CustomColorPalette: Story = {
-  args: {
-    colorPalette: "red",
-  },
   // render all button variants
   render: (_args) => (
     <Flex direction="column" w="fit-content" gap={4}>
-      <Button variant="solid" {...Default.args} />
-      <Button variant="outline" {...Outline.args} />
-      <Button variant="muted" {...Muted.args} />
-      <Button variant="ghost" {...Ghost.args} />
-      <Button variant="link" {...Link.args} />
-      <Button variant="icon" {...IconOnly.args} />
+      <Button variant="solid" colorPalette="amber" {...Default.args} />
+      <Button variant="outline" colorPalette="amber" {...Outline.args} />
+      <Button variant="muted" colorPalette="amber" {...Muted.args} />
+      <Button variant="ghost" colorPalette="amber" {...Ghost.args} />
+      <Button variant="link" colorPalette="amber" {...Link.args} />
+      <Button variant="icon" colorPalette="amber" {...IconOnly.args} />
     </Flex>
   ),
 };
