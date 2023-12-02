@@ -1,4 +1,4 @@
-import { Table, TableCell, TableHead, TableRow } from "components";
+import { Table, TableCell, TableHeader, TableRow } from "components";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -55,11 +55,11 @@ export const Default: Story = {
     caption: "Product Inventory",
     headerContent: (
       <TableRow>
-        <TableHead>ID</TableHead>
-        <TableHead>Name</TableHead>
-        <TableHead>Category</TableHead>
-        <TableHead>Stock</TableHead>
-        <TableHead textAlign="right">Price</TableHead>
+        <TableHeader>ID</TableHeader>
+        <TableHeader>Name</TableHeader>
+        <TableHeader>Category</TableHeader>
+        <TableHeader>Stock</TableHeader>
+        <TableHeader textAlign="right">Price</TableHeader>
       </TableRow>
     ),
     children: productData.map(({ id, name, category, stock, price }) => (

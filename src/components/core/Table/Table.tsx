@@ -37,9 +37,9 @@ export const TableCell = withContext(styled(ark.td), "cell");
 
 export const TableFooter = withContext(styled(ark.tfoot), "footer");
 
-export const TableHead = withContext(styled(ark.th), "head");
+export const TableHead = withContext(styled(ark.thead), "head");
 
-export const TableHeader = withContext(styled(ark.thead), "header");
+export const TableHeader = withContext(styled(ark.th), "header");
 
 export const TableRow = withContext(styled(ark.tr), "row");
 
@@ -56,7 +56,7 @@ const Table = ({
   <TableRoot {...rest}>
     {caption && <TableCaption>{caption}</TableCaption>}
 
-    {headerContent && <TableHeader>{headerContent}</TableHeader>}
+    {headerContent && <TableHead>{headerContent}</TableHead>}
 
     <TableBody>{children}</TableBody>
 
