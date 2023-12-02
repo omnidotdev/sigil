@@ -1,14 +1,36 @@
 import { defineSemanticTokens } from "@pandacss/dev";
 
+import { baseColors } from "../tokens/colors.tokens";
+
 import type { SemanticTokens } from "@pandacss/dev";
+import type { Recursive, Token, Tokens } from "@pandacss/types";
 
 // TODO allow dynamic palette (theme picker) to select neutral palette, also for accent/core/base colors, border radii, ...
 const NEUTRAL_PALETTE = "silver";
 
 /**
+ * Generate semantic tokens from base colors. Useful for virtual color (`colorPalette`) usage.
+ */
+const generateSemanticBaseColors = (colors: Tokens["colors"]) =>
+  Object.keys(colors as Recursive<Token<string>>).reduce(
+    (semanticColors, color) => {
+      semanticColors![color] = {
+        default: { value: `{colors.${color}.700}` },
+        emphasized: { value: `{colors.${color}.800}` },
+        foreground: { value: "{colors.white}" },
+        text: { value: `{colors.${color}.900a}` },
+      };
+
+      return semanticColors;
+    },
+    {} as SemanticTokens["colors"],
+  );
+
+/**
  * Color semantic tokens.
  */
 const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
+  ...generateSemanticBaseColors(baseColors),
   success: { value: "{colors.green}" },
   warning: { value: "{colors.yellow}" },
   danger: { value: "{colors.red}" },
@@ -119,6 +141,9 @@ const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
         base: "{colors.white}",
         _dark: "{colors.neutral.950}",
       },
+    },
+    text: {
+      value: "{colors.red.900a}",
     },
   },
   border: {

@@ -34,6 +34,7 @@ const pandaConfig = defineConfig({
           {
             properties: {
               backgroundColor: ["*"],
+              colorPalette: ["*"],
             },
           },
         ],
