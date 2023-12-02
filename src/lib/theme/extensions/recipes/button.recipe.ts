@@ -58,12 +58,12 @@ const button = defineRecipe({
         color: "background.muted",
         bgColor: "foreground.muted",
         _hover: {
-          bgColor: "accent.emphasized",
+          bgColor: "colorPalette.emphasized",
         },
         _focusVisible: {
           outlineOffset: "2px",
           outline: "2px solid",
-          outlineColor: "border.accent",
+          outlineColor: "colorPalette.default",
         },
         _disabled: {
           bgColor: "background.disabled",
@@ -138,15 +138,15 @@ const button = defineRecipe({
       },
       icon: {
         px: 0,
-        bgColor: "accent.default",
-        color: "accent.foreground",
+        bgColor: "colorPalette.default",
+        color: "colorPalette.foreground",
         _hover: {
-          bgColor: "accent.emphasized",
+          bgColor: "colorPalette.emphasized",
         },
         _focusVisible: {
           outlineOffset: "2px",
           outline: "2px solid",
-          outlineColor: "border.accent",
+          outlineColor: "colorPalette.default",
         },
         _disabled: {
           bgColor: "background.disabled",

@@ -9,7 +9,7 @@ const checkbox = defineSlotRecipe({
   description: "Checkbox style recipes",
   slots: checkboxAnatomy.keys(),
   base: {
-    // TODO apply cursor pointer to label as well, + space between label and control
+    // TODO apply cursor pointer to label as well? Research UX best practices
     root: {
       alignItems: "center",
       colorPalette: "accent",

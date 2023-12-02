@@ -1,7 +1,7 @@
 import { defineTokens } from "@pandacss/dev";
 import { assign } from "radash";
 
-import { hexToRgba } from "lib/util";
+import { hexToRgba } from "../../../util";
 
 import type { Tokens } from "@pandacss/dev";
 import type { Recursive, Token } from "@pandacss/types";
@@ -34,6 +34,8 @@ export const generateAlphaColors = (
 
   return alphaColors;
 };
+
+// TODO `25` key for all colors
 
 /**
  * Omni colors, represented by 6 gemstones.
