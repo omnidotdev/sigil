@@ -1,5 +1,8 @@
 # Omni Sigil Design System & UI Kit
 
+> [!WARNING]
+> This project is in early development. Use at your own risk, and expect turbulence in the codebase.
+
 Universal design system and component library for Omni, powered by [Panda](https://panda-css.com/) and [Ark](https://ark-ui.com/).
 
 ## Quick Start
