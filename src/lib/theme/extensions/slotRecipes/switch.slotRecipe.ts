@@ -12,6 +12,7 @@ const switchRecipe = defineSlotRecipe({
   base: {
     root: {
       alignItems: "center",
+      colorPalette: "accent",
       display: "flex",
       position: "relative",
     },
@@ -26,7 +27,7 @@ const switchRecipe = defineSlotRecipe({
       transitionProperty: "background",
       transitionTimingFunction: "default",
       _checked: {
-        bgColor: "accent.default",
+        bgColor: "colorPalette.default",
       },
     },
     label: {
@@ -45,7 +46,7 @@ const switchRecipe = defineSlotRecipe({
         transform: "translateX(100%)",
         bgColor: {
           base: "background.default",
-          _dark: "accent.foreground",
+          _dark: "colorPalette.foreground",
         },
       },
     },

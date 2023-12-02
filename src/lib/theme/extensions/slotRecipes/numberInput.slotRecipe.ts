@@ -38,6 +38,7 @@ const numberInput = defineSlotRecipe({
   slots: numberInputAnatomy.keys(),
   base: {
     root: {
+      colorPalette: "accent",
       display: "flex",
       flexDirection: "column",
       gap: 1.5,
@@ -55,8 +56,8 @@ const numberInput = defineSlotRecipe({
       transitionProperty: "border-color, box-shadow",
       transitionTimingFunction: "default",
       _focusWithin: {
-        borderColor: "border.accent",
-        boxShadow: "accent",
+        borderColor: "colorPalette.default",
+        boxShadow: "0 0 0 1px var(--colors-color-palette-default)",
       },
     },
     input: {

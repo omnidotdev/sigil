@@ -10,6 +10,7 @@ const datePicker = defineSlotRecipe({
   slots: [...datePickerAnatomy.keys()],
   base: {
     root: {
+      colorPalette: "accent",
       display: "flex",
       flexDirection: "column",
       gap: 1.5,
@@ -69,7 +70,7 @@ const datePicker = defineSlotRecipe({
       _today: {
         _before: {
           content: "'−'",
-          color: "accent.default",
+          color: "colorPalette.default",
           position: "absolute",
           marginTop: 6,
         },
@@ -79,7 +80,7 @@ const datePicker = defineSlotRecipe({
       },
       _selected: {
         _before: {
-          color: "accent.foreground",
+          color: "colorPalette.foreground",
         },
       },
     },

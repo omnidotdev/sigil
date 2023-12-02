@@ -34,7 +34,7 @@ const roundedRectangleStyles = {
     },
     _checked: {
       cursor: "default",
-      borderColor: "border.accent",
+      borderColor: "colorPalette.default",
     },
     _disabled: {
       borderColor: "border.disabled",
@@ -58,6 +58,7 @@ const radioGroup = defineSlotRecipe({
   slots: radioGroupAnatomy.keys(),
   base: {
     root: {
+      colorPalette: "accent",
       display: "flex",
       flexWrap: "wrap",
       flexDirection: {
@@ -100,12 +101,12 @@ const radioGroup = defineSlotRecipe({
             bgColor: "background.subtle",
           },
           _checked: {
-            bgColor: "accent.default",
-            borderColor: "border.accent",
+            bgColor: "colorPalette.default",
+            borderColor: "colorPalette.default",
             outlineColor: "background.default",
             outlineStyle: "solid",
             _hover: {
-              bgColor: "accent.default",
+              bgColor: "colorPalette.default",
             },
           },
           _disabled: {
@@ -124,11 +125,11 @@ const radioGroup = defineSlotRecipe({
           ...roundedRectangleStyles.item,
           _checked: {
             ...roundedRectangleStyles.item._checked,
-            bgColor: "accent.default",
-            color: "background.default",
+            bgColor: "colorPalette.default",
+            color: "colorPalette.foreground",
             _hover: {
-              color: "accent.foreground",
-              bgColor: "accent.default",
+              bgColor: "colorPalette.default",
+              color: "colorPalette.foreground",
             },
           },
         },
@@ -137,14 +138,14 @@ const radioGroup = defineSlotRecipe({
         ...roundedRectangleStyles,
         itemText: {
           _checked: {
-            color: "accent.default",
+            color: "colorPalette.foreground",
           },
         },
         item: {
           ...roundedRectangleStyles.item,
           _checked: {
             ...roundedRectangleStyles.item._checked,
-            boxShadow: "accent",
+            boxShadow: "0 0 0 1px var(--colors-color-palette-default)",
             _hover: {
               bgColor: "initial",
             },

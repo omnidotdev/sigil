@@ -10,6 +10,7 @@ const tabs = defineSlotRecipe({
   slots: tabsAnatomy.keys(),
   base: {
     root: {
+      colorPalette: "accent",
       display: "flex",
       width: "full",
       _horizontal: {
@@ -87,7 +88,7 @@ const tabs = defineSlotRecipe({
           },
         },
         indicator: {
-          bgColor: "accent.default",
+          bgColor: "colorPalette.default",
           _horizontal: {
             height: "2px",
             bottom: 0,

@@ -7,10 +7,11 @@ const badge = defineRecipe({
   className: "badge",
   description: "Badge style recipes",
   base: {
-    borderRadius: "full",
-    fontWeight: "medium",
-    display: "inline-flex",
     alignItems: "center",
+    borderRadius: "full",
+    colorPalette: "accent",
+    display: "inline-flex",
+    fontWeight: "medium",
     userSelect: "none",
     whiteSpace: "nowrap",
   },
@@ -21,8 +22,8 @@ const badge = defineRecipe({
   variants: {
     variant: {
       solid: {
-        bgColor: "accent.default",
-        color: "accent.foreground",
+        bgColor: "colorPalette.default",
+        color: "colorPalette.foreground",
       },
       subtle: {
         bgColor: "background.subtle",
