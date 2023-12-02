@@ -1,6 +1,7 @@
 import { FiArrowRight } from "react-icons/fi/index.js";
 
 import { Button } from "components";
+import { Flex } from "generated/panda/jsx";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -72,6 +73,26 @@ export const IconOnly: Story = {
     "aria-label": "Next Page",
     children: <FiArrowRight />,
   },
+};
+
+/**
+ * A custom color palette can be applied to atomically modify the base color.
+ */
+export const CustomColorPalette: Story = {
+  args: {
+    colorPalette: "red",
+  },
+  // render all button variants
+  render: (_args) => (
+    <Flex direction="column" w="fit-content" gap={4}>
+      <Button variant="solid" {...Default.args} />
+      <Button variant="outline" {...Outline.args} />
+      <Button variant="muted" {...Muted.args} />
+      <Button variant="ghost" {...Ghost.args} />
+      <Button variant="link" {...Link.args} />
+      <Button variant="icon" {...IconOnly.args} />
+    </Flex>
+  ),
 };
 
 export default meta;
