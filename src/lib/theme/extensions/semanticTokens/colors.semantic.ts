@@ -143,7 +143,7 @@ const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
       },
     },
     text: {
-      value: "{colors.red.900a}",
+      value: "{colors.brand.primary.900a}",
     },
   },
   border: {
