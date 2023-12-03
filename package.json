@@ -88,7 +88,7 @@
     "@zag-js/date-picker": "^0.30.0",
     "@zag-js/menu": "^0.30.0",
     "@zag-js/pagination": "^0.30.0",
-    "@zag-js/radio-group": "^0.30.0",
+    "@zag-js/radio-group": "^0.31.0",
     "@zag-js/rating-group": "^0.30.0",
     "@zag-js/rect-utils": "0.30.0",
     "@zag-js/select": "^0.30.0",
