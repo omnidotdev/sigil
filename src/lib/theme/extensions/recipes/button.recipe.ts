@@ -10,6 +10,7 @@ const button = defineRecipe({
     alignItems: "center",
     appearance: "none",
     borderRadius: "sm",
+    colorPalette: "neutral",
     cursor: "pointer",
     display: "inline-flex",
     fontWeight: "semibold",
@@ -55,8 +56,9 @@ const button = defineRecipe({
         },
       },
       muted: {
-        color: "background.muted",
         bgColor: "foreground.muted",
+        color: "background.muted",
+        colorPalette: "accent",
         _hover: {
           bgColor: "colorPalette.emphasized",
         },
@@ -77,7 +79,6 @@ const button = defineRecipe({
         borderWidth: 1.5,
         borderColor: "colorPalette.600a",
         color: "colorPalette.text",
-        colorPalette: "neutral",
         _hover: {
           bgColor: "colorPalette.50a",
         },
@@ -102,7 +103,6 @@ const button = defineRecipe({
       },
       ghost: {
         color: "colorPalette.text",
-        colorPalette: "neutral",
         _hover: {
           bgColor: "colorPalette.100a",
         },
