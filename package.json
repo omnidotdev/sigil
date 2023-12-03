@@ -86,7 +86,7 @@
     "@zag-js/color-utils": "^0.30.0",
     "@zag-js/combobox": "^0.30.0",
     "@zag-js/date-picker": "^0.30.0",
-    "@zag-js/menu": "^0.30.0",
+    "@zag-js/menu": "^0.31.0",
     "@zag-js/pagination": "^0.30.0",
     "@zag-js/radio-group": "^0.30.0",
     "@zag-js/rating-group": "^0.30.0",
