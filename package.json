@@ -80,7 +80,7 @@
     "@types/react": "^18.2.41",
     "@typescript-eslint/eslint-plugin": "^6.13.1",
     "@typescript-eslint/parser": "^6.13.1",
-    "@zag-js/accordion": "^0.30.0",
+    "@zag-js/accordion": "^0.31.0",
     "@zag-js/carousel": "^0.30.0",
     "@zag-js/color-picker": "^0.30.0",
     "@zag-js/color-utils": "^0.30.0",
