@@ -205,11 +205,6 @@ const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
         _dark: "{colors.neutral.300a}",
       },
     },
-    accent: {
-      value: {
-        base: "{colors.accent.default}",
-      },
-    },
   },
 });
 
