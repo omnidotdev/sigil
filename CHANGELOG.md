@@ -10,7 +10,7 @@
 
 - [#38](https://github.com/omnidotdev/sigil/pull/38) [`dd60117`](https://github.com/omnidotdev/sigil/commit/dd601176832ff0e433896b33e45f50c6ca124cff) Thanks [@coopbri](https://github.com/coopbri)! - Correct `Card` and `Checkbox` props interface to allow Panda props
 
-- [#38](https://github.com/omnidotdev/sigil/pull/38) [`dd60117`](https://github.com/omnidotdev/sigil/commit/dd601176832ff0e433896b33e45f50c6ca124cff) Thanks [@coopbri](https://github.com/coopbri)! - Correct ordering of 'th' and 'thead' elements in `Table`
+- [#38](https://github.com/omnidotdev/sigil/pull/38) [`dd60117`](https://github.com/omnidotdev/sigil/commit/dd601176832ff0e433896b33e45f50c6ca124cff) Thanks [@coopbri](https://github.com/coopbri)! - Correct ordering of `th` and `thead` elements in `Table`
 
 ## 0.3.0
 
