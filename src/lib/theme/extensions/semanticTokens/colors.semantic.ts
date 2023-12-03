@@ -20,10 +20,30 @@ const generateSemanticColors = (colors: Tokens["colors"]) =>
   Object.keys(colors as Recursive<Token<string>>).reduce(
     (semanticColors, color) => {
       semanticColors![color] = {
-        default: { value: `{colors.${color}.700}` },
-        emphasized: { value: `{colors.${color}.800}` },
-        foreground: { value: "{colors.white}" },
-        text: { value: `{colors.${color}.900a}` },
+        default: {
+          value: {
+            base: `{colors.${color}}`,
+            _dark: `{colors.${color}.500}`,
+          },
+        },
+        emphasized: {
+          value: {
+            base: `{colors.${color}.700}`,
+            _dark: `{colors.${color}.400}`,
+          },
+        },
+        foreground: {
+          value: {
+            base: "{colors.white}",
+            _dark: `{colors.neutral.950}`,
+          },
+        },
+        text: {
+          value: {
+            base: `{colors.${color}.900}`,
+            _dark: `{colors.${color}.100}`,
+          },
+        },
       };
 
       return semanticColors;
@@ -153,9 +173,6 @@ const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
         base: "{colors.white}",
         _dark: "{colors.neutral.950}",
       },
-    },
-    text: {
-      value: "{colors.brand.primary.900a}",
     },
   },
   border: {

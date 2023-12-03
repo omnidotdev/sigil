@@ -83,8 +83,8 @@ export const CustomColorPalette: Story = {
   render: (_args) => (
     <Flex direction="column" w="fit-content" gap={4}>
       <Button variant="solid" colorPalette="amber" {...Default.args} />
-      <Button variant="outline" colorPalette="amber" {...Outline.args} />
       <Button variant="muted" colorPalette="amber" {...Muted.args} />
+      <Button variant="outline" colorPalette="amber" {...Outline.args} />
       <Button variant="ghost" colorPalette="amber" {...Ghost.args} />
       <Button variant="link" colorPalette="amber" {...Link.args} />
       <Button variant="icon" colorPalette="amber" {...IconOnly.args} />

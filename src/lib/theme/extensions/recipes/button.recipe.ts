@@ -78,7 +78,6 @@ const button = defineRecipe({
       outline: {
         borderWidth: 1.5,
         borderColor: "colorPalette.600a",
-        color: "colorPalette.text",
         _hover: {
           bgColor: "colorPalette.50a",
         },
@@ -102,7 +101,6 @@ const button = defineRecipe({
         },
       },
       ghost: {
-        color: "colorPalette.text",
         _hover: {
           bgColor: "colorPalette.100a",
         },
