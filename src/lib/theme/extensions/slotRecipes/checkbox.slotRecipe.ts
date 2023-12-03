@@ -9,9 +9,10 @@ const checkbox = defineSlotRecipe({
   description: "Checkbox style recipes",
   slots: checkboxAnatomy.keys(),
   base: {
-    // TODO apply cursor pointer to label as well, + space between label and control
+    // TODO apply cursor pointer to label as well? Research UX best practices
     root: {
       alignItems: "center",
+      colorPalette: "accent",
       display: "flex",
     },
     label: {
@@ -22,7 +23,7 @@ const checkbox = defineSlotRecipe({
       alignItems: "center",
       borderColor: "border.default",
       borderWidth: "1px",
-      color: "accent.foreground",
+      color: "colorPalette.foreground",
       cursor: "pointer",
       display: "flex",
       justifyContent: "center",
@@ -33,17 +34,17 @@ const checkbox = defineSlotRecipe({
         bgColor: "background.subtle",
       },
       _checked: {
-        bgColor: "accent.default",
-        borderColor: "border.accent",
+        bgColor: "colorPalette.default",
+        borderColor: "colorPalette.default",
         _hover: {
-          bgColor: "accent.default",
+          bgColor: "colorPalette.default",
         },
       },
       _indeterminate: {
-        bgColor: "accent.default",
-        borderColor: "border.accent",
+        bgColor: "colorPalette.default",
+        borderColor: "colorPalette.default",
         _hover: {
-          bgColor: "accent.default",
+          bgColor: "colorPalette.default",
         },
       },
       "&:has(+ :focus-visible)": {
@@ -51,7 +52,7 @@ const checkbox = defineSlotRecipe({
         outline: "2px solid",
         outlineColor: "border.outline",
         _checked: {
-          outlineColor: "border.accent",
+          outlineColor: "colorPalette.default",
         },
       },
     },

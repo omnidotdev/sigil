@@ -10,6 +10,7 @@ const slider = defineSlotRecipe({
   slots: sliderAnatomy.keys(),
   base: {
     root: {
+      colorPalette: "accent",
       display: "flex",
       flexDirection: "column",
       gap: 1,
@@ -28,11 +29,11 @@ const slider = defineSlotRecipe({
       cursor: "pointer",
     },
     range: {
-      bgColor: "accent.default",
+      bgColor: "colorPalette.default",
     },
     thumb: {
       bgColor: "background.default",
-      borderColor: "border.accent",
+      borderColor: "colorPalette.default",
       borderRadius: "full",
       borderWidth: 3,
       boxShadow: "sm",
@@ -50,7 +51,7 @@ const slider = defineSlotRecipe({
     marker: {
       "--before-bgColor": {
         base: "colors.white",
-        _dark: "colors.accent.foreground",
+        _dark: "colors.colorPalette.foreground",
       },
       color: "foreground.muted",
       _before: {

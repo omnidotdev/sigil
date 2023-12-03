@@ -1,16 +1,14 @@
 import { Checkbox as ArkCheckbox } from "@ark-ui/react/checkbox";
 
 import { styled } from "generated/panda/jsx";
-import { checkbox, type CheckboxVariantProps } from "generated/panda/recipes";
+import { checkbox } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { CheckboxProps as ArkCheckboxProps } from "@ark-ui/react/checkbox";
+import type { ComponentProps } from "react";
 
 const { withProvider, withContext } = createStyleContext(checkbox);
 
-export interface CheckboxProps
-  extends Omit<ArkCheckboxProps, "children">,
-    CheckboxVariantProps {
+export interface CheckboxProps extends ComponentProps<typeof CheckboxRoot> {
   /** Checkbox label. */
   label: string;
 }
@@ -24,7 +22,7 @@ export const CheckboxControl = withContext(
 
 export const CheckboxLabel = withContext(styled(ArkCheckbox.Label), "label");
 
-// TODO change to react-icons icon, and make sure can click icon to toggle state
+// TODO change to react-icons icon, and make sure can click icon to toggle state (add test)
 const CheckIcon = () => (
   <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
@@ -37,7 +35,7 @@ const CheckIcon = () => (
   </svg>
 );
 
-// TODO change to react-icons icon, and make sure can click icon to toggle state
+// TODO change to react-icons icon, and make sure can click icon to toggle state (add test)
 const MinusIcon = () => (
   <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path

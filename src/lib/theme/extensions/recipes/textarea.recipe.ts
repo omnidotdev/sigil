@@ -12,6 +12,7 @@ const textarea = defineRecipe({
     borderColor: "border.default",
     borderRadius: "sm",
     borderWidth: "1px",
+    colorPalette: "accent",
     minWidth: 0,
     outline: 0,
     position: "relative",
@@ -23,8 +24,8 @@ const textarea = defineRecipe({
       cursor: "not-allowed",
     },
     _focus: {
-      borderColor: "border.accent",
-      boxShadow: "accent",
+      borderColor: "colorPalette.default",
+      boxShadow: "0 0 0 1px var(--colors-color-palette-default)",
     },
   },
   defaultVariants: {

@@ -9,6 +9,9 @@ const carousel = defineSlotRecipe({
   description: "Carousel style recipes",
   slots: carouselAnatomy.keys(),
   base: {
+    root: {
+      colorPalette: "accent",
+    },
     viewport: {
       overflowX: "hidden",
       position: "relative",
@@ -33,7 +36,7 @@ const carousel = defineSlotRecipe({
       bgColor: "neutral.400",
       cursor: "pointer",
       _current: {
-        bgColor: "accent.default",
+        bgColor: "colorPalette.default",
       },
       _focusVisible: {
         outlineOffset: "2px",

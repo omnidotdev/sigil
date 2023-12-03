@@ -30,7 +30,7 @@ const table = defineSlotRecipe({
         borderBottomWidth: 0,
       },
     },
-    head: {
+    header: {
       color: "foreground.muted",
       fontWeight: "medium",
       textAlign: "left",
@@ -63,7 +63,7 @@ const table = defineSlotRecipe({
         root: {
           borderWidth: "1px",
         },
-        header: {
+        head: {
           bgColor: "background.subtle",
         },
       },
@@ -80,7 +80,7 @@ const table = defineSlotRecipe({
           height: 11,
           px: 3,
         },
-        head: {
+        header: {
           height: 11,
           px: 3,
         },
@@ -96,7 +96,7 @@ const table = defineSlotRecipe({
           height: 14,
           px: 4,
         },
-        head: {
+        header: {
           height: 11,
           px: 4,
         },

@@ -10,6 +10,7 @@ const button = defineRecipe({
     alignItems: "center",
     appearance: "none",
     borderRadius: "sm",
+    colorPalette: "neutral",
     cursor: "pointer",
     display: "inline-flex",
     fontWeight: "semibold",
@@ -33,36 +34,38 @@ const button = defineRecipe({
   variants: {
     variant: {
       solid: {
-        bgColor: "accent.default",
-        color: "accent.foreground",
+        bgColor: "colorPalette.default",
+        color: "colorPalette.foreground",
+        colorPalette: "accent",
         _hover: {
-          bgColor: "accent.emphasized",
+          bgColor: "colorPalette.emphasized",
         },
         _focusVisible: {
-          outlineOffset: "2px",
           outline: "2px solid",
-          outlineColor: "border.accent",
+          outlineColor: "colorPalette.default",
+          outlineOffset: "2px",
         },
         _disabled: {
           color: "foreground.disabled",
-          bgColor: "neutral.100a",
+          bgColor: "background.disabled",
           cursor: "not-allowed",
           _hover: {
             color: "foreground.disabled",
-            bgColor: "neutral.100a",
+            bgColor: "background.disabled",
           },
         },
       },
       muted: {
-        color: "background.muted",
         bgColor: "foreground.muted",
+        color: "background.muted",
+        colorPalette: "accent",
         _hover: {
-          bgColor: "accent.emphasized",
+          bgColor: "colorPalette.emphasized",
         },
         _focusVisible: {
           outlineOffset: "2px",
           outline: "2px solid",
-          outlineColor: "border.accent",
+          outlineColor: "colorPalette.default",
         },
         _disabled: {
           bgColor: "background.disabled",
@@ -74,9 +77,9 @@ const button = defineRecipe({
       },
       outline: {
         borderWidth: 1.5,
-        borderColor: "border.default",
+        borderColor: "colorPalette.600a",
         _hover: {
-          bgColor: "neutral.50a",
+          bgColor: "colorPalette.50a",
         },
         _disabled: {
           borderColor: "border.disabled",
@@ -89,20 +92,20 @@ const button = defineRecipe({
           },
         },
         _focusVisible: {
-          outlineOffset: "2px",
           outline: "2px solid",
-          outlineColor: "border.outline",
+          outlineColor: "colorPalette.default",
+          outlineOffset: "2px",
         },
         _selected: {
-          bgColor: "gray.300a",
+          bgColor: "colorPalette.100a",
         },
       },
       ghost: {
         _hover: {
-          bgColor: "neutral.100a",
+          bgColor: "colorPalette.100a",
         },
         _selected: {
-          bgColor: "neutral.100a",
+          bgColor: "colorPalette.100a",
         },
         _disabled: {
           color: "foreground.disabled",
@@ -114,7 +117,8 @@ const button = defineRecipe({
         },
         _focusVisible: {
           outline: "2px solid",
-          outlineColor: "border.outline",
+          outlineColor: "colorPalette.default",
+          outlineOffset: "2px",
         },
       },
       link: {
@@ -132,15 +136,15 @@ const button = defineRecipe({
       },
       icon: {
         px: 0,
-        bgColor: "accent.default",
-        color: "accent.foreground",
+        bgColor: "colorPalette.default",
+        color: "colorPalette.foreground",
         _hover: {
-          bgColor: "accent.emphasized",
+          bgColor: "colorPalette.emphasized",
         },
         _focusVisible: {
           outlineOffset: "2px",
           outline: "2px solid",
-          outlineColor: "border.accent",
+          outlineColor: "colorPalette.default",
         },
         _disabled: {
           bgColor: "background.disabled",

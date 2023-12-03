@@ -1,14 +1,64 @@
 import { defineSemanticTokens } from "@pandacss/dev";
 
+import {
+  baseColors,
+  brandColors,
+  neutralColors,
+  omniColors,
+} from "../tokens/colors.tokens";
+
 import type { SemanticTokens } from "@pandacss/dev";
+import type { Recursive, Token, Tokens } from "@pandacss/types";
 
 // TODO allow dynamic palette (theme picker) to select neutral palette, also for accent/core/base colors, border radii, ...
 const NEUTRAL_PALETTE = "silver";
 
 /**
+ * Generate semantic tokens from base colors. Useful for virtual color (`colorPalette`) usage.
+ */
+const generateSemanticColors = (colors: Tokens["colors"]) =>
+  Object.keys(colors as Recursive<Token<string>>).reduce(
+    (semanticColors, color) => {
+      semanticColors![color] = {
+        default: {
+          value: {
+            base: `{colors.${color}}`,
+            _dark: `{colors.${color}.500}`,
+          },
+        },
+        emphasized: {
+          value: {
+            base: `{colors.${color}.700}`,
+            _dark: `{colors.${color}.400}`,
+          },
+        },
+        foreground: {
+          value: {
+            base: "{colors.white}",
+            _dark: `{colors.neutral.950}`,
+          },
+        },
+        text: {
+          value: {
+            base: `{colors.${color}.900}`,
+            _dark: `{colors.${color}.100}`,
+          },
+        },
+      };
+
+      return semanticColors;
+    },
+    {} as SemanticTokens["colors"],
+  );
+
+/**
  * Color semantic tokens.
  */
 const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
+  ...generateSemanticColors(baseColors),
+  ...generateSemanticColors(omniColors),
+  ...generateSemanticColors(brandColors),
+  ...generateSemanticColors(neutralColors),
   success: { value: "{colors.green}" },
   warning: { value: "{colors.yellow}" },
   danger: { value: "{colors.red}" },
@@ -39,6 +89,10 @@ const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
     "800a": { value: `{colors.${NEUTRAL_PALETTE}.800a}` },
     "900a": { value: `{colors.${NEUTRAL_PALETTE}.900a}` },
     "950a": { value: `{colors.${NEUTRAL_PALETTE}.950a}` },
+    default: { value: `{colors.${NEUTRAL_PALETTE}.700}` },
+    emphasized: { value: `{colors.${NEUTRAL_PALETTE}.800}` },
+    foreground: { value: "{colors.white}" },
+    text: { value: `{colors.${NEUTRAL_PALETTE}.900a}` },
   },
   background: {
     canvas: {
@@ -149,11 +203,6 @@ const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
       value: {
         base: "{colors.neutral.700a}",
         _dark: "{colors.neutral.300a}",
-      },
-    },
-    accent: {
-      value: {
-        base: "{colors.accent.default}",
       },
     },
   },
