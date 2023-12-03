@@ -10,6 +10,7 @@ const switchRecipe = defineSlotRecipe({
   description: "Switch style recipes",
   slots: switchAnatomy.keys(),
   base: {
+    // TODO apply cursor pointer to label as well? Research UX best practices
     root: {
       alignItems: "center",
       colorPalette: "accent",
