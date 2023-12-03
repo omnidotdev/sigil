@@ -13,7 +13,6 @@ const keyboard = defineRecipe({
     borderRadius: "sm",
     boxShadow:
       "0 -2px 0 0 inset var(--colors-border-muted), 0 0 0 1px inset var(--colors-border-muted)",
-    // borderWidth: "1px 1px 3px",
     display: "inline-flex",
     fontFamily: "var(--font-code)",
     fontWeight: "medium",
