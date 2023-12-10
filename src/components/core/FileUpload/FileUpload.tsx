@@ -3,14 +3,10 @@ import { FaRegTrashAlt } from "react-icons/fa";
 
 import Button from "components/core/Button/Button";
 import { styled } from "generated/panda/jsx";
-import {
-  fileUpload,
-  type FileUploadVariantProps,
-} from "generated/panda/recipes";
+import { fileUpload } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type {
-  FileUploadProps as ArkFileUploadProps,
   FileUploadDropzoneProps as ArkFileUploadDropzoneProps,
   FileUploadItemGroupProps as ArkFileUploadItemGroupProps,
   FileUploadItemProps as ArkFileUploadItemProps,
@@ -19,13 +15,70 @@ import type {
   FileUploadItemSizeTextProps as ArkFileUploadItemSizeTextProps,
   FileUploadItemDeleteTriggerProps as ArkFileUploadItemDeleteTriggerProps,
 } from "@ark-ui/react/file-upload";
+import type { HTMLStyledProps } from "generated/panda/jsx";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(fileUpload);
 
-export interface FileUploadProps
-  extends ArkFileUploadProps,
-    FileUploadVariantProps {
+const FileUploadRoot = withProvider(styled(ArkFileUpload.Root), "root");
+export interface FileUploadRootProps
+  extends HTMLStyledProps<typeof FileUploadRoot> {}
+
+const FileUploadTrigger = withContext(styled(ArkFileUpload.Trigger), "trigger");
+export interface FileUploadTriggerProps
+  extends HTMLStyledProps<typeof FileUploadTrigger> {}
+
+const FileUploadDropzone = withContext(
+  styled(ArkFileUpload.Dropzone),
+  "dropzone",
+);
+export interface FileUploadDropzoneProps
+  extends HTMLStyledProps<typeof FileUploadDropzone> {}
+
+const FileUploadItem = withContext(styled(ArkFileUpload.Item), "item");
+export interface FileUploadItemProps
+  extends HTMLStyledProps<typeof FileUploadItem> {}
+
+const FileUploadItemDeleteTrigger = withContext(
+  styled(ArkFileUpload.ItemDeleteTrigger),
+  "itemDeleteTrigger",
+);
+export interface FileUploadItemDeleteTriggerProps
+  extends HTMLStyledProps<typeof FileUploadItemDeleteTrigger> {}
+
+const FileUploadItemGroup = withContext(
+  styled(ArkFileUpload.ItemGroup),
+  "itemGroup",
+);
+export interface FileUploadItemGroupProps
+  extends HTMLStyledProps<typeof FileUploadItemGroup> {}
+
+const FileUploadItemName = withContext(
+  styled(ArkFileUpload.ItemName),
+  "itemName",
+);
+export interface FileUploadItemNameProps
+  extends HTMLStyledProps<typeof FileUploadItemName> {}
+
+const FileUploadItemPreview = withContext(
+  styled(ArkFileUpload.ItemPreview),
+  "itemPreview",
+);
+export interface FileUploadItemPreviewProps
+  extends HTMLStyledProps<typeof FileUploadItemPreview> {}
+
+const FileUploadItemSizeText = withContext(
+  styled(ArkFileUpload.ItemSizeText),
+  "itemSizeText",
+);
+export interface FileUploadItemSizeTextProps
+  extends HTMLStyledProps<typeof FileUploadItemSizeText> {}
+
+const FileUploadLabel = withContext(styled(ArkFileUpload.Label), "label");
+export interface FileUploadLabelProps
+  extends HTMLStyledProps<typeof FileUploadLabel> {}
+
+export interface FileUploadProps extends FileUploadRootProps {
   /** Label for the file upload dropzone. */
   label?: ReactNode;
   /** File upload dialog trigger. */
@@ -45,44 +98,6 @@ export interface FileUploadProps
   /** File upload item delete trigger props. */
   itemDeleteTriggerProps?: ArkFileUploadItemDeleteTriggerProps;
 }
-
-const FileUploadRoot = withProvider(styled(ArkFileUpload.Root), "root");
-
-const FileUploadTrigger = withContext(styled(ArkFileUpload.Trigger), "trigger");
-
-const FileUploadDropzone = withContext(
-  styled(ArkFileUpload.Dropzone),
-  "dropzone",
-);
-
-const FileUploadItem = withContext(styled(ArkFileUpload.Item), "item");
-
-const FileUploadItemDeleteTrigger = withContext(
-  styled(ArkFileUpload.ItemDeleteTrigger),
-  "itemDeleteTrigger",
-);
-
-const FileUploadItemGroup = withContext(
-  styled(ArkFileUpload.ItemGroup),
-  "itemGroup",
-);
-
-const FileUploadItemName = withContext(
-  styled(ArkFileUpload.ItemName),
-  "itemName",
-);
-
-const FileUploadItemPreview = withContext(
-  styled(ArkFileUpload.ItemPreview),
-  "itemPreview",
-);
-
-const FileUploadItemSizeText = withContext(
-  styled(ArkFileUpload.ItemSizeText),
-  "itemSizeText",
-);
-
-const FileUploadLabel = withContext(styled(ArkFileUpload.Label), "label");
 
 /**
  * File upload dropzone.

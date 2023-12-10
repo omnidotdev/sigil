@@ -3,41 +3,46 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 import Button from "components/core/Button/Button";
 import { styled } from "generated/panda/jsx";
-import {
-  pagination,
-  type PaginationVariantProps,
-} from "generated/panda/recipes";
+import { pagination } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { PaginationProps as ArkPaginationProps } from "@ark-ui/react/pagination";
+import type { HTMLStyledProps } from "generated/panda/jsx";
 
 // https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/pagination";
 
 const { withProvider, withContext } = createStyleContext(pagination);
 
-export interface PaginationProps
-  extends ArkPaginationProps,
-    PaginationVariantProps {}
-
 export const PaginationRoot = withProvider(styled(ArkPagination.Root), "root");
+export interface PaginationRootProps
+  extends HTMLStyledProps<typeof PaginationRoot> {}
 
 export const PaginationEllipsis = withContext(
   styled(ArkPagination.Ellipsis),
   "ellipsis",
 );
+export interface PaginationEllipsisProps
+  extends HTMLStyledProps<typeof PaginationEllipsis> {}
 
 export const PaginationNextTrigger = withContext(
   styled(ArkPagination.NextTrigger),
   "nextTrigger",
 );
+export interface PaginationNextTriggerProps
+  extends HTMLStyledProps<typeof PaginationNextTrigger> {}
 
 export const PaginationItem = withContext(styled(ArkPagination.Item), "item");
+export interface PaginationItemProps
+  extends HTMLStyledProps<typeof PaginationItem> {}
 
 export const PaginationPrevTrigger = withContext(
   styled(ArkPagination.PrevTrigger),
   "prevTrigger",
 );
+export interface PaginationPrevTriggerProps
+  extends HTMLStyledProps<typeof PaginationPrevTrigger> {}
+
+export interface PaginationProps extends PaginationRootProps {}
 
 /**
  * Pagination.

@@ -2,28 +2,36 @@ import { PinInput as ArkPINInput } from "@ark-ui/react/pin-input";
 
 import Input from "components/core/Input/Input";
 import { styled } from "generated/panda/jsx";
-import { pinInput, type PinInputVariantProps } from "generated/panda/recipes";
+import { pinInput } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { PinInputProps as ArkPINInputProps } from "@ark-ui/react/pin-input";
+import type { HTMLStyledProps } from "generated/panda/jsx";
 
 const { withProvider, withContext } = createStyleContext(pinInput);
 
-export interface PINInputProps extends ArkPINInputProps, PinInputVariantProps {
-  /** Input label. */
-  label?: string;
-}
-
 export const PINInputRoot = withProvider(styled(ArkPINInput.Root), "root");
+export interface PINInputRootProps
+  extends HTMLStyledProps<typeof PINInputRoot> {}
 
 export const PINInputControl = withContext(
   styled(ArkPINInput.Control),
   "control",
 );
+export interface PINInputControlProps
+  extends HTMLStyledProps<typeof PINInputControl> {}
 
 export const PINInputInput = withContext(styled(ArkPINInput.Input), "input");
+export interface PINInputInputProps
+  extends HTMLStyledProps<typeof PINInputInput> {}
 
 export const PINInputLabel = withContext(styled(ArkPINInput.Label), "label");
+export interface PINInputLabelProps
+  extends HTMLStyledProps<typeof PINInputLabel> {}
+
+export interface PINInputProps extends PINInputRootProps {
+  /** Input label. */
+  label?: string;
+}
 
 /**
  * Personal identification number (PIN) code input.

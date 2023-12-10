@@ -3,11 +3,12 @@ import { ark } from "@ark-ui/react";
 import { styled } from "generated/panda/jsx";
 import { link } from "generated/panda/recipes";
 
-import type { ComponentProps } from "react";
+import type { HTMLStyledProps } from "generated/panda/jsx";
 
-const ArkLink = styled(ark.a, link);
+const LinkRoot = styled(ark.a, link);
+export interface LinkRootProps extends HTMLStyledProps<typeof LinkRoot> {}
 
-export interface LinkProps extends ComponentProps<typeof ArkLink> {
+export interface LinkProps extends LinkRootProps {
   isExternal?: boolean;
 }
 
@@ -23,7 +24,7 @@ const externalLinkProps = {
  * Hyperlink.
  */
 const Link = ({ isExternal = false, ...rest }: LinkProps) => (
-  <ArkLink {...(isExternal && externalLinkProps)} {...rest} />
+  <LinkRoot {...(isExternal && externalLinkProps)} {...rest} />
 );
 
 export default Link;

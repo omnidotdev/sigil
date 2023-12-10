@@ -12,7 +12,7 @@ const meta = {
 
 export const Default: Story = {
   args: {
-    max: 5,
+    count: 5,
     defaultValue: 3,
     label: "Rating",
   },

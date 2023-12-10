@@ -4,15 +4,68 @@ import { FiX } from "react-icons/fi";
 
 import Button from "components/core/Button/Button";
 import { styled } from "generated/panda/jsx";
-import { drawer, type DrawerVariantProps } from "generated/panda/recipes";
+import { drawer } from "generated/panda/recipes";
 import { createStyleContext, getContextualChildren } from "lib/util";
 
-import type { DialogProps as ArkDialogProps } from "@ark-ui/react/dialog";
+import type { HTMLStyledProps } from "generated/panda/jsx";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(drawer);
 
-export interface DrawerProps extends ArkDialogProps, DrawerVariantProps {
+export const DrawerRoot = withProvider(styled(ArkDialog.Root), "root");
+export interface DrawerRootProps extends HTMLStyledProps<typeof DrawerRoot> {}
+
+export const DrawerTrigger = withContext(styled(ArkDialog.Trigger), "trigger");
+export interface DrawerTriggerProps
+  extends HTMLStyledProps<typeof DrawerTrigger> {}
+
+export const DrawerBackdrop = withContext(
+  styled(ArkDialog.Backdrop),
+  "backdrop",
+);
+export interface DrawerBackdropProps
+  extends HTMLStyledProps<typeof DrawerBackdrop> {}
+
+export const DrawerCloseTrigger = withContext(
+  styled(ArkDialog.CloseTrigger),
+  "closeTrigger",
+);
+export interface DrawerCloseTriggerProps
+  extends HTMLStyledProps<typeof DrawerCloseTrigger> {}
+
+export const DrawerPositioner = withContext(
+  styled(ArkDialog.Positioner),
+  "positioner",
+);
+export interface DrawerPositionerProps
+  extends HTMLStyledProps<typeof DrawerPositioner> {}
+
+export const DrawerContent = withContext(styled(ArkDialog.Content), "content");
+export interface DrawerContentProps
+  extends HTMLStyledProps<typeof DrawerContent> {}
+
+export const DrawerTitle = withContext(styled(ArkDialog.Title), "title");
+export interface DrawerTitleProps extends HTMLStyledProps<typeof DrawerTitle> {}
+
+export const DrawerDescription = withContext(
+  styled(ArkDialog.Description),
+  "description",
+);
+export interface DrawerDescriptionProps
+  extends HTMLStyledProps<typeof DrawerDescription> {}
+
+export const DrawerHeader = withContext(styled(ark.div), "header");
+export interface DrawerHeaderProps
+  extends HTMLStyledProps<typeof DrawerHeader> {}
+
+export const DrawerBody = withContext(styled(ark.div), "body");
+export interface DrawerBodyProps extends HTMLStyledProps<typeof DrawerBody> {}
+
+export const DrawerFooter = withContext(styled(ark.div), "footer");
+export interface DrawerFooterProps
+  extends HTMLStyledProps<typeof DrawerFooter> {}
+
+export interface DrawerProps extends DrawerRootProps {
   /** Trigger node, such as a button, used to open the drawer. */
   trigger?: ReactNode;
   /** Drawer title, displayed at the top. */
@@ -25,40 +78,6 @@ export interface DrawerProps extends ArkDialogProps, DrawerVariantProps {
   contentProps?: ComponentPropsWithoutRef<typeof DrawerContent>;
   footerProps?: ComponentPropsWithoutRef<typeof DrawerFooter>;
 }
-
-export const DrawerRoot = withProvider(styled(ArkDialog.Root), "root");
-
-export const DrawerTrigger = withContext(styled(ArkDialog.Trigger), "trigger");
-
-export const DrawerBackdrop = withContext(
-  styled(ArkDialog.Backdrop),
-  "backdrop",
-);
-
-export const DrawerCloseTrigger = withContext(
-  styled(ArkDialog.CloseTrigger),
-  "closeTrigger",
-);
-
-export const DrawerPositioner = withContext(
-  styled(ArkDialog.Positioner),
-  "positioner",
-);
-
-export const DrawerContent = withContext(styled(ArkDialog.Content), "content");
-
-export const DrawerTitle = withContext(styled(ArkDialog.Title), "title");
-
-export const DrawerDescription = withContext(
-  styled(ArkDialog.Description),
-  "description",
-);
-
-export const DrawerHeader = withContext(styled(ark.div), "header");
-
-export const DrawerBody = withContext(styled(ark.div), "body");
-
-export const DrawerFooter = withContext(styled(ark.div), "footer");
 
 /**
  * Drawer.

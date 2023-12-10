@@ -1,13 +1,11 @@
 import { ark } from "@ark-ui/react";
 
 import { styled } from "generated/panda/jsx";
-import { button, type ButtonVariantProps } from "generated/panda/recipes";
+import { button } from "generated/panda/recipes";
 
-import type { HTMLArkProps } from "@ark-ui/react";
+import type { HTMLStyledProps } from "generated/panda/jsx";
 
-export interface ButtonProps
-  extends ButtonVariantProps,
-    HTMLArkProps<"button"> {}
+export interface ButtonProps extends HTMLStyledProps<typeof Button> {}
 
 /**
  * Interactive action button.

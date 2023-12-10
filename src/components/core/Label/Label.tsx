@@ -1,11 +1,11 @@
 import { ark } from "@ark-ui/react";
 
 import { styled } from "generated/panda/jsx";
-import { label, type LabelVariantProps } from "generated/panda/recipes";
+import { label } from "generated/panda/recipes";
 
-import type { HTMLArkProps } from "@ark-ui/react";
+import type { HTMLStyledProps } from "generated/panda/jsx";
 
-export interface LabelProps extends LabelVariantProps, HTMLArkProps<"label"> {}
+export interface LabelProps extends HTMLStyledProps<typeof Label> {}
 
 /**
  * Label.

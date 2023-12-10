@@ -1,11 +1,11 @@
 import { ark } from "@ark-ui/react";
 
 import { styled } from "generated/panda/jsx";
-import { code, type CodeVariantProps } from "generated/panda/recipes";
+import { code } from "generated/panda/recipes";
 
-import type { HTMLArkProps } from "@ark-ui/react";
+import type { HTMLStyledProps } from "generated/panda/jsx";
 
-export interface CodeProps extends CodeVariantProps, HTMLArkProps<"code"> {}
+export interface CodeProps extends HTMLStyledProps<typeof Code> {}
 
 /**
  * Code text representation.
