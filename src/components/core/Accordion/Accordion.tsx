@@ -13,24 +13,6 @@ import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(accordion);
 
-export interface AccordionProps extends AccordionRootProps {
-  items: (Omit<ArkAccordionItemProps, "title" | "value"> & {
-    /** Title of item. */
-    title: ReactNode;
-    /** Content to display when item is open. */
-    body: ReactNode;
-    /** Whether item is disabled. */
-    isDisabled?: boolean;
-    // TODO enable support for below prop extensions
-    /** Item trigger props. */
-    // triggerProps?: ArkAccordionItemContentProps;
-    /** Item icon props. */
-    // iconProps?: AccordionIconProps;
-    /** Item content props. */
-    // contentProps?: ArkAccordionItemTriggerProps;
-  })[];
-}
-
 export const AccordionRoot = withProvider(styled(ArkAccordion.Root), "root");
 export interface AccordionRootProps
   extends HTMLStyledProps<typeof AccordionRoot> {}
@@ -62,6 +44,24 @@ export interface AccordionItemTriggerProps
 
 interface AccordionIconProps {
   isOpen: boolean;
+}
+
+export interface AccordionProps extends AccordionRootProps {
+  items: (Omit<ArkAccordionItemProps, "title" | "value"> & {
+    /** Title of item. */
+    title: ReactNode;
+    /** Content to display when item is open. */
+    body: ReactNode;
+    /** Whether item is disabled. */
+    isDisabled?: boolean;
+    // TODO enable support for below prop extensions
+    /** Item trigger props. */
+    // triggerProps?: ArkAccordionItemContentProps;
+    /** Item icon props. */
+    // iconProps?: AccordionIconProps;
+    /** Item content props. */
+    // contentProps?: ArkAccordionItemTriggerProps;
+  })[];
 }
 
 /**
