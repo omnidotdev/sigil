@@ -9,9 +9,8 @@ import { styled } from "generated/panda/jsx";
 import { rating } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { HTMLStyledProps } from "generated/panda/jsx";
-
 // https://github.com/microsoft/TypeScript/issues/47663
+import type { HTMLStyledProps } from "generated/panda/jsx";
 import type {} from "@zag-js/rating-group";
 import type { ReactNode } from "react";
 
