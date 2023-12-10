@@ -22,7 +22,6 @@ const meta = {
 } satisfies Meta<typeof Toaster>;
 
 // TODO variant styles (success, error, warning, ...)
-// TODO animations
 
 export const Default: Story = {
   render: () => (
