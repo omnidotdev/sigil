@@ -67,8 +67,10 @@ const fileUpload = defineSlotRecipe({
       gridArea: "delete",
     },
     itemPreview: {
-      aspectRatio: 1,
       gridArea: "preview",
+    },
+    itemPreviewImage: {
+      aspectRatio: "1",
       height: 10,
       objectFit: "scale-down",
       width: 10,

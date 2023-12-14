@@ -11,6 +11,7 @@ import type {
   FileUploadItemGroupProps as ArkFileUploadItemGroupProps,
   FileUploadItemProps as ArkFileUploadItemProps,
   FileUploadItemPreviewProps as ArkFileUploadItemPreviewProps,
+  FileUploadItemPreviewImageProps as ArkFileUploadItemPreviewImageProps,
   FileUploadItemNameProps as ArkFileUploadItemNameProps,
   FileUploadItemSizeTextProps as ArkFileUploadItemSizeTextProps,
   FileUploadItemDeleteTriggerProps as ArkFileUploadItemDeleteTriggerProps,
@@ -67,6 +68,13 @@ const FileUploadItemPreview = withContext(
 export interface FileUploadItemPreviewProps
   extends HTMLStyledProps<typeof FileUploadItemPreview> {}
 
+const FileUploadItemPreviewImage = withContext(
+  styled(ArkFileUpload.ItemPreviewImage),
+  "itemPreviewImage",
+);
+export interface FileUploadItemPreviewImageProps
+  extends HTMLStyledProps<typeof FileUploadItemPreviewImage> {}
+
 const FileUploadItemSizeText = withContext(
   styled(ArkFileUpload.ItemSizeText),
   "itemSizeText",
@@ -91,6 +99,7 @@ export interface FileUploadProps extends FileUploadRootProps {
   itemProps?: ArkFileUploadItemProps;
   /** File upload item preview props. */
   itemPreviewProps?: ArkFileUploadItemPreviewProps;
+  itemPreviewImageProps?: ArkFileUploadItemPreviewImageProps;
   /** File upload item name props. */
   itemNameProps?: ArkFileUploadItemNameProps;
   /** File upload item size text props. */
@@ -109,6 +118,7 @@ const FileUpload = ({
   itemGroupProps,
   itemProps,
   itemPreviewProps,
+  itemPreviewImageProps,
   itemNameProps,
   itemSizeTextProps,
   itemDeleteTriggerProps,
@@ -127,7 +137,9 @@ const FileUpload = ({
       {(files) =>
         files.map((file, id) => (
           <FileUploadItem key={id} file={file} {...itemProps}>
-            <FileUploadItemPreview {...itemPreviewProps} />
+            <FileUploadItemPreview type="image/*" {...itemPreviewProps}>
+              <FileUploadItemPreviewImage {...itemPreviewImageProps} />
+            </FileUploadItemPreview>
 
             <FileUploadItemName {...itemNameProps} />
 

@@ -17,8 +17,8 @@ export const ToastRoot = withProvider(styled(ArkToast.Root), "root");
 export interface ToastRootProps extends HTMLStyledProps<typeof ToastRoot> {}
 
 // TODO use in prebuilt `Toaster` component
-// const ToastGroup = withContext(styled(ArkToast.Group), "group");
-// export interface ToastGroupProps extends HTMLStyledProps<typeof ToastGroup> {}
+const ToastGroup = withContext(styled(ArkToast.Group), "group");
+export interface ToastGroupProps extends HTMLStyledProps<typeof ToastGroup> {}
 
 export const ToastTitle = withContext(styled(ArkToast.Title), "title");
 export interface ToastTitleProps extends HTMLStyledProps<typeof ToastTitle> {}
