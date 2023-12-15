@@ -54,7 +54,7 @@
     "@commitlint/types": "^18.4.3",
     "@jest/globals": "^29.7.0",
     "@omnidev/knit": "^0.1.2",
-    "@pandacss/dev": "0.20.1",
+    "@pandacss/dev": "0.22.1",
     "@pandacss/types": "0.20.1",
     "@storybook/addon-a11y": "^7.6.3",
     "@storybook/addon-coverage": "^1.0.0",
