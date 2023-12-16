@@ -17,6 +17,9 @@ export const Default: Story = {
   args: {
     label: "Drop a file here!",
     dialogTrigger: <Button size="sm">Choose a file...</Button>,
+    itemPreviewProps: {
+      type: "image/*",
+    },
   },
 };
 

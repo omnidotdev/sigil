@@ -137,7 +137,7 @@ const FileUpload = ({
       {(files) =>
         files.map((file, id) => (
           <FileUploadItem key={id} file={file} {...itemProps}>
-            <FileUploadItemPreview type="image/*" {...itemPreviewProps}>
+            <FileUploadItemPreview {...itemPreviewProps}>
               <FileUploadItemPreviewImage {...itemPreviewImageProps} />
             </FileUploadItemPreview>
 
