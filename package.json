@@ -33,7 +33,7 @@
     "test:ci": "concurrently --kill-others -s first -n \"STORYBOOK,TEST\" -c \"#ff4785,#45ba4b\" \"http-server storybook-static --port 6006 --silent\" \"wait-on tcp:127.0.0.1:6006 && bun test:coverage --ci\"",
     "test:watch": "bun run test --watch",
     "storybook": "storybook dev --quiet --no-open -p 6006",
-    "storybook:build": "panda codegen && storybook build",
+    "storybook:build": "panda codegen && NODE_OPTIONS=--max_old_space_size=8192 storybook build",
     "studio": "panda studio",
     "studio:build": "panda codegen && panda studio --build",
     "changeset": "changeset",
