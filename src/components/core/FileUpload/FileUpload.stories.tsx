@@ -28,6 +28,7 @@ export const Default: Story = {
  */
 export const BlankDropzone: Story = {
   args: {
+    ...Default.args,
     label: undefined,
     dialogTrigger: undefined,
   },
