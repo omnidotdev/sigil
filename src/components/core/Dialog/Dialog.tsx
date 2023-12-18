@@ -1,4 +1,3 @@
-import { Portal } from "@ark-ui/react";
 import { Dialog as ArkDialog } from "@ark-ui/react/dialog";
 import { FiX } from "react-icons/fi/index.js";
 
@@ -81,35 +80,33 @@ const Dialog = ({
       <>
         {trigger && <DialogTrigger>{trigger}</DialogTrigger>}
 
-        <Portal>
-          <DialogBackdrop />
+        <DialogBackdrop />
 
-          <DialogPositioner>
-            <DialogContent
-              // TODO remove this hack (https://github.com/chakra-ui/ark/discussions/1282)
-              hidden={!ctx.isOpen}
-              {...contentProps}
-            >
-              <Stack gap={8} p={6}>
-                <Stack gap={1}>
-                  {title && <DialogTitle>{title}</DialogTitle>}
+        <DialogPositioner>
+          <DialogContent
+            // TODO remove this hack (https://github.com/chakra-ui/ark/discussions/1282)
+            hidden={!ctx.isOpen}
+            {...contentProps}
+          >
+            <Stack gap={8} p={6}>
+              <Stack gap={1}>
+                {title && <DialogTitle>{title}</DialogTitle>}
 
-                  {description && (
-                    <DialogDescription>{description}</DialogDescription>
-                  )}
-                </Stack>
-
-                {getContextualChildren({ ctx, children })}
+                {description && (
+                  <DialogDescription>{description}</DialogDescription>
+                )}
               </Stack>
 
-              <DialogCloseTrigger position="absolute" top={2} right={2}>
-                <Button aria-label="Close Dialog" variant="ghost" size="sm">
-                  <FiX />
-                </Button>
-              </DialogCloseTrigger>
-            </DialogContent>
-          </DialogPositioner>
-        </Portal>
+              {getContextualChildren({ ctx, children })}
+            </Stack>
+
+            <DialogCloseTrigger position="absolute" top={2} right={2}>
+              <Button aria-label="Close Dialog" variant="ghost" size="sm">
+                <FiX />
+              </Button>
+            </DialogCloseTrigger>
+          </DialogContent>
+        </DialogPositioner>
       </>
     )}
   </DialogRoot>

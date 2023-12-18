@@ -1,4 +1,3 @@
-import { Portal } from "@ark-ui/react";
 import { Popover as ArkPopover } from "@ark-ui/react/popover";
 import { FiX } from "react-icons/fi/index.js";
 
@@ -93,32 +92,30 @@ const Popover = ({
   contentProps,
   ...rest
 }: PopoverProps) => (
-  <PopoverRoot portalled {...rest}>
+  <PopoverRoot {...rest}>
     {trigger && <PopoverTrigger>{trigger}</PopoverTrigger>}
 
-    <Portal>
-      <PopoverPositioner>
-        <PopoverContent {...contentProps}>
-          <PopoverArrow>
-            <PopoverArrowTip />
-          </PopoverArrow>
+    <PopoverPositioner>
+      <PopoverContent {...contentProps}>
+        <PopoverArrow>
+          <PopoverArrowTip />
+        </PopoverArrow>
 
-          <Stack gap={1}>
-            <PopoverTitle>{title}</PopoverTitle>
+        <Stack gap={1}>
+          <PopoverTitle>{title}</PopoverTitle>
 
-            <PopoverDescription>{description}</PopoverDescription>
-          </Stack>
+          <PopoverDescription>{description}</PopoverDescription>
+        </Stack>
 
-          <Box position="absolute" top="1" right="1">
-            <PopoverCloseTrigger asChild>
-              <Button aria-label="Close Popover" variant="ghost" size="sm">
-                <FiX />
-              </Button>
-            </PopoverCloseTrigger>
-          </Box>
-        </PopoverContent>
-      </PopoverPositioner>
-    </Portal>
+        <Box position="absolute" top="1" right="1">
+          <PopoverCloseTrigger asChild>
+            <Button aria-label="Close Popover" variant="ghost" size="sm">
+              <FiX />
+            </Button>
+          </PopoverCloseTrigger>
+        </Box>
+      </PopoverContent>
+    </PopoverPositioner>
   </PopoverRoot>
 );
 

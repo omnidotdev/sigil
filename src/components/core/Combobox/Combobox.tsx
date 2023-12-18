@@ -1,4 +1,3 @@
-import { Portal } from "@ark-ui/react";
 import { Combobox as ArkCombobox } from "@ark-ui/react/combobox";
 import { useState } from "react";
 import { BiCheck, BiExpandVertical } from "react-icons/bi/index.js";
@@ -150,29 +149,27 @@ const Combobox = ({ label, items, ...rest }: ComboboxProps) => {
         </ComboboxTrigger>
       </ComboboxControl>
 
-      <Portal>
-        <ComboboxPositioner>
-          <ComboboxContent>
-            <ComboboxItemGroup id={label.id}>
-              <ComboboxItemGroupLabel htmlFor={label.id}>
-                {label.plural}
-              </ComboboxItemGroupLabel>
+      <ComboboxPositioner>
+        <ComboboxContent>
+          <ComboboxItemGroup id={label.id}>
+            <ComboboxItemGroupLabel htmlFor={label.id}>
+              {label.plural}
+            </ComboboxItemGroupLabel>
 
-              {filteredItems.map((item) => (
-                // @ts-ignore upstream (Ark `CollectionItem`) type bug
-                <ComboboxItem key={item.value} item={item}>
-                  {/* @ts-ignore upstream (Ark `CollectionItem`) type bug */}
-                  <ComboboxItemText>{item.label}</ComboboxItemText>
+            {filteredItems.map((item) => (
+              // @ts-ignore upstream (Ark `CollectionItem`) type bug
+              <ComboboxItem key={item.value} item={item}>
+                {/* @ts-ignore upstream (Ark `CollectionItem`) type bug */}
+                <ComboboxItemText>{item.label}</ComboboxItemText>
 
-                  <ComboboxItemIndicator>
-                    <BiCheck />
-                  </ComboboxItemIndicator>
-                </ComboboxItem>
-              ))}
-            </ComboboxItemGroup>
-          </ComboboxContent>
-        </ComboboxPositioner>
-      </Portal>
+                <ComboboxItemIndicator>
+                  <BiCheck />
+                </ComboboxItemIndicator>
+              </ComboboxItem>
+            ))}
+          </ComboboxItemGroup>
+        </ComboboxContent>
+      </ComboboxPositioner>
     </ComboboxRoot>
   );
 };

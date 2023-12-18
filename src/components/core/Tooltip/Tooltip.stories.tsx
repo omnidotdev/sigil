@@ -14,7 +14,7 @@ const meta = {
 export const Default: Story = {
   args: {
     trigger: "Hover over me!",
-    content: "I'm a tooltip!",
+    content: "I'm a tooltip! 🔨",
   },
 };
 

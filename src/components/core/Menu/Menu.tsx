@@ -1,4 +1,3 @@
-import { Portal } from "@ark-ui/react";
 import { Menu as ArkMenu } from "@ark-ui/react/menu";
 
 import { styled } from "generated/panda/jsx";
@@ -117,13 +116,9 @@ const Menu = ({ trigger, children, ...rest }: MenuProps) => (
       <>
         {trigger && <MenuTrigger asChild>{trigger}</MenuTrigger>}
 
-        <Portal>
-          <MenuPositioner>
-            <MenuContent>
-              {getContextualChildren({ ctx, children })}
-            </MenuContent>
-          </MenuPositioner>
-        </Portal>
+        <MenuPositioner>
+          <MenuContent>{getContextualChildren({ ctx, children })}</MenuContent>
+        </MenuPositioner>
       </>
     )}
   </MenuRoot>

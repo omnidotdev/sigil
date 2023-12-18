@@ -1,4 +1,3 @@
-import { Portal } from "@ark-ui/react";
 import { Tooltip as ArkTooltip } from "@ark-ui/react/tooltip";
 
 import { styled } from "generated/panda/jsx";
@@ -59,15 +58,13 @@ const Tooltip = ({ trigger, content, ...rest }: TooltipProps) => (
   <TooltipRoot {...rest}>
     {trigger && <TooltipTrigger>{trigger}</TooltipTrigger>}
 
-    <Portal>
-      <TooltipPositioner>
-        <TooltipArrow>
-          <TooltipArrowTip />
-        </TooltipArrow>
+    <TooltipPositioner>
+      <TooltipArrow>
+        <TooltipArrowTip />
+      </TooltipArrow>
 
-        <TooltipContent>{content}</TooltipContent>
-      </TooltipPositioner>
-    </Portal>
+      <TooltipContent>{content}</TooltipContent>
+    </TooltipPositioner>
   </TooltipRoot>
 );
 

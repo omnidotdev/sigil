@@ -1,4 +1,3 @@
-import { Portal } from "@ark-ui/react";
 import { Select as ArkSelect } from "@ark-ui/react/select";
 import { BiCheck, BiExpandVertical } from "react-icons/bi/index.js";
 
@@ -116,29 +115,27 @@ const Select = ({ label, items, ...rest }: SelectProps) => (
       </SelectTrigger>
     </SelectControl>
 
-    <Portal>
-      <SelectPositioner>
-        <SelectContent>
-          <SelectItemGroup id={label.id}>
-            <SelectItemGroupLabel htmlFor={label.id}>
-              {label.plural}
-            </SelectItemGroupLabel>
+    <SelectPositioner>
+      <SelectContent>
+        <SelectItemGroup id={label.id}>
+          <SelectItemGroupLabel htmlFor={label.id}>
+            {label.plural}
+          </SelectItemGroupLabel>
 
-            {items.map((item) => (
-              // @ts-ignore upstream (Ark `CollectionItem`) type bug
-              <SelectItem key={item.value} item={item}>
-                {/* @ts-ignore upstream (Ark `CollectionItem`) type bug */}
-                <SelectItemText>{item.label}</SelectItemText>
+          {items.map((item) => (
+            // @ts-ignore upstream (Ark `CollectionItem`) type bug
+            <SelectItem key={item.value} item={item}>
+              {/* @ts-ignore upstream (Ark `CollectionItem`) type bug */}
+              <SelectItemText>{item.label}</SelectItemText>
 
-                <SelectItemIndicator>
-                  <BiCheck />
-                </SelectItemIndicator>
-              </SelectItem>
-            ))}
-          </SelectItemGroup>
-        </SelectContent>
-      </SelectPositioner>
-    </Portal>
+              <SelectItemIndicator>
+                <BiCheck />
+              </SelectItemIndicator>
+            </SelectItem>
+          ))}
+        </SelectItemGroup>
+      </SelectContent>
+    </SelectPositioner>
   </SelectRoot>
 );
 

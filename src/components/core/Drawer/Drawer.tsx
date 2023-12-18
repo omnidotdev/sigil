@@ -1,4 +1,4 @@
-import { ark, Portal } from "@ark-ui/react";
+import { ark } from "@ark-ui/react";
 import { Dialog as ArkDialog } from "@ark-ui/react/dialog";
 import { FiX } from "react-icons/fi";
 
@@ -97,40 +97,36 @@ const Drawer = ({
       <>
         {trigger && <DrawerTrigger asChild>{trigger}</DrawerTrigger>}
 
-        <Portal>
-          <DrawerBackdrop />
+        <DrawerBackdrop />
 
-          <DrawerPositioner>
-            <DrawerContent {...contentProps}>
-              {(title || description) && (
-                <DrawerHeader>
-                  {title && <DrawerTitle>{title}</DrawerTitle>}
+        <DrawerPositioner>
+          <DrawerContent {...contentProps}>
+            {(title || description) && (
+              <DrawerHeader>
+                {title && <DrawerTitle>{title}</DrawerTitle>}
 
-                  {description && (
-                    <DrawerDescription>{description}</DrawerDescription>
-                  )}
+                {description && (
+                  <DrawerDescription>{description}</DrawerDescription>
+                )}
 
-                  <DrawerCloseTrigger
-                    asChild
-                    position="absolute"
-                    top={3}
-                    right={4}
-                  >
-                    <Button variant="ghost">
-                      <FiX />
-                    </Button>
-                  </DrawerCloseTrigger>
-                </DrawerHeader>
-              )}
+                <DrawerCloseTrigger
+                  asChild
+                  position="absolute"
+                  top={3}
+                  right={4}
+                >
+                  <Button variant="ghost">
+                    <FiX />
+                  </Button>
+                </DrawerCloseTrigger>
+              </DrawerHeader>
+            )}
 
-              <DrawerBody>
-                {getContextualChildren({ ctx, children })}
-              </DrawerBody>
+            <DrawerBody>{getContextualChildren({ ctx, children })}</DrawerBody>
 
-              {footer && <DrawerFooter {...footerProps}>{footer}</DrawerFooter>}
-            </DrawerContent>
-          </DrawerPositioner>
-        </Portal>
+            {footer && <DrawerFooter {...footerProps}>{footer}</DrawerFooter>}
+          </DrawerContent>
+        </DrawerPositioner>
       </>
     )}
   </DrawerRoot>

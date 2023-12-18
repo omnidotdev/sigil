@@ -1,4 +1,3 @@
-import { Portal } from "@ark-ui/react";
 import { HoverCard as ArkHoverCard } from "@ark-ui/react/hover-card";
 
 import { styled } from "generated/panda/jsx";
@@ -60,17 +59,15 @@ const HoverCard = ({ trigger, children, ...rest }: HoverCardProps) => (
       <>
         {trigger && <HoverCardTrigger asChild>{trigger}</HoverCardTrigger>}
 
-        <Portal>
-          <HoverCardPositioner>
-            <HoverCardContent>
-              <HoverCardArrow>
-                <HoverCardArrowTip />
-              </HoverCardArrow>
+        <HoverCardPositioner>
+          <HoverCardContent>
+            <HoverCardArrow>
+              <HoverCardArrowTip />
+            </HoverCardArrow>
 
-              {getContextualChildren({ ctx, children })}
-            </HoverCardContent>
-          </HoverCardPositioner>
-        </Portal>
+            {getContextualChildren({ ctx, children })}
+          </HoverCardContent>
+        </HoverCardPositioner>
       </>
     )}
   </HoverCardRoot>
