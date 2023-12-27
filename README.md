@@ -11,8 +11,9 @@ Follow the [prerequisities](docs/usage.md#prerequisites) to install Panda in you
 
 ## Local Development
 
-1. Install dependencies: `bun i`
-2. Start development stack: `bun dev`
+1. Set up local environment variables: `cp .env.local.template .env.local`
+2. Install dependencies: `bun i`
+3. Start development stack: `bun dev`
    - This will launch the following:
      - [Panda CSS](https://panda-css.com/) in watch mode
      - [tsup](https://tsup.egoist.dev/) in watch mode
