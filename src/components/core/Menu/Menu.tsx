@@ -34,11 +34,6 @@ export const MenuContextTrigger = withContext(
 export interface MenuContextTriggerProps
   extends HTMLStyledProps<typeof MenuContextTrigger> {}
 
-// TODO use in prebuilt `Menu` component
-const MenuIndicator = withContext(styled(ArkMenu.Indicator), "indicator");
-export interface MenuIndicatorProps
-  extends HTMLStyledProps<typeof MenuIndicator> {}
-
 export const MenuItem = withContext(styled(ArkMenu.Item), "item");
 export interface MenuItemProps extends HTMLStyledProps<typeof MenuItem> {}
 
@@ -62,22 +57,6 @@ export const MenuOptionItem = withContext(
 );
 export interface MenuOptionItemProps
   extends HTMLStyledProps<typeof MenuOptionItem> {}
-
-// TODO use in prebuilt `Menu` component
-const MenuOptionItemIndicator = withContext(
-  styled(ArkMenu.OptionItemIndicator),
-  "optionItemIndicator",
-);
-export interface MenuOptionItemIndicatorProps
-  extends HTMLStyledProps<typeof MenuOptionItemIndicator> {}
-
-// TODO use in prebuilt `Menu` component
-const MenuOptionItemText = withContext(
-  styled(ArkMenu.OptionItemText),
-  "optionItemText",
-);
-export interface MenuOptionItemTextProps
-  extends HTMLStyledProps<typeof MenuOptionItemText> {}
 
 export const MenuPositioner = withContext(
   styled(ArkMenu.Positioner),
