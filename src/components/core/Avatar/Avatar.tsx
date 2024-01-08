@@ -1,4 +1,5 @@
 import { Avatar as ArkAvatar } from "@ark-ui/react/avatar";
+import { FiUser } from "react-icons/fi";
 
 import { styled } from "generated/panda/jsx";
 import { avatar } from "generated/panda/recipes";
@@ -44,26 +45,26 @@ const getInitials = (name: string) =>
 
 export interface AvatarProps extends AvatarRootProps {
   /** Name of user. */
-  name: string;
-  /** Fallback content. Defaults to user's initials. */
+  name?: string;
+  /** Fallback content. Defaults to user's initials if supplied, an icon otherwise. */
   fallback?: ReactNode;
   /** Image source. */
-  imageSource: string;
+  imageSrc?: string;
 }
 
 /**
- * User avatar.
+ * Avatar often used as a graphical representation of a user. Useful for e.g. profile pages and comment sections.
  */
 const Avatar = ({
   name,
-  fallback = getInitials(name),
-  imageSource,
+  fallback = name ? getInitials(name) : <FiUser />,
+  imageSrc,
   ...rest
 }: AvatarProps) => (
   <AvatarRoot {...rest}>
     <AvatarFallback>{fallback}</AvatarFallback>
 
-    <AvatarImage src={imageSource} alt={`${name}'s avatar`} />
+    <AvatarImage src={imageSrc} alt={`${name}'s avatar`} />
   </AvatarRoot>
 );
 
