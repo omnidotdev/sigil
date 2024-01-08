@@ -18,6 +18,7 @@ export const DatePickerRoot = withProvider(styled(ArkDatePicker.Root), "root");
 export interface DatePickerRootProps
   extends HTMLStyledProps<typeof DatePickerRoot> {}
 
+// TODO use in render
 export const DatePickerClearTrigger = withContext(
   styled(ArkDatePicker.ClearTrigger),
   "clearTrigger",
