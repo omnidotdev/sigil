@@ -6,7 +6,6 @@ import { Box, Stack, styled } from "generated/panda/jsx";
 import { popover } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { PopoverContentProps as PopoverContentProps } from "@ark-ui/react/popover";
 import type { HTMLStyledProps } from "generated/panda/jsx";
 import type { ReactNode } from "react";
 

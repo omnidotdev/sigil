@@ -7,9 +7,6 @@ import { createStyleContext } from "lib/util";
 
 import type { HTMLStyledProps } from "generated/panda/jsx";
 
-// https://github.com/microsoft/TypeScript/issues/47663
-import type {} from "@zag-js/select";
-
 const { withProvider, withContext } = createStyleContext(select);
 
 export const SelectRoot = withProvider(styled(ArkSelect.Root), "root");
@@ -110,6 +107,7 @@ const Select = ({ label, items, ...rest }: SelectProps) => (
 
     <SelectControl>
       <SelectTrigger>
+        {/* @ts-ignore upstream issue */}
         <SelectValueText placeholder={`Select ${label.singular}...`} />
         <BiExpandVertical />
       </SelectTrigger>
