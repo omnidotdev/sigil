@@ -48,15 +48,7 @@ export interface PaginationProps extends PaginationRootProps {}
  * Pagination.
  */
 const Pagination = (props: PaginationProps) => (
-  // @ts-ignore upstream (Ark `Pagination`) type bug
-  <PaginationRoot
-    // TODO move to stories
-    pageSize={10}
-    siblingCount={1}
-    defaultPage={2}
-    {...props}
-  >
-    {/* @ts-ignore broken context */}
+  <PaginationRoot pageSize={10} siblingCount={1} {...props}>
     {({ pages }) => (
       <>
         <PaginationPrevTrigger asChild>
@@ -65,7 +57,6 @@ const Pagination = (props: PaginationProps) => (
           </Button>
         </PaginationPrevTrigger>
 
-        {/* @ts-ignore broken context */}
         {pages.map((page, index) =>
           page.type === "page" ? (
             <PaginationItem key={index} {...page} asChild>
