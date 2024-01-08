@@ -8,9 +8,6 @@ import { createStyleContext } from "lib/util";
 
 import type { HTMLStyledProps } from "generated/panda/jsx";
 
-// https://github.com/microsoft/TypeScript/issues/47663
-import type {} from "@zag-js/toast";
-
 const { withProvider, withContext } = createStyleContext(toastRecipe);
 
 export const ToastRoot = withProvider(styled(ArkToast.Root), "root");
@@ -41,7 +38,8 @@ export interface ToastProps extends ToastRootProps {}
 
 // TODO allow passing in custom default props
 // TODO JSDoc `Toaster` and `toast`
-const [Toaster, toast] = createToaster({
+// TODO remove type annotation, added due to by type portability error (https://github.com/microsoft/TypeScript/issues/47663)
+const [Toaster, toast]: any[] = createToaster({
   // TODO `top-end` on desktop, `top` on mobile
   placement: "top-end",
   render: (toast) => (
