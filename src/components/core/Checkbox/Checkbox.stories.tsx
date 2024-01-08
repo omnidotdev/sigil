@@ -15,6 +15,13 @@ export const Default: Story = {
   },
 };
 
+export const DefaultChecked: Story = {
+  args: {
+    ...Default.args,
+    defaultChecked: true,
+  },
+};
+
 export const Indeterminate: Story = {
   args: {
     ...Default.args,

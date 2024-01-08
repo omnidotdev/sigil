@@ -67,7 +67,7 @@ export interface CheckboxProps extends CheckboxRootProps {
  * Interactive checkbox.
  */
 const Checkbox = ({ label, ...rest }: CheckboxProps) => (
-  <CheckboxRoot defaultChecked {...rest}>
+  <CheckboxRoot {...rest}>
     {(ctx) => (
       <>
         <CheckboxControl>
