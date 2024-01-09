@@ -7,14 +7,14 @@ import type { ElementType } from "react";
 export interface IconProps
   extends IconVariantProps,
     HTMLStyledProps<ElementType> {
-  as: ElementType;
+  src: ElementType;
 }
 
 /**
  * Icon.
  */
-const Icon = ({ as, ...rest }: IconProps) => {
-  const Component = styled(as, icon);
+const Icon = ({ src, ...rest }: IconProps) => {
+  const Component = styled(src, icon);
 
   return <Component {...rest} />;
 };

@@ -13,11 +13,11 @@ const meta = {
 } satisfies Meta<typeof Icon>;
 
 export const Default: Story = {
-  render: () => <Icon as={BiAperture} />,
+  render: () => <Icon src={BiAperture} />,
 };
 
 export const Colored: Story = {
-  render: () => <Icon as={BiAperture} color="blue" />,
+  render: () => <Icon src={BiAperture} color="blue" />,
 };
 
 export default meta;

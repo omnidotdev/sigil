@@ -47,7 +47,7 @@ export const NoData: Story = {};
  */
 export const CustomFallback: Story = {
   args: {
-    fallback: <Icon as={FaLinux} color="yellow.400" />,
+    fallback: <Icon src={FaLinux} color="yellow.400" />,
   },
 };
 
