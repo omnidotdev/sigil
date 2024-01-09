@@ -56,11 +56,11 @@ const button = defineRecipe({
         },
       },
       muted: {
-        bgColor: "foreground.muted",
-        color: "background.muted",
+        bgColor: "colorPalette.100a",
+        color: "colorPalette.text",
         colorPalette: "accent",
         _hover: {
-          bgColor: "colorPalette.emphasized",
+          bgColor: "colorPalette.500a",
         },
         _focusVisible: {
           outlineOffset: "2px",
@@ -69,9 +69,11 @@ const button = defineRecipe({
         },
         _disabled: {
           bgColor: "background.disabled",
+          color: "foreground.disabled",
           cursor: "not-allowed",
           _hover: {
             bgColor: "background.disabled",
+            color: "foreground.disabled",
           },
         },
       },
@@ -97,7 +99,13 @@ const button = defineRecipe({
           outlineOffset: "2px",
         },
         _selected: {
-          bgColor: "colorPalette.100a",
+          bgColor: "accent.default",
+          borderColor: "accent.default",
+          color: "accent.foreground",
+          _hover: {
+            bgColor: "accent.emphasized",
+            borderColor: "accent.emphasized",
+          },
         },
       },
       ghost: {
@@ -163,7 +171,7 @@ const button = defineRecipe({
         px: 3,
         gap: 2,
         "& svg": {
-          fontSize: "md",
+          textStyle: "md",
           width: 4,
           height: 4,
         },
