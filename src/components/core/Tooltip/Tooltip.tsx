@@ -2,7 +2,7 @@ import { Tooltip as ArkTooltip } from "@ark-ui/react/tooltip";
 
 import { styled } from "generated/panda/jsx";
 import { tooltip } from "generated/panda/recipes";
-import { createStyleContext } from "lib/util";
+import { createStyleContext, getContextualChildren } from "lib/util";
 
 import type { HTMLStyledProps } from "generated/panda/jsx";
 import type { ReactNode } from "react";
@@ -47,24 +47,48 @@ export interface TooltipTriggerProps
   extends HTMLStyledProps<typeof TooltipTrigger> {}
 
 export interface TooltipProps extends TooltipRootProps {
+  /** Tooltip trigger. */
   trigger?: ReactNode;
-  content: ReactNode;
+  /** Whether arrow is rendered. */
+  hasArrow?: boolean;
+  /** Tooltip content props. */
+  contentProps?: TooltipContentProps;
+  /** Tooltip arrow props. */
+  arrowProps?: TooltipArrowProps;
+  /** Tooltip arrow tip props. */
+  arrowTipProps?: TooltipArrowTipProps;
 }
 
 /**
  * Tooltip.
  */
-const Tooltip = ({ trigger, content, ...rest }: TooltipProps) => (
-  <TooltipRoot {...rest}>
-    {trigger && <TooltipTrigger>{trigger}</TooltipTrigger>}
+const Tooltip = ({
+  trigger,
+  children,
+  hasArrow = true,
+  contentProps,
+  arrowProps,
+  arrowTipProps,
+  ...rest
+}: TooltipProps) => (
+  <TooltipRoot openDelay={0} closeDelay={100} {...rest}>
+    {(ctx) => (
+      <>
+        {trigger && <TooltipTrigger>{trigger}</TooltipTrigger>}
 
-    <TooltipPositioner>
-      <TooltipArrow>
-        <TooltipArrowTip />
-      </TooltipArrow>
+        <TooltipPositioner>
+          <TooltipContent {...contentProps}>
+            {hasArrow && (
+              <TooltipArrow {...arrowProps}>
+                <TooltipArrowTip {...arrowTipProps} />
+              </TooltipArrow>
+            )}
 
-      <TooltipContent>{content}</TooltipContent>
-    </TooltipPositioner>
+            {getContextualChildren({ ctx, children })}
+          </TooltipContent>
+        </TooltipPositioner>
+      </>
+    )}
   </TooltipRoot>
 );
 
