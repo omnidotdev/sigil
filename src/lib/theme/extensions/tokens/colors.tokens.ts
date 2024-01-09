@@ -434,6 +434,41 @@ export const baseColors: Tokens["colors"] = {
     900: { value: "#7f1d1d" },
     950: { value: "#450a0a" },
   },
+  // TODO extract to `metallics`
+  bronze: {
+    DEFAULT: { value: "{colors.bronze.500}" },
+    50: { value: "#f7f6ef" },
+    100: { value: "#ece8d5" },
+    200: { value: "#dbd1ad" },
+    300: { value: "#c6b37e" },
+    400: { value: "#b49a5b" },
+    500: { value: "#a5884d" },
+    600: { value: "#967444" },
+    700: { value: "#725436" },
+    800: { value: "#614732" },
+    900: { value: "#543e2f" },
+    950: { value: "#302018" },
+  },
+  gold: {
+    DEFAULT: { value: "{colors.gold.500}" },
+    50: { value: "#ffffe7" },
+    100: { value: "#feffc1" },
+    200: { value: "#fffd86" },
+    300: { value: "#fff441" },
+    400: { value: "#ffe60d" },
+    500: { value: "#ffd700" },
+    600: { value: "#d19e00" },
+    700: { value: "#a67102" },
+    800: { value: "#89580a" },
+    900: { value: "#74480f" },
+    950: { value: "#442604" },
+  },
+  // TODO extract to `nature`
+  // moss: {},
+  // sage: {},
+  // seafoam: {},
+  // ocean: {},
+  // dandelion: {},
 };
 
 /**
