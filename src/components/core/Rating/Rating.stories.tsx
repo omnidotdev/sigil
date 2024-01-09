@@ -32,7 +32,6 @@ export const AllowHalves: Story = {
 export const CustomColorPalette: Story = {
   args: {
     ...Default.args,
-    // TODO fix, this is not a real color yet
     colorPalette: "gold",
   },
 };
