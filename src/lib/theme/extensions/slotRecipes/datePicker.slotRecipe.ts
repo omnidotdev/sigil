@@ -7,7 +7,7 @@ import { defineSlotRecipe } from "@pandacss/dev";
 const datePicker = defineSlotRecipe({
   className: "datePicker",
   description: "Date picker style recipes",
-  slots: [...datePickerAnatomy.keys()],
+  slots: datePickerAnatomy.keys(),
   base: {
     root: {
       colorPalette: "accent",
