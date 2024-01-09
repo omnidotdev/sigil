@@ -1,5 +1,25 @@
 # @omnidev/sigil
 
+## 0.5.0
+
+### Minor Changes
+
+- [#44](https://github.com/omnidotdev/sigil/pull/44) [`d42b7a3`](https://github.com/omnidotdev/sigil/commit/d42b7a30448112328b8fbcef1759e7ac52e9fdf4) Thanks [@coopbri](https://github.com/coopbri)! - **BREAKING:** Remove `HoverCard` component in favor of `Tooltip`
+
+### Patch Changes
+
+- [#44](https://github.com/omnidotdev/sigil/pull/44) [`d42b7a3`](https://github.com/omnidotdev/sigil/commit/d42b7a30448112328b8fbcef1759e7ac52e9fdf4) Thanks [@coopbri](https://github.com/coopbri)! - **BREAKING:** Rename `Avatar` `imageSource` prop to `imageSrc`
+
+- [#44](https://github.com/omnidotdev/sigil/pull/44) [`d42b7a3`](https://github.com/omnidotdev/sigil/commit/d42b7a30448112328b8fbcef1759e7ac52e9fdf4) Thanks [@coopbri](https://github.com/coopbri)! - **BREAKING:** Rename `Icon` `as` prop to `src`
+
+- [#44](https://github.com/omnidotdev/sigil/pull/44) [`d42b7a3`](https://github.com/omnidotdev/sigil/commit/d42b7a30448112328b8fbcef1759e7ac52e9fdf4) Thanks [@coopbri](https://github.com/coopbri)! - Fix Panda props not being able to be applied to all components (e.g. `colorPalette` on `Switch`)
+
+- [#44](https://github.com/omnidotdev/sigil/pull/44) [`d42b7a3`](https://github.com/omnidotdev/sigil/commit/d42b7a30448112328b8fbcef1759e7ac52e9fdf4) Thanks [@coopbri](https://github.com/coopbri)! - Export prop types for all component parts
+
+- [#44](https://github.com/omnidotdev/sigil/pull/44) [`d42b7a3`](https://github.com/omnidotdev/sigil/commit/d42b7a30448112328b8fbcef1759e7ac52e9fdf4) Thanks [@coopbri](https://github.com/coopbri)! - Set smooth scrolling in preset
+
+- [#44](https://github.com/omnidotdev/sigil/pull/44) [`d42b7a3`](https://github.com/omnidotdev/sigil/commit/d42b7a30448112328b8fbcef1759e7ac52e9fdf4) Thanks [@coopbri](https://github.com/coopbri)! - `Avatar`: make `name` and `imageSrc` optional
+
 ## 0.4.0
 
 ### Minor Changes
