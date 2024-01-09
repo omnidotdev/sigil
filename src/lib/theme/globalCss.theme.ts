@@ -16,6 +16,9 @@ const globalCss = defineGlobalStyles({
     textRendering: "optimizeLegibility",
     WebkitFontSmoothing: "antialiased",
     WebkitTextSizeAdjust: "100%",
+    scrollPaddingTop: "6rem",
+    minHeight: "100%",
+    scrollBehavior: "smooth",
   },
   body: {
     color: "foreground.default",
