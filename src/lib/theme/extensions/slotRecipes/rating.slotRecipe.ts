@@ -27,12 +27,11 @@ const rating = defineSlotRecipe({
       transitionDuration: "normal",
       transitionProperty: "color, fill",
       transitionTimingFunction: "default",
-
-      color: "var(--colors-background-emphasized)",
-      fill: "var(--colors-background-emphasized)",
+      color: "colorPalette.emphasized",
+      fill: "colorPalette.emphasized",
       _highlighted: {
-        color: "var(--colors-accent-default)",
-        fill: "var(--colors-accent-default)",
+        color: "colorPalette.default",
+        fill: "colorPalette.default",
       },
       _focusVisible: {
         outline: "2px solid",
@@ -49,7 +48,7 @@ const rating = defineSlotRecipe({
         control: {
           gap: 0,
         },
-        rating: {
+        item: {
           "& svg": {
             width: 4,
             height: 4,
@@ -63,7 +62,7 @@ const rating = defineSlotRecipe({
         control: {
           gap: 0.5,
         },
-        rating: {
+        item: {
           "& svg": {
             width: 5,
             height: 5,
@@ -77,7 +76,7 @@ const rating = defineSlotRecipe({
         control: {
           gap: 0.5,
         },
-        rating: {
+        item: {
           "& svg": {
             width: 6,
             height: 6,

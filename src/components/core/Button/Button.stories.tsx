@@ -70,7 +70,7 @@ export const IconOnly: Story = {
   args: {
     ...Default.args,
     variant: "icon",
-    "aria-label": "Next Page",
+    "aria-label": "Next page",
     children: <FiArrowRight />,
   },
 };

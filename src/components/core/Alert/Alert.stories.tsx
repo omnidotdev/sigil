@@ -14,7 +14,7 @@ const meta = {
 
 export const Default: Story = {
   args: {
-    icon: <Icon as={FiDownload} />,
+    icon: <Icon src={FiDownload} />,
     title: "Update available",
     description: "For the best experience, update to the latest version.",
   },

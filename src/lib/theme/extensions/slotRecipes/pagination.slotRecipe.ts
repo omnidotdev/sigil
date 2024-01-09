@@ -11,8 +11,7 @@ const pagination = defineSlotRecipe({
   base: {
     root: {
       display: "flex",
-      justifyContent: "space-between",
-      gap: 4,
+      gap: 2.5,
     },
     item: {
       fontVariantNumeric: "tabular-nums",

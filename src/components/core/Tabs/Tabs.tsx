@@ -1,10 +1,10 @@
 import { Tabs as ArkTabs } from "@ark-ui/react/tabs";
 
 import { styled } from "generated/panda/jsx";
-import { tabs, type TabsVariantProps } from "generated/panda/recipes";
+import { tabs } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { TabsProps as ArkTabsProps } from "@ark-ui/react/tabs";
+import type { HTMLStyledProps } from "generated/panda/jsx";
 import type { ReactNode } from "react";
 
 // https://github.com/microsoft/TypeScript/issues/47663
@@ -12,7 +12,23 @@ import type {} from "@zag-js/tabs";
 
 const { withProvider, withContext } = createStyleContext(tabs);
 
-export interface TabsProps extends ArkTabsProps, TabsVariantProps {
+export const TabsRoot = withProvider(styled(ArkTabs.Root), "root");
+export interface TabsRootProps extends HTMLStyledProps<typeof TabsRoot> {}
+
+export const TabList = withContext(styled(ArkTabs.List), "list");
+export interface TabListProps extends HTMLStyledProps<typeof TabList> {}
+
+export const TabTrigger = withContext(styled(ArkTabs.Trigger), "trigger");
+export interface TabTriggerProps extends HTMLStyledProps<typeof TabTrigger> {}
+
+export const TabIndicator = withContext(styled(ArkTabs.Indicator), "indicator");
+export interface TabIndicatorProps
+  extends HTMLStyledProps<typeof TabIndicator> {}
+
+export const TabContent = withContext(styled(ArkTabs.Content), "content");
+export interface TabContentProps extends HTMLStyledProps<typeof TabContent> {}
+
+export interface TabsProps extends TabsRootProps {
   tabs: {
     id: string;
     label: string;
@@ -20,16 +36,6 @@ export interface TabsProps extends ArkTabsProps, TabsVariantProps {
     content: ReactNode;
   }[];
 }
-
-export const TabsRoot = withProvider(styled(ArkTabs.Root), "root");
-
-export const TabList = withContext(styled(ArkTabs.List), "list");
-
-export const TabTrigger = withContext(styled(ArkTabs.Trigger), "trigger");
-
-export const TabIndicator = withContext(styled(ArkTabs.Indicator), "indicator");
-
-export const TabContent = withContext(styled(ArkTabs.Content), "content");
 
 /**
  * Tabs.

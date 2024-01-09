@@ -1,4 +1,3 @@
-import { Portal } from "@ark-ui/react";
 import {
   FiUser,
   FiCreditCard,
@@ -87,31 +86,29 @@ export const Default: Story = {
             <FiChevronRight />
           </MenuTriggerItem>
 
-          <Portal>
-            <MenuPositioner>
-              <MenuContent>
-                <MenuItem id="email">
-                  <HStack gap={2}>
-                    <FiMail /> Email
-                  </HStack>
-                </MenuItem>
+          <MenuPositioner>
+            <MenuContent>
+              <MenuItem id="email">
+                <HStack gap={2}>
+                  <FiMail /> Email
+                </HStack>
+              </MenuItem>
 
-                <MenuItem id="message">
-                  <HStack gap={2}>
-                    <FiMessageSquare /> Message
-                  </HStack>
-                </MenuItem>
+              <MenuItem id="message">
+                <HStack gap={2}>
+                  <FiMessageSquare /> Message
+                </HStack>
+              </MenuItem>
 
-                <MenuSeparator />
+              <MenuSeparator />
 
-                <MenuItem id="other">
-                  <HStack gap={2}>
-                    <FiPlusCircle /> More Options...
-                  </HStack>
-                </MenuItem>
-              </MenuContent>
-            </MenuPositioner>
-          </Portal>
+              <MenuItem id="other">
+                <HStack gap={2}>
+                  <FiPlusCircle /> More Options...
+                </HStack>
+              </MenuItem>
+            </MenuContent>
+          </MenuPositioner>
         </MenuRoot>
 
         <MenuSeparator />

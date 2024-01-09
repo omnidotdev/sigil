@@ -43,9 +43,6 @@ export * from "./Editable/Editable";
 export { default as FileUpload } from "./FileUpload/FileUpload";
 export * from "./FileUpload/FileUpload";
 
-export { default as HoverCard } from "./HoverCard/HoverCard";
-export * from "./HoverCard/HoverCard";
-
 export { default as Icon } from "./Icon/Icon";
 export * from "./Icon/Icon";
 

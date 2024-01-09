@@ -1,13 +1,11 @@
 import { ark } from "@ark-ui/react";
 
 import { styled } from "generated/panda/jsx";
-import { keyboard, type KeyboardVariantProps } from "generated/panda/recipes";
+import { keyboard } from "generated/panda/recipes";
 
-import type { HTMLArkProps } from "@ark-ui/react";
+import type { HTMLStyledProps } from "generated/panda/jsx";
 
-export interface KeyboardProps
-  extends KeyboardVariantProps,
-    HTMLArkProps<"kbd"> {}
+export interface KeyboardProps extends HTMLStyledProps<typeof Keyboard> {}
 
 /**
  * Keyboard text representation.

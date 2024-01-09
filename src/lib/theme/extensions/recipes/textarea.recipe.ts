@@ -33,10 +33,10 @@ const textarea = defineRecipe({
   },
   variants: {
     size: {
-      sm: { p: 2.5, fontSize: "sm" },
-      md: { p: 3, fontSize: "md" },
-      lg: { p: 3.5, fontSize: "md" },
-      xl: { p: 4, fontSize: "md" },
+      sm: { p: 2.5, textStyle: "sm" },
+      md: { p: 3, textStyle: "md" },
+      lg: { p: 3.5, textStyle: "md" },
+      xl: { p: 4, textStyle: "md" },
     },
   },
 });

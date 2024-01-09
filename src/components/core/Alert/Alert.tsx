@@ -5,25 +5,33 @@ import { IoWarningOutline } from "react-icons/io5/index.js";
 import { match } from "ts-pattern";
 
 import { styled } from "generated/panda/jsx";
-import { alert, type AlertVariantProps } from "generated/panda/recipes";
+import { alert } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { HTMLArkProps } from "@ark-ui/react";
+import type { HTMLStyledProps } from "generated/panda/jsx";
 import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(alert);
 
 export const AlertRoot = withProvider(styled(ark.div), "root");
 
+export interface AlertRootProps extends HTMLStyledProps<typeof AlertRoot> {}
+
 export const AlertContent = withContext(styled(ark.div), "content");
+export interface AlertContentProps
+  extends HTMLStyledProps<typeof AlertContent> {}
 
 export const AlertDescription = withContext(styled(ark.p), "description");
+export interface AlertDescriptionProps
+  extends HTMLStyledProps<typeof AlertDescription> {}
 
 export const AlertIcon = withContext(styled(ark.svg), "icon");
+export interface AlertIconProps extends HTMLStyledProps<typeof AlertIcon> {}
 
 export const AlertTitle = withContext(styled(ark.h5), "title");
+export interface AlertTitleProps extends HTMLStyledProps<typeof AlertTitle> {}
 
-export interface AlertProps extends AlertVariantProps, HTMLArkProps<"div"> {
+export interface AlertProps extends AlertRootProps {
   description: ReactNode;
   icon?: ReactNode;
   contentProps?: ComponentProps<typeof AlertContent>;

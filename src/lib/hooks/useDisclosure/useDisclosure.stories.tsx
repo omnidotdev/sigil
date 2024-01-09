@@ -20,7 +20,7 @@ const UseDisclosureDemo = () => {
         title="Modal Title"
         description="Modal Description"
         open={isOpen}
-        onClose={onClose}
+        onOpenChange={({ open }) => (open ? onOpen() : onClose())}
       >
         <Text mt={2}>{isOpen ? "Open" : "Closed"}</Text>
       </Dialog>

@@ -15,7 +15,7 @@ export const Default: Story = {
   args: {
     trigger: <Button>Open Popover</Button>,
     title: "Hello",
-    description: "I'm a popover! I pop all over the place.",
+    description: "I'm a popover! Snap crackle pop 🍫",
   },
 };
 

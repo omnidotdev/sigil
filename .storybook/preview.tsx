@@ -18,6 +18,10 @@ const preview: Preview = {
           name: "facebook",
           value: "#3b5998",
         },
+        {
+          name: "discord",
+          value: "#5865f2",
+        },
         // TODO allow custom color selection, with automatic calculation of light/dark mode
       ],
     },

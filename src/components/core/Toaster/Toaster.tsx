@@ -6,33 +6,40 @@ import { styled } from "generated/panda/jsx";
 import { toast as toastRecipe } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ToastProps as ArkToastProps } from "@ark-ui/react";
-import type { ToastVariantProps } from "generated/panda/recipes";
-
-// https://github.com/microsoft/TypeScript/issues/47663
-import type {} from "@zag-js/toast";
+import type { HTMLStyledProps } from "generated/panda/jsx";
 
 const { withProvider, withContext } = createStyleContext(toastRecipe);
 
-export interface ToastProps extends ArkToastProps, ToastVariantProps {}
-
 export const ToastRoot = withProvider(styled(ArkToast.Root), "root");
+export interface ToastRootProps extends HTMLStyledProps<typeof ToastRoot> {}
+
+// TODO use in prebuilt `Toaster` component
+const ToastGroup = withContext(styled(ArkToast.Group), "group");
+export interface ToastGroupProps extends HTMLStyledProps<typeof ToastGroup> {}
 
 export const ToastTitle = withContext(styled(ArkToast.Title), "title");
+export interface ToastTitleProps extends HTMLStyledProps<typeof ToastTitle> {}
 
 export const ToastDescription = withContext(
   styled(ArkToast.Description),
   "description",
 );
+export interface ToastDescriptionProps
+  extends HTMLStyledProps<typeof ToastDescription> {}
 
 export const ToastCloseTrigger = withContext(
   styled(ArkToast.CloseTrigger),
   "closeTrigger",
 );
+export interface ToastCloseTriggerProps
+  extends HTMLStyledProps<typeof ToastCloseTrigger> {}
+
+export interface ToastProps extends ToastRootProps {}
 
 // TODO allow passing in custom default props
 // TODO JSDoc `Toaster` and `toast`
-const [Toaster, toast] = createToaster({
+// TODO remove type annotation, added due to by type portability error (https://github.com/microsoft/TypeScript/issues/47663)
+const [Toaster, toast]: any[] = createToaster({
   // TODO `top-end` on desktop, `top` on mobile
   placement: "top-end",
   render: (toast) => (

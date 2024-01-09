@@ -7,24 +7,30 @@ import { defineSlotRecipe } from "@pandacss/dev";
 const tooltip = defineSlotRecipe({
   className: "tooltip",
   description: "Tooltip style recipes",
-  slots: tooltipAnatomy.keys(),
+  slots: tooltipAnatomy.extendWith("root").keys(),
   base: {
     content: {
-      bgColor: "gray.950",
-      borderRadius: "sm",
-      boxShadow: "sm",
-      color: "background.default",
-      fontWeight: "semibold",
-      px: 3,
-      py: 2,
-      textStyle: "xs",
-      maxWidth: "2xs",
+      "--tooltip-background": "colors.background.default",
+      bgColor: "var(--tooltip-background)",
+      borderRadius: "md",
+      boxShadow: "lg",
+      maxW: 80,
+      p: 2,
+      position: "relative",
       _open: {
         animation: "fadeIn 0.25s ease-out",
       },
       _closed: {
         animation: "fadeOut 0.2s ease-out",
       },
+    },
+    arrow: {
+      "--arrow-size": "12px",
+      "--arrow-background": "var(--tooltip-background)",
+    },
+    arrowTip: {
+      borderTopWidth: "1px",
+      borderLeftWidth: "1px",
     },
   },
 });

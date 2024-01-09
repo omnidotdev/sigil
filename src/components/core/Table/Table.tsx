@@ -1,15 +1,41 @@
 import { ark } from "@ark-ui/react";
 
 import { styled } from "generated/panda/jsx";
-import { table, type TableVariantProps } from "generated/panda/recipes";
+import { table } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { HTMLArkProps } from "@ark-ui/react";
+import type { HTMLStyledProps } from "generated/panda/jsx";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(table);
 
-export interface TableProps extends TableVariantProps, HTMLArkProps<"table"> {
+export const TableRoot = withProvider(styled(ark.table), "root");
+
+export interface TableRootProps extends HTMLStyledProps<typeof TableRoot> {}
+
+export const TableBody = withContext(styled(ark.tbody), "body");
+export interface TableBodyProps extends HTMLStyledProps<typeof TableBody> {}
+
+export const TableCaption = withContext(styled(ark.caption), "caption");
+export interface TableCaptionProps
+  extends HTMLStyledProps<typeof TableCaption> {}
+
+export const TableCell = withContext(styled(ark.td), "cell");
+export interface TableCellProps extends HTMLStyledProps<typeof TableCell> {}
+
+export const TableHead = withContext(styled(ark.thead), "head");
+export interface TableHeadProps extends HTMLStyledProps<typeof TableHead> {}
+
+export const TableHeader = withContext(styled(ark.th), "header");
+export interface TableHeaderProps extends HTMLStyledProps<typeof TableHeader> {}
+
+export const TableRow = withContext(styled(ark.tr), "row");
+export interface TableRowProps extends HTMLStyledProps<typeof TableRow> {}
+
+export const TableFooter = withContext(styled(ark.tfoot), "footer");
+export interface TableFooterProps extends HTMLStyledProps<typeof TableFooter> {}
+
+export interface TableProps extends TableRootProps {
   /**
    * Table caption.
    * @see https://www.w3schools.com/tags/tag_caption.asp
@@ -26,22 +52,6 @@ export interface TableProps extends TableVariantProps, HTMLArkProps<"table"> {
    */
   footerContent?: ReactNode;
 }
-
-export const TableRoot = withProvider(styled(ark.table), "root");
-
-export const TableBody = withContext(styled(ark.tbody), "body");
-
-export const TableCaption = withContext(styled(ark.caption), "caption");
-
-export const TableCell = withContext(styled(ark.td), "cell");
-
-export const TableFooter = withContext(styled(ark.tfoot), "footer");
-
-export const TableHead = withContext(styled(ark.thead), "head");
-
-export const TableHeader = withContext(styled(ark.th), "header");
-
-export const TableRow = withContext(styled(ark.tr), "row");
 
 /**
  * Table to display rows of data. Children are rendered within the table body.

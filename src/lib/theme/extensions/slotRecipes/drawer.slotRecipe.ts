@@ -9,7 +9,7 @@ const anatomy = dialogAnatomy.extendWith("root", "header", "body", "footer");
 const drawer = defineSlotRecipe({
   className: "drawer",
   description: "Drawer style recipes",
-  slots: [...anatomy.keys()],
+  slots: anatomy.keys(),
   base: {
     backdrop: {
       backdropFilter: "blur(4px)",

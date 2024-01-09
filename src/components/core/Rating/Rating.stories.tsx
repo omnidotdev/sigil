@@ -12,7 +12,7 @@ const meta = {
 
 export const Default: Story = {
   args: {
-    max: 5,
+    count: 5,
     defaultValue: 3,
     label: "Rating",
   },
@@ -23,6 +23,16 @@ export const AllowHalves: Story = {
     ...Default.args,
     allowHalf: true,
     defaultValue: 3.5,
+  },
+};
+
+/**
+ * A custom color palette can be applied to atomically modify the base color.
+ */
+export const CustomColorPalette: Story = {
+  args: {
+    ...Default.args,
+    colorPalette: "gold",
   },
 };
 

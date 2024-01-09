@@ -18,6 +18,9 @@ const meta = {
   title: "Components/Core/ToggleGroup",
   component: ToggleGroup,
   tags: ["autodocs"],
+  args: {
+    width: "fit-content",
+  },
 } satisfies Meta<typeof ToggleGroup>;
 
 /**
@@ -28,19 +31,19 @@ export const Default: Story = {
     defaultValue: ["left"],
     children: (
       <>
-        <ToggleGroupItem value="left" aria-label="Align Left">
+        <ToggleGroupItem value="left" aria-label="Align left">
           <FiAlignLeft />
         </ToggleGroupItem>
 
-        <ToggleGroupItem value="center" aria-label="Align Center">
+        <ToggleGroupItem value="center" aria-label="Align center">
           <FiAlignCenter />
         </ToggleGroupItem>
 
-        <ToggleGroupItem value="right" aria-label="Align Right">
+        <ToggleGroupItem value="right" aria-label="Align right">
           <FiAlignRight />
         </ToggleGroupItem>
 
-        <ToggleGroupItem value="justify" aria-label="Align Justify">
+        <ToggleGroupItem value="justify" aria-label="Align justify">
           <FiAlignJustify />
         </ToggleGroupItem>
       </>
@@ -56,15 +59,15 @@ export const MultipleSelectable: Story = {
     multiple: true,
     children: (
       <>
-        <ToggleGroupItem value="bold" aria-label="Toggle Bold">
+        <ToggleGroupItem value="bold" aria-label="Toggle bold">
           <FiBold />
         </ToggleGroupItem>
 
-        <ToggleGroupItem value="italic" aria-label="Toggle Italic">
+        <ToggleGroupItem value="italic" aria-label="Toggle italic">
           <FiItalic />
         </ToggleGroupItem>
 
-        <ToggleGroupItem value="underline" aria-label="Toggle Underline">
+        <ToggleGroupItem value="underline" aria-label="Toggle underline">
           <FiUnderline />
         </ToggleGroupItem>
       </>

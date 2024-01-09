@@ -4,23 +4,33 @@ import { styled } from "generated/panda/jsx";
 import { checkbox } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ComponentProps } from "react";
+import type { HTMLStyledProps } from "generated/panda/jsx";
 
 const { withProvider, withContext } = createStyleContext(checkbox);
 
-export interface CheckboxProps extends ComponentProps<typeof CheckboxRoot> {
-  /** Checkbox label. */
-  label: string;
-}
-
 export const CheckboxRoot = withProvider(styled(ArkCheckbox.Root), "root");
+export interface CheckboxRootProps
+  extends HTMLStyledProps<typeof CheckboxRoot> {}
 
 export const CheckboxControl = withContext(
   styled(ArkCheckbox.Control),
   "control",
 );
+export interface CheckboxControlProps
+  extends HTMLStyledProps<typeof CheckboxControl> {}
+
+const CheckboxIndicator = withContext(
+  styled(ArkCheckbox.Indicator),
+  "indicator",
+);
+
+// TODO use in prebuilt `Checkbox` component
+export interface CheckboxIndicatorProps
+  extends HTMLStyledProps<typeof CheckboxIndicator> {}
 
 export const CheckboxLabel = withContext(styled(ArkCheckbox.Label), "label");
+export interface CheckboxLabelProps
+  extends HTMLStyledProps<typeof CheckboxLabel> {}
 
 // TODO change to react-icons icon, and make sure can click icon to toggle state (add test)
 const CheckIcon = () => (
@@ -48,11 +58,16 @@ const MinusIcon = () => (
   </svg>
 );
 
+export interface CheckboxProps extends CheckboxRootProps {
+  /** Checkbox label. */
+  label: string;
+}
+
 /**
  * Interactive checkbox.
  */
 const Checkbox = ({ label, ...rest }: CheckboxProps) => (
-  <CheckboxRoot defaultChecked {...rest}>
+  <CheckboxRoot {...rest}>
     {(ctx) => (
       <>
         <CheckboxControl>

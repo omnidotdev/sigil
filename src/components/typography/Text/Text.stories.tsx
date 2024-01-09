@@ -1,7 +1,9 @@
 import { Text } from "components";
 import { HStack, Stack, styled } from "generated/panda/jsx";
+import { textStyles } from "lib/theme/extensions";
 
 import type { Meta, StoryObj } from "@storybook/react";
+import type { TextProps } from "components";
 import type { FontToken } from "generated/panda/tokens";
 
 type Story = StoryObj<typeof meta>;
@@ -15,10 +17,33 @@ interface TypesetProps {
   intendedUse: string;
 }
 
+const BASE_TEXT = "Sphinx of black quartz, judge my vow.";
+
 const meta = {
   title: "Components/Typography/Text",
   component: Text,
 } satisfies Meta<typeof Text>;
+
+const fontWeights = [
+  { name: "Thin", weight: 100 },
+  { name: "Light", weight: 300 },
+  { name: "Normal", weight: 400 },
+  { name: "Medium", weight: 500 },
+  { name: "Bold", weight: 700 },
+  { name: "Extrabold", weight: 800 },
+  { name: "Heavy", weight: 900 },
+];
+
+const htmlTags = [
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
+  "p",
+  "span",
+] as TextProps["as"][];
 
 /**
  * Typeset for showcasing font variations.
@@ -26,7 +51,7 @@ const meta = {
 const Typeset = ({ fontName, fontFamily, intendedUse }: TypesetProps) => (
   <Stack fontFamily={fontFamily}>
     <Stack mb={4}>
-      <Text fontSize="2xl" fontWeight="bold">
+      <Text textStyle="2xl" fontWeight="bold">
         Font: {fontName}
       </Text>
 
@@ -44,37 +69,37 @@ const Typeset = ({ fontName, fontFamily, intendedUse }: TypesetProps) => (
 
     <HStack gap={12}>
       <Stack gap={1}>
-        <Text fontWeight={100}>Thin (100)</Text>
-        <Text fontWeight={300}>Light (300)</Text>
-        <Text fontWeight={400}>Normal (400)</Text>
-        <Text fontWeight={500}>Medium (500)</Text>
-        <Text fontWeight={700}>Bold (700)</Text>
-        <Text fontWeight={800}>Extrabold (800)</Text>
-        <Text fontWeight={900}>Heavy (900)</Text>
+        {fontWeights.map(({ name, weight }) => (
+          <Text key={name} fontWeight={weight}>
+            {name} ({weight})
+          </Text>
+        ))}
       </Stack>
 
       <Stack gap={1}>
-        <Text fontWeight={100} fontStyle="italic">
-          Thin Italic (100)
-        </Text>
-        <Text fontWeight={300} fontStyle="italic">
-          Light Italic (300)
-        </Text>
-        <Text fontWeight={400} fontStyle="italic">
-          Normal Italic (400)
-        </Text>
-        <Text fontWeight={500} fontStyle="italic">
-          Medium Italic (500)
-        </Text>
-        <Text fontWeight={700} fontStyle="italic">
-          Bold Italic (700)
-        </Text>
-        <Text fontWeight={800} fontStyle="italic">
-          Extrabold Italic (800)
-        </Text>
-        <Text fontWeight={900} fontStyle="italic">
-          Heavy Italic (900)
-        </Text>
+        {fontWeights.map(({ name, weight }) => (
+          <Text key={name} fontWeight={weight} fontStyle="italic">
+            {name} Italic ({weight})
+          </Text>
+        ))}
+      </Stack>
+    </HStack>
+
+    <HStack gap={12}>
+      <Stack gap={1}>
+        {fontWeights.map(({ name, weight }) => (
+          <Text key={name} fontWeight={weight}>
+            {BASE_TEXT}
+          </Text>
+        ))}
+      </Stack>
+
+      <Stack gap={1}>
+        {fontWeights.map(({ name, weight }) => (
+          <Text key={name} fontWeight={weight} fontStyle="italic">
+            {BASE_TEXT}
+          </Text>
+        ))}
       </Stack>
     </HStack>
   </Stack>
@@ -96,5 +121,28 @@ export const CodeFont: Story = {
     <Typeset fontName="Fira Code" fontFamily="code" intendedUse="Code blocks" />
   ),
 };
+
+export const HTMLTags = () => (
+  <Stack>
+    {htmlTags.map((tag) => (
+      <Text key={tag} as={tag}>
+        This is a {tag} element
+      </Text>
+    ))}
+  </Stack>
+);
+
+export const Sizes = () => (
+  <Stack>
+    {Object.keys(textStyles)
+      // TODO figure out why these styles are breaking (filtered here as workaround)
+      .filter((style) => !["2xs", "8xl", "9xl"].includes(style))
+      .map((textStyle) => (
+        <Text key={textStyle} textStyle={textStyle}>
+          {textStyle}: {BASE_TEXT}
+        </Text>
+      ))}
+  </Stack>
+);
 
 export default meta;

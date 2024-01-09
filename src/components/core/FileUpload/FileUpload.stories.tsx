@@ -17,6 +17,9 @@ export const Default: Story = {
   args: {
     label: "Drop a file here!",
     dialogTrigger: <Button size="sm">Choose a file...</Button>,
+    itemPreviewProps: {
+      type: "image/*",
+    },
   },
 };
 
@@ -25,6 +28,7 @@ export const Default: Story = {
  */
 export const BlankDropzone: Story = {
   args: {
+    ...Default.args,
     label: undefined,
     dialogTrigger: undefined,
   },

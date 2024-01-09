@@ -15,6 +15,13 @@ export const Default: Story = {
   },
 };
 
+export const DefaultChecked: Story = {
+  args: {
+    ...Default.args,
+    defaultChecked: true,
+  },
+};
+
 export const Indeterminate: Story = {
   args: {
     ...Default.args,
@@ -27,7 +34,7 @@ export const Indeterminate: Story = {
  */
 export const CustomColorPalette: Story = {
   args: {
-    ...Default.args,
+    ...DefaultChecked.args,
     colorPalette: "lime",
   },
 };

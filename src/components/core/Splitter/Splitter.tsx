@@ -2,10 +2,10 @@ import { Splitter as ArkSplitter } from "@ark-ui/react/splitter";
 import { match } from "ts-pattern";
 
 import { styled } from "generated/panda/jsx";
-import { splitter, type SplitterVariantProps } from "generated/panda/recipes";
+import { splitter } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { SplitterProps as ArkSplitterProps } from "@ark-ui/react/splitter";
+import type { HTMLStyledProps } from "generated/panda/jsx";
 import type { ComponentProps, ReactNode } from "react";
 
 // https://github.com/microsoft/TypeScript/issues/47663
@@ -13,7 +13,24 @@ import type {} from "@zag-js/splitter";
 
 const { withProvider, withContext } = createStyleContext(splitter);
 
-export interface SplitterProps extends ArkSplitterProps, SplitterVariantProps {
+export const SplitterRoot = withProvider(styled(ArkSplitter.Root), "root");
+export interface SplitterRootProps
+  extends HTMLStyledProps<typeof SplitterRoot> {}
+
+export const SplitterPanel = withContext(styled(ArkSplitter.Panel), "panel");
+export interface SplitterPanelProps
+  extends HTMLStyledProps<typeof SplitterPanel> {}
+
+export const SplitterResizeTrigger = withContext(
+  styled(ArkSplitter.ResizeTrigger),
+  "resizeTrigger",
+);
+export interface SplitterResizeTriggerProps
+  extends HTMLStyledProps<typeof SplitterResizeTrigger> {}
+
+// TODO make more generic to easily handle multiple panels and splitters of various orientations, as in https://ark-ui.com/docs/react/components/splitter
+
+export interface SplitterProps extends SplitterRootProps {
   sections: {
     type: "panel" | "resizeTrigger";
     // TODO enforce : on resizeTrigger
@@ -27,17 +44,6 @@ export interface SplitterProps extends ArkSplitterProps, SplitterVariantProps {
     size?: number;
   }[];
 }
-
-export const SplitterRoot = withProvider(styled(ArkSplitter.Root), "root");
-
-export const SplitterPanel = withContext(styled(ArkSplitter.Panel), "panel");
-
-export const SplitterResizeTrigger = withContext(
-  styled(ArkSplitter.ResizeTrigger),
-  "resizeTrigger",
-);
-
-// TODO make more generic to easily handle multiple panels and splitters of various orientations, as in https://ark-ui.com/docs/react/components/splitter
 
 /**
  * Splitter.
