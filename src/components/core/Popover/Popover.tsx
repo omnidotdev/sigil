@@ -11,8 +11,7 @@ import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(popover);
 
-// TODO ..., "root"
-export const PopoverRoot = withProvider(styled(ArkPopover.Root));
+export const PopoverRoot = withProvider(styled(ArkPopover.Root), "root");
 export interface PopoverRootProps extends HTMLStyledProps<typeof PopoverRoot> {}
 
 export const PopoverAnchor = withContext(styled(ArkPopover.Anchor), "anchor");
@@ -108,7 +107,7 @@ const Popover = ({
 
         <Box position="absolute" top="1" right="1">
           <PopoverCloseTrigger asChild>
-            <Button aria-label="Close Popover" variant="ghost" size="sm">
+            <Button aria-label="Close popover" variant="ghost" size="sm">
               <FiX />
             </Button>
           </PopoverCloseTrigger>

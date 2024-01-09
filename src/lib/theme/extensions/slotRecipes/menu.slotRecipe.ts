@@ -31,7 +31,7 @@ const itemStyle = {
 const menu = defineSlotRecipe({
   className: "menu",
   description: "Menu style recipes",
-  slots: menuAnatomy.keys(),
+  slots: menuAnatomy.extendWith("root").keys(),
   base: {
     itemGroupLabel: {
       fontWeight: "semibold",

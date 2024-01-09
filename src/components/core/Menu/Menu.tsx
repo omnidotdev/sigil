@@ -13,8 +13,7 @@ import type {} from "@zag-js/rect-utils";
 
 const { withProvider, withContext } = createStyleContext(menu);
 
-// TODO ..., "root"
-export const MenuRoot = withProvider(styled(ArkMenu.Root));
+export const MenuRoot = withProvider(styled(ArkMenu.Root), "root");
 export interface MenuRootProps extends HTMLStyledProps<typeof MenuRoot> {}
 
 export const MenuArrow = withContext(styled(ArkMenu.Arrow), "arrow");
