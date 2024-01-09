@@ -34,7 +34,7 @@ export const Indeterminate: Story = {
  */
 export const CustomColorPalette: Story = {
   args: {
-    ...Default.args,
+    ...DefaultChecked.args,
     colorPalette: "lime",
   },
 };
