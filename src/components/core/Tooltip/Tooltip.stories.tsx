@@ -1,11 +1,13 @@
+// import { Placement } from "@floating-ui/dom";
 import { FiMapPin } from "react-icons/fi/index.js";
 
 import { Avatar, Button, Text, Tooltip } from "components";
-import { HStack, Stack, styled } from "generated/panda/jsx";
+import { Grid, HStack, Stack, styled } from "generated/panda/jsx";
 import { app } from "lib/config";
 import { useDisclosure } from "lib/hooks";
 
 import type { Meta, StoryObj } from "@storybook/react";
+import type { Placement } from "@zag-js/tooltip";
 
 type Story = StoryObj<typeof meta>;
 
@@ -72,6 +74,40 @@ export const WithoutArrow: Story = {
     ...Default.args,
     hasArrow: false,
   },
+};
+
+const placements = [
+  "top",
+  "top-start",
+  "top-end",
+  "bottom",
+  "bottom-start",
+  "bottom-end",
+  "left",
+  "left-start",
+  "left-end",
+  "right",
+  "right-start",
+  "right-end",
+] as Placement[];
+
+export const Placements: Story = {
+  parameters: {
+    layout: "centered",
+  },
+  render: () => (
+    <Grid columns={{ base: 2, sm: 3 }}>
+      {placements.map((placement) => (
+        <Tooltip
+          key={placement}
+          trigger={<Text fontWeight="bold">{placement}</Text>}
+          positioning={{ placement }}
+        >
+          {placement}
+        </Tooltip>
+      ))}
+    </Grid>
+  ),
 };
 
 /**

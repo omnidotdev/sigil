@@ -7,7 +7,7 @@ import { defineSlotRecipe } from "@pandacss/dev";
 const tooltip = defineSlotRecipe({
   className: "tooltip",
   description: "Tooltip style recipes",
-  slots: tooltipAnatomy.keys(),
+  slots: tooltipAnatomy.extendWith("root").keys(),
   base: {
     content: {
       "--tooltip-background": "colors.background.default",

@@ -9,8 +9,7 @@ import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(tooltip);
 
-// TODO ..., "root"
-export const TooltipRoot = withProvider(styled(ArkTooltip.Root));
+export const TooltipRoot = withProvider(styled(ArkTooltip.Root), "root");
 export interface TooltipRootProps
   extends Omit<HTMLStyledProps<typeof TooltipRoot>, "content"> {}
 
