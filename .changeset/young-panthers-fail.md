@@ -2,4 +2,4 @@
 "@omnidev/sigil": patch
 ---
 
-Avatar: make `name` and `imageSrc` optional
+`Avatar`: make `name` and `imageSrc` optional
