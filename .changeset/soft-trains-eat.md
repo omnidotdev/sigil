@@ -2,4 +2,4 @@
 "@omnidev/sigil": patch
 ---
 
-Set smooth scrolling to preset
+Set smooth scrolling in preset
