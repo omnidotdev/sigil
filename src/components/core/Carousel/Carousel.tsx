@@ -92,7 +92,7 @@ const Carousel = ({ items, ...rest }: CarouselProps) => (
 
       <CarouselControl>
         <CarouselPrevTrigger asChild>
-          <Button size="sm" variant="ghost" aria-label="Previous Item">
+          <Button size="sm" variant="ghost" aria-label="Previous item">
             <FiChevronLeft />
           </Button>
         </CarouselPrevTrigger>
@@ -108,7 +108,7 @@ const Carousel = ({ items, ...rest }: CarouselProps) => (
         </CarouselIndicatorGroup>
 
         <CarouselNextTrigger asChild>
-          <Button size="sm" variant="ghost" aria-label="Next Item">
+          <Button size="sm" variant="ghost" aria-label="Next item">
             <FiChevronRight />
           </Button>
         </CarouselNextTrigger>

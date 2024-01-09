@@ -143,7 +143,7 @@ const Combobox = ({ label, items, ...rest }: ComboboxProps) => {
         </ComboboxInput>
 
         <ComboboxTrigger asChild>
-          <Button variant="link" aria-label="open" size="xs">
+          <Button variant="link" aria-label="Open combobox" size="xs">
             <BiExpandVertical />
           </Button>
         </ComboboxTrigger>

@@ -101,7 +101,7 @@ const Dialog = ({
             </Stack>
 
             <DialogCloseTrigger position="absolute" top={2} right={2}>
-              <Button aria-label="Close Dialog" variant="ghost" size="sm">
+              <Button aria-label="Close dialog" variant="ghost" size="sm">
                 <FiX />
               </Button>
             </DialogCloseTrigger>

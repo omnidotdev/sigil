@@ -52,7 +52,7 @@ const Pagination = (props: PaginationProps) => (
     {({ pages }) => (
       <>
         <PaginationPrevTrigger asChild>
-          <Button variant="ghost" aria-label="Next Page">
+          <Button variant="ghost" aria-label="Previous page">
             <FiChevronLeft />
           </Button>
         </PaginationPrevTrigger>
@@ -69,7 +69,7 @@ const Pagination = (props: PaginationProps) => (
           ),
         )}
         <PaginationNextTrigger asChild>
-          <Button variant="ghost" aria-label="Next Page">
+          <Button variant="ghost" aria-label="Next page">
             <FiChevronRight />
           </Button>
         </PaginationNextTrigger>
