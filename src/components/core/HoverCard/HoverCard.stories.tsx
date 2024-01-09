@@ -24,7 +24,7 @@ export const Default: Story = {
     ),
     children: (
       <Stack gap={4} direction="row">
-        <Avatar name="Childish Gambino" imageSource="/img/donald-glover.jpg" />
+        <Avatar name="Childish Gambino" imageSrc="/img/donald-glover.jpg" />
 
         <Stack gap={3}>
           <Stack gap={1}>
