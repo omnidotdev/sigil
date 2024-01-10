@@ -80,7 +80,7 @@ export const Default: Story = {
           <MenuTriggerItem justifyContent="space-between">
             <HStack gap={2}>
               <FiUserPlus />
-              Inivte member
+              Invite member
             </HStack>
 
             <FiChevronRight />
