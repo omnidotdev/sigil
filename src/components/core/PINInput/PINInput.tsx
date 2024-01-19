@@ -5,49 +5,67 @@ import { styled } from "generated/panda/jsx";
 import { pinInput } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { HTMLStyledProps } from "generated/panda/jsx";
+import type { ComponentProps } from "react";
 
 const { withProvider, withContext } = createStyleContext(pinInput);
 
 export const PINInputRoot = withProvider(styled(ArkPINInput.Root), "root");
 export interface PINInputRootProps
-  extends HTMLStyledProps<typeof PINInputRoot> {}
+  extends ComponentProps<typeof PINInputRoot> {}
 
 export const PINInputControl = withContext(
   styled(ArkPINInput.Control),
   "control",
 );
 export interface PINInputControlProps
-  extends HTMLStyledProps<typeof PINInputControl> {}
+  extends ComponentProps<typeof PINInputControl> {}
 
 export const PINInputInput = withContext(styled(ArkPINInput.Input), "input");
 export interface PINInputInputProps
-  extends HTMLStyledProps<typeof PINInputInput> {}
+  extends ComponentProps<typeof PINInputInput> {}
 
 export const PINInputLabel = withContext(styled(ArkPINInput.Label), "label");
 export interface PINInputLabelProps
-  extends HTMLStyledProps<typeof PINInputLabel> {}
+  extends ComponentProps<typeof PINInputLabel> {}
 
 export interface PINInputProps extends PINInputRootProps {
   /** Input label. */
   label?: string;
+  /** Number of input slots to render. */
+  length?: number;
+  /** Control props. */
+  controlProps?: PINInputControlProps;
+  /** Input props. */
+  inputProps?: PINInputInputProps;
 }
 
 /**
  * Personal identification number (PIN) code input.
  */
-const PINInput = ({ label, ...rest }: Omit<PINInputProps, "mask">) => (
-  <PINInputRoot placeholder="0" {...rest}>
-    {label && <PINInputLabel>{label}</PINInputLabel>}
+const PINInput = ({
+  label,
+  length = 4,
+  controlProps,
+  inputProps,
+  ...rest
+}: PINInputProps) => {
+  const [{ size }] = pinInput.splitVariantProps(rest);
 
-    <PINInputControl>
-      {[0, 1, 2, 3].map((id) => (
-        <PINInputInput key={id} index={id} asChild>
-          <Input size="lg" width={0} textAlign="center" />
-        </PINInputInput>
-      ))}
-    </PINInputControl>
-  </PINInputRoot>
-);
+  return (
+    // NB: empty placeholder used to cancel out default placeholder
+    <PINInputRoot placeholder="" {...rest}>
+      {label && <PINInputLabel>{label}</PINInputLabel>}
+
+      <PINInputControl {...controlProps}>
+        {Array.from({ length }, (_, idx) => idx).map((id) => (
+          <PINInputInput asChild key={id} index={id} {...inputProps}>
+            {/* forward root size prop to input itself */}
+            <Input size={size} />
+          </PINInputInput>
+        ))}
+      </PINInputControl>
+    </PINInputRoot>
+  );
+};
 
 export default PINInput;
