@@ -26,8 +26,6 @@ Follow these steps to use the Sigil UI library in your project.
 
    Feel free to modify the Panda config as needed, for example if you need to add more patterns to `include`.
 
-You may want to customize the config snippets above to your liking. Treat them as a starting point.
-
 3. Create a `postcss.config.js` file in your project root with the following content:
 
    ```js
@@ -39,6 +37,8 @@ You may want to customize the config snippets above to your liking. Treat them a
    ```
 
    There is no need to install `postcss` as an explicit dependency in your project, the config will be picked up by the UI library bundle.
+
+You may want to customize the config snippets above to your liking. Treat them as a starting point.
 
 4. Create a CSS file and import it into your project. You can name the CSS file anything you want, just make sure you import it early in your project. For example:
 
