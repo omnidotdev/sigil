@@ -12,7 +12,7 @@ const meta = {
   title: "Components/Layout/Stack",
   component: Stack,
   tags: ["autodocs"],
-} satisfies Meta<typeof Stack>;
+} satisfies Meta;
 
 export const Default: Story = {
   name: "Vertical (Default)",

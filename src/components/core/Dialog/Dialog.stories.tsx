@@ -10,7 +10,7 @@ const meta = {
   title: "Components/Core/Dialog",
   component: Dialog,
   tags: ["autodocs"],
-} satisfies Meta<typeof Dialog>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

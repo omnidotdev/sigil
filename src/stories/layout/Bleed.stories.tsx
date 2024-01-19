@@ -13,7 +13,7 @@ const meta = {
   title: "Components/Layout/Bleed",
   component: Bleed,
   tags: ["autodocs"],
-} satisfies Meta<typeof Bleed>;
+} satisfies Meta;
 
 export const Default: Story = {
   render: () => (

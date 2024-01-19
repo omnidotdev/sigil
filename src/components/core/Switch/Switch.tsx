@@ -4,23 +4,23 @@ import { styled } from "generated/panda/jsx";
 import { switchRecipe } from "generated/panda/recipes";
 import { createStyleContext, getContextualChildren } from "lib/util";
 
-import type { HTMLStyledProps } from "generated/panda/jsx";
+import type { ComponentProps } from "react";
 
 const { withProvider, withContext } = createStyleContext(switchRecipe);
 
 export const SwitchRoot = withProvider(styled(ArkSwitch.Root), "root");
-export interface SwitchRootProps extends HTMLStyledProps<typeof SwitchRoot> {}
+export interface SwitchRootProps extends ComponentProps<typeof SwitchRoot> {}
 
 export const SwitchControl = withContext(styled(ArkSwitch.Control), "control");
 
 export interface SwitchControlProps
-  extends HTMLStyledProps<typeof SwitchControl> {}
+  extends ComponentProps<typeof SwitchControl> {}
 
 export const SwitchLabel = withContext(styled(ArkSwitch.Label), "label");
-export interface SwitchLabelProps extends HTMLStyledProps<typeof SwitchLabel> {}
+export interface SwitchLabelProps extends ComponentProps<typeof SwitchLabel> {}
 
 export const SwitchThumb = withContext(styled(ArkSwitch.Thumb), "thumb");
-export interface SwitchThumbProps extends HTMLStyledProps<typeof SwitchThumb> {}
+export interface SwitchThumbProps extends ComponentProps<typeof SwitchThumb> {}
 
 export interface SwitchProps extends SwitchRootProps {}
 

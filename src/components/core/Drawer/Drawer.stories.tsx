@@ -1,4 +1,4 @@
-import { FiArrowRight } from "react-icons/fi/index.js";
+import { FiArrowRight } from "react-icons/fi";
 
 import { Button, Drawer, DrawerCloseTrigger, Input, Label } from "components";
 import { Stack } from "generated/panda/jsx";
@@ -12,7 +12,7 @@ const meta = {
   title: "Components/Core/Drawer",
   component: Drawer,
   tags: ["autodocs"],
-} satisfies Meta<typeof Drawer>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

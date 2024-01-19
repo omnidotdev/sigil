@@ -6,41 +6,40 @@ import { styled } from "generated/panda/jsx";
 import { pagination } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { HTMLStyledProps } from "generated/panda/jsx";
-
 // https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/pagination";
+import type { ComponentProps } from "react";
 
 const { withProvider, withContext } = createStyleContext(pagination);
 
 export const PaginationRoot = withProvider(styled(ArkPagination.Root), "root");
 export interface PaginationRootProps
-  extends HTMLStyledProps<typeof PaginationRoot> {}
+  extends ComponentProps<typeof PaginationRoot> {}
 
 export const PaginationEllipsis = withContext(
   styled(ArkPagination.Ellipsis),
   "ellipsis",
 );
 export interface PaginationEllipsisProps
-  extends HTMLStyledProps<typeof PaginationEllipsis> {}
+  extends ComponentProps<typeof PaginationEllipsis> {}
 
 export const PaginationNextTrigger = withContext(
   styled(ArkPagination.NextTrigger),
   "nextTrigger",
 );
 export interface PaginationNextTriggerProps
-  extends HTMLStyledProps<typeof PaginationNextTrigger> {}
+  extends ComponentProps<typeof PaginationNextTrigger> {}
 
 export const PaginationItem = withContext(styled(ArkPagination.Item), "item");
 export interface PaginationItemProps
-  extends HTMLStyledProps<typeof PaginationItem> {}
+  extends ComponentProps<typeof PaginationItem> {}
 
 export const PaginationPrevTrigger = withContext(
   styled(ArkPagination.PrevTrigger),
   "prevTrigger",
 );
 export interface PaginationPrevTriggerProps
-  extends HTMLStyledProps<typeof PaginationPrevTrigger> {}
+  extends ComponentProps<typeof PaginationPrevTrigger> {}
 
 export interface PaginationProps extends PaginationRootProps {}
 

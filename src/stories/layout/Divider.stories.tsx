@@ -16,7 +16,7 @@ const meta = {
   title: "Components/Layout/Divider",
   component: Divider,
   tags: ["autodocs"],
-} satisfies Meta<typeof Divider>;
+} satisfies Meta;
 
 export const Default: Story = {
   name: "Horizontal (Default)",

@@ -7,7 +7,7 @@ const meta = {
   title: "Components/Core/Checkbox",
   component: Checkbox,
   tags: ["autodocs"],
-} satisfies Meta<typeof Checkbox>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

@@ -13,7 +13,7 @@ const meta = {
   title: "Components/Core/Link",
   component: Link,
   tags: ["autodocs"],
-} satisfies Meta<typeof Link>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

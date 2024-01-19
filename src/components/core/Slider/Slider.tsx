@@ -4,39 +4,39 @@ import { styled } from "generated/panda/jsx";
 import { slider } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { HTMLStyledProps } from "generated/panda/jsx";
+import type { ComponentProps } from "react";
 
 const { withProvider, withContext } = createStyleContext(slider);
 
 export const SliderRoot = withProvider(styled(ArkSlider.Root), "root");
-export interface SliderRootProps extends HTMLStyledProps<typeof SliderRoot> {}
+export interface SliderRootProps extends ComponentProps<typeof SliderRoot> {}
 
 export const SliderControl = withContext(styled(ArkSlider.Control), "control");
 export interface SliderControlProps
-  extends HTMLStyledProps<typeof SliderControl> {}
+  extends ComponentProps<typeof SliderControl> {}
 
 export const SliderLabel = withContext(styled(ArkSlider.Label), "label");
-export interface SliderLabelProps extends HTMLStyledProps<typeof SliderLabel> {}
+export interface SliderLabelProps extends ComponentProps<typeof SliderLabel> {}
 
 export const SliderMarker = withContext(styled(ArkSlider.Marker), "marker");
 export interface SliderMarkerProps
-  extends HTMLStyledProps<typeof SliderMarker> {}
+  extends ComponentProps<typeof SliderMarker> {}
 
 export const SliderMarkerGroup = withContext(
   styled(ArkSlider.MarkerGroup),
   "markerGroup",
 );
 export interface SliderMarkerGroupProps
-  extends HTMLStyledProps<typeof SliderMarkerGroup> {}
+  extends ComponentProps<typeof SliderMarkerGroup> {}
 
 export const SliderRange = withContext(styled(ArkSlider.Range), "range");
-export interface SliderRangeProps extends HTMLStyledProps<typeof SliderRange> {}
+export interface SliderRangeProps extends ComponentProps<typeof SliderRange> {}
 
 export const SliderThumb = withContext(styled(ArkSlider.Thumb), "thumb");
-export interface SliderThumbProps extends HTMLStyledProps<typeof SliderThumb> {}
+export interface SliderThumbProps extends ComponentProps<typeof SliderThumb> {}
 
 export const SliderTrack = withContext(styled(ArkSlider.Track), "track");
-export interface SliderTrackProps extends HTMLStyledProps<typeof SliderTrack> {}
+export interface SliderTrackProps extends ComponentProps<typeof SliderTrack> {}
 
 // TODO use in prebuilt `Slider` component
 export const SliderValueText = withContext(
@@ -44,7 +44,7 @@ export const SliderValueText = withContext(
   "valueText",
 );
 export interface SliderValueTextProps
-  extends HTMLStyledProps<typeof SliderValueText> {}
+  extends ComponentProps<typeof SliderValueText> {}
 
 export interface SliderProps extends SliderRootProps {
   /** Track values to mark. */

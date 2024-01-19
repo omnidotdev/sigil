@@ -1,6 +1,6 @@
 import { Combobox as ArkCombobox } from "@ark-ui/react/combobox";
 import { useState } from "react";
-import { BiCheck, BiExpandVertical } from "react-icons/bi/index.js";
+import { BiCheck, BiExpandVertical } from "react-icons/bi";
 
 import Button from "components/core/Button/Button";
 import Input from "components/core/Input/Input";
@@ -8,7 +8,6 @@ import { styled } from "generated/panda/jsx";
 import { combobox } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { HTMLStyledProps } from "generated/panda/jsx";
 import type { ComponentProps } from "react";
 
 // https://github.com/microsoft/TypeScript/issues/47663
@@ -18,82 +17,82 @@ const { withProvider, withContext } = createStyleContext(combobox);
 
 export const ComboboxRoot = withProvider(styled(ArkCombobox.Root), "root");
 export interface ComboboxRootProps
-  extends HTMLStyledProps<typeof ComboboxRoot> {}
+  extends ComponentProps<typeof ComboboxRoot> {}
 
 export const ComboboxClearTrigger = withContext(
   styled(ArkCombobox.ClearTrigger),
   "clearTrigger",
 );
 export interface ComboboxClearTriggerProps
-  extends HTMLStyledProps<typeof ComboboxClearTrigger> {}
+  extends ComponentProps<typeof ComboboxClearTrigger> {}
 
 export const ComboboxContent = withContext(
   styled(ArkCombobox.Content),
   "content",
 );
 export interface ComboboxContentProps
-  extends HTMLStyledProps<typeof ComboboxContent> {}
+  extends ComponentProps<typeof ComboboxContent> {}
 
 export const ComboboxControl = withContext(
   styled(ArkCombobox.Control),
   "control",
 );
 export interface ComboboxControlProps
-  extends HTMLStyledProps<typeof ComboboxControl> {}
+  extends ComponentProps<typeof ComboboxControl> {}
 
 export const ComboboxInput = withContext(styled(ArkCombobox.Input), "input");
 export interface ComboboxInputProps
-  extends HTMLStyledProps<typeof ComboboxInput> {}
+  extends ComponentProps<typeof ComboboxInput> {}
 
 export const ComboboxItem = withContext(styled(ArkCombobox.Item), "item");
 export interface ComboboxItemProps
-  extends HTMLStyledProps<typeof ComboboxItem> {}
+  extends ComponentProps<typeof ComboboxItem> {}
 
 export const ComboboxItemGroup = withContext(
   styled(ArkCombobox.ItemGroup),
   "itemGroup",
 );
 export interface ComboboxItemGroupProps
-  extends HTMLStyledProps<typeof ComboboxItemGroup> {}
+  extends ComponentProps<typeof ComboboxItemGroup> {}
 
 export const ComboboxItemGroupLabel = withContext(
   styled(ArkCombobox.ItemGroupLabel),
   "itemGroupLabel",
 );
 export interface ComboboxItemGroupLabelProps
-  extends HTMLStyledProps<typeof ComboboxItemGroupLabel> {}
+  extends ComponentProps<typeof ComboboxItemGroupLabel> {}
 
 export const ComboboxItemIndicator = withContext(
   styled(ArkCombobox.ItemIndicator),
   "itemIndicator",
 );
 export interface ComboboxItemIndicatorProps
-  extends HTMLStyledProps<typeof ComboboxItemIndicator> {}
+  extends ComponentProps<typeof ComboboxItemIndicator> {}
 
 export const ComboboxItemText = withContext(
   styled(ArkCombobox.ItemText),
   "itemText",
 );
 export interface ComboboxItemTextProps
-  extends HTMLStyledProps<typeof ComboboxItemText> {}
+  extends ComponentProps<typeof ComboboxItemText> {}
 
 export const ComboboxLabel = withContext(styled(ArkCombobox.Label), "label");
 export interface ComboboxLabelProps
-  extends HTMLStyledProps<typeof ComboboxLabel> {}
+  extends ComponentProps<typeof ComboboxLabel> {}
 
 export const ComboboxPositioner = withContext(
   styled(ArkCombobox.Positioner),
   "positioner",
 );
 export interface ComboboxPositionerProps
-  extends HTMLStyledProps<typeof ComboboxPositioner> {}
+  extends ComponentProps<typeof ComboboxPositioner> {}
 
 export const ComboboxTrigger = withContext(
   styled(ArkCombobox.Trigger),
   "trigger",
 );
 export interface ComboboxTriggerProps
-  extends HTMLStyledProps<typeof ComboboxTrigger> {}
+  extends ComponentProps<typeof ComboboxTrigger> {}
 
 export interface ComboboxProps extends ComboboxRootProps {
   label: {

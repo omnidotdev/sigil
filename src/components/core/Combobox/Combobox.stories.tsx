@@ -8,7 +8,7 @@ const meta = {
   title: "Components/Core/Combobox",
   component: Combobox,
   tags: ["autodocs"],
-} satisfies Meta<typeof Combobox>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

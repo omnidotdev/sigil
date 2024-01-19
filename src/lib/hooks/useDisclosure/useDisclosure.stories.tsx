@@ -38,6 +38,6 @@ const meta: Meta = {
   tags: ["autodocs"],
   // NB: type coercion here to allow `useDisclosure` Storybook metadata to render (e.g. JSDoc, hook parameters)
   component: useDisclosure as unknown as ComponentType,
-} satisfies Meta<typeof useDisclosure>;
+} satisfies Meta;
 
 export default meta;

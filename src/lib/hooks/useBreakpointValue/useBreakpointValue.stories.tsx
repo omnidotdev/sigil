@@ -51,6 +51,6 @@ const meta = {
   title: "Hooks/useBreakpointValue",
   tags: ["autodocs"],
   component: useBreakpointValue,
-} satisfies Meta<typeof useBreakpointValue>;
+} satisfies Meta;
 
 export default meta;

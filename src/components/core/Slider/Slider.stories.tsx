@@ -16,7 +16,7 @@ const meta = {
   title: "Components/Core/Slider",
   component: Slider,
   tags: ["autodocs"],
-} satisfies Meta<typeof Slider>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

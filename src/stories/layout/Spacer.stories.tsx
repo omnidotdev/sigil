@@ -11,7 +11,7 @@ const meta = {
   title: "Components/Layout/Spacer",
   component: Spacer,
   tags: ["autodocs"],
-} satisfies Meta<typeof Spacer>;
+} satisfies Meta;
 
 export const Default: Story = {
   render: () => (

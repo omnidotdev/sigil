@@ -11,7 +11,7 @@ const meta = {
   title: "Components/Layout/Circle",
   component: Circle,
   tags: ["autodocs"],
-} satisfies Meta<typeof Circle>;
+} satisfies Meta;
 
 export const Default: Story = {
   render: () => (

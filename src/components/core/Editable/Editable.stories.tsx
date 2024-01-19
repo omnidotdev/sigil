@@ -7,7 +7,7 @@ const meta = {
   title: "Components/Core/Editable",
   component: Editable,
   tags: ["autodocs"],
-} satisfies Meta<typeof Editable>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

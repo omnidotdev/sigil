@@ -9,7 +9,7 @@ const meta = {
   title: "Components/Typography/Keyboard",
   component: Keyboard,
   tags: ["autodocs"],
-} satisfies Meta<typeof Keyboard>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

@@ -12,7 +12,7 @@ const meta = {
   title: "Components/Layout/Grid",
   component: Grid,
   tags: ["autodocs"],
-} satisfies Meta<typeof Grid>;
+} satisfies Meta;
 
 export const Default: Story = {
   render: () => (

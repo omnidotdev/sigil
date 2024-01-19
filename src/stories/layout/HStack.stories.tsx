@@ -12,7 +12,7 @@ const meta = {
   title: "Components/Layout/HStack",
   component: HStack,
   tags: ["autodocs"],
-} satisfies Meta<typeof HStack>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

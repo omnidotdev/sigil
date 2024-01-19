@@ -1,5 +1,5 @@
 import { Dialog as ArkDialog } from "@ark-ui/react/dialog";
-import { FiX } from "react-icons/fi/index.js";
+import { FiX } from "react-icons/fi";
 
 import Button from "components/core/Button/Button";
 import { Stack, styled } from "generated/panda/jsx";
@@ -7,53 +7,52 @@ import { dialog } from "generated/panda/recipes";
 import { createStyleContext, getContextualChildren } from "lib/util";
 
 import type { DialogContentProps as ArkDialogContentProps } from "@ark-ui/react/dialog";
-import type { HTMLStyledProps } from "generated/panda/jsx";
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(dialog);
 
 export const DialogRoot = withProvider(styled(ArkDialog.Root), "root");
-export interface DialogRootProps extends HTMLStyledProps<typeof DialogRoot> {}
+export interface DialogRootProps extends ComponentProps<typeof DialogRoot> {}
 
 export const DialogTrigger = withContext(styled(ArkDialog.Trigger), "trigger");
 export interface DialogTriggerProps
-  extends HTMLStyledProps<typeof DialogTrigger> {}
+  extends ComponentProps<typeof DialogTrigger> {}
 
 export const DialogBackdrop = withContext(
   styled(ArkDialog.Backdrop),
   "backdrop",
 );
 export interface DialogBackdropProps
-  extends HTMLStyledProps<typeof DialogBackdrop> {}
+  extends ComponentProps<typeof DialogBackdrop> {}
 
 export const DialogContent = withContext(styled(ArkDialog.Content), "content");
 
 export interface DialogContentProps
-  extends HTMLStyledProps<typeof DialogContent> {}
+  extends ComponentProps<typeof DialogContent> {}
 
 export const DialogCloseTrigger = withContext(
   styled(ArkDialog.CloseTrigger),
   "closeTrigger",
 );
 export interface DialogCloseTriggerProps
-  extends HTMLStyledProps<typeof DialogCloseTrigger> {}
+  extends ComponentProps<typeof DialogCloseTrigger> {}
 
 export const DialogTitle = withContext(styled(ArkDialog.Title), "title");
-export interface DialogTitleProps extends HTMLStyledProps<typeof DialogTitle> {}
+export interface DialogTitleProps extends ComponentProps<typeof DialogTitle> {}
 
 export const DialogDescription = withContext(
   styled(ArkDialog.Description),
   "description",
 );
 export interface DialogDescriptionProps
-  extends HTMLStyledProps<typeof DialogDescription> {}
+  extends ComponentProps<typeof DialogDescription> {}
 
 export const DialogPositioner = withContext(
   styled(ArkDialog.Positioner),
   "positioner",
 );
 export interface DialogPositionerProps
-  extends HTMLStyledProps<typeof DialogPositioner> {}
+  extends ComponentProps<typeof DialogPositioner> {}
 
 export interface DialogProps extends DialogRootProps {
   trigger?: ReactNode;

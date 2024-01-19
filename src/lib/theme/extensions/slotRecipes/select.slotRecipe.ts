@@ -63,6 +63,7 @@ const select = defineSlotRecipe({
         cursor: "not-allowed",
         _hover: {
           bgColor: "transparent",
+          color: "foreground.disabled",
         },
       },
     },

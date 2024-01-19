@@ -1,4 +1,4 @@
-import { FiArrowRight } from "react-icons/fi/index.js";
+import { FiArrowRight } from "react-icons/fi";
 
 import { Button } from "components";
 import { Flex } from "generated/panda/jsx";
@@ -11,7 +11,7 @@ const meta = {
   title: "Components/Core/Button",
   component: Button,
   tags: ["autodocs"],
-} satisfies Meta<typeof Button>;
+} satisfies Meta;
 
 /**
  * Colorful variant for forefront actions.

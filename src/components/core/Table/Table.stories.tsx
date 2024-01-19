@@ -48,7 +48,7 @@ const meta = {
   title: "Components/Core/Table",
   component: Table,
   tags: ["autodocs"],
-} satisfies Meta<typeof Table>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

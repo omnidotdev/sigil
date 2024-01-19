@@ -12,7 +12,7 @@ const meta = {
   title: "Components/Layout/Wrap",
   component: Wrap,
   tags: ["autodocs"],
-} satisfies Meta<typeof Wrap>;
+} satisfies Meta;
 
 export const Default: Story = {
   render: () => (

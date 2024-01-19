@@ -12,7 +12,7 @@ const meta = {
   title: "Components/Layout/Flex",
   component: Flex,
   tags: ["autodocs"],
-} satisfies Meta<typeof Flex>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

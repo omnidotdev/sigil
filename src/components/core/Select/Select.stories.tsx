@@ -8,7 +8,7 @@ const meta = {
   title: "Components/Core/Select",
   component: Select,
   tags: ["autodocs"],
-} satisfies Meta<typeof Select>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

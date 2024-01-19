@@ -9,7 +9,7 @@ const meta = {
   title: "Components/Typography/Code",
   component: Code,
   tags: ["autodocs"],
-} satisfies Meta<typeof Code>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

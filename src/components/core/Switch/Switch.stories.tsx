@@ -8,7 +8,7 @@ const meta = {
   title: "Components/Core/Switch",
   component: Switch,
   tags: ["autodocs"],
-} satisfies Meta<typeof Switch>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

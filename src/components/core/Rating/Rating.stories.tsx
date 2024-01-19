@@ -8,7 +8,7 @@ const meta = {
   title: "Components/Core/Rating",
   component: Rating,
   tags: ["autodocs"],
-} satisfies Meta<typeof Rating>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

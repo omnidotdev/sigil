@@ -9,7 +9,7 @@ const meta = {
   title: "Components/Core/Badge",
   component: Badge,
   tags: ["autodocs"],
-} satisfies Meta<typeof Badge>;
+} satisfies Meta;
 
 export const Default: Story = {
   name: "Subtle (Default)",

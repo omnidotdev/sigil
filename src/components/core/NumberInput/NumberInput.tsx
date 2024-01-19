@@ -1,11 +1,11 @@
 import { NumberInput as ArkNumberInput } from "@ark-ui/react/number-input";
-import { FiChevronUp, FiChevronDown } from "react-icons/fi/index.js";
+import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 
 import { styled } from "generated/panda/jsx";
 import { numberInput } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { HTMLStyledProps } from "generated/panda/jsx";
+import type { ComponentProps } from "react";
 
 const { withProvider, withContext } = createStyleContext(numberInput);
 
@@ -14,49 +14,49 @@ export const NumberInputRoot = withProvider(
   "root",
 );
 export interface NumberInputRootProps
-  extends HTMLStyledProps<typeof NumberInputRoot> {}
+  extends ComponentProps<typeof NumberInputRoot> {}
 
 export const NumberInputControl = withContext(
   styled(ArkNumberInput.Control),
   "control",
 );
 export interface NumberInputControlProps
-  extends HTMLStyledProps<typeof NumberInputControl> {}
+  extends ComponentProps<typeof NumberInputControl> {}
 
 export const NumberInputDecrementTrigger = withContext(
   styled(ArkNumberInput.DecrementTrigger),
   "decrementTrigger",
 );
 export interface NumberInputDecrementTriggerProps
-  extends HTMLStyledProps<typeof NumberInputDecrementTrigger> {}
+  extends ComponentProps<typeof NumberInputDecrementTrigger> {}
 
 export const NumberInputInput = withContext(
   styled(ArkNumberInput.Input),
   "input",
 );
 export interface NumberInputInputProps
-  extends HTMLStyledProps<typeof NumberInputInput> {}
+  extends ComponentProps<typeof NumberInputInput> {}
 
 export const NumberInputIncrementTrigger = withContext(
   styled(ArkNumberInput.IncrementTrigger),
   "incrementTrigger",
 );
 export interface NumberInputIncrementTriggerProps
-  extends HTMLStyledProps<typeof NumberInputIncrementTrigger> {}
+  extends ComponentProps<typeof NumberInputIncrementTrigger> {}
 
 export const NumberInputLabel = withContext(
   styled(ArkNumberInput.Label),
   "label",
 );
 export interface NumberInputLabelProps
-  extends HTMLStyledProps<typeof NumberInputLabel> {}
+  extends ComponentProps<typeof NumberInputLabel> {}
 
 export const NumberInputScrubber = withContext(
   styled(ArkNumberInput.Scrubber),
   "scrubber",
 );
 export interface NumberInputScrubberProps
-  extends HTMLStyledProps<typeof NumberInputScrubber> {}
+  extends ComponentProps<typeof NumberInputScrubber> {}
 
 export interface NumberInputProps extends NumberInputRootProps {
   label: string;

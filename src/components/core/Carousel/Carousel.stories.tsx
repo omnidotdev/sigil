@@ -7,7 +7,7 @@ const meta = {
   title: "Components/Core/Carousel",
   component: Carousel,
   tags: ["autodocs"],
-} satisfies Meta<typeof Carousel>;
+} satisfies Meta;
 
 const imageUrls = [
   "/img/beach.jpg",

@@ -6,60 +6,60 @@ import { styled } from "generated/panda/jsx";
 import { editable } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { HTMLStyledProps } from "generated/panda/jsx";
+import type { ComponentProps } from "react";
 
 const { withProvider, withContext } = createStyleContext(editable);
 
 export const EditableRoot = withProvider(styled(ArkEditable.Root), "root");
 export interface EditableRootProps
-  extends HTMLStyledProps<typeof EditableRoot> {}
+  extends ComponentProps<typeof EditableRoot> {}
 
 export const EditableArea = withContext(styled(ArkEditable.Area), "area");
 export interface EditableAreaProps
-  extends HTMLStyledProps<typeof EditableArea> {}
+  extends ComponentProps<typeof EditableArea> {}
 
 export const EditableCancelTrigger = withContext(
   styled(ArkEditable.CancelTrigger),
   "cancelTrigger",
 );
 export interface EditableCancelTriggerProps
-  extends HTMLStyledProps<typeof EditableCancelTrigger> {}
+  extends ComponentProps<typeof EditableCancelTrigger> {}
 
 export const EditableControl = withContext(
   styled(ArkEditable.Control),
   "control",
 );
 export interface EditableControlProps
-  extends HTMLStyledProps<typeof EditableControl> {}
+  extends ComponentProps<typeof EditableControl> {}
 
 export const EditableEditTrigger = withContext(
   styled(ArkEditable.EditTrigger),
   "editTrigger",
 );
 export interface EditableEditTriggerProps
-  extends HTMLStyledProps<typeof EditableEditTrigger> {}
+  extends ComponentProps<typeof EditableEditTrigger> {}
 
 export const EditableInput = withContext(styled(ArkEditable.Input), "input");
 export interface EditableInputProps
-  extends HTMLStyledProps<typeof EditableInput> {}
+  extends ComponentProps<typeof EditableInput> {}
 
 export const EditableLabel = withContext(styled(ArkEditable.Label), "label");
 export interface EditableLabelProps
-  extends HTMLStyledProps<typeof EditableLabel> {}
+  extends ComponentProps<typeof EditableLabel> {}
 
 export const EditablePreview = withContext(
   styled(ArkEditable.Preview),
   "preview",
 );
 export interface EditablePreviewProps
-  extends HTMLStyledProps<typeof EditablePreview> {}
+  extends ComponentProps<typeof EditablePreview> {}
 
 export const EditableSubmitTrigger = withContext(
   styled(ArkEditable.SubmitTrigger),
   "submitTrigger",
 );
 export interface EditableSubmitTriggerProps
-  extends HTMLStyledProps<typeof EditableSubmitTrigger> {}
+  extends ComponentProps<typeof EditableSubmitTrigger> {}
 
 export interface EditableProps extends EditableRootProps {
   /** Editable field label. */

@@ -32,10 +32,10 @@ export const Default: Story = {
 };
 
 // NB: type annotation resolves type portability error
-const meta: Meta<typeof useBreakpoint> = {
+const meta: Meta = {
   title: "Hooks/useBreakpoint",
   tags: ["autodocs"],
   component: useBreakpoint,
-} satisfies Meta<typeof useBreakpoint>;
+} satisfies Meta;
 
 export default meta;

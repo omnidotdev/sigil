@@ -12,7 +12,7 @@ const meta = {
   title: "Components/Layout/Box",
   component: Box,
   tags: ["autodocs"],
-} satisfies Meta<typeof Box>;
+} satisfies Meta;
 
 export const Default: Story = {
   render: () => (

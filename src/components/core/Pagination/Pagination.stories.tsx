@@ -6,7 +6,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 type Story = StoryObj<typeof meta>;
 
 // NB: type annotation resolves type portability error
-const meta: Meta<typeof Pagination> = {
+const meta: Meta = {
   title: "Components/Core/Pagination",
   component: Pagination,
   tags: ["autodocs"],
@@ -17,7 +17,7 @@ const meta: Meta<typeof Pagination> = {
       </Flex>
     ),
   ],
-} satisfies Meta<typeof Pagination>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

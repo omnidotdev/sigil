@@ -8,7 +8,7 @@ const meta = {
   title: "Components/Core/Accordion",
   component: Accordion,
   tags: ["autodocs"],
-} satisfies Meta<typeof Accordion>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

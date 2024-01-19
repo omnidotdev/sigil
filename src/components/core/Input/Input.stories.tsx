@@ -9,7 +9,7 @@ const meta = {
   title: "Components/Core/Input",
   component: Input,
   tags: ["autodocs"],
-} satisfies Meta<typeof Input>;
+} satisfies Meta;
 
 export const Default: Story = {
   render: () => (
