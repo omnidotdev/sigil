@@ -8,7 +8,7 @@ const meta = {
   title: "Components/Core/NumberInput",
   component: NumberInput,
   tags: ["autodocs"],
-} satisfies Meta<typeof NumberInput>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {
@@ -26,6 +26,13 @@ export const MouseWheelAllowed: Story = {
   args: {
     ...Default.args,
     allowMouseWheel: true,
+  },
+};
+
+export const DefaultValue: Story = {
+  args: {
+    ...Default.args,
+    defaultValue: "4",
   },
 };
 
