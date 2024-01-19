@@ -22,30 +22,63 @@ const pinInput = defineSlotRecipe({
       color: "foreground.default",
       fontWeight: "medium",
     },
+    input: {
+      textAlign: "center",
+      p: 2,
+      height: "100%",
+    },
   },
   defaultVariants: {
     size: "md",
   },
   variants: {
     size: {
+      xs: {
+        label: {
+          textStyle: "sm",
+        },
+        input: {
+          width: 8,
+        },
+      },
       sm: {
         label: {
           textStyle: "sm",
+        },
+        input: {
+          width: 9,
         },
       },
       md: {
         label: {
           textStyle: "sm",
         },
+        input: {
+          width: 10,
+        },
       },
       lg: {
         label: {
           textStyle: "sm",
         },
+        input: {
+          width: 11,
+        },
       },
       xl: {
         label: {
           textStyle: "md",
+        },
+        input: {
+          width: 12,
+        },
+      },
+      "2xl": {
+        label: {
+          textStyle: "md",
+        },
+        input: {
+          width: 16,
         },
       },
     },

@@ -90,12 +90,14 @@ const tabs = defineSlotRecipe({
         indicator: {
           bgColor: "colorPalette.default",
           _horizontal: {
-            height: "2px",
             bottom: 0,
+            height: "2px",
+            width: "var(--width)",
           },
           _vertical: {
-            width: "2px",
+            height: "var(--height)",
             left: 0,
+            width: "2px",
           },
         },
         content: {

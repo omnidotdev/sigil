@@ -29,16 +29,16 @@ const segmentGroup = defineSlotRecipe({
       },
     },
     indicator: {
-      borderBottomWidth: {
-        _horizontal: "2px",
-      },
-      borderLeftWidth: {
-        _vertical: "2px",
-      },
       borderColor: "colorPalette.default",
-      transform: {
-        _horizontal: "translateY(1px)",
-        _vertical: "translateX(-1px)",
+      _horizontal: {
+        borderBottomWidth: "2px",
+        transform: "translateY(1px)",
+        width: "var(--width)",
+      },
+      _vertical: {
+        borderLeftWidth: "2px",
+        height: "var(--height)",
+        transform: "translateX(-1px)",
       },
     },
     item: {
@@ -49,7 +49,7 @@ const segmentGroup = defineSlotRecipe({
       transitionProperty: "color",
       transitionTimingFunction: "default",
       _hover: {
-        color: "foreground.muted",
+        color: "foreground.default",
       },
       _checked: {
         fontWeight: "semibold",

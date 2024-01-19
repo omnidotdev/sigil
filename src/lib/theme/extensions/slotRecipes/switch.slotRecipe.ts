@@ -32,8 +32,7 @@ const switchRecipe = defineSlotRecipe({
       },
     },
     label: {
-      userSelect: "none",
-      textStyle: "md",
+      color: "foreground.default",
       fontWeight: "medium",
     },
     thumb: {
