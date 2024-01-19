@@ -22,7 +22,7 @@ const BASE_TEXT = "Sphinx of black quartz, judge my vow.";
 const meta = {
   title: "Components/Typography/Text",
   component: Text,
-} satisfies Meta<typeof Text>;
+} satisfies Meta;
 
 const fontWeights = [
   { name: "Thin", weight: 100 },

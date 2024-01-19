@@ -6,33 +6,33 @@ import { styled } from "generated/panda/jsx";
 import { toast as toastRecipe } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { HTMLStyledProps } from "generated/panda/jsx";
+import type { ComponentProps } from "react";
 
 const { withProvider, withContext } = createStyleContext(toastRecipe);
 
 export const ToastRoot = withProvider(styled(ArkToast.Root), "root");
-export interface ToastRootProps extends HTMLStyledProps<typeof ToastRoot> {}
+export interface ToastRootProps extends ComponentProps<typeof ToastRoot> {}
 
 // TODO use in prebuilt `Toaster` component
 const ToastGroup = withContext(styled(ArkToast.Group), "group");
-export interface ToastGroupProps extends HTMLStyledProps<typeof ToastGroup> {}
+export interface ToastGroupProps extends ComponentProps<typeof ToastGroup> {}
 
 export const ToastTitle = withContext(styled(ArkToast.Title), "title");
-export interface ToastTitleProps extends HTMLStyledProps<typeof ToastTitle> {}
+export interface ToastTitleProps extends ComponentProps<typeof ToastTitle> {}
 
 export const ToastDescription = withContext(
   styled(ArkToast.Description),
   "description",
 );
 export interface ToastDescriptionProps
-  extends HTMLStyledProps<typeof ToastDescription> {}
+  extends ComponentProps<typeof ToastDescription> {}
 
 export const ToastCloseTrigger = withContext(
   styled(ArkToast.CloseTrigger),
   "closeTrigger",
 );
 export interface ToastCloseTriggerProps
-  extends HTMLStyledProps<typeof ToastCloseTrigger> {}
+  extends ComponentProps<typeof ToastCloseTrigger> {}
 
 export interface ToastProps extends ToastRootProps {}
 

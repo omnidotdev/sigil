@@ -1,77 +1,76 @@
 import { Popover as ArkPopover } from "@ark-ui/react/popover";
-import { FiX } from "react-icons/fi/index.js";
+import { FiX } from "react-icons/fi";
 
 import Button from "components/core/Button/Button";
 import { Box, Stack, styled } from "generated/panda/jsx";
 import { popover } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { HTMLStyledProps } from "generated/panda/jsx";
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(popover);
 
 export const PopoverRoot = withProvider(styled(ArkPopover.Root), "root");
-export interface PopoverRootProps extends HTMLStyledProps<typeof PopoverRoot> {}
+export interface PopoverRootProps extends ComponentProps<typeof PopoverRoot> {}
 
 export const PopoverAnchor = withContext(styled(ArkPopover.Anchor), "anchor");
 export interface PopoverAnchorProps
-  extends HTMLStyledProps<typeof PopoverAnchor> {}
+  extends ComponentProps<typeof PopoverAnchor> {}
 
 export const PopoverArrow = withContext(styled(ArkPopover.Arrow), "arrow");
 export interface PopoverArrowProps
-  extends HTMLStyledProps<typeof PopoverArrow> {}
+  extends ComponentProps<typeof PopoverArrow> {}
 
 export const PopoverArrowTip = withContext(
   styled(ArkPopover.ArrowTip),
   "arrowTip",
 );
 export interface PopoverArrowTipProps
-  extends HTMLStyledProps<typeof PopoverArrowTip> {}
+  extends ComponentProps<typeof PopoverArrowTip> {}
 
 export const PopoverCloseTrigger = withContext(
   styled(ArkPopover.CloseTrigger),
   "closeTrigger",
 );
 export interface PopoverCloseTriggerProps
-  extends HTMLStyledProps<typeof PopoverCloseTrigger> {}
+  extends ComponentProps<typeof PopoverCloseTrigger> {}
 
 export const PopoverContent = withContext(
   styled(ArkPopover.Content),
   "content",
 );
 export interface PopoverContentProps
-  extends HTMLStyledProps<typeof PopoverContent> {}
+  extends ComponentProps<typeof PopoverContent> {}
 
 export const PopoverDescription = withContext(
   styled(ArkPopover.Description),
   "description",
 );
 export interface PopoverDescriptionProps
-  extends HTMLStyledProps<typeof PopoverDescription> {}
+  extends ComponentProps<typeof PopoverDescription> {}
 
 // TODO use in prebuilt `Popover` component
 const PopoverIndicator = withContext(styled(ArkPopover.Indicator), "indicator");
 export interface PopoverIndicatorProps
-  extends HTMLStyledProps<typeof PopoverIndicator> {}
+  extends ComponentProps<typeof PopoverIndicator> {}
 
 export const PopoverPositioner = withContext(
   styled(ArkPopover.Positioner),
   "positioner",
 );
 export interface PopoverPositionerProps
-  extends HTMLStyledProps<typeof PopoverPositioner> {}
+  extends ComponentProps<typeof PopoverPositioner> {}
 
 export const PopoverTitle = withContext(styled(ArkPopover.Title), "title");
 export interface PopoverTitleProps
-  extends HTMLStyledProps<typeof PopoverTitle> {}
+  extends ComponentProps<typeof PopoverTitle> {}
 
 export const PopoverTrigger = withContext(
   styled(ArkPopover.Trigger),
   "trigger",
 );
 export interface PopoverTriggerProps
-  extends HTMLStyledProps<typeof PopoverTrigger> {}
+  extends ComponentProps<typeof PopoverTrigger> {}
 
 export interface PopoverProps extends PopoverRootProps {
   trigger?: ReactNode;

@@ -19,7 +19,7 @@ const meta = {
     ),
   ],
   tags: ["autodocs"],
-} satisfies Meta<typeof Toaster>;
+} satisfies Meta;
 
 // TODO variant styles (success, error, warning, ...)
 

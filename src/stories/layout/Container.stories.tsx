@@ -11,7 +11,7 @@ const meta = {
   title: "Components/Layout/Container",
   component: Container,
   tags: ["autodocs"],
-} satisfies Meta<typeof Container>;
+} satisfies Meta;
 
 export const Default: Story = {
   render: () => (

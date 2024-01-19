@@ -5,23 +5,22 @@ import { styled } from "generated/panda/jsx";
 import { avatar } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { HTMLStyledProps } from "generated/panda/jsx";
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(avatar);
 
 export const AvatarRoot = withProvider(styled(ArkAvatar.Root), "root");
-export interface AvatarRootProps extends HTMLStyledProps<typeof AvatarRoot> {}
+export interface AvatarRootProps extends ComponentProps<typeof AvatarRoot> {}
 
 export const AvatarFallback = withContext(
   styled(ArkAvatar.Fallback),
   "fallback",
 );
 export interface AvatarFallbackProps
-  extends HTMLStyledProps<typeof AvatarFallback> {}
+  extends ComponentProps<typeof AvatarFallback> {}
 
 export const AvatarImage = withContext(styled(ArkAvatar.Image), "image");
-export interface AvatarImageProps extends HTMLStyledProps<typeof AvatarImage> {}
+export interface AvatarImageProps extends ComponentProps<typeof AvatarImage> {}
 
 // TODO unit test this, use JSDoc examples below as basepoint and match for e.g. names with diacritics
 /**

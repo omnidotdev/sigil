@@ -1,13 +1,12 @@
 import { Carousel as ArkCarousel } from "@ark-ui/react/carousel";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi/index.js";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 import Button from "components/core/Button/Button";
 import { styled } from "generated/panda/jsx";
 import { carousel } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { HTMLStyledProps } from "generated/panda/jsx";
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 // https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/carousel";
@@ -16,60 +15,60 @@ const { withProvider, withContext } = createStyleContext(carousel);
 
 export const CarouselRoot = withProvider(styled(ArkCarousel.Root), "root");
 export interface CarouselRootProps
-  extends HTMLStyledProps<typeof CarouselRoot> {}
+  extends ComponentProps<typeof CarouselRoot> {}
 
 export const CarouselControl = withContext(
   styled(ArkCarousel.Control),
   "control",
 );
 export interface CarouselControlProps
-  extends HTMLStyledProps<typeof CarouselControl> {}
+  extends ComponentProps<typeof CarouselControl> {}
 
 export const CarouselIndicator = withContext(
   styled(ArkCarousel.Indicator),
   "indicator",
 );
 export interface CarouselIndicatorProps
-  extends HTMLStyledProps<typeof CarouselIndicator> {}
+  extends ComponentProps<typeof CarouselIndicator> {}
 
 export const CarouselIndicatorGroup = withContext(
   styled(ArkCarousel.IndicatorGroup),
   "indicatorGroup",
 );
 export interface CarouselIndicatorGroupProps
-  extends HTMLStyledProps<typeof CarouselIndicatorGroup> {}
+  extends ComponentProps<typeof CarouselIndicatorGroup> {}
 
 export const CarouselItem = withContext(styled(ArkCarousel.Item), "item");
 export interface CarouselItemProps
-  extends HTMLStyledProps<typeof CarouselItem> {}
+  extends ComponentProps<typeof CarouselItem> {}
 
 export const CarouselItemGroup = withContext(
   styled(ArkCarousel.ItemGroup),
   "itemGroup",
 );
 export interface CarouselItemGroupProps
-  extends HTMLStyledProps<typeof CarouselItemGroup> {}
+  extends ComponentProps<typeof CarouselItemGroup> {}
 
 export const CarouselNextTrigger = withContext(
   styled(ArkCarousel.NextTrigger),
   "nextTrigger",
 );
 export interface CarouselNextTriggerProps
-  extends HTMLStyledProps<typeof CarouselNextTrigger> {}
+  extends ComponentProps<typeof CarouselNextTrigger> {}
 
 export const CarouselPrevTrigger = withContext(
   styled(ArkCarousel.PrevTrigger),
   "prevTrigger",
 );
 export interface CarouselPrevTriggerProps
-  extends HTMLStyledProps<typeof CarouselPrevTrigger> {}
+  extends ComponentProps<typeof CarouselPrevTrigger> {}
 
 export const CarouselViewport = withContext(
   styled(ArkCarousel.Viewport),
   "viewport",
 );
 export interface CarouselViewportProps
-  extends HTMLStyledProps<typeof CarouselViewport> {}
+  extends ComponentProps<typeof CarouselViewport> {}
 
 export interface CarouselProps extends CarouselRootProps {
   /** Item content to render. */

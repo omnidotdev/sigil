@@ -38,7 +38,7 @@ const meta = {
   title: "Components/Layout/Float",
   component: Float,
   tags: ["autodocs"],
-} satisfies Meta<typeof Float>;
+} satisfies Meta;
 
 export const Default: Story = {
   render: () => (

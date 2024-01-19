@@ -7,7 +7,7 @@ const meta = {
   title: "Components/Core/ColorPicker",
   component: ColorPicker,
   tags: ["autodocs"],
-} satisfies Meta<typeof ColorPicker>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

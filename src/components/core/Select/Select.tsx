@@ -1,88 +1,88 @@
 import { Select as ArkSelect } from "@ark-ui/react/select";
-import { BiCheck, BiExpandVertical } from "react-icons/bi/index.js";
+import { BiCheck, BiExpandVertical } from "react-icons/bi";
 
 import { styled } from "generated/panda/jsx";
 import { select } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { HTMLStyledProps } from "generated/panda/jsx";
+import type { ComponentProps } from "react";
 
 const { withProvider, withContext } = createStyleContext(select);
 
 export const SelectRoot = withProvider(styled(ArkSelect.Root), "root");
-export interface SelectRootProps extends HTMLStyledProps<typeof SelectRoot> {}
+export interface SelectRootProps extends ComponentProps<typeof SelectRoot> {}
 
 export const SelectClearTrigger = withContext(
   styled(ArkSelect.ClearTrigger),
   "clearTrigger",
 );
 export interface SelectClearTriggerProps
-  extends HTMLStyledProps<typeof SelectClearTrigger> {}
+  extends ComponentProps<typeof SelectClearTrigger> {}
 
 export const SelectContent = withContext(styled(ArkSelect.Content), "content");
 export interface SelectContentProps
-  extends HTMLStyledProps<typeof SelectContent> {}
+  extends ComponentProps<typeof SelectContent> {}
 
 export const SelectControl = withContext(styled(ArkSelect.Control), "control");
 export interface SelectControlProps
-  extends HTMLStyledProps<typeof SelectControl> {}
+  extends ComponentProps<typeof SelectControl> {}
 
 // TODO use in prebuilt `Select` component
 const SelectIndicator = withContext(styled(ArkSelect.Indicator), "indicator");
 export interface SelectIndicatorProps
-  extends HTMLStyledProps<typeof SelectIndicator> {}
+  extends ComponentProps<typeof SelectIndicator> {}
 
 export const SelectItem = withContext(styled(ArkSelect.Item), "item");
-export interface SelectItemProps extends HTMLStyledProps<typeof SelectItem> {}
+export interface SelectItemProps extends ComponentProps<typeof SelectItem> {}
 
 export const SelectItemGroup = withContext(
   styled(ArkSelect.ItemGroup),
   "itemGroup",
 );
 export interface SelectItemGroupProps
-  extends HTMLStyledProps<typeof SelectItemGroup> {}
+  extends ComponentProps<typeof SelectItemGroup> {}
 
 export const SelectItemGroupLabel = withContext(
   styled(ArkSelect.ItemGroupLabel),
   "itemGroupLabel",
 );
 export interface SelectItemGroupLabelProps
-  extends HTMLStyledProps<typeof SelectItemGroupLabel> {}
+  extends ComponentProps<typeof SelectItemGroupLabel> {}
 
 export const SelectItemIndicator = withContext(
   styled(ArkSelect.ItemIndicator),
   "itemIndicator",
 );
 export interface SelectItemIndicatorProps
-  extends HTMLStyledProps<typeof SelectItemIndicator> {}
+  extends ComponentProps<typeof SelectItemIndicator> {}
 
 export const SelectItemText = withContext(
   styled(ArkSelect.ItemText),
   "itemText",
 );
 export interface SelectItemTextProps
-  extends HTMLStyledProps<typeof SelectItemText> {}
+  extends ComponentProps<typeof SelectItemText> {}
 
 export const SelectLabel = withContext(styled(ArkSelect.Label), "label");
-export interface SelectLabelProps extends HTMLStyledProps<typeof SelectLabel> {}
+export interface SelectLabelProps extends ComponentProps<typeof SelectLabel> {}
 
 export const SelectPositioner = withContext(
   styled(ArkSelect.Positioner),
   "positioner",
 );
 export interface SelectPositionerProps
-  extends HTMLStyledProps<typeof SelectPositioner> {}
+  extends ComponentProps<typeof SelectPositioner> {}
 
 export const SelectTrigger = withContext(styled(ArkSelect.Trigger), "trigger");
 export interface SelectTriggerProps
-  extends HTMLStyledProps<typeof SelectTrigger> {}
+  extends ComponentProps<typeof SelectTrigger> {}
 
 export const SelectValueText = withContext(
   styled(ArkSelect.ValueText),
   "valueText",
 );
 export interface SelectValueTextProps
-  extends HTMLStyledProps<typeof SelectValueText> {}
+  extends ComponentProps<typeof SelectValueText> {}
 
 export interface SelectProps extends SelectRootProps {
   label: {

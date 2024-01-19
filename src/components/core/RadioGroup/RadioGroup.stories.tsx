@@ -8,7 +8,7 @@ const meta = {
   title: "Components/Core/RadioGroup",
   component: RadioGroup,
   tags: ["autodocs"],
-} satisfies Meta<typeof RadioGroup>;
+} satisfies Meta;
 
 export const Default: Story = {
   name: "Horizontal (Default)",

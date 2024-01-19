@@ -1,4 +1,4 @@
-import { FiDownload } from "react-icons/fi/index.js";
+import { FiDownload } from "react-icons/fi";
 
 import { Alert, Icon } from "components";
 
@@ -10,7 +10,7 @@ const meta = {
   title: "Components/Core/Alert",
   component: Alert,
   tags: ["autodocs"],
-} satisfies Meta<typeof Alert>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

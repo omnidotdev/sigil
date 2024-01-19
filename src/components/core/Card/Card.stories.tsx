@@ -9,7 +9,7 @@ const meta = {
   title: "Components/Core/Card",
   component: Card,
   tags: ["autodocs"],
-} satisfies Meta<typeof Card>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

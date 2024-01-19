@@ -1,46 +1,45 @@
 import { Accordion as ArkAccordion } from "@ark-ui/react/accordion";
-import { FiChevronDown } from "react-icons/fi/index.js";
+import { FiChevronDown } from "react-icons/fi";
 
 import { styled } from "generated/panda/jsx";
 import { accordion } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { AccordionItemProps as ArkAccordionItemProps } from "@ark-ui/react/accordion";
-import type { HTMLStyledProps } from "generated/panda/jsx";
 // https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/accordion";
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(accordion);
 
 export const AccordionRoot = withProvider(styled(ArkAccordion.Root), "root");
 export interface AccordionRootProps
-  extends HTMLStyledProps<typeof AccordionRoot> {}
+  extends ComponentProps<typeof AccordionRoot> {}
 
 export const AccordionItem = withContext(styled(ArkAccordion.Item), "item");
 export interface AccordionItemProps
-  extends HTMLStyledProps<typeof AccordionItem> {}
+  extends ComponentProps<typeof AccordionItem> {}
 
 export const AccordionItemContent = withContext(
   styled(ArkAccordion.ItemContent),
   "itemContent",
 );
 export interface AccordionItemContentProps
-  extends HTMLStyledProps<typeof AccordionItemContent> {}
+  extends ComponentProps<typeof AccordionItemContent> {}
 
 export const AccordionItemIndicator = withContext(
   styled(ArkAccordion.ItemIndicator),
   "itemIndicator",
 );
 export interface AccordionItemIndicatorProps
-  extends HTMLStyledProps<typeof AccordionItemIndicator> {}
+  extends ComponentProps<typeof AccordionItemIndicator> {}
 
 export const AccordionItemTrigger = withContext(
   styled(ArkAccordion.ItemTrigger),
   "itemTrigger",
 );
 export interface AccordionItemTriggerProps
-  extends HTMLStyledProps<typeof AccordionItemTrigger> {}
+  extends ComponentProps<typeof AccordionItemTrigger> {}
 
 interface AccordionIconProps {
   isOpen: boolean;

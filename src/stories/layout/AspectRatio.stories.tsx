@@ -1,3 +1,5 @@
+// TODO remove this component in favor of `aspectRatio` prop, make sure to test that it works well
+
 import { AspectRatio, styled } from "generated/panda/jsx";
 
 import type { Meta, StoryObj } from "@storybook/react";
@@ -11,7 +13,7 @@ const meta = {
   title: "Components/Layout/AspectRatio",
   component: AspectRatio,
   tags: ["autodocs"],
-} satisfies Meta<typeof AspectRatio>;
+} satisfies Meta;
 
 export const SixteenNine: Story = {
   name: "16:9",

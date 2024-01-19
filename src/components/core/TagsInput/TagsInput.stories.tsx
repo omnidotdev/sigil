@@ -9,7 +9,7 @@ const meta = {
   title: "Components/Core/TagsInput",
   component: TagsInput,
   tags: ["autodocs"],
-} satisfies Meta<typeof TagsInput>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

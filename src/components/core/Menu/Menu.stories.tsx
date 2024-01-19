@@ -8,7 +8,7 @@ import {
   FiMessageSquare,
   FiPlusCircle,
   FiLogOut,
-} from "react-icons/fi/index.js";
+} from "react-icons/fi";
 
 import {
   Button,
@@ -35,7 +35,7 @@ const meta = {
   title: "Components/Core/Menu",
   component: Menu,
   tags: ["autodocs"],
-} satisfies Meta<typeof Menu>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

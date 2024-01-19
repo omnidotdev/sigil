@@ -4,7 +4,7 @@ import { styled } from "generated/panda/jsx";
 import { segmentGroup } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { HTMLStyledProps } from "generated/panda/jsx";
+import type { ComponentProps } from "react";
 
 const { withProvider, withContext } = createStyleContext(segmentGroup);
 
@@ -13,7 +13,7 @@ export const SegmentGroupRoot = withProvider(
   "root",
 );
 export interface SegmentGroupRootProps
-  extends HTMLStyledProps<typeof SegmentGroupRoot> {}
+  extends ComponentProps<typeof SegmentGroupRoot> {}
 
 // TODO use in prebuilt `SegmentGroup` component
 export const SegmentGroupLabel = withContext(
@@ -21,35 +21,35 @@ export const SegmentGroupLabel = withContext(
   "label",
 );
 export interface SegmentGroupLabelProps
-  extends HTMLStyledProps<typeof SegmentGroupLabel> {}
+  extends ComponentProps<typeof SegmentGroupLabel> {}
 
 export const SegmentGroupIndicator = withContext(
   styled(ArkSegmentGroup.Indicator),
   "indicator",
 );
 export interface SegmentGroupIndicatorProps
-  extends HTMLStyledProps<typeof SegmentGroupIndicator> {}
+  extends ComponentProps<typeof SegmentGroupIndicator> {}
 
 export const SegmentGroupItem = withContext(
   styled(ArkSegmentGroup.Item),
   "item",
 );
 export interface SegmentGroupItemProps
-  extends HTMLStyledProps<typeof SegmentGroupItem> {}
+  extends ComponentProps<typeof SegmentGroupItem> {}
 
 export const SegmentGroupItemText = withContext(
   styled(ArkSegmentGroup.ItemText),
   "itemText",
 );
 export interface SegmentGroupItemTextProps
-  extends HTMLStyledProps<typeof SegmentGroupItemText> {}
+  extends ComponentProps<typeof SegmentGroupItemText> {}
 
 export const SegmentGroupItemControl = withContext(
   styled(ArkSegmentGroup.ItemControl),
   "itemControl",
 );
 export interface SegmentGroupItemControlProps
-  extends HTMLStyledProps<typeof SegmentGroupItemControl> {}
+  extends ComponentProps<typeof SegmentGroupItemControl> {}
 
 export interface SegmentGroupProps extends SegmentGroupRootProps {
   /** Segment group options. */

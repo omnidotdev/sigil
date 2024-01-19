@@ -1,5 +1,5 @@
 // import { Placement } from "@floating-ui/dom";
-import { FiMapPin } from "react-icons/fi/index.js";
+import { FiMapPin } from "react-icons/fi";
 
 import { Avatar, Button, Text, Tooltip } from "components";
 import { Grid, HStack, Stack, styled } from "generated/panda/jsx";
@@ -17,7 +17,7 @@ const meta = {
   title: "Components/Core/Tooltip",
   component: Tooltip,
   tags: ["autodocs"],
-} satisfies Meta<typeof Tooltip>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

@@ -3,9 +3,9 @@ import { ark } from "@ark-ui/react";
 import { styled } from "generated/panda/jsx";
 import { textarea } from "generated/panda/recipes";
 
-import type { HTMLStyledProps } from "generated/panda/jsx";
+import type { ComponentProps } from "react";
 
-export interface TextareaProps extends HTMLStyledProps<typeof Textarea> {}
+export interface TextareaProps extends ComponentProps<typeof Textarea> {}
 
 /**
  * Textarea.

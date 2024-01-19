@@ -8,7 +8,7 @@ const meta = {
   title: "Components/Core/Splitter",
   component: Splitter,
   tags: ["autodocs"],
-} satisfies Meta<typeof Splitter>;
+} satisfies Meta;
 
 // TODO add multiple orientations of panels & splitters in a single story
 export const Default: Story = {

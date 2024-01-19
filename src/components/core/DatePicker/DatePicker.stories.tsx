@@ -8,7 +8,7 @@ const meta = {
   title: "Components/Core/DatePicker",
   component: DatePicker,
   tags: ["autodocs"],
-} satisfies Meta<typeof DatePicker>;
+} satisfies Meta;
 
 export const Default: Story = {};
 

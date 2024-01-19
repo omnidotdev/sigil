@@ -8,7 +8,7 @@ const meta = {
   title: "Components/Core/FileUpload",
   component: FileUpload,
   tags: ["autodocs"],
-} satisfies Meta<typeof FileUpload>;
+} satisfies Meta;
 
 /**
  * By default, a single file can be uploaded.

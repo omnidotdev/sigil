@@ -19,7 +19,7 @@ const meta = {
   title: "Components/Core/Avatar",
   component: Avatar,
   tags: ["autodocs"],
-} satisfies Meta<typeof Avatar>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {
@@ -69,7 +69,6 @@ export const Sizes = () => (
       {sizes.map((size) => (
         <TableCell key={size}>
           <Avatar
-            key={size}
             name={Default.args!.name}
             imageSrc={Default.args!.imageSrc}
             size={size}
@@ -82,7 +81,7 @@ export const Sizes = () => (
       <TableCell fontWeight="semibold">Name</TableCell>
       {sizes.map((size) => (
         <TableCell key={size}>
-          <Avatar key={size} name={Default.args!.name} size={size} />
+          <Avatar name={Default.args!.name} size={size} />
         </TableCell>
       ))}
     </TableRow>
@@ -91,7 +90,7 @@ export const Sizes = () => (
       <TableCell fontWeight="semibold">Fallback</TableCell>
       {sizes.map((size) => (
         <TableCell key={size}>
-          <Avatar key={size} size={size} />
+          <Avatar size={size} />
         </TableCell>
       ))}
     </TableRow>

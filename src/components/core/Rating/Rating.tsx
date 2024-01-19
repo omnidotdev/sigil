@@ -3,34 +3,33 @@ import {
   BsStarHalf as IconHalf,
   BsStar as IconEmpty,
   BsStarFill as IconFull,
-} from "react-icons/bs/index.js";
+} from "react-icons/bs";
 
 import { styled } from "generated/panda/jsx";
 import { rating } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 // https://github.com/microsoft/TypeScript/issues/47663
-import type { HTMLStyledProps } from "generated/panda/jsx";
 import type {} from "@zag-js/rating-group";
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(rating);
 
 export const RatingRoot = withProvider(styled(ArkRatingGroup.Root), "root");
-export interface RatingRootProps extends HTMLStyledProps<typeof RatingRoot> {}
+export interface RatingRootProps extends ComponentProps<typeof RatingRoot> {}
 
 export const RatingControl = withContext(
   styled(ArkRatingGroup.Control),
   "control",
 );
 export interface RatingControlProps
-  extends HTMLStyledProps<typeof RatingControl> {}
+  extends ComponentProps<typeof RatingControl> {}
 
 export const RatingLabel = withContext(styled(ArkRatingGroup.Label), "label");
-export interface RatingLabelProps extends HTMLStyledProps<typeof RatingLabel> {}
+export interface RatingLabelProps extends ComponentProps<typeof RatingLabel> {}
 
 export const RatingItem = withContext(styled(ArkRatingGroup.Item), "item");
-export interface RatingItemProps extends HTMLStyledProps<typeof RatingItem> {}
+export interface RatingItemProps extends ComponentProps<typeof RatingItem> {}
 
 export interface RatingProps extends RatingRootProps {
   /** Label for the rating. */

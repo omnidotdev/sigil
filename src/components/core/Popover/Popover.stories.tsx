@@ -9,7 +9,7 @@ const meta = {
   title: "Components/Core/Popover",
   component: Popover,
   tags: ["autodocs"],
-} satisfies Meta<typeof Popover>;
+} satisfies Meta;
 
 export const Default: Story = {
   args: {

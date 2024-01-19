@@ -12,7 +12,7 @@ const meta = {
   title: "Components/Layout/Center",
   component: Center,
   tags: ["autodocs"],
-} satisfies Meta<typeof Center>;
+} satisfies Meta;
 
 /**
  * Center elements both vertically and horizontally.

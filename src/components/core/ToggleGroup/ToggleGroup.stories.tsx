@@ -6,7 +6,7 @@ import {
   FiBold,
   FiItalic,
   FiUnderline,
-} from "react-icons/fi/index.js";
+} from "react-icons/fi";
 
 import { ToggleGroupItem, ToggleGroup } from "components";
 
@@ -21,7 +21,7 @@ const meta = {
   args: {
     width: "fit-content",
   },
-} satisfies Meta<typeof ToggleGroup>;
+} satisfies Meta;
 
 /**
  * By default, only one toggle can be selected at a time.

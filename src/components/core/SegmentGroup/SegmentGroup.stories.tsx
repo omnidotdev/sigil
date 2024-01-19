@@ -8,7 +8,7 @@ const meta = {
   title: "Components/Core/SegmentGroup",
   component: SegmentGroup,
   tags: ["autodocs"],
-} satisfies Meta<typeof SegmentGroup>;
+} satisfies Meta;
 
 export const Default: Story = {
   name: "Vertical (Default)",

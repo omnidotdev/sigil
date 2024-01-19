@@ -9,7 +9,7 @@ const meta = {
   title: "Components/Core/Textarea",
   component: Textarea,
   tags: ["autodocs"],
-} satisfies Meta<typeof Textarea>;
+} satisfies Meta;
 
 export const Default: Story = {
   render: () => (
