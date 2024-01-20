@@ -70,6 +70,9 @@ export * from "./PINInput/PINInput";
 export { default as Popover } from "./Popover/Popover";
 export * from "./Popover/Popover";
 
+export { default as Progress } from "./Progress/Progress";
+export * from "./Progress/Progress";
+
 export { default as RadioGroup } from "./RadioGroup/RadioGroup";
 export * from "./RadioGroup/RadioGroup";
 
