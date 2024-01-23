@@ -1,5 +1,29 @@
 # @omnidev/sigil
 
+## 0.6.0
+
+### Minor Changes
+
+- [#52](https://github.com/omnidotdev/sigil/pull/52) [`0ef465c`](https://github.com/omnidotdev/sigil/commit/0ef465c1d59ac028f0e0645179d7cc69d30eb674) Thanks [@coopbri](https://github.com/coopbri)! - Add `Progress` component
+
+- [#50](https://github.com/omnidotdev/sigil/pull/50) [`6665dd0`](https://github.com/omnidotdev/sigil/commit/6665dd0e12dc0beca2d33ffbb09feeb6d4462af7) Thanks [@coopbri](https://github.com/coopbri)! - Add `length`, `controlProps`, and `inputProps` props to `PINInput`
+
+### Patch Changes
+
+- [#50](https://github.com/omnidotdev/sigil/pull/50) [`6665dd0`](https://github.com/omnidotdev/sigil/commit/6665dd0e12dc0beca2d33ffbb09feeb6d4462af7) Thanks [@coopbri](https://github.com/coopbri)! - Update `Avatar` fallback recipe styles"
+
+- [#50](https://github.com/omnidotdev/sigil/pull/50) [`6665dd0`](https://github.com/omnidotdev/sigil/commit/6665dd0e12dc0beca2d33ffbb09feeb6d4462af7) Thanks [@coopbri](https://github.com/coopbri)! - Set disabled color when disabled `Select` is hovered"
+
+- [#50](https://github.com/omnidotdev/sigil/pull/50) [`6665dd0`](https://github.com/omnidotdev/sigil/commit/6665dd0e12dc0beca2d33ffbb09feeb6d4462af7) Thanks [@coopbri](https://github.com/coopbri)! - Update `Tabs` width and height styles"
+
+- [#50](https://github.com/omnidotdev/sigil/pull/50) [`6665dd0`](https://github.com/omnidotdev/sigil/commit/6665dd0e12dc0beca2d33ffbb09feeb6d4462af7) Thanks [@coopbri](https://github.com/coopbri)! - Update `SegmentGroup` recipe styles
+
+- [#52](https://github.com/omnidotdev/sigil/pull/52) [`0ef465c`](https://github.com/omnidotdev/sigil/commit/0ef465c1d59ac028f0e0645179d7cc69d30eb674) Thanks [@coopbri](https://github.com/coopbri)! - Hide overflow on `Card`
+
+- [#50](https://github.com/omnidotdev/sigil/pull/50) [`6665dd0`](https://github.com/omnidotdev/sigil/commit/6665dd0e12dc0beca2d33ffbb09feeb6d4462af7) Thanks [@coopbri](https://github.com/coopbri)! - Update `PINInput` variant and input styles"
+
+- [#50](https://github.com/omnidotdev/sigil/pull/50) [`6665dd0`](https://github.com/omnidotdev/sigil/commit/6665dd0e12dc0beca2d33ffbb09feeb6d4462af7) Thanks [@coopbri](https://github.com/coopbri)! - Update `Switch` label recipe styles
+
 ## 0.5.0
 
 ### Minor Changes
