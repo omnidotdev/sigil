@@ -14,6 +14,7 @@ const card = defineSlotRecipe({
       boxShadow: "lg",
       display: "flex",
       flexDirection: "column",
+      overflow: "hidden",
       position: "relative",
     },
     header: {
