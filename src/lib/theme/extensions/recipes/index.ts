@@ -7,4 +7,5 @@ export { default as keyboard } from "./keyboard.recipe";
 export { default as label } from "./label.recipe";
 export { default as link } from "./link.recipe";
 export { default as skeleton } from "./skeleton.recipe";
+export { default as text } from "./text.recipe";
 export { default as textarea } from "./textarea.recipe";
