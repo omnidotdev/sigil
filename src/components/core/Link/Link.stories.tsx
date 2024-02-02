@@ -4,8 +4,11 @@ import { FiExternalLink } from "react-icons/fi";
 import { Link } from "components";
 import { Flex } from "generated/panda/jsx";
 import { app } from "lib/config";
+import { text } from "lib/theme/extensions/recipes";
+import { fontWeights } from "lib/theme/extensions/tokens";
 
 import type { Meta, StoryObj } from "@storybook/react";
+import type { TextVariant } from "generated/panda/recipes";
 
 type Story = StoryObj<typeof meta>;
 
@@ -57,48 +60,26 @@ export const AsChildElement: Story = {
   ),
 };
 
+const sizes = Object.keys(text.variants!.size) as TextVariant["size"][];
+
 /**
  * Adjust the link font size with `textStyle`.
  */
 export const FontSizes: Story = {
   render: () => (
     <Flex direction="column">
-      <Link textStyle="xs" href={app.organization.url}>
-        {app.organization.url}
-      </Link>
-      <Link textStyle="sm" href={app.organization.url}>
-        {app.organization.url}
-      </Link>
-      <Link textStyle="md" href={app.organization.url}>
-        {app.organization.url}
-      </Link>
-      <Link textStyle="lg" href={app.organization.url}>
-        {app.organization.url}
-      </Link>
-      <Link textStyle="xl" href={app.organization.url}>
-        {app.organization.url}
-      </Link>
-      <Link textStyle="2xl" href={app.organization.url}>
-        {app.organization.url}
-      </Link>
-      <Link textStyle="3xl" href={app.organization.url}>
-        {app.organization.url}
-      </Link>
-      <Link textStyle="4xl" href={app.organization.url}>
-        {app.organization.url}
-      </Link>
-      <Link textStyle="5xl" href={app.organization.url}>
-        {app.organization.url}
-      </Link>
-      <Link textStyle="6xl" href={app.organization.url}>
-        {app.organization.url}
-      </Link>
-      <Link textStyle="7xl" href={app.organization.url}>
-        {app.organization.url}
-      </Link>
+      {sizes.map((size) => (
+        <Link key={size} textStyle={size} href={app.organization.url}>
+          {app.organization.url}
+        </Link>
+      ))}
     </Flex>
   ),
 };
+
+const weights = Object.keys(
+  fontWeights as Record<string, Partial<{ value: number }>>,
+);
 
 /**
  * Adjust the link font weight with `fontWeight`.
@@ -106,21 +87,11 @@ export const FontSizes: Story = {
 export const FontWeights: Story = {
   render: () => (
     <Flex direction="column">
-      <Link fontWeight="light" href={app.organization.url}>
-        {app.organization.url}
-      </Link>
-      <Link fontWeight="normal" href={app.organization.url}>
-        {app.organization.url}
-      </Link>
-      <Link fontWeight="medium" href={app.organization.url}>
-        {app.organization.url}
-      </Link>
-      <Link fontWeight="semibold" href={app.organization.url}>
-        {app.organization.url}
-      </Link>
-      <Link fontWeight="bold" href={app.organization.url}>
-        {app.organization.url}
-      </Link>
+      {weights.map((weight) => (
+        <Link key={weight} fontWeight={weight} href={app.organization.url}>
+          {app.organization.url}
+        </Link>
+      ))}
     </Flex>
   ),
 };

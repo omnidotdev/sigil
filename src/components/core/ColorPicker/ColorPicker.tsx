@@ -246,11 +246,7 @@ const ColorPicker = ({
               </HStack>
 
               <Stack gap={1.5}>
-                <Text
-                  textStyle="xs"
-                  fontWeight="medium"
-                  color="foreground.default"
-                >
+                <Text size="xs" fontWeight="medium" color="foreground.default">
                   Saved Colors
                 </Text>
 

@@ -1,8 +1,8 @@
 // import { Placement } from "@floating-ui/dom";
 import { FiMapPin } from "react-icons/fi";
 
-import { Avatar, Button, Text, Tooltip } from "components";
-import { Grid, HStack, Stack, styled } from "generated/panda/jsx";
+import { Avatar, Button, Link, Text, Tooltip } from "components";
+import { Grid, HStack, Stack } from "generated/panda/jsx";
 import { app } from "lib/config";
 import { useDisclosure } from "lib/hooks";
 
@@ -34,9 +34,9 @@ export const ComplexRender: Story = {
       p: 4,
     },
     trigger: (
-      <styled.span textStyle="sm" fontWeight="semibold" cursor="default">
+      <Text as="span" size="sm" fontWeight="semibold" cursor="default">
         {app.organization.x.handle} (hover me)
-      </styled.span>
+      </Text>
     ),
     children: (
       <Stack gap={4} direction="row">
@@ -44,24 +44,19 @@ export const ComplexRender: Story = {
 
         <Stack gap={3}>
           <Stack gap={1}>
-            <styled.a
-              href={app.organization.x.url}
-              target="_blank"
-              textStyle="sm"
-              fontWeight="semibold"
-            >
+            <Link isExternal href={app.organization.x.url}>
               {app.organization.x.handle}
-            </styled.a>
+            </Link>
 
-            <Text textStyle="sm" color="foreground.muted">
+            <Text size="sm" color="foreground.muted">
               Stone Mountain
             </Text>
           </Stack>
 
-          <HStack gap={1} color="foreground.subtle" textStyle="xs">
+          <HStack gap={1} color="foreground.subtle">
             <FiMapPin />
 
-            <Text>Joined January 3005</Text>
+            <Text size="xs">Joined January 3005</Text>
           </HStack>
         </Stack>
       </Stack>
