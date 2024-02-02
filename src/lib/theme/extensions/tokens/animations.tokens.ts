@@ -11,10 +11,10 @@ const animations: Tokens["animations"] = defineTokens.animations({
   pulse: { value: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite" },
   bounce: { value: "bounce 1s infinite" },
   "backdrop-in": {
-    value: "fade-in 250ms {easings.default}",
+    value: "fade-in 250ms {easings.emphasized-in}",
   },
   "backdrop-out": {
-    value: "fade-out 200ms {easings.default}",
+    value: "fade-out 200ms {easings.emphasized-out}",
   },
   "modal-in": {
     value: "slide-in 400ms {easings.emphasized-in}",
@@ -39,6 +39,12 @@ const animations: Tokens["animations"] = defineTokens.animations({
   },
   "drawer-out-bottom": {
     value: "slide-out-bottom 200ms {easings.emphasized-out}",
+  },
+  "fade-in": {
+    value: "fade-in 400ms {easings.emphasized-in}",
+  },
+  "skeleton-pulse": {
+    value: "skeleton-pulse 2s {easings.pulse} infinite",
   },
 });
 
