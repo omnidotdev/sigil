@@ -8,6 +8,7 @@ import { styled } from "generated/panda/jsx";
 import { combobox } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { ComboboxInputValueChangeDetails } from "@ark-ui/react/combobox";
 import type { ComponentProps } from "react";
 
 // https://github.com/microsoft/TypeScript/issues/47663
@@ -111,11 +112,7 @@ export interface ComboboxProps extends ComboboxRootProps {
 const Combobox = ({ label, items, ...rest }: ComboboxProps) => {
   const [filteredItems, setFilteredItems] = useState(items);
 
-  const handleChange = (
-    evt: Parameters<
-      NonNullable<ComponentProps<typeof ComboboxRoot>["onInputValueChange"]>
-    >[0],
-  ) => {
+  const handleChange = (evt: ComboboxInputValueChangeDetails) => {
     const filtered = items.filter((item) =>
       // @ts-ignore upstream (Ark `CollectionItem`) type bug
       item.label.toLowerCase().includes(evt.value.toLowerCase()),

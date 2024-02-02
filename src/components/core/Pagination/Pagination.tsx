@@ -58,7 +58,7 @@ const Pagination = (props: PaginationProps) => (
 
         {pages.map((page, index) =>
           page.type === "page" ? (
-            <PaginationItem key={index} {...page} asChild>
+            <PaginationItem key={page.value} {...page} asChild>
               <Button variant="outline">{page.value}</Button>
             </PaginationItem>
           ) : (

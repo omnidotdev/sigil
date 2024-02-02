@@ -13,7 +13,6 @@ import type { ComponentProps, ReactNode } from "react";
 const { withProvider, withContext } = createStyleContext(alert);
 
 export const AlertRoot = withProvider(styled(ark.div), "root");
-
 export interface AlertRootProps extends ComponentProps<typeof AlertRoot> {}
 
 export const AlertContent = withContext(styled(ark.div), "content");
