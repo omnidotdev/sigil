@@ -7,6 +7,7 @@ export * from "@ark-ui/react";
 
 // 🐼 export backfill of Panda components
 export * from "generated/panda/css";
+// eslint-disable-next-line import/export
 export * from "generated/panda/jsx";
 export type { JsxStyleProps } from "generated/panda/types";
 

@@ -85,6 +85,9 @@ export * from "./SegmentGroup/SegmentGroup";
 export { default as Select } from "./Select/Select";
 export * from "./Select/Select";
 
+export { default as Skeleton } from "./Skeleton/Skeleton";
+export * from "./Skeleton/Skeleton";
+
 export { default as Slider } from "./Slider/Slider";
 export * from "./Slider/Slider";
 
