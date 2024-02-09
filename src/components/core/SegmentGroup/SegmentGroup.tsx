@@ -8,6 +8,8 @@ import type { ComponentProps } from "react";
 
 const { withProvider, withContext } = createStyleContext(segmentGroup);
 
+// TODO deprecate in favor of tabs
+
 export const SegmentGroupRoot = withProvider(
   styled(ArkSegmentGroup.Root),
   "root",

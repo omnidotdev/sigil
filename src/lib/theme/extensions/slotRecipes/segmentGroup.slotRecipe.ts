@@ -31,6 +31,7 @@ const segmentGroup = defineSlotRecipe({
     indicator: {
       borderColor: "colorPalette.default",
       _horizontal: {
+        bottom: 0,
         borderBottomWidth: "2px",
         transform: "translateY(1px)",
         width: "var(--width)",

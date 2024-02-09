@@ -49,6 +49,7 @@ const tabs = defineSlotRecipe({
       transitionProperty: "color, background, border-color",
       transitionTimingFunction: "default",
       whiteSpace: "nowrap",
+      zIndex: "foreground",
       _disabled: {
         color: "foreground.disabled",
         cursor: "not-allowed",
@@ -76,6 +77,36 @@ const tabs = defineSlotRecipe({
   },
   variants: {
     variant: {
+      enclosed: {
+        list: {
+          borderRadius: "md",
+          borderWidth: "1px",
+          px: 1,
+          bgColor: {
+            base: "neutral.50a",
+            _dark: "background.canvas",
+          },
+          _horizontal: {
+            alignItems: "center",
+          },
+          _vertical: {
+            h: "fit-content!",
+            py: 1,
+          },
+        },
+        indicator: {
+          bgColor: {
+            base: "background.default",
+            _dark: "background.subtle",
+          },
+          boxShadow: "xs",
+          borderRadius: "sm",
+          // TODO this should be easier to change
+          "--transition-duration": "200ms!",
+          width: "var(--width)",
+          height: "var(--height)",
+        },
+      },
       line: {
         list: {
           _horizontal: {
@@ -175,6 +206,60 @@ const tabs = defineSlotRecipe({
     },
   },
   compoundVariants: [
+    {
+      size: "sm",
+      variant: "enclosed",
+      css: {
+        list: {
+          h: 10,
+        },
+        trigger: {
+          h: 8,
+          minW: 8,
+          textStyle: "sm",
+          px: 3,
+        },
+        content: {
+          p: 3.5,
+        },
+      },
+    },
+    {
+      size: "md",
+      variant: "enclosed",
+      css: {
+        list: {
+          h: 11,
+        },
+        trigger: {
+          h: 9,
+          minW: 9,
+          textStyle: "sm",
+          px: 3.5,
+        },
+        content: {
+          p: 4,
+        },
+      },
+    },
+    {
+      size: "lg",
+      variant: "enclosed",
+      css: {
+        list: {
+          h: 12,
+        },
+        trigger: {
+          h: 10,
+          minW: 10,
+          textStyle: "sm",
+          px: 4,
+        },
+        content: {
+          p: 4.5,
+        },
+      },
+    },
     {
       size: "sm",
       variant: "outline",

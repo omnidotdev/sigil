@@ -12,6 +12,9 @@ const zIndex: Tokens["zIndex"] = defineTokens.zIndex({
   base: {
     value: 0,
   },
+  foreground: {
+    value: 1,
+  },
   docked: {
     value: 10,
   },
