@@ -58,6 +58,7 @@ export const Sizes = () => (
     headerContent={
       <TableRow css={{ "& *": { fontWeight: "bold" } }}>
         <TableHeader>Type</TableHeader>
+
         {sizes.map((size) => (
           <TableHeader key={size}>{size}</TableHeader>
         ))}
