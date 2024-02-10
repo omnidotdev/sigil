@@ -14,10 +14,17 @@ import * as _tokens from "lib/theme/extensions/tokens";
 // TODO auto-spread tokens
 const tokens = defineTokens({
   animations: _tokens.animations,
+  // TODO
+  // aspectRatios: _tokens.aspectRatios,
   assets: _tokens.assets,
   blurs: _tokens.blurs,
   borders: _tokens.borders,
+  // TODO
+  // borderWidths: _tokens.borderWidths,
   colors: _tokens.colors,
+  // TODO
+  // containerNames: _tokens.containerNames,
+  // containerSizes: _tokens.containerSizes,
   durations: _tokens.durations,
   easings: _tokens.easings,
   fonts: _tokens.fonts,
