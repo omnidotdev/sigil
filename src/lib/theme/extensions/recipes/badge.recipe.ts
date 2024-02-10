@@ -1,5 +1,7 @@
 import { defineRecipe } from "@pandacss/dev";
 
+// TODO apply `colorPalette` to outline and subtle variants
+
 /**
  * Badge recipe.
  */

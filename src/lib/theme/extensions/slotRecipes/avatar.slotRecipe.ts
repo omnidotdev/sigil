@@ -11,12 +11,13 @@ const avatar = defineSlotRecipe({
   base: {
     root: {
       borderRadius: "full",
-      borderWidth: "1px",
       flexShrink: 0,
     },
     fallback: {
       alignItems: "center",
       bgColor: "background.subtle",
+      borderRadius: "full",
+      borderWidth: "1px",
       color: "foreground.default",
       display: "flex",
       fontWeight: "semibold",

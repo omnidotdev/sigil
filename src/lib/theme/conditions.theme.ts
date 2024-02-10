@@ -2,6 +2,7 @@ import type { Preset } from "@pandacss/types";
 
 /**
  * Conditions.
+ * @see https://panda-css.com/docs/concepts/conditional-styles#reference for all available condition keys.
  */
 const conditions: Preset["conditions"] = {
   extend: {

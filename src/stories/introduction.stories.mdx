@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/blocks";
-import { Text } from "../components";
+import { Alert, Text } from "../components";
 import { Flex } from "../generated/panda/jsx";
 
 import { app } from "../lib/config";
@@ -14,7 +14,19 @@ import { app } from "../lib/config";
 
 </Flex>
 
-Welcome to the {app.organization.name} {app.name.short} Storybook! This Storybook outlines the {app.name.short} design system, as well as the components, hooks, and other elements available in the UI library and toolkit. This is a living style guide that provides a comprehensive overview of {app.name.short}'s design language and usage guidelines.
+Welcome to the {app.organization.name} {app.name.short} Storybook! This Storybook outlines the {app.name.short} design system as well as the components, hooks, and other elements available in the UI library and toolkit. This is a living style guide that provides a comprehensive overview of {app.name.short}'s design language and usage guidelines.
+
+{/* TODO stop Storybook style injection from aggressively overriding styles (workarounds in https://github.com/storybookjs/storybook/issues/19914) */}
+
+<Alert
+  variant="warning"
+  title="Warning"
+  description={`Currently, React is the only supported framework for ${app.name.short} components. More frameworks will be supported in the future.`}
+/>
+
+### System
+
+The {app.name.short} design system is a collection of tokens, styles, and guidelines for creating consistent and accessible user interfaces. It is designed to be flexible and adaptable, allowing for easy integration into a variety of applications and platforms. The system is primarily driven by [Panda CSS](https://panda-css.com/) and follows the [W3C design tokens specification](https://design-tokens.github.io/community-group/format/).
 
 ### Components
 
@@ -25,3 +37,7 @@ The components are broken up into the following categories:
 - **Core:** UI components used for common patterns and implementations.
 - **Typography:** UI components used for text and typography.
 - **Layout:** UI components used for page layout and structure.
+
+### Hooks
+
+Hooks, in the context of modern UI libraries and toolkits, are functions that allow "hooking into" component state and lifecycle from within components. They are a way to reuse stateful logic between components.

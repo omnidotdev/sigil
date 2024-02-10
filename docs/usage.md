@@ -61,7 +61,7 @@ Now you are ready to install the UI library. You can either install it [from the
 
 ## Remote
 
-Install from remote repository along with required dependencies: `bun add @omnidev/sigil @ark-ui/react`
+Install from remote repository along with required dependencies: `bun add @omnidev/sigil @ark-ui/react react-icons`
 
 ## Local
 

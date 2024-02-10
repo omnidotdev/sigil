@@ -39,8 +39,10 @@ export interface PINInputProps extends PINInputRootProps {
   inputProps?: PINInputInputProps;
 }
 
+// TODO rename to something more generic
+
 /**
- * Personal identification number (PIN) code input.
+ * Personal identification number (PIN) code input. Also useful for e.g. verification codes. Includes auto-focus transfer and masking options.
  */
 const PINInput = ({
   label,

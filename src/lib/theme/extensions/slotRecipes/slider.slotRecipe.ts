@@ -38,7 +38,7 @@ const slider = defineSlotRecipe({
       borderWidth: 3,
       boxShadow: "sm",
       outline: "none",
-      zIndex: 1,
+      zIndex: "foreground",
       cursor: "pointer",
     },
     label: {

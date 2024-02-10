@@ -52,7 +52,7 @@ export const Default: Story = {
               <FiUser />
               Profile
             </HStack>
-            <Text as="span" color="foreground.subtle" textStyle="xs">
+            <Text as="span" color="foreground.subtle" size="sm">
               <Keyboard size="sm">CTRL P</Keyboard>
             </Text>
           </HStack>
@@ -70,7 +70,7 @@ export const Default: Story = {
               <FiSettings /> Settings
             </HStack>
 
-            <Text as="span" color="foreground.subtle" textStyle="xs">
+            <Text as="span" color="foreground.subtle" size="sm">
               <Keyboard size="sm">CTRL ,</Keyboard>
             </Text>
           </HStack>

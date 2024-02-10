@@ -14,7 +14,7 @@ type Story = StoryObj<typeof useBreakpoint>;
 /**
  * The "base" breakpoint is used as a fallback by default. This can be overridden by setting `fallback`.
  */
-// export const WithCustomFallback: Story = { ... };
+// export const CustomFallback: Story = { ... };
 
 const UseBreakpointDemo = ({ fallback }: UseBreakpointOptions) => {
   const breakpoint = useBreakpoint({ fallback });

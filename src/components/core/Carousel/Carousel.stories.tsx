@@ -23,7 +23,7 @@ export const Default: Story = {
       <img
         key={idx}
         src={src}
-        alt={`Slide Image ${idx}`}
+        alt={`Slide ${idx}`}
         style={{ height: "398px", width: "100%", objectFit: "cover" }}
       />
     )),

@@ -1,9 +1,10 @@
 import { Text } from "components";
 import { HStack, Stack, styled } from "generated/panda/jsx";
-import { textStyles } from "lib/theme/extensions";
+import { text } from "lib/theme/extensions/recipes";
 
 import type { Meta, StoryObj } from "@storybook/react";
 import type { TextProps } from "components";
+import type { TextVariant } from "generated/panda/recipes";
 import type { FontToken } from "generated/panda/tokens";
 
 type Story = StoryObj<typeof meta>;
@@ -51,7 +52,7 @@ const htmlTags = [
 const Typeset = ({ fontName, fontFamily, intendedUse }: TypesetProps) => (
   <Stack fontFamily={fontFamily}>
     <Stack mb={4}>
-      <Text textStyle="2xl" fontWeight="bold">
+      <Text size="2xl" fontWeight="bold">
         Font: {fontName}
       </Text>
 
@@ -132,16 +133,18 @@ export const HTMLTags = () => (
   </Stack>
 );
 
+const sizes = Object.keys(text.variants!.size) as TextVariant["size"][];
+
+/**
+ * Text size can be adjusted using either the `size` or the `textStyle` props. Font size is inversely proportional to line height and spacing to maintain responsive layout rhythm.
+ */
 export const Sizes = () => (
   <Stack>
-    {Object.keys(textStyles)
-      // TODO figure out why these styles are breaking (filtered here as workaround)
-      .filter((style) => !["2xs", "8xl", "9xl"].includes(style))
-      .map((textStyle) => (
-        <Text key={textStyle} textStyle={textStyle}>
-          {textStyle}: {BASE_TEXT}
-        </Text>
-      ))}
+    {sizes.map((size) => (
+      <Text key={size} size={size}>
+        {size}: {BASE_TEXT}
+      </Text>
+    ))}
   </Stack>
 );
 

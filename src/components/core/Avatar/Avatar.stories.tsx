@@ -58,6 +58,7 @@ export const Sizes = () => (
     headerContent={
       <TableRow css={{ "& *": { fontWeight: "bold" } }}>
         <TableHeader>Type</TableHeader>
+
         {sizes.map((size) => (
           <TableHeader key={size}>{size}</TableHeader>
         ))}
@@ -67,7 +68,7 @@ export const Sizes = () => (
     <TableRow>
       <TableCell fontWeight="semibold">Name & Image</TableCell>
       {sizes.map((size) => (
-        <TableCell key={size}>
+        <TableCell key={size} py={2}>
           <Avatar
             name={Default.args!.name}
             imageSrc={Default.args!.imageSrc}
@@ -80,7 +81,7 @@ export const Sizes = () => (
     <TableRow>
       <TableCell fontWeight="semibold">Name</TableCell>
       {sizes.map((size) => (
-        <TableCell key={size}>
+        <TableCell key={size} py={2}>
           <Avatar name={Default.args!.name} size={size} />
         </TableCell>
       ))}
@@ -89,7 +90,7 @@ export const Sizes = () => (
     <TableRow>
       <TableCell fontWeight="semibold">Fallback</TableCell>
       {sizes.map((size) => (
-        <TableCell key={size}>
+        <TableCell key={size} py={2}>
           <Avatar size={size} />
         </TableCell>
       ))}

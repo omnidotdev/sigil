@@ -13,14 +13,13 @@ import type { ComponentProps, ReactNode } from "react";
 const { withProvider, withContext } = createStyleContext(alert);
 
 export const AlertRoot = withProvider(styled(ark.div), "root");
-
 export interface AlertRootProps extends ComponentProps<typeof AlertRoot> {}
 
 export const AlertContent = withContext(styled(ark.div), "content");
 export interface AlertContentProps
   extends ComponentProps<typeof AlertContent> {}
 
-export const AlertDescription = withContext(styled(ark.p), "description");
+export const AlertDescription = withContext(styled(ark.div), "description");
 export interface AlertDescriptionProps
   extends ComponentProps<typeof AlertDescription> {}
 
@@ -37,6 +36,9 @@ export interface AlertProps extends AlertRootProps {
   titleProps?: ComponentProps<typeof AlertTitle>;
   descriptionProps?: ComponentProps<typeof AlertDescription>;
 }
+
+// TODO better styles for if just description or title is passed
+// TODO default titles for each variant
 
 /**
  * Alert. Useful for displaying important messages to the user, such as warnings, errors, or contextual information.

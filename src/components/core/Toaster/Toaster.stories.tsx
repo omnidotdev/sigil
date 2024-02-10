@@ -46,9 +46,9 @@ export const Default: Story = {
  * Specify custom render for the toast content.
  */
 // TODO custom render example
-// export const WithCustomRender: Story = {};
+// export const CustomRender: Story = {};
 
 // TODO custom defaults example
-// export const WithCustomDefaults: Story = {};
+// export const CustomDefaults: Story = {};
 
 export default meta;
