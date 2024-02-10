@@ -37,6 +37,9 @@ export interface AlertProps extends AlertRootProps {
   descriptionProps?: ComponentProps<typeof AlertDescription>;
 }
 
+// TODO better styles for if just description or title is passed
+// TODO default titles for each variant
+
 /**
  * Alert. Useful for displaying important messages to the user, such as warnings, errors, or contextual information.
  */
