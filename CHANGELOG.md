@@ -1,5 +1,19 @@
 # @omnidev/sigil
 
+## 0.7.0
+
+### Minor Changes
+
+- [#56](https://github.com/omnidotdev/sigil/pull/56) [`7248948`](https://github.com/omnidotdev/sigil/commit/724894853eac3e8196e2e29202fdd7a9a4b24664) Thanks [@coopbri](https://github.com/coopbri)! - Add `Skeleton` component
+
+### Patch Changes
+
+- [#58](https://github.com/omnidotdev/sigil/pull/58) [`170fe00`](https://github.com/omnidotdev/sigil/commit/170fe00e53c8f157b370830574f92f8ea0af0f66) Thanks [@coopbri](https://github.com/coopbri)! - Add text recipe with size variant
+
+- [#58](https://github.com/omnidotdev/sigil/pull/58) [`170fe00`](https://github.com/omnidotdev/sigil/commit/170fe00e53c8f157b370830574f92f8ea0af0f66) Thanks [@coopbri](https://github.com/coopbri)! - Add enclosed Tab variant
+
+- [#58](https://github.com/omnidotdev/sigil/pull/58) [`170fe00`](https://github.com/omnidotdev/sigil/commit/170fe00e53c8f157b370830574f92f8ea0af0f66) Thanks [@coopbri](https://github.com/coopbri)! - Add item input to tags input to allow editing tags with correct styles
+
 ## 0.6.0
 
 ### Minor Changes
