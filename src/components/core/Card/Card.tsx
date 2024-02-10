@@ -22,7 +22,7 @@ export interface CardHeaderProps extends ComponentProps<typeof CardHeader> {}
 export const CardTitle = withContext(styled(ark.h3), "title");
 export interface CardTitleProps extends ComponentProps<typeof CardTitle> {}
 
-export const CardDescription = withContext(styled(ark.p), "description");
+export const CardDescription = withContext(styled(ark.div), "description");
 export interface CardDescriptionProps
   extends ComponentProps<typeof CardDescription> {}
 

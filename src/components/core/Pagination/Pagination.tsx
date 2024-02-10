@@ -56,13 +56,13 @@ const Pagination = (props: PaginationProps) => (
           </Button>
         </PaginationPrevTrigger>
 
-        {pages.map((page, index) =>
+        {pages.map((page, idx) =>
           page.type === "page" ? (
-            <PaginationItem key={page.value} {...page} asChild>
+            <PaginationItem key={idx} {...page} asChild>
               <Button variant="outline">{page.value}</Button>
             </PaginationItem>
           ) : (
-            <PaginationEllipsis key={index} index={index}>
+            <PaginationEllipsis key={idx} index={idx}>
               &#8230;
             </PaginationEllipsis>
           ),

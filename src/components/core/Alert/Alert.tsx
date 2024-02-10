@@ -19,7 +19,7 @@ export const AlertContent = withContext(styled(ark.div), "content");
 export interface AlertContentProps
   extends ComponentProps<typeof AlertContent> {}
 
-export const AlertDescription = withContext(styled(ark.p), "description");
+export const AlertDescription = withContext(styled(ark.div), "description");
 export interface AlertDescriptionProps
   extends ComponentProps<typeof AlertDescription> {}
 
