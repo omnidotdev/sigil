@@ -34,6 +34,7 @@
     "test:watch": "bun run test --watch",
     "storybook": "storybook dev --quiet --no-open -p 6006",
     "storybook:build": "NODE_OPTIONS='--max-old-space-size=8192'; panda codegen && storybook build",
+    "storybook:start": "bunx http-server storybook-static",
     "studio": "panda studio",
     "studio:build": "panda codegen && panda studio --build",
     "changeset": "changeset",
