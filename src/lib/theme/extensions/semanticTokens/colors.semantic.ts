@@ -110,7 +110,7 @@ const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
     subtle: {
       value: {
         base: "{colors.neutral.50}",
-        _dark: "{colors.neutral.900}",
+        _dark: "{colors.neutral.800}",
       },
     },
     muted: {
