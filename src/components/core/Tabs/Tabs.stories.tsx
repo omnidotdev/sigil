@@ -96,6 +96,17 @@ export const Disabled: Story = {
   },
 };
 
+/**
+ * Lazily mount tabs (`lazyMount` prop), and optionally unmount when closed (`unmountOnExit` prop).
+ */
+export const LazyMount: Story = {
+  args: {
+    ...Default.args,
+    lazyMount: true,
+    unmountOnExit: true,
+  },
+};
+
 const sizes = Object.keys(tabs.variants!.size) as TabsVariant["size"][];
 
 export const Sizes = () => (
