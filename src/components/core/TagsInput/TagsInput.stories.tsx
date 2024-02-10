@@ -14,11 +14,11 @@ const meta = {
 export const Default: Story = {
   args: {
     maxW: "xs",
-    label: "Fruits",
+    label: "Fruits (click tags to edit)",
   },
 };
 
-export const WithDefaultTags: Story = {
+export const DefaultTags: Story = {
   args: {
     ...Default.args,
     defaultValue: fruitBasket.map(({ name }) => name),

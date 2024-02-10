@@ -58,6 +58,13 @@ export const TagsInputItemText = withContext(
 export interface TagsInputItemTextProps
   extends ComponentProps<typeof TagsInputItemText> {}
 
+export const TagsInputItemPreview = withContext(
+  styled(ArkTagsInput.ItemPreview),
+  "itemPreview",
+);
+export interface TagsInputItemPreviewProps
+  extends ComponentProps<typeof TagsInputItemPreview> {}
+
 export const TagsInputLabel = withContext(styled(ArkTagsInput.Label), "label");
 export interface TagsInputLabelProps
   extends ComponentProps<typeof TagsInputLabel> {}
@@ -79,24 +86,31 @@ const TagsInput = ({ label, ...rest }: TagsInputProps) => (
         <TagsInputControl>
           {api.value.map((value, idx) => (
             <TagsInputItem key={idx} index={idx} value={value}>
-              <TagsInputItemText>{value}</TagsInputItemText>
+              <TagsInputItemPreview>
+                <TagsInputItemText>{value}</TagsInputItemText>
 
-              <TagsInputItemDeleteTrigger asChild>
-                <Button
-                  aria-label="Delete tag"
-                  variant="ghost"
-                  px={0}
-                  size="xs"
-                  _hover={{
-                    color: "accent.default",
-                    bgColor: "transparent",
-                  }}
-                >
-                  <FiX />
-                </Button>
-              </TagsInputItemDeleteTrigger>
+                <TagsInputItemDeleteTrigger asChild>
+                  <Button
+                    aria-label="Delete tag"
+                    variant="ghost"
+                    px={0}
+                    minW={0}
+                    h="fit-content"
+                    size="xs"
+                    _hover={{
+                      color: "accent.default",
+                      bgColor: "transparent",
+                    }}
+                  >
+                    <FiX />
+                  </Button>
+                </TagsInputItemDeleteTrigger>
+              </TagsInputItemPreview>
+
+              <TagsInputItemInput />
             </TagsInputItem>
           ))}
+
           <TagsInputInput placeholder="Add tag" />
         </TagsInputControl>
 
