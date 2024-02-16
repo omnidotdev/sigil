@@ -97,12 +97,7 @@ export interface SelectProps extends SelectRootProps {
  * Select.
  */
 const Select = ({ label, items, ...rest }: SelectProps) => (
-  <SelectRoot
-    positioning={{ sameWidth: true }}
-    width="2xs"
-    items={items}
-    {...rest}
-  >
+  <SelectRoot positioning={{ sameWidth: true }} items={items} {...rest}>
     <SelectLabel>{label.singular}</SelectLabel>
 
     <SelectControl>
