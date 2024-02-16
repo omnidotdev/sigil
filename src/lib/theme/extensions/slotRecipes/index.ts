@@ -31,3 +31,4 @@ export { default as tagsInput } from "./tagsInput.slotRecipe";
 export { default as toast } from "./toast.slotRecipe";
 export { default as toggleGroup } from "./toggleGroup.slotRecipe";
 export { default as tooltip } from "./tooltip.slotRecipe";
+export { default as treeView } from "./treeView.slotRecipe";

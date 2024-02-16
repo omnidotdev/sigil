@@ -117,3 +117,6 @@ export * from "./ToggleGroup/ToggleGroup";
 
 export { default as Tooltip } from "./Tooltip/Tooltip";
 export * from "./Tooltip/Tooltip";
+
+export { default as TreeView } from "./TreeView/TreeView";
+export * from "./TreeView/TreeView";
