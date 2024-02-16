@@ -1,5 +1,15 @@
 # @omnidev/sigil
 
+## 0.8.0
+
+### Minor Changes
+
+- [#61](https://github.com/omnidotdev/sigil/pull/61) [`aa53720`](https://github.com/omnidotdev/sigil/commit/aa53720e8a2202e066b981194410f54bac0a427a) Thanks [@coopbri](https://github.com/coopbri)! - Add `aspectRatios` tokens (regular and semantic)
+
+- [#61](https://github.com/omnidotdev/sigil/pull/61) [`aa53720`](https://github.com/omnidotdev/sigil/commit/aa53720e8a2202e066b981194410f54bac0a427a) Thanks [@coopbri](https://github.com/coopbri)! - Add `Clipboard` component
+
+- [#61](https://github.com/omnidotdev/sigil/pull/61) [`aa53720`](https://github.com/omnidotdev/sigil/commit/aa53720e8a2202e066b981194410f54bac0a427a) Thanks [@coopbri](https://github.com/coopbri)! - Add `TreeView` component
+
 ## 0.7.0
 
 ### Minor Changes
