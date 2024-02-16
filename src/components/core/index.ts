@@ -22,6 +22,9 @@ export * from "./Carousel/Carousel";
 export { default as Checkbox } from "./Checkbox/Checkbox";
 export * from "./Checkbox/Checkbox";
 
+export { default as Clipboard } from "./Clipboard/Clipboard";
+export * from "./Clipboard/Clipboard";
+
 export { default as ColorPicker } from "./ColorPicker/ColorPicker";
 export * from "./ColorPicker/ColorPicker";
 

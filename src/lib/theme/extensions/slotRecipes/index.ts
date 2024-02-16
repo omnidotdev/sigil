@@ -4,6 +4,7 @@ export { default as avatar } from "./avatar.slotRecipe";
 export { default as card } from "./card.slotRecipe";
 export { default as carousel } from "./carousel.slotRecipe";
 export { default as checkbox } from "./checkbox.slotRecipe";
+export { default as clipboard } from "./clipboard.slotRecipe";
 export { default as colorPicker } from "./colorPicker.slotRecipe";
 export { default as combobox } from "./combobox.slotRecipe";
 export { default as datePicker } from "./datePicker.slotRecipe";
