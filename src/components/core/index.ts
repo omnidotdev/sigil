@@ -22,6 +22,9 @@ export * from "./Carousel/Carousel";
 export { default as Checkbox } from "./Checkbox/Checkbox";
 export * from "./Checkbox/Checkbox";
 
+export { default as Clipboard } from "./Clipboard/Clipboard";
+export * from "./Clipboard/Clipboard";
+
 export { default as ColorPicker } from "./ColorPicker/ColorPicker";
 export * from "./ColorPicker/ColorPicker";
 
@@ -117,3 +120,6 @@ export * from "./ToggleGroup/ToggleGroup";
 
 export { default as Tooltip } from "./Tooltip/Tooltip";
 export * from "./Tooltip/Tooltip";
+
+export { default as TreeView } from "./TreeView/TreeView";
+export * from "./TreeView/TreeView";

@@ -14,8 +14,7 @@ import * as _tokens from "lib/theme/extensions/tokens";
 // TODO auto-spread tokens
 const tokens = defineTokens({
   animations: _tokens.animations,
-  // TODO
-  // aspectRatios: _tokens.aspectRatios,
+  aspectRatios: _tokens.aspectRatios,
   assets: _tokens.assets,
   blurs: _tokens.blurs,
   borders: _tokens.borders,
@@ -44,10 +43,16 @@ const tokens = defineTokens({
 // TODO auto-spread semantic tokens
 const semanticTokens = defineSemanticTokens({
   animations: _semanticTokens.animations,
+  aspectRatios: _semanticTokens.aspectRatios,
   assets: _semanticTokens.assets,
   blurs: _semanticTokens.blurs,
   borders: _semanticTokens.borders,
+  // TODO
+  // borderWidths: _tokens.borderWidths,
   colors: _semanticTokens.colors,
+  // TODO
+  // containerNames: _tokens.containerNames,
+  // containerSizes: _tokens.containerSizes,
   durations: _semanticTokens.durations,
   easings: _semanticTokens.easings,
   fonts: _semanticTokens.fonts,
@@ -72,6 +77,7 @@ const sigilPreset = definePreset({
   // eject,
   // patterns,
   // presets,
+  // staticCss,
   // utilities,
   conditions,
   globalCss,

@@ -1,4 +1,5 @@
 export { default as animations } from "./animations.tokens";
+export { default as aspectRatios } from "./aspectRatios.tokens";
 export { default as assets } from "./assets.tokens";
 export { default as blurs } from "./blurs.tokens";
 export { default as borders } from "./borders.tokens";

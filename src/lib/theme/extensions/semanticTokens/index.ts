@@ -1,4 +1,5 @@
 export { default as animations } from "./animations.semantic";
+export { default as aspectRatios } from "./aspectRatios.semantic";
 export { default as assets } from "./assets.semantic";
 export { default as blurs } from "./blurs.semantic";
 export { default as borders } from "./borders.semantic";

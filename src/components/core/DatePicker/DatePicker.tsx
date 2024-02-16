@@ -74,6 +74,14 @@ export const DatePickerPositioner = withContext(
 export interface DatePickerPositionerProps
   extends ComponentProps<typeof DatePickerPositioner> {}
 
+// TODO use
+export const DatePickerPresetTrigger = withContext(
+  styled(ArkDatePicker.PresetTrigger),
+  "presetTrigger",
+);
+export interface DatePickerPresetTriggerProps
+  extends ComponentProps<typeof DatePickerPresetTrigger> {}
+
 export const DatePickerPrevTrigger = withContext(
   styled(ArkDatePicker.PrevTrigger),
   "prevTrigger",
