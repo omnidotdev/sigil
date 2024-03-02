@@ -85,6 +85,11 @@ const treeView = defineSlotRecipe({
         ps: 6,
         fontWeight: "semibold",
         color: "foreground.default",
+        _selected: {
+          _before: {
+            bgColor: "transparent",
+          },
+        },
       },
       _hover: {
         bgColor: "neutral.100a",
@@ -102,7 +107,7 @@ const treeView = defineSlotRecipe({
           position: "absolute",
           left: 3,
           top: 0,
-          width: "1px",
+          width: "2px",
           height: "full",
           bgColor: "accent.default",
           zIndex: 1,
