@@ -128,31 +128,26 @@ const TreeView = ({
   /**
    * Render child node.
    */
-  const renderChild = ({ id, name, children }: TreeChild) => (
-    <TreeViewBranch key={id} id={id} {...branchProps}>
-      <TreeViewBranchControl {...branchControlProps}>
-        <TreeViewBranchIndicator {...branchIndicatorProps}>
-          <FiChevronRight />
-        </TreeViewBranchIndicator>
+  const renderChild = ({ id, name, children }: TreeChild) =>
+    children ? (
+      <TreeViewBranch key={id} id={id} {...branchProps}>
+        <TreeViewBranchControl {...branchControlProps}>
+          <TreeViewBranchIndicator {...branchIndicatorProps}>
+            <FiChevronRight />
+          </TreeViewBranchIndicator>
 
-        <TreeViewBranchText {...branchTextProps}>{name}</TreeViewBranchText>
-      </TreeViewBranchControl>
+          <TreeViewBranchText {...branchTextProps}>{name}</TreeViewBranchText>
+        </TreeViewBranchControl>
 
-      <TreeViewBranchContent {...branchContentProps}>
-        {children?.map((child) =>
-          child.children ? (
-            renderChild(child)
-          ) : (
-            <TreeViewItem key={child.id} id={child.id} {...itemProps}>
-              <TreeViewItemText {...itemTextProps}>
-                {child.name}
-              </TreeViewItemText>
-            </TreeViewItem>
-          ),
-        )}
-      </TreeViewBranchContent>
-    </TreeViewBranch>
-  );
+        <TreeViewBranchContent {...branchContentProps}>
+          {children.map(renderChild)}
+        </TreeViewBranchContent>
+      </TreeViewBranch>
+    ) : (
+      <TreeViewItem key={id} id={id} {...itemProps}>
+        <TreeViewItemText {...itemTextProps}>{name}</TreeViewItemText>
+      </TreeViewItem>
+    );
 
   return (
     <TreeViewRoot
