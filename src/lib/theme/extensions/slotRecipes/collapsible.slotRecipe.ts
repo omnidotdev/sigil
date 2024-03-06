@@ -10,7 +10,7 @@ const collapsible = defineSlotRecipe({
   slots: collapsibleAnatomy.keys(),
   base: {
     root: {
-      alignItems: "start",
+      alignItems: "flex-start",
       display: "flex",
       flexDirection: "column",
       width: "full",
