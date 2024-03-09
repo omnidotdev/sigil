@@ -96,6 +96,13 @@ const select = defineSlotRecipe({
       _placeholderShown: {
         color: "foreground.subtle",
       },
+      _disabled: {
+        color: "foreground.disabled",
+        cursor: "not-allowed",
+        "& :where(svg)": {
+          color: "foreground.disabled",
+        },
+      },
       "& :where(svg)": {
         color: "foreground.subtle",
       },

@@ -63,7 +63,7 @@ const fileUpload = defineSlotRecipe({
       textStyle: "sm",
     },
     itemDeleteTrigger: {
-      alignSelf: "start",
+      alignSelf: "flex-start",
       gridArea: "delete",
     },
     itemPreview: {

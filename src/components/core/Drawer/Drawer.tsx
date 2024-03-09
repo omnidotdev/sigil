@@ -79,6 +79,7 @@ export interface DrawerProps extends DrawerRootProps {
   footer?: ReactNode;
   /** Drawer content (body) container props. */
   contentProps?: ComponentPropsWithoutRef<typeof DrawerContent>;
+  /** Drawer footer container props. */
   footerProps?: ComponentPropsWithoutRef<typeof DrawerFooter>;
 }
 

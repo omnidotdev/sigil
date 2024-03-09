@@ -25,6 +25,9 @@ export * from "./Checkbox/Checkbox";
 export { default as Clipboard } from "./Clipboard/Clipboard";
 export * from "./Clipboard/Clipboard";
 
+export { default as Collapsible } from "./Collapsible/Collapsible";
+export * from "./Collapsible/Collapsible";
+
 export { default as ColorPicker } from "./ColorPicker/ColorPicker";
 export * from "./ColorPicker/ColorPicker";
 

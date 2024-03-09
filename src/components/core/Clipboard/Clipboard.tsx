@@ -52,9 +52,13 @@ export interface ClipboardTriggerProps
 export interface ClipboardProps extends ClipboardRootProps {
   /** Label for the clipboard content. */
   label?: ReactNode;
+  /** Control props. */
   controlProps?: ClipboardControlProps;
+  /** Input props. */
   inputProps?: ClipboardInputProps;
+  /** Trigger props. */
   triggerProps?: ClipboardTriggerProps;
+  /** Indicator props. */
   indicatorProps?: ClipboardIndicatorProps;
 }
 

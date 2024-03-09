@@ -10,13 +10,37 @@ const meta = {
   tags: ["autodocs"],
 } satisfies Meta;
 
+/**
+ * Select a single date.
+ */
 export const Default: Story = {};
 
+/**
+ * Select a range of dates.
+ */
 export const Range: Story = {
   args: {
-    startOfWeek: 1,
     selectionMode: "range",
+    triggerProps: {
+      px: 0,
+    },
   },
 };
+
+export const CustomStartOfWeek: Story = {
+  args: {
+    startOfWeek: 1,
+  },
+};
+
+// TODO support `multiple` mode
+/**
+ * Select multiple dates.
+ */
+// export const Multiple: Story = {
+//   args: {
+//     selectionMode: "multiple",
+//   },
+// };
 
 export default meta;
