@@ -20,8 +20,13 @@ export const Default: Story = {};
  */
 export const Range: Story = {
   args: {
-    startOfWeek: 1,
     selectionMode: "range",
+  },
+};
+
+export const CustomStartOfWeek: Story = {
+  args: {
+    startOfWeek: 1,
   },
 };
 
