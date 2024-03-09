@@ -1,5 +1,15 @@
 # @omnidev/sigil
 
+## 0.9.0
+
+### Minor Changes
+
+- [#66](https://github.com/omnidotdev/sigil/pull/66) [`ed5b1f1`](https://github.com/omnidotdev/sigil/commit/ed5b1f1e6ab844ac24d66fb439949b38c748d353) Thanks [@coopbri](https://github.com/coopbri)! - Add `Collapsible` component
+
+### Patch Changes
+
+- [#66](https://github.com/omnidotdev/sigil/pull/66) [`ed5b1f1`](https://github.com/omnidotdev/sigil/commit/ed5b1f1e6ab844ac24d66fb439949b38c748d353) Thanks [@coopbri](https://github.com/coopbri)! - Implement `DatePicker` prop overrides
+
 ## 0.8.0
 
 ### Minor Changes
