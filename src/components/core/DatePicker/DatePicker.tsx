@@ -181,12 +181,66 @@ export interface DatePickerYearSelectProps
 export interface DatePickerProps extends DatePickerRootProps {
   /** Label for the date picker. Defaults to "Date Picker". */
   label?: ReactNode;
+  /** Control props. */
+  controlProps?: DatePickerControlProps;
+  /** Trigger props. */
+  triggerProps?: DatePickerTriggerProps;
+  /** Positioner props. */
+  positionerProps?: DatePickerPositionerProps;
+  /** Content props. */
+  contentProps?: DatePickerContentProps;
+  /** View props. */
+  viewProps?: DatePickerViewProps;
+  /** View control props. */
+  viewControlProps?: DatePickerViewControlProps;
+  /** Previous trigger props. */
+  prevTriggerProps?: DatePickerPrevTriggerProps;
+  /** View trigger props. */
+  viewTriggerProps?: DatePickerViewTriggerProps;
+  /** Next trigger props. */
+  nextTriggerProps?: DatePickerNextTriggerProps;
+  /** Range text props. */
+  rangeTextProps?: DatePickerRangeTextProps;
+  /** Table props. */
+  tableProps?: DatePickerTableProps;
+  /** Table body props. */
+  tableBodyProps?: DatePickerTableBodyProps;
+  /** Table cell props. */
+  tableCellProps?: DatePickerTableCellProps;
+  /** Table cell trigger props. */
+  tableCellTriggerProps?: DatePickerTableCellTriggerProps;
+  /** Table head props. */
+  tableHeadProps?: DatePickerTableHeadProps;
+  /** Table header props. */
+  tableHeaderProps?: DatePickerTableHeaderProps;
+  /** Table row props. */
+  tableRowProps?: DatePickerTableRowProps;
 }
 
 /**
  * Date picker.
  */
-const DatePicker = ({ label = "Date Picker", ...rest }: DatePickerProps) => {
+const DatePicker = ({
+  label = "Date Picker",
+  controlProps,
+  triggerProps,
+  positionerProps,
+  contentProps,
+  viewProps,
+  viewControlProps,
+  prevTriggerProps,
+  viewTriggerProps,
+  nextTriggerProps,
+  rangeTextProps,
+  tableProps,
+  tableBodyProps,
+  tableCellProps,
+  tableCellTriggerProps,
+  tableHeadProps,
+  tableHeaderProps,
+  tableRowProps,
+  ...rest
+}: DatePickerProps) => {
   const inputs = useMemo(
     () =>
       match(rest.selectionMode)
@@ -215,58 +269,65 @@ const DatePicker = ({ label = "Date Picker", ...rest }: DatePickerProps) => {
     <DatePickerRoot positioning={{ sameWidth: true }} {...rest}>
       <DatePickerLabel>{label}</DatePickerLabel>
 
-      <DatePickerControl>
+      <DatePickerControl {...controlProps}>
         {inputs}
 
-        <DatePickerTrigger asChild>
+        <DatePickerTrigger asChild {...triggerProps}>
           <Button variant="outline" aria-label="Open date picker">
             <FiCalendar />
           </Button>
         </DatePickerTrigger>
       </DatePickerControl>
 
-      <DatePickerPositioner>
-        <DatePickerContent>
-          <DatePickerView view="day">
+      <DatePickerPositioner {...positionerProps}>
+        <DatePickerContent {...contentProps}>
+          <DatePickerView view="day" {...viewProps}>
             {(ctx) => (
               <>
-                <DatePickerViewControl>
-                  <DatePickerPrevTrigger asChild>
+                <DatePickerViewControl {...viewControlProps}>
+                  <DatePickerPrevTrigger asChild {...prevTriggerProps}>
                     <Button variant="ghost" size="sm">
                       <FiChevronLeft />
                     </Button>
                   </DatePickerPrevTrigger>
 
-                  <DatePickerViewTrigger asChild>
+                  <DatePickerViewTrigger asChild {...viewTriggerProps}>
                     <Button variant="ghost" size="sm">
-                      <DatePickerRangeText />
+                      <DatePickerRangeText {...rangeTextProps} />
                     </Button>
                   </DatePickerViewTrigger>
 
-                  <DatePickerNextTrigger asChild>
+                  <DatePickerNextTrigger asChild {...nextTriggerProps}>
                     <Button variant="ghost" size="sm">
                       <FiChevronRight />
                     </Button>
                   </DatePickerNextTrigger>
                 </DatePickerViewControl>
 
-                <DatePickerTable>
-                  <DatePickerTableHead>
-                    <DatePickerTableRow>
+                <DatePickerTable {...tableProps}>
+                  <DatePickerTableHead {...tableHeadProps}>
+                    <DatePickerTableRow {...tableRowProps}>
                       {ctx.weekDays.map((weekDay, id) => (
-                        <DatePickerTableHeader key={id}>
+                        <DatePickerTableHeader key={id} {...tableHeaderProps}>
                           {weekDay.narrow}
                         </DatePickerTableHeader>
                       ))}
                     </DatePickerTableRow>
                   </DatePickerTableHead>
 
-                  <DatePickerTableBody>
+                  <DatePickerTableBody {...tableBodyProps}>
                     {ctx.weeks.map((week, id) => (
-                      <DatePickerTableRow key={id}>
+                      <DatePickerTableRow key={id} {...tableRowProps}>
                         {week.map((day, id) => (
-                          <DatePickerTableCell key={id} value={day}>
-                            <DatePickerTableCellTrigger asChild>
+                          <DatePickerTableCell
+                            key={id}
+                            value={day}
+                            {...tableCellProps}
+                          >
+                            <DatePickerTableCellTrigger
+                              asChild
+                              {...tableCellTriggerProps}
+                            >
                               <Button variant="ghost">{day.day}</Button>
                             </DatePickerTableCellTrigger>
                           </DatePickerTableCell>
@@ -279,38 +340,45 @@ const DatePicker = ({ label = "Date Picker", ...rest }: DatePickerProps) => {
             )}
           </DatePickerView>
 
-          <DatePickerView view="month">
+          <DatePickerView view="month" {...viewProps}>
             {(ctx) => (
               <>
-                <DatePickerViewControl>
-                  <DatePickerPrevTrigger asChild>
+                <DatePickerViewControl {...viewControlProps}>
+                  <DatePickerPrevTrigger asChild {...prevTriggerProps}>
                     <Button variant="ghost" size="sm">
                       <FiChevronLeft />
                     </Button>
                   </DatePickerPrevTrigger>
 
-                  <DatePickerViewTrigger asChild>
+                  <DatePickerViewTrigger asChild {...viewTriggerProps}>
                     <Button variant="ghost" size="sm">
                       <DatePickerRangeText />
                     </Button>
                   </DatePickerViewTrigger>
 
-                  <DatePickerNextTrigger asChild>
+                  <DatePickerNextTrigger asChild {...nextTriggerProps}>
                     <Button variant="ghost" size="sm">
                       <FiChevronRight />
                     </Button>
                   </DatePickerNextTrigger>
                 </DatePickerViewControl>
 
-                <DatePickerTable>
-                  <DatePickerTableBody>
+                <DatePickerTable {...tableProps}>
+                  <DatePickerTableBody {...tableBodyProps}>
                     {ctx
                       .getMonthsGrid({ columns: 4, format: "short" })
                       .map((months, id) => (
-                        <DatePickerTableRow key={id}>
+                        <DatePickerTableRow key={id} {...tableRowProps}>
                           {months.map((month, id) => (
-                            <DatePickerTableCell key={id} value={month.value}>
-                              <DatePickerTableCellTrigger asChild>
+                            <DatePickerTableCell
+                              key={id}
+                              value={month.value}
+                              {...tableCellProps}
+                            >
+                              <DatePickerTableCellTrigger
+                                asChild
+                                {...tableCellTriggerProps}
+                              >
                                 <Button variant="ghost">{month.label}</Button>
                               </DatePickerTableCellTrigger>
                             </DatePickerTableCell>
@@ -323,36 +391,43 @@ const DatePicker = ({ label = "Date Picker", ...rest }: DatePickerProps) => {
             )}
           </DatePickerView>
 
-          <DatePickerView view="year">
+          <DatePickerView view="year" {...viewProps}>
             {(ctx) => (
               <>
-                <DatePickerViewControl>
-                  <DatePickerPrevTrigger asChild>
+                <DatePickerViewControl {...viewControlProps}>
+                  <DatePickerPrevTrigger asChild {...prevTriggerProps}>
                     <Button variant="ghost" size="sm">
                       <FiChevronLeft />
                     </Button>
                   </DatePickerPrevTrigger>
 
-                  <DatePickerViewTrigger asChild>
+                  <DatePickerViewTrigger asChild {...viewTriggerProps}>
                     <Button variant="ghost" size="sm">
                       <DatePickerRangeText />
                     </Button>
                   </DatePickerViewTrigger>
 
-                  <DatePickerNextTrigger asChild>
+                  <DatePickerNextTrigger asChild {...nextTriggerProps}>
                     <Button variant="ghost" size="sm">
                       <FiChevronRight />
                     </Button>
                   </DatePickerNextTrigger>
                 </DatePickerViewControl>
 
-                <DatePickerTable>
-                  <DatePickerTableBody>
+                <DatePickerTable {...tableProps}>
+                  <DatePickerTableBody {...tableBodyProps}>
                     {ctx.getYearsGrid({ columns: 4 }).map((years, id) => (
-                      <DatePickerTableRow key={id}>
+                      <DatePickerTableRow key={id} {...tableRowProps}>
                         {years.map((year, id) => (
-                          <DatePickerTableCell key={id} value={year.value}>
-                            <DatePickerTableCellTrigger asChild>
+                          <DatePickerTableCell
+                            key={id}
+                            value={year.value}
+                            {...tableCellProps}
+                          >
+                            <DatePickerTableCellTrigger
+                              asChild
+                              {...tableCellTriggerProps}
+                            >
                               <Button variant="ghost">{year.label}</Button>
                             </DatePickerTableCellTrigger>
                           </DatePickerTableCell>
