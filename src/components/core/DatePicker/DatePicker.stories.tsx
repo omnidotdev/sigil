@@ -21,6 +21,9 @@ export const Default: Story = {};
 export const Range: Story = {
   args: {
     selectionMode: "range",
+    triggerProps: {
+      px: 0,
+    },
   },
 };
 
