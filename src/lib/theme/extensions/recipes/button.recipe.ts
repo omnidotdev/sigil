@@ -168,6 +168,7 @@ const button = defineRecipe({
         h: 8,
         minW: 8,
         textStyle: "xs",
+        px: 3,
         gap: 2,
         "& svg": {
           textStyle: "md",
@@ -179,6 +180,7 @@ const button = defineRecipe({
         h: 9,
         minW: 9,
         textStyle: "sm",
+        px: 3.5,
         gap: 2,
         "& svg": {
           width: 4,
@@ -189,6 +191,7 @@ const button = defineRecipe({
         h: 10,
         minW: 10,
         textStyle: "sm",
+        px: 4,
         gap: 2,
         "& svg": {
           width: 5,
@@ -199,6 +202,7 @@ const button = defineRecipe({
         h: 11,
         minW: 11,
         textStyle: "md",
+        px: 4.5,
         gap: 2,
         "& svg": {
           width: 5,
@@ -209,6 +213,7 @@ const button = defineRecipe({
         h: 12,
         minW: 12,
         textStyle: "md",
+        px: 5,
         gap: 2.5,
         "& svg": {
           width: 5,
@@ -219,6 +224,7 @@ const button = defineRecipe({
         h: 16,
         minW: 16,
         textStyle: "lg",
+        px: 7,
         gap: 3,
         "& svg": {
           width: 6,
