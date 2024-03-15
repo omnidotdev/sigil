@@ -129,7 +129,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
     "storybook": "^7.6.17",
-    "storybook-dark-mode": "^3.0.3",
+    "storybook-dark-mode": "^4.0.0",
     "ts-node": "^10.9.2",
     "ts-pattern": "^5.0.8",
     "tsup": "^8.0.2",
