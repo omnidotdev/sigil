@@ -77,7 +77,7 @@ const Dialog = ({
   <DialogRoot {...rest}>
     {(ctx) => (
       <>
-        {trigger && <DialogTrigger>{trigger}</DialogTrigger>}
+        {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
 
         <DialogBackdrop />
 
@@ -99,7 +99,7 @@ const Dialog = ({
               {getContextualChildren({ ctx, children })}
             </Stack>
 
-            <DialogCloseTrigger position="absolute" top={2} right={2}>
+            <DialogCloseTrigger asChild position="absolute" top={2} right={2}>
               <Button aria-label="Close dialog" variant="ghost" size="sm">
                 <FiX />
               </Button>
