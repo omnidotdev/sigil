@@ -1,5 +1,11 @@
 # @omnidev/sigil
 
+## 0.9.1
+
+### Patch Changes
+
+- [#77](https://github.com/omnidotdev/sigil/pull/77) [`7ac917d`](https://github.com/omnidotdev/sigil/commit/7ac917dd10012e386b75223d72b0ce5bacfdf909) Thanks [@coopbri](https://github.com/coopbri)! - Fix `Dialog` DOM nesting validation by adding `asChild` prop to triggers
+
 ## 0.9.0
 
 ### Minor Changes
