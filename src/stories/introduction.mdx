@@ -1,14 +1,14 @@
 import { Meta } from "@storybook/blocks";
 import { Alert, Text } from "../components";
 import { Flex } from "../generated/panda/jsx";
+import { token } from "../generated/panda/tokens";
 
 import { app } from "../lib/config";
 
 <Meta title="Introduction" />
 
 <Flex direction="column" alignItems="center" gap={4}>
-
-<img src="/svg/logo.svg" width="124px" />
+  <img src="/svg/logo.svg" width="124px" />
 
 # Introduction
 
@@ -18,11 +18,20 @@ Welcome to the {app.organization.name} {app.name.short} Storybook! This Storyboo
 
 {/* TODO stop Storybook style injection from aggressively overriding styles (workarounds in https://github.com/storybookjs/storybook/issues/19914) */}
 
+{/* TODO make style dynamic */}
+
 <Alert
+  css={{
+    "& *": {
+      fontSize: "0.875rem !important",
+    },
+  }}
   variant="warning"
   title="Warning"
-  description={`Currently, React is the only supported framework for ${app.name.short} components. More frameworks will be supported in the future.`}
+  description={`React is currently the only supported framework in ${app.name.short}. More frameworks will be supported in the future.`}
 />
+
+<br />
 
 ### System
 
