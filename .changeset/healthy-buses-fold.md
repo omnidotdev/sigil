@@ -2,4 +2,4 @@
 "@omnidev/sigil": patch
 ---
 
-Prevent text wrapping in `code` recipe
+Prevent text wrapping in `code` and `keyboard` recipes

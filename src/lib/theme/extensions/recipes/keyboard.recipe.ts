@@ -16,6 +16,7 @@ const keyboard = defineRecipe({
     display: "inline-flex",
     fontFamily: "var(--font-code)",
     fontWeight: "medium",
+    whiteSpace: "pre",
   },
   defaultVariants: {
     size: "md",
