@@ -13,6 +13,7 @@ const code = defineRecipe({
     color: "foreground.default",
     display: "inline-flex",
     fontFamily: "var(--font-code)",
+    whiteSpace: "pre",
     fontWeight: "medium",
   },
   defaultVariants: {
