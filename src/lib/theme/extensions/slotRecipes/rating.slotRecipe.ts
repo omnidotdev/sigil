@@ -1,6 +1,8 @@
 import { ratingGroupAnatomy } from "@ark-ui/anatomy";
 import { defineSlotRecipe } from "@pandacss/dev";
 
+// TODO disable cursor pointer if readonly
+
 /**
  * Rating group recipe.
  */

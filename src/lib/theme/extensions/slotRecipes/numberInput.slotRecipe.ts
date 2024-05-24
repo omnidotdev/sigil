@@ -61,10 +61,11 @@ const numberInput = defineSlotRecipe({
       },
     },
     input: {
-      outline: "none",
       bgColor: "transparent",
-      width: "full",
+      border: "none",
       gridRow: 2,
+      outline: "none",
+      width: "full",
     },
     label: {
       color: "foreground.default",

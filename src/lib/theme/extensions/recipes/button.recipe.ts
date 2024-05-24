@@ -1,5 +1,7 @@
 import { defineRecipe } from "@pandacss/dev";
 
+// TODO some option for button groups with flattened borders, maybe can genericize togglegroup
+
 /**
  * Button recipe.
  */
@@ -129,6 +131,7 @@ const button = defineRecipe({
           outlineOffset: "2px",
         },
       },
+      // TODO remove `link` variant, discussion: https://github.com/cschroeter/park-ui/issues/118#issuecomment-1856872877
       link: {
         verticalAlign: "baseline",
         _disabled: {
