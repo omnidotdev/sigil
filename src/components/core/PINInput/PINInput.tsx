@@ -1,7 +1,6 @@
 import { PinInput as ArkPINInput } from "@ark-ui/react/pin-input";
 
 import Input from "components/core/Input/Input";
-import { styled } from "generated/panda/jsx";
 import { pinInput } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
@@ -9,22 +8,19 @@ import type { ComponentProps } from "react";
 
 const { withProvider, withContext } = createStyleContext(pinInput);
 
-export const PINInputRoot = withProvider(styled(ArkPINInput.Root), "root");
+export const PINInputRoot = withProvider(ArkPINInput.Root, "root");
 export interface PINInputRootProps
   extends ComponentProps<typeof PINInputRoot> {}
 
-export const PINInputControl = withContext(
-  styled(ArkPINInput.Control),
-  "control",
-);
+export const PINInputControl = withContext(ArkPINInput.Control, "control");
 export interface PINInputControlProps
   extends ComponentProps<typeof PINInputControl> {}
 
-export const PINInputInput = withContext(styled(ArkPINInput.Input), "input");
+export const PINInputInput = withContext(ArkPINInput.Input, "input");
 export interface PINInputInputProps
   extends ComponentProps<typeof PINInputInput> {}
 
-export const PINInputLabel = withContext(styled(ArkPINInput.Label), "label");
+export const PINInputLabel = withContext(ArkPINInput.Label, "label");
 export interface PINInputLabelProps
   extends ComponentProps<typeof PINInputLabel> {}
 

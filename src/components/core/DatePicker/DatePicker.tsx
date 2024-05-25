@@ -5,71 +5,57 @@ import { match } from "ts-pattern";
 
 import Button from "components/core/Button/Button";
 import Input from "components/core/Input/Input";
-import { styled } from "generated/panda/jsx";
 import { datePicker } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-// https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/date-picker";
 
 const { withProvider, withContext } = createStyleContext(datePicker);
 
-export const DatePickerRoot = withProvider(styled(ArkDatePicker.Root), "root");
+export const DatePickerRoot = withProvider(ArkDatePicker.Root, "root");
 export interface DatePickerRootProps
   extends ComponentProps<typeof DatePickerRoot> {}
 
 // TODO use in render
 export const DatePickerClearTrigger = withContext(
-  styled(ArkDatePicker.ClearTrigger),
+  ArkDatePicker.ClearTrigger,
   "clearTrigger",
 );
 export interface DatePickerClearTriggerProps
   extends ComponentProps<typeof DatePickerClearTrigger> {}
 
-export const DatePickerContent = withContext(
-  styled(ArkDatePicker.Content),
-  "content",
-);
+export const DatePickerContent = withContext(ArkDatePicker.Content, "content");
 export interface DatePickerContentProps
   extends ComponentProps<typeof DatePickerContent> {}
 
-export const DatePickerControl = withContext(
-  styled(ArkDatePicker.Control),
-  "control",
-);
+export const DatePickerControl = withContext(ArkDatePicker.Control, "control");
 export interface DatePickerControlProps
   extends ComponentProps<typeof DatePickerControl> {}
 
-export const DatePickerInput = withContext(
-  styled(ArkDatePicker.Input),
-  "input",
-);
+export const DatePickerInput = withContext(ArkDatePicker.Input, "input");
 export interface DatePickerInputProps
   extends ComponentProps<typeof DatePickerInput> {}
 
-export const DatePickerLabel = withContext(
-  styled(ArkDatePicker.Label),
-  "label",
-);
+export const DatePickerLabel = withContext(ArkDatePicker.Label, "label");
 export interface DatePickerLabelProps
   extends ComponentProps<typeof DatePickerLabel> {}
 
 export const DatePickerMonthSelect = withContext(
-  styled(ArkDatePicker.MonthSelect),
+  ArkDatePicker.MonthSelect,
   "monthSelect",
 );
 export interface DatePickerMonthSelectProps
   extends ComponentProps<typeof DatePickerMonthSelect> {}
 
 export const DatePickerNextTrigger = withContext(
-  styled(ArkDatePicker.NextTrigger),
+  ArkDatePicker.NextTrigger,
   "nextTrigger",
 );
 export interface DatePickerNextTriggerProps
   extends ComponentProps<typeof DatePickerNextTrigger> {}
 
 export const DatePickerPositioner = withContext(
-  styled(ArkDatePicker.Positioner),
+  ArkDatePicker.Positioner,
   "positioner",
 );
 export interface DatePickerPositionerProps
@@ -77,102 +63,96 @@ export interface DatePickerPositionerProps
 
 // TODO use
 export const DatePickerPresetTrigger = withContext(
-  styled(ArkDatePicker.PresetTrigger),
+  ArkDatePicker.PresetTrigger,
   "presetTrigger",
 );
 export interface DatePickerPresetTriggerProps
   extends ComponentProps<typeof DatePickerPresetTrigger> {}
 
 export const DatePickerPrevTrigger = withContext(
-  styled(ArkDatePicker.PrevTrigger),
+  ArkDatePicker.PrevTrigger,
   "prevTrigger",
 );
 export interface DatePickerPrevTriggerProps
   extends ComponentProps<typeof DatePickerPrevTrigger> {}
 
 export const DatePickerRangeText = withContext(
-  styled(ArkDatePicker.RangeText),
+  ArkDatePicker.RangeText,
   "rangeText",
 );
 export interface DatePickerRangeTextProps
   extends ComponentProps<typeof DatePickerRangeText> {}
 
-export const DatePickerTable = withContext(
-  styled(ArkDatePicker.Table),
-  "table",
-);
+export const DatePickerTable = withContext(ArkDatePicker.Table, "table");
 export interface DatePickerTableProps
   extends ComponentProps<typeof DatePickerTable> {}
 
 export const DatePickerTableBody = withContext(
-  styled(ArkDatePicker.TableBody),
+  ArkDatePicker.TableBody,
   "tableBody",
 );
 export interface DatePickerTableBodyProps
   extends ComponentProps<typeof DatePickerTableBody> {}
 
 export const DatePickerTableCell = withContext(
-  styled(ArkDatePicker.TableCell),
+  ArkDatePicker.TableCell,
   "tableCell",
 );
 export interface DatePickerTableCellProps
   extends ComponentProps<typeof DatePickerTableCell> {}
 
 export const DatePickerTableCellTrigger = withContext(
-  styled(ArkDatePicker.TableCellTrigger),
+  ArkDatePicker.TableCellTrigger,
   "tableCellTrigger",
 );
 export interface DatePickerTableCellTriggerProps
   extends ComponentProps<typeof DatePickerTableCellTrigger> {}
 
 export const DatePickerTableHead = withContext(
-  styled(ArkDatePicker.TableHead),
+  ArkDatePicker.TableHead,
   "tableHead",
 );
 export interface DatePickerTableHeadProps
   extends ComponentProps<typeof DatePickerTableHead> {}
 
 export const DatePickerTableHeader = withContext(
-  styled(ArkDatePicker.TableHeader),
+  ArkDatePicker.TableHeader,
   "tableHeader",
 );
 export interface DatePickerTableHeaderProps
   extends ComponentProps<typeof DatePickerTableHeader> {}
 
 export const DatePickerTableRow = withContext(
-  styled(ArkDatePicker.TableRow),
+  ArkDatePicker.TableRow,
   "tableRow",
 );
 export interface DatePickerTableRowProps
   extends ComponentProps<typeof DatePickerTableRow> {}
 
-export const DatePickerTrigger = withContext(
-  styled(ArkDatePicker.Trigger),
-  "trigger",
-);
+export const DatePickerTrigger = withContext(ArkDatePicker.Trigger, "trigger");
 export interface DatePickerTriggerProps
   extends ComponentProps<typeof DatePickerTrigger> {}
 
-export const DatePickerView = withContext(styled(ArkDatePicker.View), "view");
+export const DatePickerView = withContext(ArkDatePicker.View, "view");
 export interface DatePickerViewProps
   extends ComponentProps<typeof DatePickerView> {}
 
 export const DatePickerViewControl = withContext(
-  styled(ArkDatePicker.ViewControl),
+  ArkDatePicker.ViewControl,
   "viewControl",
 );
 export interface DatePickerViewControlProps
   extends ComponentProps<typeof DatePickerViewControl> {}
 
 export const DatePickerViewTrigger = withContext(
-  styled(ArkDatePicker.ViewTrigger),
+  ArkDatePicker.ViewTrigger,
   "viewTrigger",
 );
 export interface DatePickerViewTriggerProps
   extends ComponentProps<typeof DatePickerViewTrigger> {}
 
 export const DatePickerYearSelect = withContext(
-  styled(ArkDatePicker.YearSelect),
+  ArkDatePicker.YearSelect,
   "yearSelect",
 );
 export interface DatePickerYearSelectProps

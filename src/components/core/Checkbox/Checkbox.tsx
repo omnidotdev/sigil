@@ -1,6 +1,5 @@
 import { Checkbox as ArkCheckbox } from "@ark-ui/react/checkbox";
 
-import { styled } from "generated/panda/jsx";
 import { checkbox } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
@@ -8,27 +7,21 @@ import type { ComponentProps } from "react";
 
 const { withProvider, withContext } = createStyleContext(checkbox);
 
-export const CheckboxRoot = withProvider(styled(ArkCheckbox.Root), "root");
+export const CheckboxRoot = withProvider(ArkCheckbox.Root, "root");
 export interface CheckboxRootProps
   extends ComponentProps<typeof CheckboxRoot> {}
 
-export const CheckboxControl = withContext(
-  styled(ArkCheckbox.Control),
-  "control",
-);
+export const CheckboxControl = withContext(ArkCheckbox.Control, "control");
 export interface CheckboxControlProps
   extends ComponentProps<typeof CheckboxControl> {}
 
-const CheckboxIndicator = withContext(
-  styled(ArkCheckbox.Indicator),
-  "indicator",
-);
+const CheckboxIndicator = withContext(ArkCheckbox.Indicator, "indicator");
 
 // TODO use in prebuilt `Checkbox` component
 export interface CheckboxIndicatorProps
   extends ComponentProps<typeof CheckboxIndicator> {}
 
-export const CheckboxLabel = withContext(styled(ArkCheckbox.Label), "label");
+export const CheckboxLabel = withContext(ArkCheckbox.Label, "label");
 export interface CheckboxLabelProps
   extends ComponentProps<typeof CheckboxLabel> {}
 

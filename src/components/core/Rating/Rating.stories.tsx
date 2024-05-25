@@ -26,6 +26,8 @@ export const AllowHalves: Story = {
   },
 };
 
+// TODO readonly https://ark-ui.com/docs/components/rating-group
+
 /**
  * A custom color palette can be applied to atomically modify the base color.
  */

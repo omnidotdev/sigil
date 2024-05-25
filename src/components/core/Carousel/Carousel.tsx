@@ -2,71 +2,63 @@ import { Carousel as ArkCarousel } from "@ark-ui/react/carousel";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 import Button from "components/core/Button/Button";
-import { styled } from "generated/panda/jsx";
 import { carousel } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { ComponentProps, ReactNode } from "react";
 
-// https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/carousel";
 
 const { withProvider, withContext } = createStyleContext(carousel);
 
-export const CarouselRoot = withProvider(styled(ArkCarousel.Root), "root");
+export const CarouselRoot = withProvider(ArkCarousel.Root, "root");
 export interface CarouselRootProps
   extends ComponentProps<typeof CarouselRoot> {}
 
-export const CarouselControl = withContext(
-  styled(ArkCarousel.Control),
-  "control",
-);
+export const CarouselControl = withContext(ArkCarousel.Control, "control");
 export interface CarouselControlProps
   extends ComponentProps<typeof CarouselControl> {}
 
 export const CarouselIndicator = withContext(
-  styled(ArkCarousel.Indicator),
+  ArkCarousel.Indicator,
   "indicator",
 );
 export interface CarouselIndicatorProps
   extends ComponentProps<typeof CarouselIndicator> {}
 
 export const CarouselIndicatorGroup = withContext(
-  styled(ArkCarousel.IndicatorGroup),
+  ArkCarousel.IndicatorGroup,
   "indicatorGroup",
 );
 export interface CarouselIndicatorGroupProps
   extends ComponentProps<typeof CarouselIndicatorGroup> {}
 
-export const CarouselItem = withContext(styled(ArkCarousel.Item), "item");
+export const CarouselItem = withContext(ArkCarousel.Item, "item");
 export interface CarouselItemProps
   extends ComponentProps<typeof CarouselItem> {}
 
 export const CarouselItemGroup = withContext(
-  styled(ArkCarousel.ItemGroup),
+  ArkCarousel.ItemGroup,
   "itemGroup",
 );
 export interface CarouselItemGroupProps
   extends ComponentProps<typeof CarouselItemGroup> {}
 
 export const CarouselNextTrigger = withContext(
-  styled(ArkCarousel.NextTrigger),
+  ArkCarousel.NextTrigger,
   "nextTrigger",
 );
 export interface CarouselNextTriggerProps
   extends ComponentProps<typeof CarouselNextTrigger> {}
 
 export const CarouselPrevTrigger = withContext(
-  styled(ArkCarousel.PrevTrigger),
+  ArkCarousel.PrevTrigger,
   "prevTrigger",
 );
 export interface CarouselPrevTriggerProps
   extends ComponentProps<typeof CarouselPrevTrigger> {}
 
-export const CarouselViewport = withContext(
-  styled(ArkCarousel.Viewport),
-  "viewport",
-);
+export const CarouselViewport = withContext(ArkCarousel.Viewport, "viewport");
 export interface CarouselViewportProps
   extends ComponentProps<typeof CarouselViewport> {}
 

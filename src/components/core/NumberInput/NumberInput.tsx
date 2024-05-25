@@ -1,7 +1,6 @@
 import { NumberInput as ArkNumberInput } from "@ark-ui/react/number-input";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 
-import { styled } from "generated/panda/jsx";
 import { numberInput } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
@@ -9,50 +8,41 @@ import type { ComponentProps } from "react";
 
 const { withProvider, withContext } = createStyleContext(numberInput);
 
-export const NumberInputRoot = withProvider(
-  styled(ArkNumberInput.Root),
-  "root",
-);
+export const NumberInputRoot = withProvider(ArkNumberInput.Root, "root");
 export interface NumberInputRootProps
   extends ComponentProps<typeof NumberInputRoot> {}
 
 export const NumberInputControl = withContext(
-  styled(ArkNumberInput.Control),
+  ArkNumberInput.Control,
   "control",
 );
 export interface NumberInputControlProps
   extends ComponentProps<typeof NumberInputControl> {}
 
 export const NumberInputDecrementTrigger = withContext(
-  styled(ArkNumberInput.DecrementTrigger),
+  ArkNumberInput.DecrementTrigger,
   "decrementTrigger",
 );
 export interface NumberInputDecrementTriggerProps
   extends ComponentProps<typeof NumberInputDecrementTrigger> {}
 
-export const NumberInputInput = withContext(
-  styled(ArkNumberInput.Input),
-  "input",
-);
+export const NumberInputInput = withContext(ArkNumberInput.Input, "input");
 export interface NumberInputInputProps
   extends ComponentProps<typeof NumberInputInput> {}
 
 export const NumberInputIncrementTrigger = withContext(
-  styled(ArkNumberInput.IncrementTrigger),
+  ArkNumberInput.IncrementTrigger,
   "incrementTrigger",
 );
 export interface NumberInputIncrementTriggerProps
   extends ComponentProps<typeof NumberInputIncrementTrigger> {}
 
-export const NumberInputLabel = withContext(
-  styled(ArkNumberInput.Label),
-  "label",
-);
+export const NumberInputLabel = withContext(ArkNumberInput.Label, "label");
 export interface NumberInputLabelProps
   extends ComponentProps<typeof NumberInputLabel> {}
 
 export const NumberInputScrubber = withContext(
-  styled(ArkNumberInput.Scrubber),
+  ArkNumberInput.Scrubber,
   "scrubber",
 );
 export interface NumberInputScrubberProps

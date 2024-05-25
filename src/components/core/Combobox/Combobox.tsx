@@ -4,94 +4,80 @@ import { BiCheck, BiExpandVertical } from "react-icons/bi";
 
 import Button from "components/core/Button/Button";
 import Input from "components/core/Input/Input";
-import { styled } from "generated/panda/jsx";
 import { combobox } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { ComboboxInputValueChangeDetails } from "@ark-ui/react/combobox";
 import type { ComponentProps } from "react";
 
-// https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/combobox";
 
 const { withProvider, withContext } = createStyleContext(combobox);
 
-export const ComboboxRoot = withProvider(styled(ArkCombobox.Root), "root");
+export const ComboboxRoot = withProvider(ArkCombobox.Root, "root");
 export interface ComboboxRootProps
   extends ComponentProps<typeof ComboboxRoot> {}
 
 export const ComboboxClearTrigger = withContext(
-  styled(ArkCombobox.ClearTrigger),
+  ArkCombobox.ClearTrigger,
   "clearTrigger",
 );
 export interface ComboboxClearTriggerProps
   extends ComponentProps<typeof ComboboxClearTrigger> {}
 
-export const ComboboxContent = withContext(
-  styled(ArkCombobox.Content),
-  "content",
-);
+export const ComboboxContent = withContext(ArkCombobox.Content, "content");
 export interface ComboboxContentProps
   extends ComponentProps<typeof ComboboxContent> {}
 
-export const ComboboxControl = withContext(
-  styled(ArkCombobox.Control),
-  "control",
-);
+export const ComboboxControl = withContext(ArkCombobox.Control, "control");
 export interface ComboboxControlProps
   extends ComponentProps<typeof ComboboxControl> {}
 
-export const ComboboxInput = withContext(styled(ArkCombobox.Input), "input");
+export const ComboboxInput = withContext(ArkCombobox.Input, "input");
 export interface ComboboxInputProps
   extends ComponentProps<typeof ComboboxInput> {}
 
-export const ComboboxItem = withContext(styled(ArkCombobox.Item), "item");
+export const ComboboxItem = withContext(ArkCombobox.Item, "item");
 export interface ComboboxItemProps
   extends ComponentProps<typeof ComboboxItem> {}
 
 export const ComboboxItemGroup = withContext(
-  styled(ArkCombobox.ItemGroup),
+  ArkCombobox.ItemGroup,
   "itemGroup",
 );
 export interface ComboboxItemGroupProps
   extends ComponentProps<typeof ComboboxItemGroup> {}
 
 export const ComboboxItemGroupLabel = withContext(
-  styled(ArkCombobox.ItemGroupLabel),
+  ArkCombobox.ItemGroupLabel,
   "itemGroupLabel",
 );
 export interface ComboboxItemGroupLabelProps
   extends ComponentProps<typeof ComboboxItemGroupLabel> {}
 
 export const ComboboxItemIndicator = withContext(
-  styled(ArkCombobox.ItemIndicator),
+  ArkCombobox.ItemIndicator,
   "itemIndicator",
 );
 export interface ComboboxItemIndicatorProps
   extends ComponentProps<typeof ComboboxItemIndicator> {}
 
-export const ComboboxItemText = withContext(
-  styled(ArkCombobox.ItemText),
-  "itemText",
-);
+export const ComboboxItemText = withContext(ArkCombobox.ItemText, "itemText");
 export interface ComboboxItemTextProps
   extends ComponentProps<typeof ComboboxItemText> {}
 
-export const ComboboxLabel = withContext(styled(ArkCombobox.Label), "label");
+export const ComboboxLabel = withContext(ArkCombobox.Label, "label");
 export interface ComboboxLabelProps
   extends ComponentProps<typeof ComboboxLabel> {}
 
 export const ComboboxPositioner = withContext(
-  styled(ArkCombobox.Positioner),
+  ArkCombobox.Positioner,
   "positioner",
 );
 export interface ComboboxPositionerProps
   extends ComponentProps<typeof ComboboxPositioner> {}
 
-export const ComboboxTrigger = withContext(
-  styled(ArkCombobox.Trigger),
-  "trigger",
-);
+export const ComboboxTrigger = withContext(ArkCombobox.Trigger, "trigger");
 export interface ComboboxTriggerProps
   extends ComponentProps<typeof ComboboxTrigger> {}
 

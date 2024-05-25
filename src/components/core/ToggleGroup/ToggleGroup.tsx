@@ -1,6 +1,6 @@
 import { ToggleGroup as ArkToggleGroup } from "@ark-ui/react/toggle-group";
 
-import { Stack, styled } from "generated/panda/jsx";
+import { Stack } from "generated/panda/jsx";
 import { toggleGroup } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
@@ -8,14 +8,11 @@ import type { ComponentProps } from "react";
 
 const { withProvider, withContext } = createStyleContext(toggleGroup);
 
-export const ToggleGroupRoot = withProvider(
-  styled(ArkToggleGroup.Root),
-  "root",
-);
+export const ToggleGroupRoot = withProvider(ArkToggleGroup.Root, "root");
 export interface ToggleGroupRootProps
   extends ComponentProps<typeof ToggleGroupRoot> {}
 
-export const ToggleGroupItem = withContext(styled(ArkToggleGroup.Item), "item");
+export const ToggleGroupItem = withContext(ArkToggleGroup.Item, "item");
 export interface ToggleGroupItemProps
   extends ComponentProps<typeof ToggleGroupItem> {}
 

@@ -8,7 +8,6 @@ import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
 import Input from "../Input/Input";
 import Label from "../Label/Label";
-import { styled } from "generated/panda/jsx";
 import { clipboard } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
@@ -16,36 +15,30 @@ import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(clipboard);
 
-export const ClipboardRoot = withProvider(styled(ArkClipboard.Root), "root");
+export const ClipboardRoot = withProvider(ArkClipboard.Root, "root");
 export interface ClipboardRootProps
   extends ComponentProps<typeof ClipboardRoot> {}
 
-export const ClipboardControl = withContext(
-  styled(ArkClipboard.Control),
-  "control",
-);
+export const ClipboardControl = withContext(ArkClipboard.Control, "control");
 export interface ClipboardControlProps
   extends ComponentProps<typeof ClipboardControl> {}
 
 export const ClipboardIndicator = withContext(
-  styled(ArkClipboard.Indicator),
+  ArkClipboard.Indicator,
   "indicator",
 );
 export interface ClipboardIndicatorProps
   extends ComponentProps<typeof ClipboardIndicator> {}
 
-export const ClipboardInput = withContext(styled(ArkClipboard.Input), "input");
+export const ClipboardInput = withContext(ArkClipboard.Input, "input");
 export interface ClipboardInputProps
   extends ComponentProps<typeof ClipboardInput> {}
 
-export const ClipboardLabel = withContext(styled(ArkClipboard.Label), "label");
+export const ClipboardLabel = withContext(ArkClipboard.Label, "label");
 export interface ClipboardLabelProps
   extends ComponentProps<typeof ClipboardLabel> {}
 
-export const ClipboardTrigger = withContext(
-  styled(ArkClipboard.Trigger),
-  "trigger",
-);
+export const ClipboardTrigger = withContext(ArkClipboard.Trigger, "trigger");
 export interface ClipboardTriggerProps
   extends ComponentProps<typeof ClipboardTrigger> {}
 

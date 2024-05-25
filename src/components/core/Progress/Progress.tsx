@@ -1,6 +1,5 @@
 import { Progress as ArkProgress } from "@ark-ui/react/progress";
 
-import { styled } from "generated/panda/jsx";
 import { progress, type ProgressVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
@@ -8,42 +7,42 @@ import type { ReactNode, ComponentProps } from "react";
 
 const { withProvider, withContext } = createStyleContext(progress);
 
-export const ProgressRoot = withProvider(styled(ArkProgress.Root), "root");
+export const ProgressRoot = withProvider(ArkProgress.Root, "root");
 export interface ProgressRootProps
   extends ComponentProps<typeof ProgressRoot> {}
 
-export const ProgressLabel = withContext(styled(ArkProgress.Label), "label");
+export const ProgressLabel = withContext(ArkProgress.Label, "label");
 export interface ProgressLabelProps
   extends ComponentProps<typeof ProgressLabel> {}
 
-export const ProgressTrack = withContext(styled(ArkProgress.Track), "track");
+export const ProgressTrack = withContext(ArkProgress.Track, "track");
 export interface ProgressTrackProps
   extends ComponentProps<typeof ProgressTrack> {}
 
-export const ProgressRange = withContext(styled(ArkProgress.Range), "range");
+export const ProgressRange = withContext(ArkProgress.Range, "range");
 export interface ProgressRangeProps
   extends ComponentProps<typeof ProgressRange> {}
 
-export const ProgressCircle = withContext(styled(ArkProgress.Circle), "circle");
+export const ProgressCircle = withContext(ArkProgress.Circle, "circle");
 export interface ProgressCircleProps
   extends ComponentProps<typeof ProgressCircle> {}
 
 export const ProgressCircleTrack = withContext(
-  styled(ArkProgress.CircleTrack),
+  ArkProgress.CircleTrack,
   "circleTrack",
 );
 export interface ProgressCircleTrackProps
   extends ComponentProps<typeof ProgressCircleTrack> {}
 
 export const ProgressCircleRange = withContext(
-  styled(ArkProgress.CircleRange),
+  ArkProgress.CircleRange,
   "circleRange",
 );
 export interface ProgressCircleRangeProps
   extends ComponentProps<typeof ProgressCircleRange> {}
 
 export const ProgressValueText = withContext(
-  styled(ArkProgress.ValueText),
+  ArkProgress.ValueText,
   "valueText",
 );
 export interface ProgressValueTextProps

@@ -5,30 +5,25 @@ import {
   BsStarFill as IconFull,
 } from "react-icons/bs";
 
-import { styled } from "generated/panda/jsx";
 import { rating } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-// https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/rating-group";
 import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(rating);
 
-export const RatingRoot = withProvider(styled(ArkRatingGroup.Root), "root");
+export const RatingRoot = withProvider(ArkRatingGroup.Root, "root");
 export interface RatingRootProps extends ComponentProps<typeof RatingRoot> {}
 
-export const RatingControl = withContext(
-  styled(ArkRatingGroup.Control),
-  "control",
-);
+export const RatingControl = withContext(ArkRatingGroup.Control, "control");
 export interface RatingControlProps
   extends ComponentProps<typeof RatingControl> {}
 
-export const RatingLabel = withContext(styled(ArkRatingGroup.Label), "label");
+export const RatingLabel = withContext(ArkRatingGroup.Label, "label");
 export interface RatingLabelProps extends ComponentProps<typeof RatingLabel> {}
 
-export const RatingItem = withContext(styled(ArkRatingGroup.Item), "item");
+export const RatingItem = withContext(ArkRatingGroup.Item, "item");
 export interface RatingItemProps extends ComponentProps<typeof RatingItem> {}
 
 export interface RatingProps extends RatingRootProps {

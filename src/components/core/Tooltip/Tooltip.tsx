@@ -1,6 +1,5 @@
 import { Tooltip as ArkTooltip } from "@ark-ui/react/tooltip";
 
-import { styled } from "generated/panda/jsx";
 import { tooltip } from "generated/panda/recipes";
 import { createStyleContext, getContextualChildren } from "lib/util";
 
@@ -8,39 +7,30 @@ import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(tooltip);
 
-export const TooltipRoot = withProvider(styled(ArkTooltip.Root), "root");
+export const TooltipRoot = withProvider(ArkTooltip.Root, "root");
 export interface TooltipRootProps
   extends Omit<ComponentProps<typeof TooltipRoot>, "content"> {}
 
-export const TooltipArrow = withContext(styled(ArkTooltip.Arrow), "arrow");
+export const TooltipArrow = withContext(ArkTooltip.Arrow, "arrow");
 export interface TooltipArrowProps
   extends ComponentProps<typeof TooltipArrow> {}
 
-export const TooltipArrowTip = withContext(
-  styled(ArkTooltip.ArrowTip),
-  "arrowTip",
-);
+export const TooltipArrowTip = withContext(ArkTooltip.ArrowTip, "arrowTip");
 export interface TooltipArrowTipProps
   extends ComponentProps<typeof TooltipArrowTip> {}
 
-export const TooltipContent = withContext(
-  styled(ArkTooltip.Content),
-  "content",
-);
+export const TooltipContent = withContext(ArkTooltip.Content, "content");
 export interface TooltipContentProps
   extends ComponentProps<typeof TooltipContent> {}
 
 export const TooltipPositioner = withContext(
-  styled(ArkTooltip.Positioner),
+  ArkTooltip.Positioner,
   "positioner",
 );
 export interface TooltipPositionerProps
   extends ComponentProps<typeof TooltipPositioner> {}
 
-export const TooltipTrigger = withContext(
-  styled(ArkTooltip.Trigger),
-  "trigger",
-);
+export const TooltipTrigger = withContext(ArkTooltip.Trigger, "trigger");
 export interface TooltipTriggerProps
   extends ComponentProps<typeof TooltipTrigger> {}
 

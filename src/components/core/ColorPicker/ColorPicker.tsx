@@ -4,86 +4,82 @@ import { IoMdColorFilter } from "react-icons/io";
 import Button from "components/core/Button/Button";
 import Input from "components/core/Input/Input";
 import Text from "components/typography/Text/Text";
-import { HStack, Stack, styled } from "generated/panda/jsx";
+import { HStack, Stack } from "generated/panda/jsx";
 import { colorPicker } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-// https://github.com/microsoft/TypeScript/issues/47663
 import type {} from "@zag-js/color-picker";
 import type {} from "@zag-js/color-utils";
 import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(colorPicker);
 
-export const ColorPickerRoot = withProvider(
-  styled(ArkColorPicker.Root),
-  "root",
-);
+export const ColorPickerRoot = withProvider(ArkColorPicker.Root, "root");
 export interface ColorPickerRootProps
   extends ComponentProps<typeof ColorPickerRoot> {}
 
-export const ColorPickerArea = withContext(styled(ArkColorPicker.Area), "area");
+export const ColorPickerArea = withContext(ArkColorPicker.Area, "area");
 export interface ColorPickerAreaProps
   extends ComponentProps<typeof ColorPickerArea> {}
 
 export const ColorPickerAreaBackground = withContext(
-  styled(ArkColorPicker.AreaBackground),
+  ArkColorPicker.AreaBackground,
   "areaBackground",
 );
 export interface ColorPickerAreaBackgroundProps
   extends ComponentProps<typeof ColorPickerAreaBackground> {}
 
 export const ColorPickerAreaThumb = withContext(
-  styled(ArkColorPicker.AreaThumb),
+  ArkColorPicker.AreaThumb,
   "areaThumb",
 );
 export interface ColorPickerAreaThumbProps
   extends ComponentProps<typeof ColorPickerAreaThumb> {}
 
 export const ColorPickerChannelInput = withContext(
-  styled(ArkColorPicker.ChannelInput),
+  ArkColorPicker.ChannelInput,
   "channelInput",
 );
 export interface ColorPickerChannelInputProps
   extends ComponentProps<typeof ColorPickerChannelInput> {}
 
 export const ColorPickerChannelSlider = withContext(
-  styled(ArkColorPicker.ChannelSlider),
+  ArkColorPicker.ChannelSlider,
   "channelSlider",
 );
 export interface ColorPickerChannelSliderProps
   extends ComponentProps<typeof ColorPickerChannelSlider> {}
 
 export const ColorPickerChannelSliderThumb = withContext(
-  styled(ArkColorPicker.ChannelSliderThumb),
+  ArkColorPicker.ChannelSliderThumb,
   "channelSliderThumb",
 );
 export interface ColorPickerChannelSliderThumbProps
   extends ComponentProps<typeof ColorPickerChannelSliderThumb> {}
 
 export const ColorPickerChannelSliderTrack = withContext(
-  styled(ArkColorPicker.ChannelSliderTrack),
+  ArkColorPicker.ChannelSliderTrack,
   "channelSliderTrack",
 );
 export interface ColorPickerChannelSliderTrackProps
   extends ComponentProps<typeof ColorPickerChannelSliderTrack> {}
 
 export const ColorPickerContent = withContext(
-  styled(ArkColorPicker.Content),
+  ArkColorPicker.Content,
   "content",
 );
 export interface ColorPickerContentProps
   extends ComponentProps<typeof ColorPickerContent> {}
 
 export const ColorPickerControl = withContext(
-  styled(ArkColorPicker.Control),
+  ArkColorPicker.Control,
   "control",
 );
 export interface ColorPickerControlProps
   extends ComponentProps<typeof ColorPickerControl> {}
 
 export const ColorPickerEyeDropperTrigger = withContext(
-  styled(ArkColorPicker.EyeDropperTrigger),
+  ArkColorPicker.EyeDropperTrigger,
   "eyeDropperTrigger",
 );
 export interface ColorPickerEyeDropperTriggerProps
@@ -91,7 +87,7 @@ export interface ColorPickerEyeDropperTriggerProps
 
 // TODO use in prebuilt `ColorPicker` component
 const ColorPickerFormatSelect = withContext(
-  styled(ArkColorPicker.FormatSelect),
+  ArkColorPicker.FormatSelect,
   "formatSelect",
 );
 export interface ColorPickerFormatSelectProps
@@ -99,35 +95,29 @@ export interface ColorPickerFormatSelectProps
 
 // TODO use in prebuilt `ColorPicker` component
 const ColorPickerFormatTrigger = withContext(
-  styled(ArkColorPicker.FormatTrigger),
+  ArkColorPicker.FormatTrigger,
   "formatTrigger",
 );
 export interface ColorPickerFormatTriggerProps
   extends ComponentProps<typeof ColorPickerFormatTrigger> {}
 
-export const ColorPickerLabel = withContext(
-  styled(ArkColorPicker.Label),
-  "label",
-);
+export const ColorPickerLabel = withContext(ArkColorPicker.Label, "label");
 export interface ColorPickerLabelProps
   extends ComponentProps<typeof ColorPickerLabel> {}
 
 export const ColorPickerPositioner = withContext(
-  styled(ArkColorPicker.Positioner),
+  ArkColorPicker.Positioner,
   "positioner",
 );
 export interface ColorPickerPositionerProps
   extends ComponentProps<typeof ColorPickerPositioner> {}
 
-export const ColorPickerSwatch = withContext(
-  styled(ArkColorPicker.Swatch),
-  "swatch",
-);
+export const ColorPickerSwatch = withContext(ArkColorPicker.Swatch, "swatch");
 export interface ColorPickerSwatchProps
   extends ComponentProps<typeof ColorPickerSwatch> {}
 
 export const ColorPickerSwatchGroup = withContext(
-  styled(ArkColorPicker.SwatchGroup),
+  ArkColorPicker.SwatchGroup,
   "swatchGroup",
 );
 export interface ColorPickerSwatchGroupProps
@@ -135,43 +125,40 @@ export interface ColorPickerSwatchGroupProps
 
 // TODO use in prebuilt `ColorPicker` component
 const ColorPickerSwatchIndicator = withContext(
-  styled(ArkColorPicker.SwatchIndicator),
+  ArkColorPicker.SwatchIndicator,
   "swatchIndicator",
 );
 export interface ColorPickerSwatchIndicatorProps
   extends ComponentProps<typeof ColorPickerSwatchIndicator> {}
 
 export const ColorPickerSwatchTrigger = withContext(
-  styled(ArkColorPicker.SwatchTrigger),
+  ArkColorPicker.SwatchTrigger,
   "swatchTrigger",
 );
 export interface ColorPickerSwatchTriggerProps
   extends ComponentProps<typeof ColorPickerSwatchTrigger> {}
 
 export const ColorPickerTransparencyGrid = withContext(
-  styled(ArkColorPicker.TransparencyGrid),
+  ArkColorPicker.TransparencyGrid,
   "transparencyGrid",
 );
 export interface ColorPickerTransparencyGridProps
   extends ComponentProps<typeof ColorPickerTransparencyGrid> {}
 
 export const ColorPickerTrigger = withContext(
-  styled(ArkColorPicker.Trigger),
+  ArkColorPicker.Trigger,
   "trigger",
 );
 export interface ColorPickerTriggerProps
   extends ComponentProps<typeof ColorPickerTrigger> {}
 
 // TODO use in prebuilt `ColorPicker` component
-const ColorPickerValueText = withContext(
-  styled(ArkColorPicker.ValueText),
-  "valueText",
-);
+const ColorPickerValueText = withContext(ArkColorPicker.ValueText, "valueText");
 export interface ColorPickerValueTextProps
   extends ComponentProps<typeof ColorPickerValueText> {}
 
 // TODO use in prebuilt `ColorPicker` component
-const ColorPickerView = withContext(styled(ArkColorPicker.View), "view");
+const ColorPickerView = withContext(ArkColorPicker.View, "view");
 export interface ColorPickerViewProps
   extends ComponentProps<typeof ColorPickerView> {}
 
