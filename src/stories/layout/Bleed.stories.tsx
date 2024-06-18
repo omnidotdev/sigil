@@ -17,9 +17,9 @@ const meta = {
 
 export const Default: Story = {
   render: () => (
-    <Flex bgColor="rose.50" p={PARENT_PADDING}>
+    <Flex bgColor={{ base: "rose.50", _dark: "rose" }} p={PARENT_PADDING}>
       <Bleed
-        bgColor="purple.100"
+        bgColor={{ base: "purple.100", _dark: "purple" }}
         inline={PARENT_PADDING}
         block={PARENT_PADDING}
       >
