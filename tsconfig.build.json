@@ -5,7 +5,6 @@
     // enable declaration generation
     "declaration": true,
     "emitDeclarationOnly": true,
-    "moduleResolution": "node",
     // generate declaration source map
     "declarationMap": true,
     "noImplicitAny": false
