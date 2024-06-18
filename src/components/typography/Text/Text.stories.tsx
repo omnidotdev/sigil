@@ -25,6 +25,7 @@ const meta = {
   component: Text,
 } satisfies Meta;
 
+// TODO phase out in favor of dynamic, check `Link.stories.tsx`
 const fontWeights = [
   { name: "Thin", weight: 100 },
   { name: "Light", weight: 300 },
@@ -35,6 +36,7 @@ const fontWeights = [
   { name: "Heavy", weight: 900 },
 ];
 
+// TODO phase out
 const htmlTags = [
   "h1",
   "h2",
@@ -71,7 +73,12 @@ const Typeset = ({ fontName, fontFamily, intendedUse }: TypesetProps) => (
     <HStack gap={12}>
       <Stack gap={1}>
         {fontWeights.map(({ name, weight }) => (
-          <Text key={name} fontWeight={weight}>
+          <Text
+            key={name}
+            style={{
+              fontWeight: weight,
+            }}
+          >
             {name} ({weight})
           </Text>
         ))}
@@ -79,7 +86,13 @@ const Typeset = ({ fontName, fontFamily, intendedUse }: TypesetProps) => (
 
       <Stack gap={1}>
         {fontWeights.map(({ name, weight }) => (
-          <Text key={name} fontWeight={weight} fontStyle="italic">
+          <Text
+            key={name}
+            fontStyle="italic"
+            style={{
+              fontWeight: weight,
+            }}
+          >
             {name} Italic ({weight})
           </Text>
         ))}
@@ -89,7 +102,12 @@ const Typeset = ({ fontName, fontFamily, intendedUse }: TypesetProps) => (
     <HStack gap={12}>
       <Stack gap={1}>
         {fontWeights.map(({ name, weight }) => (
-          <Text key={name} fontWeight={weight}>
+          <Text
+            key={name}
+            style={{
+              fontWeight: weight,
+            }}
+          >
             {BASE_TEXT}
           </Text>
         ))}
@@ -97,7 +115,13 @@ const Typeset = ({ fontName, fontFamily, intendedUse }: TypesetProps) => (
 
       <Stack gap={1}>
         {fontWeights.map(({ name, weight }) => (
-          <Text key={name} fontWeight={weight} fontStyle="italic">
+          <Text
+            key={name}
+            fontStyle="italic"
+            style={{
+              fontWeight: weight,
+            }}
+          >
             {BASE_TEXT}
           </Text>
         ))}

@@ -27,4 +27,11 @@ export const MultipleKeys: Story = {
   ),
 };
 
+export const Ghost: Story = {
+  args: {
+    ...Default.args,
+    variant: "ghost",
+  },
+};
+
 export default meta;
