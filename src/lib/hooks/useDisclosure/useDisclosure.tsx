@@ -12,7 +12,7 @@ export interface Options {
 }
 
 /**
- * Manage boolean disclosure state. Useful for modals, dropdowns, tooltips, and other components that can be toggled open/closed. Can be used as a controlled or uncontrolled component. To use as a controlled component, pass options to the hook.
+ * Manage boolean disclosure state. Useful for dialogs, dropdowns, tooltips, and other components that can be toggled open/closed. Can be used as a controlled or uncontrolled component. To use as a controlled component, pass options to the hook.
  */
 const useDisclosure = ({
   isOpen: isOpenControlled,

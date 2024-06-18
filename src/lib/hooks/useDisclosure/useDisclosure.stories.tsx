@@ -14,11 +14,11 @@ const UseDisclosureDemo = () => {
 
   return (
     <>
-      <Button onClick={onOpen}>Open Modal</Button>
+      <Button onClick={onOpen}>Open Dialog</Button>
 
       <Dialog
-        title="Modal Title"
-        description="Modal Description"
+        title="Dialog Title"
+        description="Dialog Description"
         open={isOpen}
         onOpenChange={({ open }) => (open ? onOpen() : onClose())}
       >
