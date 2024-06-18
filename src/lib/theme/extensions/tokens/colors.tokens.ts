@@ -146,7 +146,7 @@ export const utilityColors: Tokens["colors"] = {
   current: { value: "currentColor" },
   transparent: { value: "rgb(0 0 0 / 0)" },
   black: {
-    DEFAULT: { value: "#000" },
+    DEFAULT: { value: "#000000" },
     "50a": { value: "rgba(0, 0, 0, 0.05)" },
     "100a": { value: "rgba(0, 0, 0, 0.1)" },
     "150a": { value: "rgba(0, 0, 0, 0.15)" },
@@ -161,7 +161,7 @@ export const utilityColors: Tokens["colors"] = {
     "950a": { value: "rgba(0, 0, 0, 0.95)" },
   },
   white: {
-    DEFAULT: { value: "#fff" },
+    DEFAULT: { value: "#ffffff" },
     "50a": { value: "rgba(255, 255, 255, 0.05)" },
     "100a": { value: "rgba(255, 255, 255, 0.1)" },
     "150a": { value: "rgba(255, 255, 255, 0.15)" },

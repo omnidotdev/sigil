@@ -16,10 +16,10 @@ const animations: Tokens["animations"] = defineTokens.animations({
   "backdrop-out": {
     value: "fade-out 200ms {easings.emphasized-out}",
   },
-  "modal-in": {
+  "dialog-in": {
     value: "slide-in 400ms {easings.emphasized-in}",
   },
-  "modal-out": {
+  "dialog-out": {
     value: "slide-out 200ms {easings.emphasized-out}",
   },
   "drawer-in-left": {
