@@ -38,7 +38,7 @@ const dialog = defineSlotRecipe({
       top: 0,
       width: "100vw",
       height: "100dvh",
-      zIndex: "modal",
+      zIndex: "dialog",
     },
     content: {
       bgColor: "background.default",

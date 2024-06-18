@@ -48,7 +48,7 @@ const combobox = defineSlotRecipe({
       _focusVisible: {
         outlineOffset: "2px",
         outline: "2px solid",
-        outlineColor: "border.outline",
+        outlineColor: "colorPalette.outline",
       },
     },
     item: {

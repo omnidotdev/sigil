@@ -59,7 +59,6 @@ const button = defineRecipe({
       },
       muted: {
         bgColor: "colorPalette.100a",
-        color: "colorPalette.text",
         colorPalette: "accent",
         _hover: {
           bgColor: "colorPalette.500a",
@@ -83,7 +82,7 @@ const button = defineRecipe({
         borderWidth: 1.5,
         borderColor: "colorPalette.600a",
         _hover: {
-          bgColor: "colorPalette.50a",
+          bgColor: "colorPalette.500a",
         },
         _disabled: {
           borderColor: "border.disabled",

@@ -11,6 +11,7 @@ const toggleGroup = defineSlotRecipe({
   base: {
     root: {
       display: "flex",
+      width: "fit-content",
       overflow: "hidden",
       position: "relative",
       _vertical: {
@@ -34,17 +35,15 @@ const toggleGroup = defineSlotRecipe({
       userSelect: "none",
       verticalAlign: "middle",
       whiteSpace: "nowrap",
+      _on: {
+        color: "foreground.default",
+        bgColor: "neutral.300a",
+        _hover: {
+          bgColor: "neutral.300a",
+        },
+      },
       _hover: {
-        color: "foreground.default",
-        bgColor: "gray.300a",
-      },
-      _checked: {
-        color: "foreground.default",
-        bgColor: "gray.300a",
-      },
-      _pressed: {
-        color: "foreground.default",
-        bgColor: "gray.300a",
+        background: "neutral.200a",
       },
       _disabled: {
         borderColor: "border.disabled",

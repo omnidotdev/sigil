@@ -64,7 +64,6 @@ const menu = defineSlotRecipe({
       zIndex: "dropdown",
     },
     item: itemStyle,
-    optionItem: itemStyle,
     triggerItem: itemStyle,
   },
   defaultVariants: {

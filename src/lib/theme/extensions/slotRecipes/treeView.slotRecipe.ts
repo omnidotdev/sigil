@@ -11,6 +11,11 @@ const treeView = defineSlotRecipe({
   base: {
     root: {
       width: "full",
+      colorPalette: "accent",
+    },
+    label: {
+      fontSize: "sm",
+      fontWeight: "semibold",
     },
     branch: {
       "&[data-depth='1'] > [data-part='branch-content']": {
@@ -55,7 +60,7 @@ const treeView = defineSlotRecipe({
       },
     },
     branchIndicator: {
-      color: "accent.default",
+      color: "colorPalette.default",
       transformOrigin: "center",
       transitionDuration: "normal",
       transitionProperty: "transform",
@@ -96,11 +101,11 @@ const treeView = defineSlotRecipe({
         color: "foreground.default",
       },
       _selected: {
-        bgColor: "accent.100a",
-        color: "accent.default",
+        bgColor: "colorPalette.100a",
+        color: "colorPalette.default",
         _hover: {
-          bgColor: "accent.100a",
-          color: "accent.default",
+          bgColor: "colorPalette.100a",
+          color: "colorPalette.default",
         },
         _before: {
           content: '""',
@@ -109,7 +114,7 @@ const treeView = defineSlotRecipe({
           top: 0,
           width: "2px",
           height: "full",
-          bgColor: "accent.default",
+          bgColor: "colorPalette.default",
           zIndex: 1,
         },
       },
@@ -117,7 +122,7 @@ const treeView = defineSlotRecipe({
     tree: {
       display: "flex",
       flexDirection: "column",
-      gap: 3,
+      gap: 1,
     },
   },
 });

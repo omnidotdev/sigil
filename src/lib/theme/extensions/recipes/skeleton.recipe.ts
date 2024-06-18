@@ -9,7 +9,7 @@ const skeleton = defineRecipe({
   base: {
     animation: "skeleton-pulse",
     bgClip: "padding-box",
-    bgColor: "neutral.200a",
+    bgColor: "background.emphasized",
     borderRadius: "md",
     color: "transparent",
     cursor: "default",

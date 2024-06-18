@@ -1,5 +1,7 @@
 import { defineSlotRecipe } from "@pandacss/dev";
 
+// TODO semantic keys for type (e.g. `success.200`)
+
 /**
  * Alert recipe.
  */
@@ -31,11 +33,11 @@ const alert = defineSlotRecipe({
       flexShrink: 0,
       width: 5,
       height: 5,
+      mt: 0.5,
     },
     title: {
       color: "foreground.default",
       fontWeight: "semibold",
-      textStyle: "sm",
     },
   },
   variants: {
@@ -46,7 +48,7 @@ const alert = defineSlotRecipe({
           borderColor: "blue.200",
         },
         title: {
-          color: "blue.800",
+          color: "blue.800!",
         },
         description: {
           color: "blue.800",
@@ -61,7 +63,7 @@ const alert = defineSlotRecipe({
           borderColor: "yellow.200",
         },
         title: {
-          color: "yellow.800",
+          color: "yellow.800!",
         },
         description: {
           color: "yellow.800",
@@ -76,7 +78,7 @@ const alert = defineSlotRecipe({
           borderColor: "red.200",
         },
         title: {
-          color: "red.800",
+          color: "red.800!",
         },
         description: {
           color: "red.800",
@@ -91,7 +93,7 @@ const alert = defineSlotRecipe({
           borderColor: "green.200",
         },
         title: {
-          color: "green.800",
+          color: "green.800!",
         },
         description: {
           color: "green.800",

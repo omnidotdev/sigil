@@ -22,6 +22,11 @@ const keyboard = defineRecipe({
     size: "md",
   },
   variants: {
+    variant: {
+      ghost: {
+        boxShadow: "none",
+      },
+    },
     size: {
       sm: {
         height: 5,

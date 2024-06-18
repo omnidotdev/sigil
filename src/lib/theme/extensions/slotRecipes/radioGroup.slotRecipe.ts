@@ -1,23 +1,26 @@
 import { radioGroupAnatomy } from "@ark-ui/anatomy";
 import { defineSlotRecipe } from "@pandacss/dev";
 
+// TODO fix "flashing" whole item control background of previous selection when value changes
+
 /**
  * Rounded rectangle radio button variant styles.
  */
 // TODO type
 const roundedRectangleStyles = {
-  itemText: {
-    _checked: {
-      color: "background.default",
-    },
+  root: {
+    colorPalette: "accent",
+    display: "flex",
+    flexWrap: "wrap",
   },
   item: {
-    px: "0!",
+    alignItems: "center",
     appearance: "none",
     borderColor: "border.default",
     borderRadius: "sm",
     borderWidth: "1px",
     color: "foreground.default",
+    cursor: "pointer",
     display: "inline-flex",
     fontWeight: "semibold",
     justifyContent: "center",
@@ -30,11 +33,10 @@ const roundedRectangleStyles = {
     verticalAlign: "middle",
     whiteSpace: "nowrap",
     _hover: {
-      bgColor: "neutral.50a",
+      bgColor: "background.subtle",
     },
     _checked: {
       cursor: "default",
-      borderColor: "colorPalette.default",
     },
     _disabled: {
       borderColor: "border.disabled",
@@ -46,6 +48,13 @@ const roundedRectangleStyles = {
         color: "foreground.disabled",
       },
     },
+  },
+  itemControl: {
+    display: "none",
+  },
+  itemText: {
+    display: "inline-flex",
+    alignItems: "center",
   },
 };
 
@@ -60,16 +69,47 @@ const radioGroup = defineSlotRecipe({
     root: {
       colorPalette: "accent",
       display: "flex",
-      flexWrap: "wrap",
       flexDirection: {
         _vertical: "column",
-        _horizontal: "row",
+      },
+      gap: {
+        _vertical: 2,
+        _horizontal: 4,
+      },
+    },
+    itemControl: {
+      borderColor: "border.default",
+      borderRadius: "full",
+      borderWidth: "1px",
+      transitionDuration: "normal",
+      transitionProperty: "background",
+      transitionTimingFunction: "default",
+      _hover: {
+        bgColor: "background.subtle",
+      },
+      _checked: {
+        bgColor: "colorPalette.default",
+        borderColor: "colorPalette.default",
+        outlineColor: "background.default",
+        outlineStyle: "solid",
+        _hover: {
+          bgColor: "colorPalette.default",
+        },
+      },
+      _disabled: {
+        borderColor: "border.disabled",
+        color: "foreground.disabled",
+        _hover: {
+          bgColor: "initial",
+          color: "foreground.disabled",
+        },
       },
     },
     item: {
       alignItems: "center",
       cursor: "pointer",
       display: "flex",
+      gap: 2,
       _disabled: {
         cursor: "not-allowed",
       },
@@ -94,9 +134,6 @@ const radioGroup = defineSlotRecipe({
           borderColor: "border.default",
           borderRadius: "full",
           borderWidth: "1px",
-          transitionDuration: "normal",
-          transitionProperty: "background",
-          transitionTimingFunction: "default",
           _hover: {
             bgColor: "background.subtle",
           },
@@ -129,18 +166,17 @@ const radioGroup = defineSlotRecipe({
             color: "colorPalette.foreground",
             _hover: {
               bgColor: "colorPalette.default",
-              color: "colorPalette.foreground",
             },
           },
         },
-      },
-      outline: {
-        ...roundedRectangleStyles,
         itemText: {
           _checked: {
             color: "colorPalette.foreground",
           },
         },
+      },
+      outline: {
+        ...roundedRectangleStyles,
         item: {
           ...roundedRectangleStyles.item,
           _checked: {
@@ -155,93 +191,6 @@ const radioGroup = defineSlotRecipe({
     },
     size: {
       sm: {
-        root: {
-          gap: 2,
-        },
-        item: {
-          h: 9,
-          minW: 9,
-          textStyle: "sm",
-          px: 3.5,
-          "& svg": {
-            width: 4.5,
-            height: 4.5,
-          },
-        },
-        itemText: {
-          gap: 2,
-        },
-      },
-      md: {
-        root: {
-          gap: 3,
-        },
-        item: {
-          h: 10,
-          minW: 10,
-          textStyle: "sm",
-          px: 4,
-          "& svg": {
-            width: 5,
-            height: 5,
-          },
-        },
-        itemText: {
-          gap: 2,
-        },
-      },
-      lg: {
-        root: {
-          gap: 3,
-        },
-        item: {
-          h: 11,
-          minW: 11,
-          textStyle: "md",
-          px: 4.5,
-          "& svg": {
-            width: 5,
-            height: 5,
-          },
-        },
-        itemText: {
-          gap: 2,
-        },
-      },
-      xl: {
-        root: {
-          gap: 3,
-        },
-        item: {
-          h: 12,
-          minW: 12,
-          textStyle: "md",
-          px: 5,
-          "& svg": {
-            width: 5,
-            height: 5,
-          },
-        },
-        itemText: {
-          gap: 2.5,
-        },
-      },
-    },
-  },
-  compoundVariants: [
-    {
-      variant: "regular",
-      size: "sm",
-      css: {
-        root: {
-          gap: {
-            _vertical: 3,
-            _horizontal: 4,
-          },
-        },
-        item: {
-          gap: 2,
-        },
         itemControl: {
           width: 4,
           height: 4,
@@ -254,20 +203,7 @@ const radioGroup = defineSlotRecipe({
           textStyle: "sm",
         },
       },
-    },
-    {
-      variant: "regular",
-      size: "md",
-      css: {
-        root: {
-          gap: {
-            _vertical: 4,
-            _horizontal: 6,
-          },
-        },
-        item: {
-          gap: 3,
-        },
+      md: {
         itemControl: {
           width: 5,
           height: 5,
@@ -280,20 +216,7 @@ const radioGroup = defineSlotRecipe({
           textStyle: "md",
         },
       },
-    },
-    {
-      variant: "regular",
-      size: "lg",
-      css: {
-        root: {
-          gap: {
-            _vertical: 5,
-            _horizontal: 8,
-          },
-        },
-        item: {
-          gap: 4,
-        },
+      lg: {
         itemControl: {
           width: 6,
           height: 6,
@@ -304,6 +227,50 @@ const radioGroup = defineSlotRecipe({
         },
         itemText: {
           textStyle: "lg",
+        },
+      },
+    },
+  },
+  compoundVariants: [
+    {
+      variant: ["solid", "outline"],
+      size: "sm",
+      css: {
+        root: {
+          gap: 2,
+        },
+        item: {
+          p: 4,
+          width: 4,
+          height: 4,
+        },
+      },
+    },
+    {
+      variant: ["solid", "outline"],
+      size: "md",
+      css: {
+        root: {
+          gap: 2,
+        },
+        item: {
+          p: 5,
+          width: 7,
+          height: 7,
+        },
+      },
+    },
+    {
+      variant: ["solid", "outline"],
+      size: "lg",
+      css: {
+        root: {
+          gap: 2,
+        },
+        item: {
+          p: 6,
+          width: 8,
+          height: 8,
         },
       },
     },

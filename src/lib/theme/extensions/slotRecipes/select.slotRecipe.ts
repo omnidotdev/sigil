@@ -84,7 +84,6 @@ const select = defineSlotRecipe({
       borderColor: "border.default",
       borderRadius: "sm",
       cursor: "pointer",
-      color: "colorPalette.default",
       display: "inline-flex",
       justifyContent: "space-between",
       outline: 0,
