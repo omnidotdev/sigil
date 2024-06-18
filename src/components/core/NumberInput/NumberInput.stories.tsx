@@ -1,4 +1,5 @@
 import { NumberInput } from "components";
+import { Box } from "generated/panda/jsx";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -8,6 +9,13 @@ const meta = {
   title: "Components/Core/NumberInput",
   component: NumberInput,
   tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <Box w="2xs">
+        <Story />
+      </Box>
+    ),
+  ],
 } satisfies Meta;
 
 export const Default: Story = {
@@ -33,6 +41,13 @@ export const DefaultValue: Story = {
   args: {
     ...Default.args,
     defaultValue: "4",
+  },
+};
+
+export const CustomColorPalette: Story = {
+  args: {
+    ...Default.args,
+    colorPalette: "lime",
   },
 };
 

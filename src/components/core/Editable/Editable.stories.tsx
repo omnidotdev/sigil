@@ -11,7 +11,6 @@ const meta = {
 
 export const Default: Story = {
   args: {
-    label: "Name",
     placeholder: "Enter your name...",
     defaultValue: "Click here to edit",
   },
@@ -22,6 +21,13 @@ export const DoubleClick: Story = {
     ...Default.args,
     activationMode: "dblclick",
     defaultValue: "Double click here to edit",
+  },
+};
+
+export const WithLabel: Story = {
+  args: {
+    ...Default.args,
+    label: "Name",
   },
 };
 

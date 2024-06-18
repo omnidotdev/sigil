@@ -2,6 +2,7 @@ import { FileUpload as ArkFileUpload } from "@ark-ui/react/file-upload";
 import { FaRegTrashAlt } from "react-icons/fa";
 
 import Button from "components/core/Button/Button";
+import { styled } from "generated/panda/jsx";
 import { fileUpload } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
@@ -19,61 +20,78 @@ import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(fileUpload);
 
-const FileUploadRoot = withProvider(ArkFileUpload.Root, "root");
+export const FileUploadContext = ArkFileUpload.Context;
+export interface FileUploadContextProps
+  extends ComponentProps<typeof FileUploadContext> {}
+
+const FileUploadRoot = withProvider(styled(ArkFileUpload.Root), "root");
 export interface FileUploadRootProps
   extends ComponentProps<typeof FileUploadRoot> {}
 
-const FileUploadTrigger = withContext(ArkFileUpload.Trigger, "trigger");
+const FileUploadTrigger = withContext(styled(ArkFileUpload.Trigger), "trigger");
 export interface FileUploadTriggerProps
   extends ComponentProps<typeof FileUploadTrigger> {}
 
-const FileUploadDropzone = withContext(ArkFileUpload.Dropzone, "dropzone");
+const FileUploadDropzone = withContext(
+  styled(ArkFileUpload.Dropzone),
+  "dropzone",
+);
 export interface FileUploadDropzoneProps
   extends ComponentProps<typeof FileUploadDropzone> {}
 
-const FileUploadItem = withContext(ArkFileUpload.Item, "item");
+const FileUploadItem = withContext(styled(ArkFileUpload.Item), "item");
 export interface FileUploadItemProps
   extends ComponentProps<typeof FileUploadItem> {}
 
 const FileUploadItemDeleteTrigger = withContext(
-  ArkFileUpload.ItemDeleteTrigger,
+  styled(ArkFileUpload.ItemDeleteTrigger),
   "itemDeleteTrigger",
 );
 export interface FileUploadItemDeleteTriggerProps
   extends ComponentProps<typeof FileUploadItemDeleteTrigger> {}
 
-const FileUploadItemGroup = withContext(ArkFileUpload.ItemGroup, "itemGroup");
+const FileUploadItemGroup = withContext(
+  styled(ArkFileUpload.ItemGroup),
+  "itemGroup",
+);
 export interface FileUploadItemGroupProps
   extends ComponentProps<typeof FileUploadItemGroup> {}
 
-const FileUploadItemName = withContext(ArkFileUpload.ItemName, "itemName");
+const FileUploadItemName = withContext(
+  styled(ArkFileUpload.ItemName),
+  "itemName",
+);
 export interface FileUploadItemNameProps
   extends ComponentProps<typeof FileUploadItemName> {}
 
 const FileUploadItemPreview = withContext(
-  ArkFileUpload.ItemPreview,
+  styled(ArkFileUpload.ItemPreview),
   "itemPreview",
 );
 export interface FileUploadItemPreviewProps
   extends ComponentProps<typeof FileUploadItemPreview> {}
 
 const FileUploadItemPreviewImage = withContext(
-  ArkFileUpload.ItemPreviewImage,
+  styled(ArkFileUpload.ItemPreviewImage),
   "itemPreviewImage",
 );
 export interface FileUploadItemPreviewImageProps
   extends ComponentProps<typeof FileUploadItemPreviewImage> {}
 
 const FileUploadItemSizeText = withContext(
-  ArkFileUpload.ItemSizeText,
+  styled(ArkFileUpload.ItemSizeText),
   "itemSizeText",
 );
 export interface FileUploadItemSizeTextProps
   extends ComponentProps<typeof FileUploadItemSizeText> {}
 
-const FileUploadLabel = withContext(ArkFileUpload.Label, "label");
+const FileUploadLabel = withContext(styled(ArkFileUpload.Label), "label");
 export interface FileUploadLabelProps
   extends ComponentProps<typeof FileUploadLabel> {}
+
+const FileUploadHiddenInput = ArkFileUpload.HiddenInput;
+export interface FileUploadHiddenInputProps
+  extends ComponentProps<typeof FileUploadHiddenInput> {}
 
 export interface FileUploadProps extends FileUploadRootProps {
   /** Label for the file upload dropzone. */
@@ -88,6 +106,7 @@ export interface FileUploadProps extends FileUploadRootProps {
   itemProps?: ArkFileUploadItemProps;
   /** File upload item preview props. */
   itemPreviewProps?: ArkFileUploadItemPreviewProps;
+  /** File upload item preview image props. */
   itemPreviewImageProps?: ArkFileUploadItemPreviewImageProps;
   /** File upload item name props. */
   itemNameProps?: ArkFileUploadItemNameProps;
@@ -123,26 +142,30 @@ const FileUpload = ({
     </FileUploadDropzone>
 
     <FileUploadItemGroup {...itemGroupProps}>
-      {(files) =>
-        files.map((file, id) => (
-          <FileUploadItem key={id} file={file} {...itemProps}>
-            <FileUploadItemPreview {...itemPreviewProps}>
-              <FileUploadItemPreviewImage {...itemPreviewImageProps} />
-            </FileUploadItemPreview>
+      <FileUploadContext>
+        {({ acceptedFiles }) =>
+          acceptedFiles.map((file, id) => (
+            <FileUploadItem key={id} file={file} {...itemProps}>
+              <FileUploadItemPreview {...itemPreviewProps}>
+                <FileUploadItemPreviewImage {...itemPreviewImageProps} />
+              </FileUploadItemPreview>
 
-            <FileUploadItemName {...itemNameProps} />
+              <FileUploadItemName {...itemNameProps} />
 
-            <FileUploadItemSizeText {...itemSizeTextProps} />
+              <FileUploadItemSizeText {...itemSizeTextProps} />
 
-            <FileUploadItemDeleteTrigger asChild {...itemDeleteTriggerProps}>
-              <Button variant="link" size="sm">
-                <FaRegTrashAlt />
-              </Button>
-            </FileUploadItemDeleteTrigger>
-          </FileUploadItem>
-        ))
-      }
+              <FileUploadItemDeleteTrigger asChild {...itemDeleteTriggerProps}>
+                <Button variant="link" size="sm">
+                  <FaRegTrashAlt />
+                </Button>
+              </FileUploadItemDeleteTrigger>
+            </FileUploadItem>
+          ))
+        }
+      </FileUploadContext>
     </FileUploadItemGroup>
+
+    <FileUploadHiddenInput />
   </FileUploadRoot>
 );
 

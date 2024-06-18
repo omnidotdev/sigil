@@ -2,53 +2,64 @@ import { Editable as ArkEditable } from "@ark-ui/react/editable";
 
 import Button from "components/core/Button/Button";
 import Label from "components/core/Label/Label";
+import { styled } from "generated/panda/jsx";
 import { editable } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ComponentProps } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(editable);
 
-export const EditableRoot = withProvider(ArkEditable.Root, "root");
+export const EditableContext = ArkEditable.Context;
+export interface EditableContextProps
+  extends ComponentProps<typeof EditableContext> {}
+
+export const EditableRoot = withProvider(styled(ArkEditable.Root), "root");
 export interface EditableRootProps
   extends ComponentProps<typeof EditableRoot> {}
 
-export const EditableArea = withContext(ArkEditable.Area, "area");
+export const EditableArea = withContext(styled(ArkEditable.Area), "area");
 export interface EditableAreaProps
   extends ComponentProps<typeof EditableArea> {}
 
 export const EditableCancelTrigger = withContext(
-  ArkEditable.CancelTrigger,
+  styled(ArkEditable.CancelTrigger),
   "cancelTrigger",
 );
 export interface EditableCancelTriggerProps
   extends ComponentProps<typeof EditableCancelTrigger> {}
 
-export const EditableControl = withContext(ArkEditable.Control, "control");
+export const EditableControl = withContext(
+  styled(ArkEditable.Control),
+  "control",
+);
 export interface EditableControlProps
   extends ComponentProps<typeof EditableControl> {}
 
 export const EditableEditTrigger = withContext(
-  ArkEditable.EditTrigger,
+  styled(ArkEditable.EditTrigger),
   "editTrigger",
 );
 export interface EditableEditTriggerProps
   extends ComponentProps<typeof EditableEditTrigger> {}
 
-export const EditableInput = withContext(ArkEditable.Input, "input");
+export const EditableInput = withContext(styled(ArkEditable.Input), "input");
 export interface EditableInputProps
   extends ComponentProps<typeof EditableInput> {}
 
-export const EditableLabel = withContext(ArkEditable.Label, "label");
+export const EditableLabel = withContext(styled(ArkEditable.Label), "label");
 export interface EditableLabelProps
   extends ComponentProps<typeof EditableLabel> {}
 
-export const EditablePreview = withContext(ArkEditable.Preview, "preview");
+export const EditablePreview = withContext(
+  styled(ArkEditable.Preview),
+  "preview",
+);
 export interface EditablePreviewProps
   extends ComponentProps<typeof EditablePreview> {}
 
 export const EditableSubmitTrigger = withContext(
-  ArkEditable.SubmitTrigger,
+  styled(ArkEditable.SubmitTrigger),
   "submitTrigger",
 );
 export interface EditableSubmitTriggerProps
@@ -56,7 +67,7 @@ export interface EditableSubmitTriggerProps
 
 export interface EditableProps extends EditableRootProps {
   /** Editable field label. */
-  label: string;
+  label?: ReactNode;
 }
 
 /**
@@ -64,19 +75,21 @@ export interface EditableProps extends EditableRootProps {
  */
 const Editable = ({ label, ...rest }: EditableProps) => (
   <EditableRoot {...rest}>
-    {(ctx) => (
-      <>
-        <EditableLabel asChild>
-          <Label>{label}</Label>
-        </EditableLabel>
+    {label && (
+      <EditableLabel asChild>
+        <Label>{label}</Label>
+      </EditableLabel>
+    )}
 
-        <EditableArea>
-          <EditableInput />
-          <EditablePreview />
-        </EditableArea>
+    <EditableArea>
+      <EditableInput />
+      <EditablePreview />
+    </EditableArea>
 
-        <EditableControl>
-          {ctx.isEditing ? (
+    <EditableControl>
+      <EditableContext>
+        {({ editing }) =>
+          editing ? (
             <>
               <EditableSubmitTrigger asChild>
                 <Button variant="link">Save</Button>
@@ -89,10 +102,10 @@ const Editable = ({ label, ...rest }: EditableProps) => (
             <EditableEditTrigger asChild>
               <Button variant="link">Edit</Button>
             </EditableEditTrigger>
-          )}
-        </EditableControl>
-      </>
-    )}
+          )
+        }
+      </EditableContext>
+    </EditableControl>
   </EditableRoot>
 );
 

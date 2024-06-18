@@ -1,28 +1,27 @@
 import { Tabs as ArkTabs } from "@ark-ui/react/tabs";
 
+import { styled } from "generated/panda/jsx";
 import { tabs } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { ComponentProps, ReactNode } from "react";
 
-import type {} from "@zag-js/tabs";
-
 const { withProvider, withContext } = createStyleContext(tabs);
 
-export const TabsRoot = withProvider(ArkTabs.Root, "root");
+export const TabsRoot = withProvider(styled(ArkTabs.Root), "root");
 export interface TabsRootProps extends ComponentProps<typeof TabsRoot> {}
 
-export const TabList = withContext(ArkTabs.List, "list");
+export const TabList = withContext(styled(ArkTabs.List), "list");
 export interface TabListProps extends ComponentProps<typeof TabList> {}
 
-export const TabTrigger = withContext(ArkTabs.Trigger, "trigger");
+export const TabTrigger = withContext(styled(ArkTabs.Trigger), "trigger");
 export interface TabTriggerProps extends ComponentProps<typeof TabTrigger> {}
 
-export const TabIndicator = withContext(ArkTabs.Indicator, "indicator");
+export const TabIndicator = withContext(styled(ArkTabs.Indicator), "indicator");
 export interface TabIndicatorProps
   extends ComponentProps<typeof TabIndicator> {}
 
-export const TabContent = withContext(ArkTabs.Content, "content");
+export const TabContent = withContext(styled(ArkTabs.Content), "content");
 export interface TabContentProps extends ComponentProps<typeof TabContent> {}
 
 export interface TabsProps extends TabsRootProps {
@@ -45,6 +44,7 @@ const Tabs = ({ tabs, ...rest }: TabsProps) => (
           {label}
         </TabTrigger>
       ))}
+
       <TabIndicator />
     </TabList>
 

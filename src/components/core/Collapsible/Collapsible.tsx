@@ -1,5 +1,6 @@
 import { Collapsible as ArkCollapsible } from "@ark-ui/react/collapsible";
 
+import { styled } from "generated/panda/jsx";
 import { collapsible } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
@@ -7,19 +8,22 @@ import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(collapsible);
 
-export const CollapsibleRoot = withProvider(ArkCollapsible.Root, "root");
+export const CollapsibleRoot = withProvider(
+  styled(ArkCollapsible.Root),
+  "root",
+);
 export interface CollapsibleRootProps
   extends ComponentProps<typeof CollapsibleRoot> {}
 
 export const CollapsibleContent = withContext(
-  ArkCollapsible.Content,
+  styled(ArkCollapsible.Content),
   "content",
 );
 export interface CollapsibleContentProps
   extends ComponentProps<typeof CollapsibleContent> {}
 
 export const CollapsibleTrigger = withContext(
-  ArkCollapsible.Trigger,
+  styled(ArkCollapsible.Trigger),
   "trigger",
 );
 export interface CollapsibleTriggerProps

@@ -1,5 +1,6 @@
 import { SegmentGroup as ArkSegmentGroup } from "@ark-ui/react/segment-group";
 
+import { styled } from "generated/panda/jsx";
 import { segmentGroup } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
@@ -9,39 +10,52 @@ const { withProvider, withContext } = createStyleContext(segmentGroup);
 
 // TODO deprecate in favor of tabs
 
-export const SegmentGroupRoot = withProvider(ArkSegmentGroup.Root, "root");
+export const SegmentGroupRoot = withProvider(
+  styled(ArkSegmentGroup.Root),
+  "root",
+);
 export interface SegmentGroupRootProps
   extends ComponentProps<typeof SegmentGroupRoot> {}
 
 // TODO use in prebuilt `SegmentGroup` component
-export const SegmentGroupLabel = withContext(ArkSegmentGroup.Label, "label");
+export const SegmentGroupLabel = withContext(
+  styled(ArkSegmentGroup.Label),
+  "label",
+);
 export interface SegmentGroupLabelProps
   extends ComponentProps<typeof SegmentGroupLabel> {}
 
 export const SegmentGroupIndicator = withContext(
-  ArkSegmentGroup.Indicator,
+  styled(ArkSegmentGroup.Indicator),
   "indicator",
 );
 export interface SegmentGroupIndicatorProps
   extends ComponentProps<typeof SegmentGroupIndicator> {}
 
-export const SegmentGroupItem = withContext(ArkSegmentGroup.Item, "item");
+export const SegmentGroupItem = withContext(
+  styled(ArkSegmentGroup.Item),
+  "item",
+);
 export interface SegmentGroupItemProps
   extends ComponentProps<typeof SegmentGroupItem> {}
 
 export const SegmentGroupItemText = withContext(
-  ArkSegmentGroup.ItemText,
+  styled(ArkSegmentGroup.ItemText),
   "itemText",
 );
 export interface SegmentGroupItemTextProps
   extends ComponentProps<typeof SegmentGroupItemText> {}
 
 export const SegmentGroupItemControl = withContext(
-  ArkSegmentGroup.ItemControl,
+  styled(ArkSegmentGroup.ItemControl),
   "itemControl",
 );
 export interface SegmentGroupItemControlProps
   extends ComponentProps<typeof SegmentGroupItemControl> {}
+
+export const SegmentGroupItemHiddenInput = ArkSegmentGroup.ItemHiddenInput;
+export interface SegmentGroupItemHiddenInputProps
+  extends ComponentProps<typeof SegmentGroupItemHiddenInput> {}
 
 export interface SegmentGroupProps extends SegmentGroupRootProps {
   /** Segment group options. */
@@ -69,6 +83,8 @@ const SegmentGroup = ({ options, ...rest }: SegmentGroupProps) => (
         <SegmentGroupItemControl />
 
         <SegmentGroupItemText>{label}</SegmentGroupItemText>
+
+        <SegmentGroupItemHiddenInput />
       </SegmentGroupItem>
     ))}
     <SegmentGroupIndicator />

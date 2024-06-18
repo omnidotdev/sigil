@@ -62,6 +62,8 @@ export const AsChildElement: Story = {
 
 const sizes = Object.keys(text.variants!.size) as TextVariant["size"][];
 
+// TODO table like avatar stories
+
 /**
  * Adjust the link font size with `textStyle`.
  */
@@ -80,6 +82,8 @@ export const FontSizes: Story = {
 const weights = Object.keys(
   fontWeights as Record<string, Partial<{ value: number }>>,
 );
+
+// TODO table like avatar stories
 
 /**
  * Adjust the link font weight with `fontWeight`.

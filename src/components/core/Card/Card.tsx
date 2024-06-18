@@ -1,5 +1,6 @@
 import { ark } from "@ark-ui/react";
 
+import { styled } from "generated/panda/jsx";
 import { card } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
@@ -11,24 +12,24 @@ import type {
 
 const { withProvider, withContext } = createStyleContext(card);
 
-export const CardRoot = withProvider(ark.div, "root");
+export const CardRoot = withProvider(styled(ark.div), "root");
 export interface CardRootProps
   extends Omit<ComponentProps<typeof CardRoot>, "title"> {}
 
-export const CardHeader = withContext(ark.div, "header");
+export const CardHeader = withContext(styled(ark.div), "header");
 export interface CardHeaderProps extends ComponentProps<typeof CardHeader> {}
 
-export const CardTitle = withContext(ark.h3, "title");
+export const CardTitle = withContext(styled(ark.h3), "title");
 export interface CardTitleProps extends ComponentProps<typeof CardTitle> {}
 
-export const CardDescription = withContext(ark.div, "description");
+export const CardDescription = withContext(styled(ark.div), "description");
 export interface CardDescriptionProps
   extends ComponentProps<typeof CardDescription> {}
 
-export const CardBody = withContext(ark.div, "body");
+export const CardBody = withContext(styled(ark.div), "body");
 export interface CardBodyProps extends ComponentProps<typeof CardBody> {}
 
-export const CardFooter = withContext(ark.div, "footer");
+export const CardFooter = withContext(styled(ark.div), "footer");
 export interface CardFooterProps extends ComponentProps<typeof CardFooter> {}
 
 export interface CardProps extends CardRootProps {

@@ -1,47 +1,43 @@
 import { Accordion as ArkAccordion } from "@ark-ui/react/accordion";
 import { FiChevronDown } from "react-icons/fi";
 
+import { styled } from "generated/panda/jsx";
 import { accordion } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { AccordionItemProps as ArkAccordionItemProps } from "@ark-ui/react/accordion";
-import type {} from "@zag-js/accordion";
 import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(accordion);
 
-export const AccordionRoot = withProvider(ArkAccordion.Root, "root");
+export const AccordionRoot = withProvider(styled(ArkAccordion.Root), "root");
 export interface AccordionRootProps
   extends ComponentProps<typeof AccordionRoot> {}
 
-export const AccordionItem = withContext(ArkAccordion.Item, "item");
+export const AccordionItem = withContext(styled(ArkAccordion.Item), "item");
 export interface AccordionItemProps
   extends ComponentProps<typeof AccordionItem> {}
 
 export const AccordionItemContent = withContext(
-  ArkAccordion.ItemContent,
+  styled(ArkAccordion.ItemContent),
   "itemContent",
 );
 export interface AccordionItemContentProps
   extends ComponentProps<typeof AccordionItemContent> {}
 
 export const AccordionItemIndicator = withContext(
-  ArkAccordion.ItemIndicator,
+  styled(ArkAccordion.ItemIndicator),
   "itemIndicator",
 );
 export interface AccordionItemIndicatorProps
   extends ComponentProps<typeof AccordionItemIndicator> {}
 
 export const AccordionItemTrigger = withContext(
-  ArkAccordion.ItemTrigger,
+  styled(ArkAccordion.ItemTrigger),
   "itemTrigger",
 );
 export interface AccordionItemTriggerProps
   extends ComponentProps<typeof AccordionItemTrigger> {}
-
-interface AccordionIconProps {
-  isOpen: boolean;
-}
 
 export interface AccordionProps extends AccordionRootProps {
   items: (Omit<ArkAccordionItemProps, "title" | "value"> & {
@@ -51,34 +47,25 @@ export interface AccordionProps extends AccordionRootProps {
     body: ReactNode;
     /** Whether item is disabled. */
     isDisabled?: boolean;
-    // TODO enable support for below prop extensions
-    /** Item trigger props. */
-    // triggerProps?: ArkAccordionItemContentProps;
-    /** Item icon props. */
-    // iconProps?: AccordionIconProps;
-    /** Item content props. */
-    // contentProps?: ArkAccordionItemTriggerProps;
   })[];
+  /** Item trigger props. */
+  triggerProps?: AccordionItemTriggerProps;
+  /** Item indicator props. */
+  indicatorProps?: AccordionItemIndicatorProps;
+  /** Item content props. */
+  contentProps?: AccordionItemContentProps;
 }
 
 /**
- * Accordion icon intended to be used to indicate whether an accordion item is open or closed.
+ * Accordion used to display interactive tabs that can be opened and closed to show/hide nested content. By default, `multiple` is enabled, allowing multiple items to be open at once.
  */
-const AccordionIcon = ({ isOpen }: AccordionIconProps) => {
-  const iconStyles = {
-    transform: isOpen ? "rotate(-180deg)" : undefined,
-    transition: "transform 0.2s",
-    transformOrigin: "center",
-  };
-
-  // TODO allow custom icon overrides (make sure animation still works well)
-  return <FiChevronDown style={iconStyles} />;
-};
-
-/**
- * Accordion used to display interactive tabs that can be opened and closed to show/hide nested content.
- */
-const Accordion = ({ items, ...rest }: AccordionProps) => (
+const Accordion = ({
+  items,
+  triggerProps,
+  indicatorProps,
+  contentProps,
+  ...rest
+}: AccordionProps) => (
   <AccordionRoot multiple {...rest}>
     {items.map(({ title, body, isDisabled, ...rest }) => (
       <AccordionItem
@@ -87,24 +74,18 @@ const Accordion = ({ items, ...rest }: AccordionProps) => (
         disabled={isDisabled}
         {...rest}
       >
-        {({ isOpen }) => (
-          <>
-            <AccordionItemTrigger>
-              {title}
-              <AccordionIcon isOpen={isOpen} />
-              {/* ? below instead of `AccordionIcon` above? */}
-              {/* <AccordionItemIndicator> */}
-              {/* <ChevronDownIcon /> */}
-              {/* </AccordionItemIndicator> */}
-            </AccordionItemTrigger>
+        <>
+          <AccordionItemTrigger {...triggerProps}>
+            {title}
 
-            <AccordionItemContent>
-              {/* NB: div wrapper enforces body content to collapse properly if, for example, a string is passed */}
-              {/* TODO remove wrapper, see https://github.com/cschroeter/park-ui/issues/92#event-10971243692 */}
-              <div>{body}</div>
-            </AccordionItemContent>
-          </>
-        )}
+            {/* TODO allow custom icon overrides (make sure animation still works well) */}
+            <AccordionItemIndicator {...indicatorProps}>
+              <FiChevronDown />
+            </AccordionItemIndicator>
+          </AccordionItemTrigger>
+
+          <AccordionItemContent {...contentProps}>{body}</AccordionItemContent>
+        </>
       </AccordionItem>
     ))}
   </AccordionRoot>

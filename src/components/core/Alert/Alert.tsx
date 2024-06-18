@@ -4,6 +4,7 @@ import { FiCheck, FiInfo } from "react-icons/fi";
 import { IoWarningOutline } from "react-icons/io5";
 import { match } from "ts-pattern";
 
+import { styled } from "generated/panda/jsx";
 import { alert } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
@@ -11,21 +12,21 @@ import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(alert);
 
-export const AlertRoot = withProvider(ark.div, "root");
+export const AlertRoot = withProvider(styled(ark.div), "root");
 export interface AlertRootProps extends ComponentProps<typeof AlertRoot> {}
 
-export const AlertContent = withContext(ark.div, "content");
+export const AlertContent = withContext(styled(ark.div), "content");
 export interface AlertContentProps
   extends ComponentProps<typeof AlertContent> {}
 
-export const AlertDescription = withContext(ark.div, "description");
+export const AlertDescription = withContext(styled(ark.div), "description");
 export interface AlertDescriptionProps
   extends ComponentProps<typeof AlertDescription> {}
 
-export const AlertIcon = withContext(ark.svg, "icon");
+export const AlertIcon = withContext(styled(ark.svg), "icon");
 export interface AlertIconProps extends ComponentProps<typeof AlertIcon> {}
 
-export const AlertTitle = withContext(ark.h5, "title");
+export const AlertTitle = withContext(styled(ark.h5), "title");
 export interface AlertTitleProps extends ComponentProps<typeof AlertTitle> {}
 
 export interface AlertProps extends AlertRootProps {
@@ -36,7 +37,7 @@ export interface AlertProps extends AlertRootProps {
   descriptionProps?: ComponentProps<typeof AlertDescription>;
 }
 
-// TODO better styles for if just description or title is passed
+// TODO better styles (mainly spacing) for if just description or title is passed
 // TODO default titles for each variant
 
 /**

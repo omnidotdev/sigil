@@ -28,4 +28,14 @@ export const Horizontal: Story = {
   },
 };
 
+/**
+ * A custom color palette can be applied to atomically modify the base color.
+ */
+export const CustomColorPalette: Story = {
+  args: {
+    ...Default.args,
+    colorPalette: "purple",
+  },
+};
+
 export default meta;

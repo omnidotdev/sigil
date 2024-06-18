@@ -55,4 +55,14 @@ export const Sizes = () => (
   </Stack>
 );
 
+/**
+ * A custom color palette can be applied to atomically modify the base color.
+ */
+export const CustomColorPalette: Story = {
+  args: {
+    ...Default.args,
+    colorPalette: "lime",
+  },
+};
+
 export default meta;

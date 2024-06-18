@@ -12,7 +12,7 @@ const meta = {
 
 export const Default: Story = {
   args: {
-    children: "Label",
+    label: "Label",
   },
 };
 

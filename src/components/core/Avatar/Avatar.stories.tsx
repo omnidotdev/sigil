@@ -53,6 +53,8 @@ export const CustomFallback: Story = {
 
 const sizes = Object.keys(avatar.variants!.size) as AvatarVariant["size"][];
 
+// TODO make table below a reusable component for stories
+
 export const Sizes = () => (
   <Table
     headerContent={

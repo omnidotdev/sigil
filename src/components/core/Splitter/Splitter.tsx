@@ -1,25 +1,24 @@
 import { Splitter as ArkSplitter } from "@ark-ui/react/splitter";
 import { match } from "ts-pattern";
 
+import { styled } from "generated/panda/jsx";
 import { splitter } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { ComponentProps, ReactNode } from "react";
 
-import type {} from "@zag-js/splitter";
-
 const { withProvider, withContext } = createStyleContext(splitter);
 
-export const SplitterRoot = withProvider(ArkSplitter.Root, "root");
+export const SplitterRoot = withProvider(styled(ArkSplitter.Root), "root");
 export interface SplitterRootProps
   extends ComponentProps<typeof SplitterRoot> {}
 
-export const SplitterPanel = withContext(ArkSplitter.Panel, "panel");
+export const SplitterPanel = withContext(styled(ArkSplitter.Panel), "panel");
 export interface SplitterPanelProps
   extends ComponentProps<typeof SplitterPanel> {}
 
 export const SplitterResizeTrigger = withContext(
-  ArkSplitter.ResizeTrigger,
+  styled(ArkSplitter.ResizeTrigger),
   "resizeTrigger",
 );
 export interface SplitterResizeTriggerProps

@@ -16,23 +16,23 @@ export const Default: Story = {
     data: {
       children: [
         {
-          id: "1",
+          value: "1",
           name: "Item 1",
           children: [
             {
-              id: "1.1",
+              value: "1.1",
               name: "Item 1.1",
             },
             {
-              id: "1.2",
+              value: "1.2",
               name: "Item 1.2",
               children: [
                 {
-                  id: "1.2.1",
+                  value: "1.2.1",
                   name: "Item 1.2.1",
                 },
                 {
-                  id: "1.2.2",
+                  value: "1.2.2",
                   name: "Item 1.2.2",
                 },
               ],
@@ -40,21 +40,21 @@ export const Default: Story = {
           ],
         },
         {
-          id: "2",
+          value: "2",
           name: "Item 2",
           children: [
             {
-              id: "2.1",
+              value: "2.1",
               name: "Item 2.1",
             },
             {
-              id: "2.2",
+              value: "2.2",
               name: "Item 2.2",
             },
           ],
         },
         {
-          id: "3",
+          value: "3",
           name: "Item 3",
         },
       ],
@@ -66,6 +66,16 @@ export const WithLabel: Story = {
   args: {
     ...Default.args,
     label: "Tree view",
+  },
+};
+
+/**
+ * A custom color palette can be applied to atomically modify the base color.
+ */
+export const CustomColorPalette: Story = {
+  args: {
+    ...Default.args,
+    colorPalette: "purple",
   },
 };
 

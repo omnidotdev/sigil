@@ -1,6 +1,9 @@
 import { Checkbox } from "components";
+import { Stack } from "generated/panda/jsx";
+import { checkbox } from "lib/theme/extensions/slotRecipes";
 
 import type { Meta, StoryObj } from "@storybook/react";
+import type { CheckboxVariant } from "generated/panda/recipes";
 type Story = StoryObj<typeof meta>;
 
 const meta = {
@@ -27,6 +30,20 @@ export const Indeterminate: Story = {
     ...Default.args,
     defaultChecked: "indeterminate",
   },
+};
+
+// TODO table like Avatar stories
+
+const sizes = Object.keys(checkbox.variants!.size) as CheckboxVariant["size"][];
+
+export const Sizes: Story = {
+  render: () => (
+    <Stack>
+      {sizes.map((size) => (
+        <Checkbox key={size} size={size} label={size} />
+      ))}
+    </Stack>
+  ),
 };
 
 /**
