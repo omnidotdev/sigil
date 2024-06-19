@@ -7,9 +7,7 @@
   "main": "build/sigil.js",
   "module": "build/sigil.mjs",
   "types": "build/sigil.d.ts",
-  "files": [
-    "build"
-  ],
+  "files": ["build"],
   "repository": {
     "type": "git",
     "url": "https://github.com/omnidotdev/sigil"
@@ -66,7 +64,6 @@
     "@storybook/addon-interactions": "^8.1.10",
     "@storybook/addon-links": "^8.1.10",
     "@storybook/addon-storysource": "^8.1.10",
-    "@storybook/addon-themes": "^8.1.10",
     "@storybook/blocks": "^8.1.10",
     "@storybook/components": "^8.1.10",
     "@storybook/manager-api": "^8.1.10",
