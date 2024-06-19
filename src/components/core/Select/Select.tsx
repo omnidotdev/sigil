@@ -106,6 +106,18 @@ export interface SelectProps extends SelectRootProps {
     singular: string;
     plural: string;
   };
+  labelProps?: SelectLabelProps;
+  controlProps?: SelectControlProps;
+  triggerProps?: SelectTriggerProps;
+  valueTextProps?: SelectValueTextProps;
+  clearTriggerProps?: SelectClearTriggerProps;
+  positionerProps?: SelectPositionerProps;
+  contentProps?: SelectContentProps;
+  itemGroupProps?: SelectItemGroupProps;
+  itemGroupLabelProps?: SelectItemGroupLabelProps;
+  itemProps?: SelectItemProps;
+  itemIndicatorProps?: SelectItemIndicatorProps;
+  itemTextProps?: SelectItemTextProps;
 }
 
 /**
@@ -117,41 +129,58 @@ const Select = ({
   displayClearTrigger = true,
   label,
   items,
+  labelProps,
+  controlProps,
+  triggerProps,
+  valueTextProps,
+  clearTriggerProps,
+  positionerProps,
+  contentProps,
+  itemGroupProps,
+  itemGroupLabelProps,
+  itemProps,
+  itemIndicatorProps,
+  itemTextProps,
   ...rest
 }: SelectProps) => (
   <SelectRoot positioning={{ sameWidth: true }} items={items} {...rest}>
-    {displayFieldLabel && <SelectLabel>{label.singular}</SelectLabel>}
+    {displayFieldLabel && (
+      <SelectLabel {...labelProps}>{label.singular}</SelectLabel>
+    )}
 
-    <SelectControl>
-      <SelectTrigger>
+    <SelectControl {...controlProps}>
+      <SelectTrigger {...triggerProps}>
         <SelectValueText
           placeholder={`Select a ${label.singular.toLowerCase()}...`}
+          {...valueTextProps}
         />
 
         <BiExpandVertical />
       </SelectTrigger>
 
       {displayClearTrigger && (
-        <SelectClearTrigger asChild>
+        <SelectClearTrigger asChild {...clearTriggerProps}>
           <BiX />
         </SelectClearTrigger>
       )}
     </SelectControl>
 
-    <SelectPositioner>
-      <SelectContent>
-        <SelectItemGroup id={label.id}>
+    <SelectPositioner {...positionerProps}>
+      <SelectContent {...contentProps}>
+        <SelectItemGroup id={label.id} {...itemGroupProps}>
           {displayGroupLabel && (
-            <SelectItemGroupLabel>{label.plural}</SelectItemGroupLabel>
+            <SelectItemGroupLabel {...itemGroupLabelProps}>
+              {label.plural}
+            </SelectItemGroupLabel>
           )}
 
           {items.map((item) => (
             // @ts-ignore upstream (Ark `CollectionItem`) type bug
-            <SelectItem key={item.value} item={item}>
+            <SelectItem key={item.value} item={item} {...itemProps}>
               {/* @ts-ignore upstream (Ark `CollectionItem`) type bug */}
-              <SelectItemText>{item.label}</SelectItemText>
+              <SelectItemText {...itemTextProps}>{item.label}</SelectItemText>
 
-              <SelectItemIndicator>
+              <SelectItemIndicator {...itemIndicatorProps}>
                 <BiCheck />
               </SelectItemIndicator>
             </SelectItem>

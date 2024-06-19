@@ -115,6 +115,18 @@ export interface ComboboxProps extends ComboboxRootProps {
     singular: string;
     plural: string;
   };
+  labelProps?: ComboboxLabelProps;
+  controlProps?: ComboboxControlProps;
+  inputProps?: ComboboxInputProps;
+  clearTriggerProps?: ComboboxClearTriggerProps;
+  triggerProps?: ComboboxTriggerProps;
+  positionerProps?: ComboboxPositionerProps;
+  contentProps?: ComboboxContentProps;
+  itemGroupProps?: ComboboxItemGroupProps;
+  itemGroupLabelProps?: ComboboxItemGroupLabelProps;
+  itemProps?: ComboboxItemProps;
+  itemTextProps?: ComboboxItemTextProps;
+  itemIndicatorProps?: ComboboxItemIndicatorProps;
 }
 
 /**
@@ -127,6 +139,18 @@ const Combobox = ({
   displayClearTrigger = true,
   label,
   items,
+  labelProps,
+  controlProps,
+  inputProps,
+  clearTriggerProps,
+  triggerProps,
+  positionerProps,
+  contentProps,
+  itemGroupProps,
+  itemGroupLabelProps,
+  itemProps,
+  itemTextProps,
+  itemIndicatorProps,
   ...rest
 }: ComboboxProps) => {
   const [filteredItems, setFilteredItems] = useState(items);
@@ -146,45 +170,52 @@ const Combobox = ({
       items={filteredItems}
       {...rest}
     >
-      {displayFieldLabel && <ComboboxLabel>{label.plural}</ComboboxLabel>}
+      {displayFieldLabel && (
+        <ComboboxLabel {...labelProps}>{label.plural}</ComboboxLabel>
+      )}
 
-      <ComboboxControl>
+      <ComboboxControl {...controlProps}>
         <ComboboxInput
           asChild
           placeholder={`Select a ${label.singular.toLowerCase()}...`}
+          {...inputProps}
         >
           <Input colorPalette={colorPalette} />
         </ComboboxInput>
 
         {displayClearTrigger && (
-          <ComboboxClearTrigger asChild>
+          <ComboboxClearTrigger asChild {...clearTriggerProps}>
             <Button variant="link" size="xs" aria-label="Clear combobox">
               <BiX />
             </Button>
           </ComboboxClearTrigger>
         )}
 
-        <ComboboxTrigger asChild>
+        <ComboboxTrigger asChild {...triggerProps}>
           <Button variant="link" size="xs" aria-label="Open combobox">
             <BiExpandVertical />
           </Button>
         </ComboboxTrigger>
       </ComboboxControl>
 
-      <ComboboxPositioner>
-        <ComboboxContent>
-          <ComboboxItemGroup id={label.id}>
+      <ComboboxPositioner {...positionerProps}>
+        <ComboboxContent {...contentProps}>
+          <ComboboxItemGroup id={label.id} {...itemGroupProps}>
             {displayGroupLabel && (
-              <ComboboxItemGroupLabel>{label.plural}</ComboboxItemGroupLabel>
+              <ComboboxItemGroupLabel {...itemGroupLabelProps}>
+                {label.plural}
+              </ComboboxItemGroupLabel>
             )}
 
             {filteredItems.map((item) => (
               // @ts-ignore upstream (Ark `CollectionItem`) type bug
-              <ComboboxItem key={item.value} item={item}>
-                {/* @ts-ignore upstream (Ark `CollectionItem`) type bug */}
-                <ComboboxItemText>{item.label}</ComboboxItemText>
+              <ComboboxItem key={item.value} item={item} {...itemProps}>
+                <ComboboxItemText {...itemTextProps}>
+                  {/* @ts-ignore upstream (Ark `CollectionItem`) type bug */}
+                  {item.label}
+                </ComboboxItemText>
 
-                <ComboboxItemIndicator>
+                <ComboboxItemIndicator {...itemIndicatorProps}>
                   <BiCheck />
                 </ComboboxItemIndicator>
               </ComboboxItem>
