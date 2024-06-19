@@ -105,17 +105,31 @@ export interface MenuTriggerItemProps
 
 export interface MenuProps extends MenuRootProps {
   trigger?: ReactNode;
+  triggerProps?: MenuTriggerProps;
+  positionerProps?: MenuPositionerProps;
+  contentProps?: MenuContentProps;
 }
 
 /**
  * Menu.
  */
-const Menu = ({ trigger, children, ...rest }: MenuProps) => (
+const Menu = ({
+  trigger,
+  children,
+  triggerProps,
+  positionerProps,
+  contentProps,
+  ...rest
+}: MenuProps) => (
   <MenuRoot {...rest}>
-    {trigger && <MenuTrigger asChild>{trigger}</MenuTrigger>}
+    {trigger && (
+      <MenuTrigger asChild {...triggerProps}>
+        {trigger}
+      </MenuTrigger>
+    )}
 
-    <MenuPositioner>
-      <MenuContent>{children}</MenuContent>
+    <MenuPositioner {...positionerProps}>
+      <MenuContent {...contentProps}>{children}</MenuContent>
     </MenuPositioner>
   </MenuRoot>
 );
