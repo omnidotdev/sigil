@@ -104,7 +104,7 @@
 
 ### Patch Changes
 
-- [#29](https://github.com/omnidotdev/sigil/pull/29) [`431d0ec`](https://github.com/omnidotdev/sigil/commit/431d0ec39403187945c44f8ae5ed213f439f048a) Thanks [@coopbri](https://github.com/coopbri)! - Make trigger-enabled components conditionally render trigger only if passed (`Drawer`, `HoverCard`, `Menu`, `Popover`, `Tooltip`)
+- [#29](https://github.com/omnidotdev/sigil/pull/29) [`431d0ec`](https://github.com/omnidotdev/sigil/commit/431d0ec39403187945c44f8ae5ed213f439f048a) Thanks [@coopbri](https://github.com/coopbri)! - Made trigger-enabled components conditionally render trigger only if passed (`Drawer`, `HoverCard`, `Menu`, `Popover`, `Tooltip`)
 
 - [#26](https://github.com/omnidotdev/sigil/pull/26) [`ba71618`](https://github.com/omnidotdev/sigil/commit/ba71618cf7e9f66abdb445705fe22b4e4def30a5) Thanks [@coopbri](https://github.com/coopbri)! - Improve legibility of text selection (highlight) styles
 
