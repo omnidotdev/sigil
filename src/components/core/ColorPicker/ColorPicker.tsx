@@ -8,12 +8,13 @@ import { HStack, Stack, styled } from "generated/panda/jsx";
 import { colorPicker } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-// https://github.com/microsoft/TypeScript/issues/47663
-import type {} from "@zag-js/color-picker";
-import type {} from "@zag-js/color-utils";
 import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(colorPicker);
+
+export const ColorPickerContext = ArkColorPicker.Context;
+export interface ColorPickerContextProps
+  extends ComponentProps<typeof ColorPickerContext> {}
 
 export const ColorPickerRoot = withProvider(
   styled(ArkColorPicker.Root),
@@ -180,6 +181,23 @@ export interface ColorPickerProps extends ColorPickerRootProps {
   label?: ReactNode;
   /** Color swatch presets. */
   presets?: string[];
+  labelProps?: ColorPickerLabelProps;
+  controlProps?: ColorPickerControlProps;
+  channelInputProps?: ColorPickerChannelInputProps;
+  triggerProps?: ColorPickerTriggerProps;
+  swatchGroupProps?: ColorPickerSwatchGroupProps;
+  swatchTriggerProps?: ColorPickerSwatchTriggerProps;
+  swatchProps?: ColorPickerSwatchProps;
+  positionerProps?: ColorPickerPositionerProps;
+  contentProps?: ColorPickerContentProps;
+  areaProps?: ColorPickerAreaProps;
+  areaBackgroundProps?: ColorPickerAreaBackgroundProps;
+  areaThumbProps?: ColorPickerAreaThumbProps;
+  eyeDropperTriggerProps?: ColorPickerEyeDropperTriggerProps;
+  channelSliderProps?: ColorPickerChannelSliderProps;
+  channelSliderThumbProps?: ColorPickerChannelSliderThumbProps;
+  channelSliderTrackProps?: ColorPickerChannelSliderTrackProps;
+  transparencyGridProps?: ColorPickerTransparencyGridProps;
 }
 
 /**
@@ -188,81 +206,118 @@ export interface ColorPickerProps extends ColorPickerRootProps {
 const ColorPicker = ({
   label = "Color Picker",
   presets,
+  labelProps,
+  controlProps,
+  channelInputProps,
+  triggerProps,
+  swatchGroupProps,
+  swatchTriggerProps,
+  swatchProps,
+  positionerProps,
+  contentProps,
+  areaProps,
+  areaBackgroundProps,
+  areaThumbProps,
+  eyeDropperTriggerProps,
+  channelSliderProps,
+  channelSliderThumbProps,
+  channelSliderTrackProps,
+  transparencyGridProps,
   ...rest
 }: ColorPickerProps) => (
   <ColorPickerRoot {...rest}>
-    {(ctx) => (
-      <>
-        <ColorPickerLabel>{label}</ColorPickerLabel>
+    {label && <ColorPickerLabel {...labelProps}>{label}</ColorPickerLabel>}
 
-        <ColorPickerControl>
-          <ColorPickerChannelInput channel="hex" asChild>
-            <Input />
-          </ColorPickerChannelInput>
+    <ColorPickerControl {...controlProps}>
+      <ColorPickerChannelInput asChild channel="hex" {...channelInputProps}>
+        <Input />
+      </ColorPickerChannelInput>
 
-          <ColorPickerTrigger asChild>
-            <Button variant="outline">
-              <ColorPickerSwatch value={ctx.value} />
-            </Button>
-          </ColorPickerTrigger>
-        </ColorPickerControl>
+      <ColorPickerTrigger asChild {...triggerProps}>
+        <Button variant="outline">
+          <ColorPickerContext>
+            {(colorPicker) => (
+              <ColorPickerSwatch value={colorPicker.value} {...swatchProps} />
+            )}
+          </ColorPickerContext>
+        </Button>
+      </ColorPickerTrigger>
+    </ColorPickerControl>
 
-        <ColorPickerPositioner>
-          <ColorPickerContent>
-            <Stack gap={3}>
-              <ColorPickerArea>
-                <ColorPickerAreaBackground />
-                <ColorPickerAreaThumb />
-              </ColorPickerArea>
+    <ColorPickerPositioner {...positionerProps}>
+      <ColorPickerContent {...contentProps}>
+        <Stack gap={3}>
+          <ColorPickerArea {...areaProps}>
+            <ColorPickerAreaBackground {...areaBackgroundProps} />
 
-              <HStack gap={3}>
-                <ColorPickerEyeDropperTrigger asChild>
-                  <Button size="xs" variant="outline" aria-label="Pick color">
-                    <IoMdColorFilter />
-                  </Button>
-                </ColorPickerEyeDropperTrigger>
+            <ColorPickerAreaThumb {...areaThumbProps} />
+          </ColorPickerArea>
 
-                <Stack gap={2} flex={1}>
-                  <ColorPickerChannelSlider channel="hue">
-                    <ColorPickerChannelSliderTrack />
-                    <ColorPickerChannelSliderThumb />
-                  </ColorPickerChannelSlider>
+          <HStack gap={3}>
+            <ColorPickerEyeDropperTrigger asChild {...eyeDropperTriggerProps}>
+              <Button size="xs" variant="outline" aria-label="Pick color">
+                <IoMdColorFilter />
+              </Button>
+            </ColorPickerEyeDropperTrigger>
 
-                  <ColorPickerChannelSlider channel="alpha">
-                    <ColorPickerTransparencyGrid size="8px" />
-                    <ColorPickerChannelSliderTrack />
-                    <ColorPickerChannelSliderThumb />
-                  </ColorPickerChannelSlider>
-                </Stack>
-              </HStack>
+            <Stack gap={2} flex={1}>
+              <ColorPickerChannelSlider channel="hue" {...channelSliderProps}>
+                <ColorPickerChannelSliderTrack {...channelSliderTrackProps} />
 
-              <HStack>
-                <ColorPickerChannelInput channel="hex" asChild>
-                  <Input size="2xs" />
-                </ColorPickerChannelInput>
-                <ColorPickerChannelInput channel="alpha" asChild>
-                  <Input size="2xs" />
-                </ColorPickerChannelInput>
-              </HStack>
+                <ColorPickerChannelSliderThumb {...channelSliderThumbProps} />
+              </ColorPickerChannelSlider>
 
-              <Stack gap={1.5}>
-                <Text size="xs" fontWeight="medium" color="foreground.default">
-                  Saved Colors
-                </Text>
+              <ColorPickerChannelSlider channel="alpha" {...channelSliderProps}>
+                <ColorPickerTransparencyGrid
+                  size="8px"
+                  {...transparencyGridProps}
+                />
 
-                <ColorPickerSwatchGroup>
-                  {presets?.map((color, id) => (
-                    <ColorPickerSwatchTrigger key={id} value={color}>
-                      <ColorPickerSwatch value={color} />
-                    </ColorPickerSwatchTrigger>
-                  ))}
-                </ColorPickerSwatchGroup>
-              </Stack>
+                <ColorPickerChannelSliderTrack {...channelSliderTrackProps} />
+
+                <ColorPickerChannelSliderThumb {...channelSliderThumbProps} />
+              </ColorPickerChannelSlider>
             </Stack>
-          </ColorPickerContent>
-        </ColorPickerPositioner>
-      </>
-    )}
+          </HStack>
+
+          <HStack>
+            <ColorPickerChannelInput
+              asChild
+              channel="hex"
+              {...channelInputProps}
+            >
+              <Input size="2xs" />
+            </ColorPickerChannelInput>
+
+            <ColorPickerChannelInput
+              asChild
+              channel="alpha"
+              {...channelInputProps}
+            >
+              <Input size="2xs" />
+            </ColorPickerChannelInput>
+          </HStack>
+
+          <Stack gap={1.5}>
+            <Text size="xs" fontWeight="medium" color="foreground.default">
+              Saved Colors
+            </Text>
+
+            <ColorPickerSwatchGroup {...swatchGroupProps}>
+              {presets?.map((color, id) => (
+                <ColorPickerSwatchTrigger
+                  key={id}
+                  value={color}
+                  {...swatchTriggerProps}
+                >
+                  <ColorPickerSwatch value={color} {...swatchProps} />
+                </ColorPickerSwatchTrigger>
+              ))}
+            </ColorPickerSwatchGroup>
+          </Stack>
+        </Stack>
+      </ColorPickerContent>
+    </ColorPickerPositioner>
   </ColorPickerRoot>
 );
 

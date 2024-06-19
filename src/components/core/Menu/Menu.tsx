@@ -2,13 +2,9 @@ import { Menu as ArkMenu } from "@ark-ui/react/menu";
 
 import { styled } from "generated/panda/jsx";
 import { menu } from "generated/panda/recipes";
-import { createStyleContext, getContextualChildren } from "lib/util";
+import { createStyleContext } from "lib/util";
 
 import type { ComponentProps, ReactNode } from "react";
-
-// https://github.com/microsoft/TypeScript/issues/47663
-import type {} from "@zag-js/menu";
-import type {} from "@zag-js/rect-utils";
 
 const { withProvider, withContext } = createStyleContext(menu);
 
@@ -32,8 +28,42 @@ export const MenuContextTrigger = withContext(
 export interface MenuContextTriggerProps
   extends ComponentProps<typeof MenuContextTrigger> {}
 
+export const MenuIndicator = withContext(
+  styled(ArkMenu.Indicator),
+  "indicator",
+);
+export interface MenuIndicatorProps
+  extends ComponentProps<typeof MenuIndicator> {}
+
+export const MenuCheckboxItem = withContext(
+  styled(ArkMenu.CheckboxItem),
+  "item",
+);
+export interface MenuCheckboxItemProps
+  extends ComponentProps<typeof MenuCheckboxItem> {}
+
+export const MenuRadioItemGroup = withContext(
+  styled(ArkMenu.RadioItemGroup),
+  "itemGroup",
+);
+export interface MenuRadioItemGroupProps
+  extends ComponentProps<typeof MenuRadioItemGroup> {}
+
+export const MenuRadioItem = withContext(styled(ArkMenu.RadioItem), "item");
+export interface MenuRadioItemProps
+  extends ComponentProps<typeof MenuRadioItem> {}
+
+export const ItemIndicator = withContext(
+  styled(ArkMenu.ItemIndicator),
+  "itemIndicator",
+);
+export interface ItemIndicatorProps
+  extends ComponentProps<typeof ItemIndicator> {}
+
 export const MenuItem = withContext(styled(ArkMenu.Item), "item");
 export interface MenuItemProps extends ComponentProps<typeof MenuItem> {}
+
+export const ItemText = withContext(styled(ArkMenu.ItemText), "itemText");
 
 export const MenuItemGroup = withContext(
   styled(ArkMenu.ItemGroup),
@@ -48,13 +78,6 @@ export const MenuItemGroupLabel = withContext(
 );
 export interface MenuItemGroupLabelProps
   extends ComponentProps<typeof MenuItemGroupLabel> {}
-
-export const MenuOptionItem = withContext(
-  styled(ArkMenu.OptionItem),
-  "optionItem",
-);
-export interface MenuOptionItemProps
-  extends ComponentProps<typeof MenuOptionItem> {}
 
 export const MenuPositioner = withContext(
   styled(ArkMenu.Positioner),
@@ -82,22 +105,32 @@ export interface MenuTriggerItemProps
 
 export interface MenuProps extends MenuRootProps {
   trigger?: ReactNode;
+  triggerProps?: MenuTriggerProps;
+  positionerProps?: MenuPositionerProps;
+  contentProps?: MenuContentProps;
 }
 
 /**
  * Menu.
  */
-const Menu = ({ trigger, children, ...rest }: MenuProps) => (
+const Menu = ({
+  trigger,
+  children,
+  triggerProps,
+  positionerProps,
+  contentProps,
+  ...rest
+}: MenuProps) => (
   <MenuRoot {...rest}>
-    {(ctx) => (
-      <>
-        {trigger && <MenuTrigger asChild>{trigger}</MenuTrigger>}
-
-        <MenuPositioner>
-          <MenuContent>{getContextualChildren({ ctx, children })}</MenuContent>
-        </MenuPositioner>
-      </>
+    {trigger && (
+      <MenuTrigger asChild {...triggerProps}>
+        {trigger}
+      </MenuTrigger>
     )}
+
+    <MenuPositioner {...positionerProps}>
+      <MenuContent {...contentProps}>{children}</MenuContent>
+    </MenuPositioner>
   </MenuRoot>
 );
 

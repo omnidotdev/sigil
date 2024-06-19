@@ -1,7 +1,7 @@
 import { TreeView as ArkTreeView } from "@ark-ui/react/tree-view";
 import { FiChevronRight } from "react-icons/fi";
 
-import { styled } from "generated/panda/jsx";
+import { Stack, styled } from "generated/panda/jsx";
 import { treeView } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
@@ -81,7 +81,7 @@ export interface TreeViewTreeProps
   extends ComponentProps<typeof TreeViewTree> {}
 
 interface TreeChild {
-  id: string;
+  value: string;
   name: string;
   children?: TreeChild[];
 }
@@ -128,9 +128,9 @@ const TreeView = ({
   /**
    * Render child node.
    */
-  const renderChild = ({ id, name, children }: TreeChild) =>
+  const renderChild = ({ value, name, children }: TreeChild) =>
     children ? (
-      <TreeViewBranch key={id} id={id} {...branchProps}>
+      <TreeViewBranch key={value} value={value} {...branchProps}>
         <TreeViewBranchControl {...branchControlProps}>
           <TreeViewBranchIndicator {...branchIndicatorProps}>
             <FiChevronRight />
@@ -144,7 +144,7 @@ const TreeView = ({
         </TreeViewBranchContent>
       </TreeViewBranch>
     ) : (
-      <TreeViewItem key={id} id={id} {...itemProps}>
+      <TreeViewItem key={value} value={value} {...itemProps}>
         <TreeViewItemText {...itemTextProps}>{name}</TreeViewItemText>
       </TreeViewItem>
     );
@@ -154,22 +154,28 @@ const TreeView = ({
       aria-label={typeof label === "string" ? label : undefined}
       {...rest}
     >
-      {label && <TreeViewLabel>{label}</TreeViewLabel>}
+      <Stack>
+        {label && <TreeViewLabel>{label}</TreeViewLabel>}
 
-      <TreeViewTree {...treeProps}>
-        {data.children.map((child) =>
-          child.children ? (
-            // recursively render child nodes
-            renderChild(child)
-          ) : (
-            <TreeViewItem key={child.id} id={child.id} {...itemProps}>
-              <TreeViewItemText {...itemTextProps}>
-                {child.name}
-              </TreeViewItemText>
-            </TreeViewItem>
-          ),
-        )}
-      </TreeViewTree>
+        <TreeViewTree {...treeProps}>
+          {data.children.map((child) =>
+            child.children ? (
+              // recursively render child nodes
+              renderChild(child)
+            ) : (
+              <TreeViewItem
+                key={child.value}
+                value={child.value}
+                {...itemProps}
+              >
+                <TreeViewItemText {...itemTextProps}>
+                  {child.name}
+                </TreeViewItemText>
+              </TreeViewItem>
+            ),
+          )}
+        </TreeViewTree>
+      </Stack>
     </TreeViewRoot>
   );
 };

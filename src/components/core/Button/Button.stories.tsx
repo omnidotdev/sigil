@@ -1,7 +1,7 @@
 import { FiArrowRight } from "react-icons/fi";
 
 import { Button } from "components";
-import { Flex } from "generated/panda/jsx";
+import { Stack } from "generated/panda/jsx";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -81,14 +81,14 @@ export const IconOnly: Story = {
 export const CustomColorPalette: Story = {
   // render all button variants
   render: (_args) => (
-    <Flex direction="column" w="fit-content" gap={4}>
+    <Stack w="fit-content" gap={4}>
       <Button variant="solid" colorPalette="amber" {...Default.args} />
       <Button variant="muted" colorPalette="amber" {...Muted.args} />
       <Button variant="outline" colorPalette="amber" {...Outline.args} />
       <Button variant="ghost" colorPalette="amber" {...Ghost.args} />
       <Button variant="link" colorPalette="amber" {...Link.args} />
       <Button variant="icon" colorPalette="amber" {...IconOnly.args} />
-    </Flex>
+    </Stack>
   ),
 };
 

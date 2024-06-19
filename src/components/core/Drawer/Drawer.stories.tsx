@@ -1,7 +1,7 @@
 import { FiArrowRight } from "react-icons/fi";
 
 import { Button, Drawer, DrawerCloseTrigger, Input, Label } from "components";
-import { Stack } from "generated/panda/jsx";
+import { HStack, Stack } from "generated/panda/jsx";
 import { useDisclosure } from "lib/hooks";
 
 import type { Meta, StoryObj } from "@storybook/react";
@@ -19,12 +19,11 @@ export const Default: Story = {
     trigger: <Button>Open Drawer</Button>,
     title: "Drawer Title",
     description: "Drawer description",
-    footerProps: { gap: 3 },
     footer: (
-      <>
+      <HStack>
         <Button variant="outline">Provide Feedback</Button>
         <Button>Get Help</Button>
-      </>
+      </HStack>
     ),
     children: (
       <>
@@ -47,6 +46,16 @@ export const Default: Story = {
         </DrawerCloseTrigger>
       </>
     ),
+  },
+};
+
+/**
+ * Drawer with the default close trigger disabled.
+ */
+export const WithoutCloseTrigger: Story = {
+  args: {
+    ...Default.args,
+    closeTrigger: null,
   },
 };
 

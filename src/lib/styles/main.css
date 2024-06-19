@@ -1,6 +1,8 @@
 /* https://panda-css.com/docs/concepts/cascade-layers */
 @layer reset, base, tokens, recipes, utilities;
 
+/* TODO move below styles to panda.config */
+
 :root {
   /* alias fonts to CSS variables */
   --font-assistant: "Assistant", sans-serif;

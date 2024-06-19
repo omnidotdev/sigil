@@ -1,15 +1,24 @@
 import { Select as ArkSelect } from "@ark-ui/react/select";
-import { BiCheck, BiExpandVertical } from "react-icons/bi";
+import { BiCheck, BiExpandVertical, BiX } from "react-icons/bi";
 
 import { styled } from "generated/panda/jsx";
 import { select } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { Assign, JsxStyleProps } from "generated/panda/types";
 import type { ComponentProps } from "react";
 
 const { withProvider, withContext } = createStyleContext(select);
 
-export const SelectRoot = withProvider(styled(ArkSelect.Root), "root");
+// https://github.com/chakra-ui/ark/issues/1740#issuecomment-1817255471
+type AugmentedSelectRoot = <T extends ArkSelect.CollectionItem>(
+  props: Assign<JsxStyleProps, ArkSelect.RootProps<T>>,
+) => JSX.Element;
+
+export const SelectRoot = withProvider(
+  styled(ArkSelect.Root) as AugmentedSelectRoot,
+  "root",
+);
 export interface SelectRootProps extends ComponentProps<typeof SelectRoot> {}
 
 export const SelectClearTrigger = withContext(
@@ -85,43 +94,93 @@ export interface SelectValueTextProps
   extends ComponentProps<typeof SelectValueText> {}
 
 export interface SelectProps extends SelectRootProps {
+  /** Whether to display the input field label. */
+  displayFieldLabel?: boolean;
+  /** Whether to display the group label contained in the dropdown. */
+  displayGroupLabel?: boolean;
+  /** Whether to display the clear trigger button. */
+  displayClearTrigger?: boolean;
   label: {
     // TODO calculate ID from singular (add dashes, lowercase, etc.)
     id: string;
     singular: string;
     plural: string;
   };
+  labelProps?: SelectLabelProps;
+  controlProps?: SelectControlProps;
+  triggerProps?: SelectTriggerProps;
+  valueTextProps?: SelectValueTextProps;
+  clearTriggerProps?: SelectClearTriggerProps;
+  positionerProps?: SelectPositionerProps;
+  contentProps?: SelectContentProps;
+  itemGroupProps?: SelectItemGroupProps;
+  itemGroupLabelProps?: SelectItemGroupLabelProps;
+  itemProps?: SelectItemProps;
+  itemIndicatorProps?: SelectItemIndicatorProps;
+  itemTextProps?: SelectItemTextProps;
 }
 
 /**
  * Select.
  */
-const Select = ({ label, items, ...rest }: SelectProps) => (
+const Select = ({
+  displayFieldLabel = true,
+  displayGroupLabel = true,
+  displayClearTrigger = true,
+  label,
+  items,
+  labelProps,
+  controlProps,
+  triggerProps,
+  valueTextProps,
+  clearTriggerProps,
+  positionerProps,
+  contentProps,
+  itemGroupProps,
+  itemGroupLabelProps,
+  itemProps,
+  itemIndicatorProps,
+  itemTextProps,
+  ...rest
+}: SelectProps) => (
   <SelectRoot positioning={{ sameWidth: true }} items={items} {...rest}>
-    <SelectLabel>{label.singular}</SelectLabel>
+    {displayFieldLabel && (
+      <SelectLabel {...labelProps}>{label.singular}</SelectLabel>
+    )}
 
-    <SelectControl>
-      <SelectTrigger>
-        {/* @ts-ignore upstream issue */}
-        <SelectValueText placeholder={`Select ${label.singular}...`} />
+    <SelectControl {...controlProps}>
+      <SelectTrigger {...triggerProps}>
+        <SelectValueText
+          placeholder={`Select a ${label.singular.toLowerCase()}...`}
+          {...valueTextProps}
+        />
+
         <BiExpandVertical />
       </SelectTrigger>
+
+      {displayClearTrigger && (
+        <SelectClearTrigger asChild {...clearTriggerProps}>
+          <BiX />
+        </SelectClearTrigger>
+      )}
     </SelectControl>
 
-    <SelectPositioner>
-      <SelectContent>
-        <SelectItemGroup id={label.id}>
-          <SelectItemGroupLabel htmlFor={label.id}>
-            {label.plural}
-          </SelectItemGroupLabel>
+    <SelectPositioner {...positionerProps}>
+      <SelectContent {...contentProps}>
+        <SelectItemGroup id={label.id} {...itemGroupProps}>
+          {displayGroupLabel && (
+            <SelectItemGroupLabel {...itemGroupLabelProps}>
+              {label.plural}
+            </SelectItemGroupLabel>
+          )}
 
           {items.map((item) => (
             // @ts-ignore upstream (Ark `CollectionItem`) type bug
-            <SelectItem key={item.value} item={item}>
+            <SelectItem key={item.value} item={item} {...itemProps}>
               {/* @ts-ignore upstream (Ark `CollectionItem`) type bug */}
-              <SelectItemText>{item.label}</SelectItemText>
+              <SelectItemText {...itemTextProps}>{item.label}</SelectItemText>
 
-              <SelectItemIndicator>
+              <SelectItemIndicator {...itemIndicatorProps}>
                 <BiCheck />
               </SelectItemIndicator>
             </SelectItem>

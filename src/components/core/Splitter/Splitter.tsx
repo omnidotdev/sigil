@@ -7,9 +7,6 @@ import { createStyleContext } from "lib/util";
 
 import type { ComponentProps, ReactNode } from "react";
 
-// https://github.com/microsoft/TypeScript/issues/47663
-import type {} from "@zag-js/splitter";
-
 const { withProvider, withContext } = createStyleContext(splitter);
 
 export const SplitterRoot = withProvider(styled(ArkSplitter.Root), "root");

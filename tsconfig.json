@@ -7,21 +7,22 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "lib": [
-      "dom",
-      "esnext"
-    ],
+    "lib": ["dom", "esnext"],
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "noEmit": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noPropertyAccessFromIndexSignature": true,
     "sourceMap": true,
     "strict": true,
     "target": "esnext",
-    "typeRoots": [
-      "generated/panda"
-    ]
+    // ? https://www.typescriptlang.org/tsconfig#verbatimModuleSyntax
+    // "verbatimModuleSyntax": true,
+    "typeRoots": ["generated/panda"]
   },
   "include": [
     "src",
@@ -31,8 +32,5 @@
     ".storybook/**/*.tsx",
     "test-runner-jest.config.js"
   ],
-  "exclude": [
-    "**/node_modules",
-    "src/generated"
-  ]
+  "exclude": ["**/node_modules", "src/generated"]
 }

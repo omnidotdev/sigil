@@ -72,13 +72,14 @@ export const Default: Story = {
       </TableRow>
     )),
     footerContent: (
-      <TableRow fontWeight="bold" bgColor="blue.100">
+      <TableRow fontWeight="bold" bgColor="blue.200a">
         <TableCell colSpan={3}>Total</TableCell>
         <TableCell>
           {productData
             .map(({ stock }) => stock)
             .reduce((total, productStock) => total + productStock)}
         </TableCell>
+
         <TableCell textAlign="right">
           $
           {productData

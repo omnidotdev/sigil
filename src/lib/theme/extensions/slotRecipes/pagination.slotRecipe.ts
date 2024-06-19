@@ -15,6 +15,17 @@ const pagination = defineSlotRecipe({
     },
     item: {
       fontVariantNumeric: "tabular-nums",
+      borderColor: "border.subtle!",
+      _hover: {
+        bgColor: "background.emphasized!",
+      },
+      _selected: {
+        _hover: {
+          bgColor: "colorPalette.default!",
+        },
+        bgColor: "colorPalette.default!",
+        borderColor: "colorPalette.default!",
+      },
     },
     ellipsis: {
       alignItems: "center",

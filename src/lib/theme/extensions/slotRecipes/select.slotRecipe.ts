@@ -78,13 +78,23 @@ const select = defineSlotRecipe({
       color: "foreground.default",
       fontWeight: "medium",
     },
+    control: {
+      display: "flex",
+      alignItems: "center",
+      position: "relative",
+    },
+    clearTrigger: {
+      color: "foreground.muted",
+      position: "absolute",
+      cursor: "pointer",
+      right: 9,
+    },
     trigger: {
       appearance: "none",
       alignItems: "center",
       borderColor: "border.default",
       borderRadius: "sm",
       cursor: "pointer",
-      color: "colorPalette.default",
       display: "inline-flex",
       justifyContent: "space-between",
       outline: 0,
@@ -104,7 +114,7 @@ const select = defineSlotRecipe({
         },
       },
       "& :where(svg)": {
-        color: "foreground.subtle",
+        color: "foreground.muted",
       },
     },
   },

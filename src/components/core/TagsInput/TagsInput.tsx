@@ -1,5 +1,4 @@
 import { TagsInput as ArkTagsInput } from "@ark-ui/react/tags-input";
-import { Fragment } from "react";
 import { FiX } from "react-icons/fi";
 
 import Button from "components/core/Button/Button";
@@ -7,9 +6,13 @@ import { styled } from "generated/panda/jsx";
 import { tagsInput } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ComponentProps } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(tagsInput);
+
+export const TagsInputContext = ArkTagsInput.Context;
+export interface TagsInputContextProps
+  extends ComponentProps<typeof TagsInputContext> {}
 
 export const TagsInputRoot = withProvider(styled(ArkTagsInput.Root), "root");
 export interface TagsInputRootProps
@@ -71,7 +74,7 @@ export interface TagsInputLabelProps
 
 export interface TagsInputProps extends TagsInputRootProps {
   /** Input label. */
-  label: string;
+  label?: ReactNode;
 }
 
 /**
@@ -79,12 +82,12 @@ export interface TagsInputProps extends TagsInputRootProps {
  */
 const TagsInput = ({ label, ...rest }: TagsInputProps) => (
   <TagsInputRoot {...rest}>
-    {(api) => (
-      <>
-        <TagsInputLabel>{label}</TagsInputLabel>
+    {label && <TagsInputLabel>{label}</TagsInputLabel>}
 
-        <TagsInputControl>
-          {api.value.map((value, idx) => (
+    <TagsInputControl>
+      <TagsInputContext>
+        {(api) =>
+          api.value.map((value, idx) => (
             <TagsInputItem key={idx} index={idx} value={value}>
               <TagsInputItemPreview>
                 <TagsInputItemText>{value}</TagsInputItemText>
@@ -109,16 +112,16 @@ const TagsInput = ({ label, ...rest }: TagsInputProps) => (
 
               <TagsInputItemInput />
             </TagsInputItem>
-          ))}
+          ))
+        }
+      </TagsInputContext>
 
-          <TagsInputInput placeholder="Add tag" />
-        </TagsInputControl>
+      <TagsInputInput placeholder="Add tag" />
+    </TagsInputControl>
 
-        <TagsInputClearTrigger asChild>
-          <Button variant="outline">Clear</Button>
-        </TagsInputClearTrigger>
-      </>
-    )}
+    <TagsInputClearTrigger asChild>
+      <Button variant="outline">Clear</Button>
+    </TagsInputClearTrigger>
   </TagsInputRoot>
 );
 

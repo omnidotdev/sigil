@@ -37,7 +37,7 @@ export interface AlertProps extends AlertRootProps {
   descriptionProps?: ComponentProps<typeof AlertDescription>;
 }
 
-// TODO better styles for if just description or title is passed
+// TODO better styles (mainly spacing) for if just description or title is passed
 // TODO default titles for each variant
 
 /**

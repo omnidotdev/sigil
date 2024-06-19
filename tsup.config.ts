@@ -1,8 +1,8 @@
-import { spawnSync } from "child_process";
+import { spawnSync } from "node:child_process";
 
 import { defineConfig as defineTsupConfig } from "tsup";
 
-import type { SpawnSyncOptionsWithStringEncoding as SpawnSyncOptions } from "child_process";
+import type { SpawnSyncOptionsWithStringEncoding as SpawnSyncOptions } from "node:child_process";
 
 /**
  * Options for spawning synchronous processes.
@@ -50,7 +50,7 @@ const tsupConfig = defineTsupConfig({
     opts.resolveExtensions = [...defaultExtensions, ".mts", ".mjs"];
 
     opts.banner = {
-      // TODO remove, necessary for e.g. context, most ark components, etc. but try to set at a more granular level or not set at all
+      // TODO remove, necessary for e.g. context, most ark components, etc. but try to set at a more granular level or not set at all; https://github.com/egoist/tsup/issues/835
       js: '"use client";',
     };
   },

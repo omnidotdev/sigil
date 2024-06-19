@@ -32,6 +32,9 @@ export interface ComponentVariants<
   (props: CombineProps<ComponentProps<T>, StyleVariantProps<R>>): JSX.Element;
 }
 
+/**
+ * Create a style context for a recipe.
+ */
 const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
   const StyleContext = createContext<StyleSlotRecipe<R> | null>(null);
 

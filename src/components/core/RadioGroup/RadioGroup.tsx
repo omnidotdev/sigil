@@ -4,8 +4,6 @@ import { styled } from "generated/panda/jsx";
 import { radioGroup } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-// https://github.com/microsoft/TypeScript/issues/47663
-import type {} from "@zag-js/radio-group";
 import type { ComponentProps } from "react";
 
 const { withProvider, withContext } = createStyleContext(radioGroup);
@@ -46,20 +44,46 @@ export const RadioGroupLabel = withContext(
 export interface RadioGroupLabelProps
   extends ComponentProps<typeof RadioGroupLabel> {}
 
+export const RadioGroupItemHiddenInput = ArkRadioGroup.ItemHiddenInput;
+export interface RadioGroupHiddenInputProps
+  extends ComponentProps<typeof RadioGroupItemHiddenInput> {}
+
 export interface RadioGroupProps extends RadioGroupRootProps {
   options: { value: string; label: string; isDisabled?: boolean }[];
+  itemProps?: RadioGroupItemProps;
+  itemControlProps?: RadioGroupItemControlProps;
+  itemTextProps?: RadioGroupItemTextProps;
+  itemHiddenInputProps?: RadioGroupHiddenInputProps;
 }
 
 /**
  * Radio group.
  */
-const RadioGroup = ({ options, ...rest }: RadioGroupProps) => (
-  <RadioGroupRoot defaultValue={options[0].value} {...rest}>
+const RadioGroup = ({
+  options,
+  itemProps,
+  itemControlProps,
+  itemTextProps,
+  itemHiddenInputProps,
+  ...rest
+}: RadioGroupProps) => (
+  <RadioGroupRoot
+    orientation="horizontal"
+    defaultValue={options[0].value}
+    {...rest}
+  >
     {options.map(({ label, value, isDisabled }) => (
-      <RadioGroupItem key={value} value={value} disabled={isDisabled}>
-        <RadioGroupItemControl />
+      <RadioGroupItem
+        key={value}
+        value={value}
+        disabled={isDisabled}
+        {...itemProps}
+      >
+        <RadioGroupItemControl {...itemControlProps} />
 
-        <RadioGroupItemText>{label}</RadioGroupItemText>
+        <RadioGroupItemText {...itemTextProps}>{label}</RadioGroupItemText>
+
+        <RadioGroupItemHiddenInput {...itemHiddenInputProps} />
       </RadioGroupItem>
     ))}
   </RadioGroupRoot>

@@ -6,11 +6,14 @@ import { styled } from "generated/panda/jsx";
 import { pagination } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-// https://github.com/microsoft/TypeScript/issues/47663
-import type {} from "@zag-js/pagination";
+import type { ColorPalette } from "generated/panda/tokens";
 import type { ComponentProps } from "react";
 
 const { withProvider, withContext } = createStyleContext(pagination);
+
+export const PaginationContext = ArkPagination.Context;
+export interface PaginationContextProps
+  extends ComponentProps<typeof PaginationContext> {}
 
 export const PaginationRoot = withProvider(styled(ArkPagination.Root), "root");
 export interface PaginationRootProps
@@ -41,39 +44,55 @@ export const PaginationPrevTrigger = withContext(
 export interface PaginationPrevTriggerProps
   extends ComponentProps<typeof PaginationPrevTrigger> {}
 
-export interface PaginationProps extends PaginationRootProps {}
+export interface PaginationProps extends PaginationRootProps {
+  colorPalette?: ColorPalette;
+  prevTriggerProps?: PaginationPrevTriggerProps;
+  itemProps?: PaginationItemProps;
+  ellipsisProps?: PaginationEllipsisProps;
+  nextTriggerProps?: PaginationNextTriggerProps;
+}
 
 /**
  * Pagination.
  */
-const Pagination = (props: PaginationProps) => (
-  <PaginationRoot pageSize={10} siblingCount={1} {...props}>
-    {({ pages }) => (
-      <>
-        <PaginationPrevTrigger asChild>
-          <Button variant="ghost" aria-label="Previous page">
-            <FiChevronLeft />
-          </Button>
-        </PaginationPrevTrigger>
+const Pagination = ({
+  prevTriggerProps,
+  itemProps,
+  ellipsisProps,
+  nextTriggerProps,
+  colorPalette = "accent",
+  ...rest
+}: PaginationProps) => (
+  <PaginationRoot pageSize={10} siblingCount={1} {...rest}>
+    <PaginationPrevTrigger asChild {...prevTriggerProps}>
+      <Button variant="ghost" aria-label="Previous page">
+        <FiChevronLeft />
+      </Button>
+    </PaginationPrevTrigger>
 
-        {pages.map((page, idx) =>
+    <PaginationContext>
+      {({ pages }) =>
+        pages.map((page, idx) =>
           page.type === "page" ? (
-            <PaginationItem key={idx} {...page} asChild>
-              <Button variant="outline">{page.value}</Button>
+            <PaginationItem key={idx} asChild {...page} {...itemProps}>
+              <Button variant="outline" colorPalette={colorPalette}>
+                {page.value}
+              </Button>
             </PaginationItem>
           ) : (
-            <PaginationEllipsis key={idx} index={idx}>
+            <PaginationEllipsis key={idx} index={idx} {...ellipsisProps}>
               &#8230;
             </PaginationEllipsis>
           ),
-        )}
-        <PaginationNextTrigger asChild>
-          <Button variant="ghost" aria-label="Next page">
-            <FiChevronRight />
-          </Button>
-        </PaginationNextTrigger>
-      </>
-    )}
+        )
+      }
+    </PaginationContext>
+
+    <PaginationNextTrigger asChild {...nextTriggerProps}>
+      <Button variant="ghost" aria-label="Next page">
+        <FiChevronRight />
+      </Button>
+    </PaginationNextTrigger>
   </PaginationRoot>
 );
 

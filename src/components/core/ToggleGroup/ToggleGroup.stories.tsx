@@ -18,9 +18,6 @@ const meta = {
   title: "Components/Core/ToggleGroup",
   component: ToggleGroup,
   tags: ["autodocs"],
-  args: {
-    width: "fit-content",
-  },
 } satisfies Meta;
 
 /**

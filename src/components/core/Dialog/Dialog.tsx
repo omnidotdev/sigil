@@ -1,13 +1,18 @@
 import { Dialog as ArkDialog } from "@ark-ui/react/dialog";
+import {
+  cloneElement,
+  type ComponentProps,
+  type ReactNode,
+  type ReactElement,
+} from "react";
 import { FiX } from "react-icons/fi";
 
 import Button from "components/core/Button/Button";
 import { Stack, styled } from "generated/panda/jsx";
 import { dialog } from "generated/panda/recipes";
-import { createStyleContext, getContextualChildren } from "lib/util";
+import { createStyleContext } from "lib/util";
 
 import type { DialogContentProps as ArkDialogContentProps } from "@ark-ui/react/dialog";
-import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(dialog);
 
@@ -55,13 +60,29 @@ export interface DialogPositionerProps
   extends ComponentProps<typeof DialogPositioner> {}
 
 export interface DialogProps extends DialogRootProps {
+  /** Trigger node, such as a button, used to open the dialog. */
   trigger?: ReactNode;
+  /** Dialog title, displayed at the top. */
   title?: string;
+  /** Dialog description, displayed underneath the title. */
   description?: string;
+  /** Close trigger. Defaults to a button in the top right corner. */
+  closeTrigger?: ReactElement | null;
+  /** Dialog trigger props. */
+  triggerProps?: DialogTriggerProps;
+  /** Dialog backdrop props. */
+  backdropProps?: DialogBackdropProps;
+  /** Dialog positioner props. */
+  positionerProps?: DialogPositionerProps;
+  /** Dialog content props. */
   contentProps?: ArkDialogContentProps;
+  /** Dialog title props. */
+  titleProps?: DialogTitleProps;
+  /** Dialog description props. */
+  descriptionProps?: DialogDescriptionProps;
+  /** Dialog close trigger props. */
+  closeTriggerProps?: DialogCloseTriggerProps;
 }
-
-// TODO fix animations not working
 
 /**
  * Modal dialog.
@@ -70,44 +91,51 @@ const Dialog = ({
   trigger,
   title,
   description,
+  closeTrigger = (
+    <DialogCloseTrigger asChild position="absolute" top={2} right={2}>
+      <Button aria-label="Close dialog" variant="ghost" size="sm">
+        <FiX />
+      </Button>
+    </DialogCloseTrigger>
+  ),
   children,
+  triggerProps,
+  backdropProps,
+  positionerProps,
   contentProps,
+  titleProps,
+  descriptionProps,
+  closeTriggerProps,
   ...rest
 }: DialogProps) => (
   <DialogRoot {...rest}>
-    {(ctx) => (
-      <>
-        {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
-
-        <DialogBackdrop />
-
-        <DialogPositioner>
-          <DialogContent
-            // TODO remove this hack (https://github.com/chakra-ui/ark/discussions/1282)
-            hidden={!ctx.isOpen}
-            {...contentProps}
-          >
-            <Stack gap={8} p={6}>
-              <Stack gap={1}>
-                {title && <DialogTitle>{title}</DialogTitle>}
-
-                {description && (
-                  <DialogDescription>{description}</DialogDescription>
-                )}
-              </Stack>
-
-              {getContextualChildren({ ctx, children })}
-            </Stack>
-
-            <DialogCloseTrigger asChild position="absolute" top={2} right={2}>
-              <Button aria-label="Close dialog" variant="ghost" size="sm">
-                <FiX />
-              </Button>
-            </DialogCloseTrigger>
-          </DialogContent>
-        </DialogPositioner>
-      </>
+    {trigger && (
+      <DialogTrigger asChild {...triggerProps}>
+        {trigger}
+      </DialogTrigger>
     )}
+
+    <DialogBackdrop {...backdropProps} />
+
+    <DialogPositioner {...positionerProps}>
+      <DialogContent {...contentProps}>
+        <Stack gap={8} p={6}>
+          <Stack gap={1}>
+            {title && <DialogTitle {...titleProps}>{title}</DialogTitle>}
+
+            {description && (
+              <DialogDescription {...descriptionProps}>
+                {description}
+              </DialogDescription>
+            )}
+          </Stack>
+
+          {children}
+        </Stack>
+
+        {closeTrigger && cloneElement(closeTrigger, closeTriggerProps)}
+      </DialogContent>
+    </DialogPositioner>
   </DialogRoot>
 );
 

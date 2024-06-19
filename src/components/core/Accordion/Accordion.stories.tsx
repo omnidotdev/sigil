@@ -35,6 +35,16 @@ export const Default: Story = {
 };
 
 /**
+ * Allow only one accordion item to be open at a time.
+ */
+export const OnlyOneOpen: Story = {
+  args: {
+    ...Default.args,
+    multiple: false,
+  },
+};
+
+/**
  * Programatically set initial open state of an accordion tab item.
  */
 export const DefaultOpen: Story = {

@@ -1,6 +1,6 @@
 import { Combobox as ArkCombobox } from "@ark-ui/react/combobox";
 import { useState } from "react";
-import { BiCheck, BiExpandVertical } from "react-icons/bi";
+import { BiCheck, BiExpandVertical, BiX } from "react-icons/bi";
 
 import Button from "components/core/Button/Button";
 import Input from "components/core/Input/Input";
@@ -9,14 +9,20 @@ import { combobox } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { ComboboxInputValueChangeDetails } from "@ark-ui/react/combobox";
+import type { ColorPalette } from "generated/panda/tokens";
 import type { ComponentProps } from "react";
-
-// https://github.com/microsoft/TypeScript/issues/47663
-import type {} from "@zag-js/combobox";
 
 const { withProvider, withContext } = createStyleContext(combobox);
 
-export const ComboboxRoot = withProvider(styled(ArkCombobox.Root), "root");
+// https://github.com/chakra-ui/ark/issues/1740#issuecomment-1817255471
+type AugmentedComboboxRoot = <T extends ArkCombobox.CollectionItem>(
+  props: ArkCombobox.RootProps<T>,
+) => JSX.Element;
+
+export const ComboboxRoot = withProvider(
+  styled(ArkCombobox.Root) as AugmentedComboboxRoot,
+  "root",
+);
 export interface ComboboxRootProps
   extends ComponentProps<typeof ComboboxRoot> {}
 
@@ -96,26 +102,63 @@ export interface ComboboxTriggerProps
   extends ComponentProps<typeof ComboboxTrigger> {}
 
 export interface ComboboxProps extends ComboboxRootProps {
+  colorPalette?: ColorPalette;
+  /** Whether to display the input field label. */
+  displayFieldLabel?: boolean;
+  /** Whether to display the group label contained in the dropdown. */
+  displayGroupLabel?: boolean;
+  /** Whether to display the clear trigger button. */
+  displayClearTrigger?: boolean;
   label: {
     // TODO calculate ID from singular (add dashes, lowercase, etc.)
     id: string;
     singular: string;
     plural: string;
   };
+  labelProps?: ComboboxLabelProps;
+  controlProps?: ComboboxControlProps;
+  inputProps?: ComboboxInputProps;
+  clearTriggerProps?: ComboboxClearTriggerProps;
+  triggerProps?: ComboboxTriggerProps;
+  positionerProps?: ComboboxPositionerProps;
+  contentProps?: ComboboxContentProps;
+  itemGroupProps?: ComboboxItemGroupProps;
+  itemGroupLabelProps?: ComboboxItemGroupLabelProps;
+  itemProps?: ComboboxItemProps;
+  itemTextProps?: ComboboxItemTextProps;
+  itemIndicatorProps?: ComboboxItemIndicatorProps;
 }
-
-// TODO fix combobox not filtering when searching (works on Park UI: https://park-ui.com/docs/components/combobox)
 
 /**
  * Combobox.
  */
-const Combobox = ({ label, items, ...rest }: ComboboxProps) => {
+const Combobox = ({
+  colorPalette = "accent",
+  displayFieldLabel = true,
+  displayGroupLabel = true,
+  displayClearTrigger = true,
+  label,
+  items,
+  labelProps,
+  controlProps,
+  inputProps,
+  clearTriggerProps,
+  triggerProps,
+  positionerProps,
+  contentProps,
+  itemGroupProps,
+  itemGroupLabelProps,
+  itemProps,
+  itemTextProps,
+  itemIndicatorProps,
+  ...rest
+}: ComboboxProps) => {
   const [filteredItems, setFilteredItems] = useState(items);
 
   const handleChange = (evt: ComboboxInputValueChangeDetails) => {
     const filtered = items.filter((item) =>
       // @ts-ignore upstream (Ark `CollectionItem`) type bug
-      item.label.toLowerCase().includes(evt.value.toLowerCase()),
+      item.label.toLowerCase().includes(evt.inputValue.toLowerCase()),
     );
 
     setFilteredItems(filtered.length ? filtered : items);
@@ -123,42 +166,56 @@ const Combobox = ({ label, items, ...rest }: ComboboxProps) => {
 
   return (
     <ComboboxRoot
-      width="2xs"
       onInputValueChange={handleChange}
       items={filteredItems}
       {...rest}
     >
-      <ComboboxLabel>{label.plural}</ComboboxLabel>
+      {displayFieldLabel && (
+        <ComboboxLabel {...labelProps}>{label.plural}</ComboboxLabel>
+      )}
 
-      <ComboboxControl>
+      <ComboboxControl {...controlProps}>
         <ComboboxInput
           asChild
           placeholder={`Select a ${label.singular.toLowerCase()}...`}
+          {...inputProps}
         >
-          <Input />
+          <Input colorPalette={colorPalette} />
         </ComboboxInput>
 
-        <ComboboxTrigger asChild>
-          <Button variant="link" aria-label="Open combobox" size="xs">
+        {displayClearTrigger && (
+          <ComboboxClearTrigger asChild {...clearTriggerProps}>
+            <Button variant="link" size="xs" aria-label="Clear combobox">
+              <BiX />
+            </Button>
+          </ComboboxClearTrigger>
+        )}
+
+        <ComboboxTrigger asChild {...triggerProps}>
+          <Button variant="link" size="xs" aria-label="Open combobox">
             <BiExpandVertical />
           </Button>
         </ComboboxTrigger>
       </ComboboxControl>
 
-      <ComboboxPositioner>
-        <ComboboxContent>
-          <ComboboxItemGroup id={label.id}>
-            <ComboboxItemGroupLabel htmlFor={label.id}>
-              {label.plural}
-            </ComboboxItemGroupLabel>
+      <ComboboxPositioner {...positionerProps}>
+        <ComboboxContent {...contentProps}>
+          <ComboboxItemGroup id={label.id} {...itemGroupProps}>
+            {displayGroupLabel && (
+              <ComboboxItemGroupLabel {...itemGroupLabelProps}>
+                {label.plural}
+              </ComboboxItemGroupLabel>
+            )}
 
             {filteredItems.map((item) => (
               // @ts-ignore upstream (Ark `CollectionItem`) type bug
-              <ComboboxItem key={item.value} item={item}>
-                {/* @ts-ignore upstream (Ark `CollectionItem`) type bug */}
-                <ComboboxItemText>{item.label}</ComboboxItemText>
+              <ComboboxItem key={item.value} item={item} {...itemProps}>
+                <ComboboxItemText {...itemTextProps}>
+                  {/* @ts-ignore upstream (Ark `CollectionItem`) type bug */}
+                  {item.label}
+                </ComboboxItemText>
 
-                <ComboboxItemIndicator>
+                <ComboboxItemIndicator {...itemIndicatorProps}>
                   <BiCheck />
                 </ComboboxItemIndicator>
               </ComboboxItem>

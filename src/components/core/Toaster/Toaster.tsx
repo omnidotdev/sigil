@@ -1,4 +1,4 @@
-import { Toast as ArkToast, createToaster } from "@ark-ui/react";
+import { Toast as ArkToast, Toaster as ArkToaster } from "@ark-ui/react/toast";
 import { FiX } from "react-icons/fi";
 
 import Button from "components/core/Button/Button";
@@ -6,16 +6,13 @@ import { styled } from "generated/panda/jsx";
 import { toast as toastRecipe } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ComponentProps } from "react";
+import type { ToasterProps as ArkToasterProps } from "@ark-ui/react/toast";
+import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(toastRecipe);
 
 export const ToastRoot = withProvider(styled(ArkToast.Root), "root");
 export interface ToastRootProps extends ComponentProps<typeof ToastRoot> {}
-
-// TODO use in prebuilt `Toaster` component
-const ToastGroup = withContext(styled(ArkToast.Group), "group");
-export interface ToastGroupProps extends ComponentProps<typeof ToastGroup> {}
 
 export const ToastTitle = withContext(styled(ArkToast.Title), "title");
 export interface ToastTitleProps extends ComponentProps<typeof ToastTitle> {}
@@ -27,6 +24,13 @@ export const ToastDescription = withContext(
 export interface ToastDescriptionProps
   extends ComponentProps<typeof ToastDescription> {}
 
+export const ToastActionTrigger = withContext(
+  styled(ArkToast.ActionTrigger),
+  "actionTrigger",
+);
+export interface ToastActionTriggerProps
+  extends ComponentProps<typeof ToastActionTrigger> {}
+
 export const ToastCloseTrigger = withContext(
   styled(ArkToast.CloseTrigger),
   "closeTrigger",
@@ -34,29 +38,70 @@ export const ToastCloseTrigger = withContext(
 export interface ToastCloseTriggerProps
   extends ComponentProps<typeof ToastCloseTrigger> {}
 
-export interface ToastProps extends ToastRootProps {}
+export interface ToasterProps extends Omit<ArkToasterProps, "children"> {
+  /** Trigger to be displayed in the toast for closing it. Defaults to a close button. To hide the close trigger, pass `null`. */
+  closeTrigger?: ReactNode;
+  /** Action trigger to be displayed in the toast, such as an undo button. */
+  actionTrigger?: ReactNode;
+  /** Props for the root element of the toast, immediately nested inside of the toaster. */
+  rootProps?: ToastRootProps;
+  /** Props for the title element of the toast. */
+  titleProps?: ToastTitleProps;
+  /** Props for the description element of the toast. */
+  descriptionProps?: ToastDescriptionProps;
+  /** Props for the action trigger element of the toast. */
+  actionTriggerProps?: ToastActionTriggerProps;
+  /** Props for the close trigger element of the toast. */
+  closeTriggerProps?: ToastCloseTriggerProps;
+}
 
 // TODO allow passing in custom default props
 // TODO JSDoc `Toaster` and `toast`
-// TODO remove type annotation, added due to by type portability error (https://github.com/microsoft/TypeScript/issues/47663)
-const [Toaster, toast]: any[] = createToaster({
-  // TODO `top-end` on desktop, `top` on mobile
-  placement: "top-end",
-  render: (toast) => (
-    <ToastRoot>
-      <ToastTitle>{toast.title}</ToastTitle>
+// TODO `top-end` on desktop, `top` on mobile (i.e. placement: "top-end")
+// TODO figure out a way to unset `info` as default, and update component JSDoc description accordingly
 
-      <ToastDescription>{toast.description}</ToastDescription>
-
-      <ToastCloseTrigger asChild>
-        <Button size="sm" variant="link">
-          <FiX />
-        </Button>
-      </ToastCloseTrigger>
-    </ToastRoot>
+/**
+ * Toaster for displaying popup toast notifications. The default toast type (`data-type`) is `info`.
+ */
+const Toaster = ({
+  toaster,
+  closeTrigger = (
+    <Button size="sm" variant="link">
+      <FiX />
+    </Button>
   ),
-});
+  actionTrigger,
+  rootProps,
+  titleProps,
+  descriptionProps,
+  actionTriggerProps,
+  closeTriggerProps,
+  ...rest
+}: ToasterProps) => (
+  <ArkToaster toaster={toaster} {...rest}>
+    {/* @ts-ignore upstream type issue */}
+    {(toast) => (
+      <ToastRoot {...rootProps}>
+        <ToastTitle {...titleProps}>{toast.title}</ToastTitle>
 
-export { toast };
+        <ToastDescription {...descriptionProps}>
+          {toast.description}
+        </ToastDescription>
+
+        {actionTrigger && (
+          <ToastActionTrigger asChild {...actionTriggerProps}>
+            {actionTrigger}
+          </ToastActionTrigger>
+        )}
+
+        {closeTrigger && (
+          <ToastCloseTrigger asChild {...closeTriggerProps}>
+            {closeTrigger}
+          </ToastCloseTrigger>
+        )}
+      </ToastRoot>
+    )}
+  </ArkToaster>
+);
 
 export default Toaster;

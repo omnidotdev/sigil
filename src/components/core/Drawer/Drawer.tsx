@@ -1,17 +1,17 @@
 import { ark } from "@ark-ui/react";
 import { Dialog as ArkDialog } from "@ark-ui/react/dialog";
+import {
+  cloneElement,
+  type ComponentProps,
+  type ReactElement,
+  type ReactNode,
+} from "react";
 import { FiX } from "react-icons/fi";
 
 import Button from "components/core/Button/Button";
 import { styled } from "generated/panda/jsx";
 import { drawer } from "generated/panda/recipes";
-import { createStyleContext, getContextualChildren } from "lib/util";
-
-import type {
-  ComponentProps,
-  ComponentPropsWithoutRef,
-  ReactNode,
-} from "react";
+import { createStyleContext } from "lib/util";
 
 const { withProvider, withContext } = createStyleContext(drawer);
 
@@ -73,14 +73,32 @@ export interface DrawerProps extends DrawerRootProps {
   trigger?: ReactNode;
   /** Drawer title, displayed at the top. */
   title?: string;
-  /** Drawer description, displayed underneath title. */
+  /** Drawer description, displayed underneath the title. */
   description?: string;
   /** Drawer footer, displayed at the bottom. */
   footer?: ReactNode;
+  /** Close trigger. Defaults to a button in the top right corner. */
+  closeTrigger?: ReactElement | null;
+  /** Drawer trigger props. */
+  triggerProps?: DrawerTriggerProps;
+  /** Drawer backdrop props. */
+  backdropProps?: DrawerBackdropProps;
+  /** Drawer positioner props. */
+  positionerProps?: DrawerPositionerProps;
+  /** Drawer header props. */
+  headerProps?: DrawerHeaderProps;
+  /** Drawer title props. */
+  titleProps?: DrawerTitleProps;
+  /** Drawer description props. */
+  descriptionProps?: DrawerDescriptionProps;
   /** Drawer content (body) container props. */
-  contentProps?: ComponentPropsWithoutRef<typeof DrawerContent>;
+  contentProps?: DrawerContentProps;
+  /** Drawer body container props. */
+  bodyProps?: DrawerBodyProps;
   /** Drawer footer container props. */
-  footerProps?: ComponentPropsWithoutRef<typeof DrawerFooter>;
+  footerProps?: DrawerFooterProps;
+  /** Close trigger props. */
+  closeTriggerProps?: DrawerCloseTriggerProps;
 }
 
 /**
@@ -91,48 +109,56 @@ const Drawer = ({
   title,
   description,
   footer,
+  closeTrigger = (
+    <DrawerCloseTrigger asChild position="absolute" top={3} right={4}>
+      <Button variant="ghost">
+        <FiX />
+      </Button>
+    </DrawerCloseTrigger>
+  ),
   children,
+  triggerProps,
+  backdropProps,
+  positionerProps,
+  headerProps,
+  titleProps,
+  descriptionProps,
   contentProps,
+  bodyProps,
   footerProps,
+  closeTriggerProps,
   ...rest
 }: DrawerProps) => (
   <DrawerRoot {...rest}>
-    {(ctx) => (
-      <>
-        {trigger && <DrawerTrigger asChild>{trigger}</DrawerTrigger>}
+    {trigger && (
+      <DrawerTrigger asChild {...triggerProps}>
+        {trigger}
+      </DrawerTrigger>
+    )}
 
-        <DrawerBackdrop />
+    <DrawerBackdrop {...backdropProps} />
 
-        <DrawerPositioner>
-          <DrawerContent {...contentProps}>
-            {(title || description) && (
-              <DrawerHeader>
-                {title && <DrawerTitle>{title}</DrawerTitle>}
+    <DrawerPositioner {...positionerProps}>
+      <DrawerContent {...contentProps}>
+        {(title || description) && (
+          <DrawerHeader {...headerProps}>
+            {title && <DrawerTitle {...titleProps}>{title}</DrawerTitle>}
 
-                {description && (
-                  <DrawerDescription>{description}</DrawerDescription>
-                )}
-
-                <DrawerCloseTrigger
-                  asChild
-                  position="absolute"
-                  top={3}
-                  right={4}
-                >
-                  <Button variant="ghost">
-                    <FiX />
-                  </Button>
-                </DrawerCloseTrigger>
-              </DrawerHeader>
+            {description && (
+              <DrawerDescription {...descriptionProps}>
+                {description}
+              </DrawerDescription>
             )}
 
-            <DrawerBody>{getContextualChildren({ ctx, children })}</DrawerBody>
+            {closeTrigger && cloneElement(closeTrigger, closeTriggerProps)}
+          </DrawerHeader>
+        )}
 
-            {footer && <DrawerFooter {...footerProps}>{footer}</DrawerFooter>}
-          </DrawerContent>
-        </DrawerPositioner>
-      </>
-    )}
+        <DrawerBody {...bodyProps}>{children}</DrawerBody>
+
+        {footer && <DrawerFooter {...footerProps}>{footer}</DrawerFooter>}
+      </DrawerContent>
+    </DrawerPositioner>
   </DrawerRoot>
 );
 

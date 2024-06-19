@@ -20,6 +20,10 @@ import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(fileUpload);
 
+export const FileUploadContext = ArkFileUpload.Context;
+export interface FileUploadContextProps
+  extends ComponentProps<typeof FileUploadContext> {}
+
 const FileUploadRoot = withProvider(styled(ArkFileUpload.Root), "root");
 export interface FileUploadRootProps
   extends ComponentProps<typeof FileUploadRoot> {}
@@ -85,6 +89,10 @@ const FileUploadLabel = withContext(styled(ArkFileUpload.Label), "label");
 export interface FileUploadLabelProps
   extends ComponentProps<typeof FileUploadLabel> {}
 
+const FileUploadHiddenInput = ArkFileUpload.HiddenInput;
+export interface FileUploadHiddenInputProps
+  extends ComponentProps<typeof FileUploadHiddenInput> {}
+
 export interface FileUploadProps extends FileUploadRootProps {
   /** Label for the file upload dropzone. */
   label?: ReactNode;
@@ -98,6 +106,7 @@ export interface FileUploadProps extends FileUploadRootProps {
   itemProps?: ArkFileUploadItemProps;
   /** File upload item preview props. */
   itemPreviewProps?: ArkFileUploadItemPreviewProps;
+  /** File upload item preview image props. */
   itemPreviewImageProps?: ArkFileUploadItemPreviewImageProps;
   /** File upload item name props. */
   itemNameProps?: ArkFileUploadItemNameProps;
@@ -133,26 +142,30 @@ const FileUpload = ({
     </FileUploadDropzone>
 
     <FileUploadItemGroup {...itemGroupProps}>
-      {(files) =>
-        files.map((file, id) => (
-          <FileUploadItem key={id} file={file} {...itemProps}>
-            <FileUploadItemPreview {...itemPreviewProps}>
-              <FileUploadItemPreviewImage {...itemPreviewImageProps} />
-            </FileUploadItemPreview>
+      <FileUploadContext>
+        {({ acceptedFiles }) =>
+          acceptedFiles.map((file, id) => (
+            <FileUploadItem key={id} file={file} {...itemProps}>
+              <FileUploadItemPreview {...itemPreviewProps}>
+                <FileUploadItemPreviewImage {...itemPreviewImageProps} />
+              </FileUploadItemPreview>
 
-            <FileUploadItemName {...itemNameProps} />
+              <FileUploadItemName {...itemNameProps} />
 
-            <FileUploadItemSizeText {...itemSizeTextProps} />
+              <FileUploadItemSizeText {...itemSizeTextProps} />
 
-            <FileUploadItemDeleteTrigger asChild {...itemDeleteTriggerProps}>
-              <Button variant="link" size="sm">
-                <FaRegTrashAlt />
-              </Button>
-            </FileUploadItemDeleteTrigger>
-          </FileUploadItem>
-        ))
-      }
+              <FileUploadItemDeleteTrigger asChild {...itemDeleteTriggerProps}>
+                <Button variant="link" size="sm">
+                  <FaRegTrashAlt />
+                </Button>
+              </FileUploadItemDeleteTrigger>
+            </FileUploadItem>
+          ))
+        }
+      </FileUploadContext>
     </FileUploadItemGroup>
+
+    <FileUploadHiddenInput />
   </FileUploadRoot>
 );
 

@@ -34,6 +34,16 @@ export const Default: Story = {
 };
 
 /**
+ * Dialog with the default close trigger disabled.
+ */
+export const WithoutCloseTrigger: Story = {
+  args: {
+    ...Default.args,
+    closeTrigger: null,
+  },
+};
+
+/**
  * Lazily mount dialog (`lazyMount` prop), and optionally unmount when closed (`unmountOnExit` prop).
  */
 export const LazyMount: Story = {

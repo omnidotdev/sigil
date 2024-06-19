@@ -10,7 +10,7 @@ const tooltip = defineSlotRecipe({
   slots: tooltipAnatomy.extendWith("root").keys(),
   base: {
     content: {
-      "--tooltip-background": "colors.background.default",
+      "--tooltip-background": "colors.background.muted",
       bgColor: "var(--tooltip-background)",
       borderRadius: "md",
       boxShadow: "lg",
@@ -27,10 +27,6 @@ const tooltip = defineSlotRecipe({
     arrow: {
       "--arrow-size": "12px",
       "--arrow-background": "var(--tooltip-background)",
-    },
-    arrowTip: {
-      borderTopWidth: "1px",
-      borderLeftWidth: "1px",
     },
   },
 });

@@ -38,7 +38,7 @@ const drawer = defineSlotRecipe({
       position: "fixed",
       top: 0,
       width: { base: "100vw", sm: "sm" },
-      zIndex: "modal",
+      zIndex: "dialog",
     },
     content: {
       bgColor: "background.default",

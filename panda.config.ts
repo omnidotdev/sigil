@@ -28,6 +28,8 @@ const pandaConfig = defineConfig({
             properties: {
               backgroundColor: ["*"],
               colorPalette: ["*"],
+              textStyle: ["*"],
+              fontWeight: ["*"],
             },
           },
         ],

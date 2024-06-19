@@ -71,6 +71,9 @@ const colorPicker = defineSlotRecipe({
       gap: 2,
       bgColor: "background.default",
     },
+    swatchTrigger: {
+      cursor: "pointer",
+    },
     swatch: {
       height: 6,
       width: 6,

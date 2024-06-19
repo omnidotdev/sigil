@@ -30,7 +30,7 @@ const zIndex: Tokens["zIndex"] = defineTokens.zIndex({
   overlay: {
     value: 1300,
   },
-  modal: {
+  dialog: {
     value: 1400,
   },
   popover: {

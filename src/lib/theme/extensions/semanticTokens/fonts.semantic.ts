@@ -11,7 +11,7 @@ const fonts: SemanticTokens["fonts"] = defineSemanticTokens.fonts({
     description: "Primary font",
   },
   code: {
-    value: `var(--font-code), monospace`,
+    value: "var(--font-code), monospace",
     description: "Code font",
   },
 });

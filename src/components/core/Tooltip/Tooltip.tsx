@@ -2,7 +2,7 @@ import { Tooltip as ArkTooltip } from "@ark-ui/react/tooltip";
 
 import { styled } from "generated/panda/jsx";
 import { tooltip } from "generated/panda/recipes";
-import { createStyleContext, getContextualChildren } from "lib/util";
+import { createStyleContext } from "lib/util";
 
 import type { ComponentProps, ReactNode } from "react";
 
@@ -70,23 +70,19 @@ const Tooltip = ({
   ...rest
 }: TooltipProps) => (
   <TooltipRoot openDelay={0} closeDelay={100} {...rest}>
-    {(ctx) => (
-      <>
-        {trigger && <TooltipTrigger>{trigger}</TooltipTrigger>}
+    {trigger && <TooltipTrigger>{trigger}</TooltipTrigger>}
 
-        <TooltipPositioner>
-          <TooltipContent {...contentProps}>
-            {hasArrow && (
-              <TooltipArrow {...arrowProps}>
-                <TooltipArrowTip {...arrowTipProps} />
-              </TooltipArrow>
-            )}
+    <TooltipPositioner>
+      <TooltipContent {...contentProps}>
+        {hasArrow && (
+          <TooltipArrow {...arrowProps}>
+            <TooltipArrowTip {...arrowTipProps} />
+          </TooltipArrow>
+        )}
 
-            {getContextualChildren({ ctx, children })}
-          </TooltipContent>
-        </TooltipPositioner>
-      </>
-    )}
+        {children}
+      </TooltipContent>
+    </TooltipPositioner>
   </TooltipRoot>
 );
 

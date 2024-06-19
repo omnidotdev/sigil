@@ -6,9 +6,13 @@ import { styled } from "generated/panda/jsx";
 import { editable } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ComponentProps } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(editable);
+
+export const EditableContext = ArkEditable.Context;
+export interface EditableContextProps
+  extends ComponentProps<typeof EditableContext> {}
 
 export const EditableRoot = withProvider(styled(ArkEditable.Root), "root");
 export interface EditableRootProps
@@ -63,7 +67,7 @@ export interface EditableSubmitTriggerProps
 
 export interface EditableProps extends EditableRootProps {
   /** Editable field label. */
-  label: string;
+  label?: ReactNode;
 }
 
 /**
@@ -71,19 +75,21 @@ export interface EditableProps extends EditableRootProps {
  */
 const Editable = ({ label, ...rest }: EditableProps) => (
   <EditableRoot {...rest}>
-    {(ctx) => (
-      <>
-        <EditableLabel asChild>
-          <Label>{label}</Label>
-        </EditableLabel>
+    {label && (
+      <EditableLabel asChild>
+        <Label>{label}</Label>
+      </EditableLabel>
+    )}
 
-        <EditableArea>
-          <EditableInput />
-          <EditablePreview />
-        </EditableArea>
+    <EditableArea>
+      <EditableInput />
+      <EditablePreview />
+    </EditableArea>
 
-        <EditableControl>
-          {ctx.isEditing ? (
+    <EditableControl>
+      <EditableContext>
+        {({ editing }) =>
+          editing ? (
             <>
               <EditableSubmitTrigger asChild>
                 <Button variant="link">Save</Button>
@@ -96,10 +102,10 @@ const Editable = ({ label, ...rest }: EditableProps) => (
             <EditableEditTrigger asChild>
               <Button variant="link">Edit</Button>
             </EditableEditTrigger>
-          )}
-        </EditableControl>
-      </>
-    )}
+          )
+        }
+      </EditableContext>
+    </EditableControl>
   </EditableRoot>
 );
 

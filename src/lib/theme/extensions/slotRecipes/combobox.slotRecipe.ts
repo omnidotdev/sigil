@@ -22,6 +22,13 @@ const combobox = defineSlotRecipe({
       color: "foreground.default",
       fontWeight: "medium",
     },
+    clearTrigger: {
+      color: "foreground.muted",
+      position: "absolute",
+      right: 9,
+      bottom: 0,
+      top: 0,
+    },
     trigger: {
       color: "foreground.muted",
       position: "absolute",
@@ -48,7 +55,7 @@ const combobox = defineSlotRecipe({
       _focusVisible: {
         outlineOffset: "2px",
         outline: "2px solid",
-        outlineColor: "border.outline",
+        outlineColor: "colorPalette.outline",
       },
     },
     item: {

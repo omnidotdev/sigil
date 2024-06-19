@@ -23,7 +23,10 @@ const rating = defineSlotRecipe({
       display: "flex",
     },
     item: {
-      cursor: "pointer",
+      cursor: {
+        base: "pointer",
+        _readOnly: "default",
+      },
       transitionDuration: "normal",
       transitionProperty: "color, fill",
       transitionTimingFunction: "default",

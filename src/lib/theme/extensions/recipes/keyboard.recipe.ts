@@ -16,11 +16,17 @@ const keyboard = defineRecipe({
     display: "inline-flex",
     fontFamily: "var(--font-code)",
     fontWeight: "medium",
+    whiteSpace: "pre",
   },
   defaultVariants: {
     size: "md",
   },
   variants: {
+    variant: {
+      ghost: {
+        boxShadow: "none",
+      },
+    },
     size: {
       sm: {
         height: 5,

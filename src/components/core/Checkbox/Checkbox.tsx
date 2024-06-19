@@ -1,10 +1,13 @@
 import { Checkbox as ArkCheckbox } from "@ark-ui/react/checkbox";
+import { FaCheck, FaMinus } from "react-icons/fa6";
 
+import Icon from "../Icon/Icon";
 import { styled } from "generated/panda/jsx";
 import { checkbox } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ComponentProps } from "react";
+import type { IconProps } from "components/core";
+import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(checkbox);
 
@@ -23,8 +26,6 @@ const CheckboxIndicator = withContext(
   styled(ArkCheckbox.Indicator),
   "indicator",
 );
-
-// TODO use in prebuilt `Checkbox` component
 export interface CheckboxIndicatorProps
   extends ComponentProps<typeof CheckboxIndicator> {}
 
@@ -32,53 +33,52 @@ export const CheckboxLabel = withContext(styled(ArkCheckbox.Label), "label");
 export interface CheckboxLabelProps
   extends ComponentProps<typeof CheckboxLabel> {}
 
-// TODO change to react-icons icon, and make sure can click icon to toggle state (add test)
-const CheckIcon = () => (
-  <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M11.6666 3.5L5.24992 9.91667L2.33325 7"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-// TODO change to react-icons icon, and make sure can click icon to toggle state (add test)
-const MinusIcon = () => (
-  <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M2.91675 7H11.0834"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
+export const CheckboxHiddenInput = ArkCheckbox.HiddenInput;
+export interface CheckboxHiddenInputProps
+  extends ComponentProps<typeof CheckboxHiddenInput> {}
 
 export interface CheckboxProps extends CheckboxRootProps {
   /** Checkbox label. */
-  label: string;
+  label?: ReactNode;
+  controlProps?: CheckboxControlProps;
+  indicatorProps?: CheckboxIndicatorProps;
+  iconProps?: IconProps;
+  labelProps?: CheckboxLabelProps;
+  hiddenInputProps?: ComponentProps<typeof ArkCheckbox.HiddenInput>;
 }
+
+const baseIconProps: Partial<IconProps> = {
+  size: "sm",
+  // allow clicking through icon
+  pointerEvents: "none!",
+};
 
 /**
  * Interactive checkbox.
  */
-const Checkbox = ({ label, ...rest }: CheckboxProps) => (
+const Checkbox = ({
+  label,
+  controlProps,
+  indicatorProps,
+  iconProps,
+  labelProps,
+  hiddenInputProps,
+  ...rest
+}: CheckboxProps) => (
   <CheckboxRoot {...rest}>
-    {(ctx) => (
-      <>
-        <CheckboxControl>
-          {ctx.isChecked && <CheckIcon />}
+    <CheckboxControl {...controlProps}>
+      <CheckboxIndicator asChild {...indicatorProps}>
+        <Icon src={FaCheck} {...baseIconProps} {...iconProps} />
+      </CheckboxIndicator>
 
-          {ctx.isIndeterminate && <MinusIcon />}
-        </CheckboxControl>
+      <CheckboxIndicator asChild indeterminate {...indicatorProps}>
+        <Icon src={FaMinus} {...baseIconProps} {...iconProps} />
+      </CheckboxIndicator>
+    </CheckboxControl>
 
-        <CheckboxLabel>{label}</CheckboxLabel>
-      </>
-    )}
+    {label && <CheckboxLabel {...labelProps}>{label}</CheckboxLabel>}
+
+    <CheckboxHiddenInput {...hiddenInputProps} />
   </CheckboxRoot>
 );
 

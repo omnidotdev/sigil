@@ -53,6 +53,10 @@ export const SegmentGroupItemControl = withContext(
 export interface SegmentGroupItemControlProps
   extends ComponentProps<typeof SegmentGroupItemControl> {}
 
+export const SegmentGroupItemHiddenInput = ArkSegmentGroup.ItemHiddenInput;
+export interface SegmentGroupItemHiddenInputProps
+  extends ComponentProps<typeof SegmentGroupItemHiddenInput> {}
+
 export interface SegmentGroupProps extends SegmentGroupRootProps {
   /** Segment group options. */
   options: {
@@ -79,6 +83,8 @@ const SegmentGroup = ({ options, ...rest }: SegmentGroupProps) => (
         <SegmentGroupItemControl />
 
         <SegmentGroupItemText>{label}</SegmentGroupItemText>
+
+        <SegmentGroupItemHiddenInput />
       </SegmentGroupItem>
     ))}
     <SegmentGroupIndicator />

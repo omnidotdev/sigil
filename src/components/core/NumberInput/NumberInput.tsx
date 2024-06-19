@@ -5,7 +5,7 @@ import { styled } from "generated/panda/jsx";
 import { numberInput } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ComponentProps } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(numberInput);
 
@@ -59,27 +59,42 @@ export interface NumberInputScrubberProps
   extends ComponentProps<typeof NumberInputScrubber> {}
 
 export interface NumberInputProps extends NumberInputRootProps {
-  label: string;
+  label?: ReactNode;
+  scrubberProps?: NumberInputScrubberProps;
+  labelProps?: NumberInputLabelProps;
+  controlProps?: NumberInputControlProps;
+  inputProps?: NumberInputInputProps;
+  incrementTriggerProps?: NumberInputIncrementTriggerProps;
+  decrementTriggerProps?: NumberInputDecrementTriggerProps;
 }
 
 /**
  * Number input.
  */
-const NumberInput = ({ label, ...rest }: NumberInputProps) => (
-  <NumberInputRoot width="2xs" {...rest}>
+const NumberInput = ({
+  label,
+  scrubberProps,
+  labelProps,
+  controlProps,
+  inputProps,
+  incrementTriggerProps,
+  decrementTriggerProps,
+  ...rest
+}: NumberInputProps) => (
+  <NumberInputRoot {...rest}>
     {/* enable scrubbing via the Pointer Lock API (https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) */}
-    <NumberInputScrubber />
+    <NumberInputScrubber {...scrubberProps} />
 
-    <NumberInputLabel>{label}</NumberInputLabel>
+    {label && <NumberInputLabel {...labelProps}>{label}</NumberInputLabel>}
 
-    <NumberInputControl>
-      <NumberInputInput />
+    <NumberInputControl {...controlProps}>
+      <NumberInputInput {...inputProps} />
 
-      <NumberInputIncrementTrigger>
+      <NumberInputIncrementTrigger {...incrementTriggerProps}>
         <FiChevronUp />
       </NumberInputIncrementTrigger>
 
-      <NumberInputDecrementTrigger>
+      <NumberInputDecrementTrigger {...decrementTriggerProps}>
         <FiChevronDown />
       </NumberInputDecrementTrigger>
     </NumberInputControl>

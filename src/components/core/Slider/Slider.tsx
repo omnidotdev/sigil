@@ -4,9 +4,13 @@ import { styled } from "generated/panda/jsx";
 import { slider } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ComponentProps } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(slider);
+
+export const SliderContext = ArkSlider.Context;
+export interface SliderContextProps
+  extends ComponentProps<typeof SliderContext> {}
 
 export const SliderRoot = withProvider(styled(ArkSlider.Root), "root");
 export interface SliderRootProps extends ComponentProps<typeof SliderRoot> {}
@@ -50,7 +54,7 @@ export interface SliderProps extends SliderRootProps {
   /** Track values to mark. */
   markerValues: number[];
   /** Label to represent the slider. */
-  label?: string;
+  label?: ReactNode;
 }
 
 /**
@@ -65,7 +69,11 @@ const Slider = ({ markerValues, label, ...rest }: SliderProps) => (
         <SliderRange />
       </SliderTrack>
 
-      <SliderThumb index={0} />
+      <SliderContext>
+        {({ value }) =>
+          value.map((_val, idx) => <SliderThumb key={idx} index={idx} />)
+        }
+      </SliderContext>
     </SliderControl>
 
     <SliderMarkerGroup>

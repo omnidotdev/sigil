@@ -41,12 +41,12 @@ export const Default: Story = {
   args: {
     trigger: <Button variant="outline">Open Menu</Button>,
     children: (
-      <MenuItemGroup id="group-1">
-        <MenuItemGroupLabel htmlFor="group-1">My Account</MenuItemGroupLabel>
+      <MenuItemGroup>
+        <MenuItemGroupLabel>My Account</MenuItemGroupLabel>
 
         <MenuSeparator />
 
-        <MenuItem id="profile">
+        <MenuItem value="profile">
           <HStack gap={6} justify="space-between" flex="1">
             <HStack gap={2}>
               <FiUser />
@@ -58,13 +58,13 @@ export const Default: Story = {
           </HStack>
         </MenuItem>
 
-        <MenuItem id="billing">
+        <MenuItem value="billing">
           <HStack gap={2}>
             <FiCreditCard /> Billing
           </HStack>
         </MenuItem>
 
-        <MenuItem id="settings">
+        <MenuItem value="settings">
           <HStack gap={6} justify="space-between" flex="1">
             <HStack gap={2}>
               <FiSettings /> Settings
@@ -88,13 +88,13 @@ export const Default: Story = {
 
           <MenuPositioner>
             <MenuContent>
-              <MenuItem id="email">
+              <MenuItem value="email">
                 <HStack gap={2}>
                   <FiMail /> Email
                 </HStack>
               </MenuItem>
 
-              <MenuItem id="message">
+              <MenuItem value="message">
                 <HStack gap={2}>
                   <FiMessageSquare /> Message
                 </HStack>
@@ -102,7 +102,7 @@ export const Default: Story = {
 
               <MenuSeparator />
 
-              <MenuItem id="other">
+              <MenuItem value="other">
                 <HStack gap={2}>
                   <FiPlusCircle /> More Options...
                 </HStack>
@@ -113,7 +113,7 @@ export const Default: Story = {
 
         <MenuSeparator />
 
-        <MenuItem id="logout">
+        <MenuItem value="logout">
           <HStack gap={2}>
             <FiLogOut />
             Logout

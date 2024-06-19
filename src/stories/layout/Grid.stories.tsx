@@ -16,16 +16,24 @@ const meta = {
 
 export const Default: Story = {
   render: () => (
-    <Grid columns={3} gap={6} bgColor="blue.100">
-      <GridItem p={2} colSpan={2} bgColor="green.200">
+    <Grid columns={3} gap={6} bgColor={{ base: "blue.100", _dark: "blue" }}>
+      <GridItem
+        p={2}
+        colSpan={2}
+        bgColor={{ base: "green.200", _dark: "green" }}
+      >
         <Code bgColor="transparent">GridItem 1</Code>
       </GridItem>
 
-      <GridItem p={2} bgColor="red.200">
+      <GridItem p={2} bgColor={{ base: "red.200", _dark: "red" }}>
         <Code bgColor="transparent">GridItem 2</Code>
       </GridItem>
 
-      <GridItem p={2} colSpan={3} bgColor="purple.200">
+      <GridItem
+        p={2}
+        colSpan={3}
+        bgColor={{ base: "purple.200", _dark: "purple" }}
+      >
         <Code bgColor="transparent">GridItem 3</Code>
       </GridItem>
     </Grid>

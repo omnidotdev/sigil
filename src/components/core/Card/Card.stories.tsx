@@ -1,5 +1,5 @@
 import { Button, Card, Input, Label } from "components";
-import { Stack } from "generated/panda/jsx";
+import { HStack, Stack } from "generated/panda/jsx";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -15,12 +15,11 @@ export const Default: Story = {
   args: {
     title: "Team Members",
     description: "Add new members to your organization.",
-    footerProps: { gap: 3 },
     footer: (
-      <>
+      <HStack>
         <Button variant="outline">Cancel</Button>
         <Button>Invite</Button>
-      </>
+      </HStack>
     ),
     children: (
       <Stack gap={4}>
