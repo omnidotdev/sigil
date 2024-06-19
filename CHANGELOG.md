@@ -1,25 +1,26 @@
 # @omnidev/sigil
 
-## 0.9.2
+## 0.10.0
 
-### Patch Changes
+### Minor Changes
 
-- [#84](https://github.com/omnidotdev/sigil/pull/84) [`f30bc13`](https://github.com/omnidotdev/sigil/commit/f30bc13dd689f484879e4370cdf896af0720ce0f) Thanks [@coopbri](https://github.com/coopbri)! - **BREAKING:** Change `Switch` `children` prop to `label`
-  **BREAKING:** Change `TreeView` child and `MenuItem` `id` prop to `value` to match Ark upstream
-  Make `label` prop optional on `TabsInput`
-  Refine `Toaster` API and added styled variants (`base`, `info` (default), `loading`, `success`, `warning`, `error`)
-  Add `Keyboard` `ghost` variant
-  Add `colorPalette` support to `Combobox`, `PINInput`, `Pagination`, `Select`, and `TreeView`
-  Add `displayFieldLabel`, `displayGroupLabel`, and `displayClearTrigger` props to `Combobox` and `Select`
-  Add subcomponent prop composition to `Accordion`, `Checkbox`, `ColorPicker`, `Combobox`, `Dialog`, `Drawer`, `Menu`, `NumberInput`, `Pagination`, `RadioGroup`, `Select`
-  Add clear triggers to `Combobox` and `Select` which clear the selected/entered value
-  Update `Skeleton` color to be easier to see on both light and dark modes
-  Add margin to `Alert` icon
-  Set pointer cursor on `ColorPicker` swatch trigger
-  Tighten `RadioGroup` styles (reduce spacing)
-  Set default cursor when `readOnly` is passed to `Rating`
-  Fix `Dialog` animations not working
-  Prevent text wrapping in `code` and `keyboard` recipes
+- [#84](https://github.com/omnidotdev/sigil/pull/84) [`f30bc13`](https://github.com/omnidotdev/sigil/commit/f30bc13dd689f484879e4370cdf896af0720ce0f) Thanks [@coopbri](https://github.com/coopbri)!
+  - **BREAKING:** Change `Switch` `children` prop to `label`
+  - **BREAKING:** Change `TreeView` child and `MenuItem` `id` prop to `value` to match Ark upstream
+  - Make `label` prop optional on `TabsInput`
+  - Refine `Toaster` API and added styled variants (`base`, `info` (default), `loading`, `success`, `warning`, `error`)
+  - Add `Keyboard` `ghost` variant
+  - Add `colorPalette` support to `Combobox`, `PINInput`, `Pagination`, `Select`, and `TreeView`
+  - Add `displayFieldLabel`, `displayGroupLabel`, and `displayClearTrigger` props to `Combobox` and `Select`
+  - Add subcomponent prop composition to `Accordion`, `Checkbox`, `ColorPicker`, `Combobox`, `Dialog`, `Drawer`, `Menu`, `NumberInput`, `Pagination`, `RadioGroup`, `Select`
+  - Add clear triggers to `Combobox` and `Select` which clear the selected/entered value
+  - Update `Skeleton` color to be easier to see on both light and dark modes
+  - Add margin to `Alert` icon
+  - Set pointer cursor on `ColorPicker` swatch trigger
+  - Tighten `RadioGroup` styles (reduce spacing)
+  - Set default cursor when `readOnly` is passed to `Rating`
+  - Fix `Dialog` animations not working
+  - Prevent text wrapping in `code` and `keyboard` recipes
 
 ## 0.9.1
 
@@ -125,7 +126,7 @@
 
 ### Patch Changes
 
-- [#29](https://github.com/omnidotdev/sigil/pull/29) [`431d0ec`](https://github.com/omnidotdev/sigil/commit/431d0ec39403187945c44f8ae5ed213f439f048a) Thanks [@coopbri](https://github.com/coopbri)! - Made trigger-enabled components conditionally render trigger only if passed (`Drawer`, `HoverCard`, `Menu`, `Popover`, `Tooltip`)
+- [#29](https://github.com/omnidotdev/sigil/pull/29) [`431d0ec`](https://github.com/omnidotdev/sigil/commit/431d0ec39403187945c44f8ae5ed213f439f048a) Thanks [@coopbri](https://github.com/coopbri)! - Make trigger-enabled components conditionally render trigger only if passed (`Drawer`, `HoverCard`, `Menu`, `Popover`, `Tooltip`)
 
 - [#26](https://github.com/omnidotdev/sigil/pull/26) [`ba71618`](https://github.com/omnidotdev/sigil/commit/ba71618cf7e9f66abdb445705fe22b4e4def30a5) Thanks [@coopbri](https://github.com/coopbri)! - Improve legibility of text selection (highlight) styles
 
