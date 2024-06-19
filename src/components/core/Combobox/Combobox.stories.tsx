@@ -1,8 +1,10 @@
 import { Combobox } from "components";
-import { Box } from "generated/panda/jsx";
+import { Box, Stack } from "generated/panda/jsx";
+import { combobox } from "lib/theme/extensions/slotRecipes";
 import { fruitBasket } from "stories/data";
 
 import type { Meta, StoryObj } from "@storybook/react";
+import type { ComboboxVariant } from "generated/panda/recipes";
 type Story = StoryObj<typeof meta>;
 
 const meta = {
@@ -42,6 +44,23 @@ export const HideLabels: Story = {
     displayFieldLabel: false,
     displayGroupLabel: false,
   },
+};
+
+// TODO table like Avatar stories
+
+const sizes = Object.keys(
+  combobox.variants!["size"],
+) as ComboboxVariant["size"][];
+
+export const Sizes: Story = {
+  ...Default,
+  render: () => (
+    <Stack>
+      {sizes.map((size) => (
+        <Combobox key={size} {...Default.args} size={size} />
+      ))}
+    </Stack>
+  ),
 };
 
 /**

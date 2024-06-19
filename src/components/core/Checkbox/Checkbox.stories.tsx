@@ -34,7 +34,9 @@ export const Indeterminate: Story = {
 
 // TODO table like Avatar stories
 
-const sizes = Object.keys(checkbox.variants!.size) as CheckboxVariant["size"][];
+const sizes = Object.keys(
+  checkbox.variants!["size"],
+) as CheckboxVariant["size"][];
 
 export const Sizes: Story = {
   render: () => (

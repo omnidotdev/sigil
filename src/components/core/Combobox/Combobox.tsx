@@ -1,87 +1,114 @@
 import { Combobox as ArkCombobox } from "@ark-ui/react/combobox";
 import { useState } from "react";
-import { BiCheck, BiExpandVertical } from "react-icons/bi";
+import { BiCheck, BiExpandVertical, BiX } from "react-icons/bi";
 
 import Button from "components/core/Button/Button";
 import Input from "components/core/Input/Input";
+import { styled } from "generated/panda/jsx";
 import { combobox } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { ComboboxInputValueChangeDetails } from "@ark-ui/react/combobox";
+import type { ColorPalette } from "generated/panda/tokens";
 import type { ComponentProps } from "react";
-
-import type {} from "@zag-js/combobox";
 
 const { withProvider, withContext } = createStyleContext(combobox);
 
-export const ComboboxRoot = withProvider(ArkCombobox.Root, "root");
+// https://github.com/chakra-ui/ark/issues/1740#issuecomment-1817255471
+type AugmentedComboboxRoot = <T extends ArkCombobox.CollectionItem>(
+  props: ArkCombobox.RootProps<T>,
+) => JSX.Element;
+
+export const ComboboxRoot = withProvider(
+  styled(ArkCombobox.Root) as AugmentedComboboxRoot,
+  "root",
+);
 export interface ComboboxRootProps
   extends ComponentProps<typeof ComboboxRoot> {}
 
 export const ComboboxClearTrigger = withContext(
-  ArkCombobox.ClearTrigger,
+  styled(ArkCombobox.ClearTrigger),
   "clearTrigger",
 );
 export interface ComboboxClearTriggerProps
   extends ComponentProps<typeof ComboboxClearTrigger> {}
 
-export const ComboboxContent = withContext(ArkCombobox.Content, "content");
+export const ComboboxContent = withContext(
+  styled(ArkCombobox.Content),
+  "content",
+);
 export interface ComboboxContentProps
   extends ComponentProps<typeof ComboboxContent> {}
 
-export const ComboboxControl = withContext(ArkCombobox.Control, "control");
+export const ComboboxControl = withContext(
+  styled(ArkCombobox.Control),
+  "control",
+);
 export interface ComboboxControlProps
   extends ComponentProps<typeof ComboboxControl> {}
 
-export const ComboboxInput = withContext(ArkCombobox.Input, "input");
+export const ComboboxInput = withContext(styled(ArkCombobox.Input), "input");
 export interface ComboboxInputProps
   extends ComponentProps<typeof ComboboxInput> {}
 
-export const ComboboxItem = withContext(ArkCombobox.Item, "item");
+export const ComboboxItem = withContext(styled(ArkCombobox.Item), "item");
 export interface ComboboxItemProps
   extends ComponentProps<typeof ComboboxItem> {}
 
 export const ComboboxItemGroup = withContext(
-  ArkCombobox.ItemGroup,
+  styled(ArkCombobox.ItemGroup),
   "itemGroup",
 );
 export interface ComboboxItemGroupProps
   extends ComponentProps<typeof ComboboxItemGroup> {}
 
 export const ComboboxItemGroupLabel = withContext(
-  ArkCombobox.ItemGroupLabel,
+  styled(ArkCombobox.ItemGroupLabel),
   "itemGroupLabel",
 );
 export interface ComboboxItemGroupLabelProps
   extends ComponentProps<typeof ComboboxItemGroupLabel> {}
 
 export const ComboboxItemIndicator = withContext(
-  ArkCombobox.ItemIndicator,
+  styled(ArkCombobox.ItemIndicator),
   "itemIndicator",
 );
 export interface ComboboxItemIndicatorProps
   extends ComponentProps<typeof ComboboxItemIndicator> {}
 
-export const ComboboxItemText = withContext(ArkCombobox.ItemText, "itemText");
+export const ComboboxItemText = withContext(
+  styled(ArkCombobox.ItemText),
+  "itemText",
+);
 export interface ComboboxItemTextProps
   extends ComponentProps<typeof ComboboxItemText> {}
 
-export const ComboboxLabel = withContext(ArkCombobox.Label, "label");
+export const ComboboxLabel = withContext(styled(ArkCombobox.Label), "label");
 export interface ComboboxLabelProps
   extends ComponentProps<typeof ComboboxLabel> {}
 
 export const ComboboxPositioner = withContext(
-  ArkCombobox.Positioner,
+  styled(ArkCombobox.Positioner),
   "positioner",
 );
 export interface ComboboxPositionerProps
   extends ComponentProps<typeof ComboboxPositioner> {}
 
-export const ComboboxTrigger = withContext(ArkCombobox.Trigger, "trigger");
+export const ComboboxTrigger = withContext(
+  styled(ArkCombobox.Trigger),
+  "trigger",
+);
 export interface ComboboxTriggerProps
   extends ComponentProps<typeof ComboboxTrigger> {}
 
 export interface ComboboxProps extends ComboboxRootProps {
+  colorPalette?: ColorPalette;
+  /** Whether to display the input field label. */
+  displayFieldLabel?: boolean;
+  /** Whether to display the group label contained in the dropdown. */
+  displayGroupLabel?: boolean;
+  /** Whether to display the clear trigger button. */
+  displayClearTrigger?: boolean;
   label: {
     // TODO calculate ID from singular (add dashes, lowercase, etc.)
     id: string;
@@ -90,18 +117,24 @@ export interface ComboboxProps extends ComboboxRootProps {
   };
 }
 
-// TODO fix combobox not filtering when searching (works on Park UI: https://park-ui.com/docs/components/combobox)
-
 /**
  * Combobox.
  */
-const Combobox = ({ label, items, ...rest }: ComboboxProps) => {
+const Combobox = ({
+  colorPalette = "accent",
+  displayFieldLabel = true,
+  displayGroupLabel = true,
+  displayClearTrigger = true,
+  label,
+  items,
+  ...rest
+}: ComboboxProps) => {
   const [filteredItems, setFilteredItems] = useState(items);
 
   const handleChange = (evt: ComboboxInputValueChangeDetails) => {
     const filtered = items.filter((item) =>
       // @ts-ignore upstream (Ark `CollectionItem`) type bug
-      item.label.toLowerCase().includes(evt.value.toLowerCase()),
+      item.label.toLowerCase().includes(evt.inputValue.toLowerCase()),
     );
 
     setFilteredItems(filtered.length ? filtered : items);
@@ -109,23 +142,30 @@ const Combobox = ({ label, items, ...rest }: ComboboxProps) => {
 
   return (
     <ComboboxRoot
-      width="2xs"
       onInputValueChange={handleChange}
       items={filteredItems}
       {...rest}
     >
-      <ComboboxLabel>{label.plural}</ComboboxLabel>
+      {displayFieldLabel && <ComboboxLabel>{label.plural}</ComboboxLabel>}
 
       <ComboboxControl>
         <ComboboxInput
           asChild
           placeholder={`Select a ${label.singular.toLowerCase()}...`}
         >
-          <Input />
+          <Input colorPalette={colorPalette} />
         </ComboboxInput>
 
+        {displayClearTrigger && (
+          <ComboboxClearTrigger asChild>
+            <Button variant="link" size="xs" aria-label="Clear combobox">
+              <BiX />
+            </Button>
+          </ComboboxClearTrigger>
+        )}
+
         <ComboboxTrigger asChild>
-          <Button variant="link" aria-label="Open combobox" size="xs">
+          <Button variant="link" size="xs" aria-label="Open combobox">
             <BiExpandVertical />
           </Button>
         </ComboboxTrigger>
@@ -134,9 +174,9 @@ const Combobox = ({ label, items, ...rest }: ComboboxProps) => {
       <ComboboxPositioner>
         <ComboboxContent>
           <ComboboxItemGroup id={label.id}>
-            <ComboboxItemGroupLabel htmlFor={label.id}>
-              {label.plural}
-            </ComboboxItemGroupLabel>
+            {displayGroupLabel && (
+              <ComboboxItemGroupLabel>{label.plural}</ComboboxItemGroupLabel>
+            )}
 
             {filteredItems.map((item) => (
               // @ts-ignore upstream (Ark `CollectionItem`) type bug

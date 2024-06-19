@@ -78,6 +78,16 @@ const select = defineSlotRecipe({
       color: "foreground.default",
       fontWeight: "medium",
     },
+    control: {
+      display: "flex",
+      alignItems: "center",
+      position: "relative",
+    },
+    clearTrigger: {
+      color: "foreground.muted",
+      position: "absolute",
+      right: 9,
+    },
     trigger: {
       appearance: "none",
       alignItems: "center",

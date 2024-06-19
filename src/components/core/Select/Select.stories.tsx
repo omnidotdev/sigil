@@ -1,7 +1,9 @@
 import { Select } from "components";
-import { Box } from "generated/panda/jsx";
+import { Box, Stack } from "generated/panda/jsx";
+import { select } from "lib/theme/extensions/slotRecipes";
 
 import type { Meta, StoryObj } from "@storybook/react";
+import type { SelectVariant } from "generated/panda/recipes";
 
 type Story = StoryObj<typeof meta>;
 
@@ -42,6 +44,28 @@ export const HideLabels: Story = {
     displayFieldLabel: false,
     displayGroupLabel: false,
   },
+};
+
+export const Ghost: Story = {
+  args: {
+    ...Default.args,
+    variant: "ghost",
+  },
+};
+
+// TODO table like Avatar stories
+
+const sizes = Object.keys(select.variants!["size"]) as SelectVariant["size"][];
+
+export const Sizes: Story = {
+  ...Default,
+  render: () => (
+    <Stack>
+      {sizes.map((size) => (
+        <Select key={size} {...Default.args} size={size} />
+      ))}
+    </Stack>
+  ),
 };
 
 /**
