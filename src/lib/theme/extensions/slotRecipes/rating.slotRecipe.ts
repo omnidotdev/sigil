@@ -1,8 +1,6 @@
 import { ratingGroupAnatomy } from "@ark-ui/anatomy";
 import { defineSlotRecipe } from "@pandacss/dev";
 
-// TODO disable cursor pointer if readonly
-
 /**
  * Rating group recipe.
  */
@@ -25,7 +23,10 @@ const rating = defineSlotRecipe({
       display: "flex",
     },
     item: {
-      cursor: "pointer",
+      cursor: {
+        base: "pointer",
+        _readOnly: "default",
+      },
       transitionDuration: "normal",
       transitionProperty: "color, fill",
       transitionTimingFunction: "default",

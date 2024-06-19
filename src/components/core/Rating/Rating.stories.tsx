@@ -26,7 +26,15 @@ export const AllowHalves: Story = {
   },
 };
 
-// TODO readonly https://ark-ui.com/docs/components/rating-group
+/**
+ * The rating can be marked as read only, preventing user interaction, via the `readOnly` prop. Note that this also defaults the cursor.
+ */
+export const ReadOnly: Story = {
+  args: {
+    ...Default.args,
+    readOnly: true,
+  },
+};
 
 /**
  * A custom color palette can be applied to atomically modify the base color.
