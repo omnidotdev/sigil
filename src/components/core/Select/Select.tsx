@@ -124,7 +124,9 @@ const Select = ({
 
     <SelectControl>
       <SelectTrigger>
-        <SelectValueText placeholder={`Select ${label.singular}...`} />
+        <SelectValueText
+          placeholder={`Select a ${label.singular.toLowerCase()}...`}
+        />
 
         <BiExpandVertical />
       </SelectTrigger>

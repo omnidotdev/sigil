@@ -86,6 +86,7 @@ const select = defineSlotRecipe({
     clearTrigger: {
       color: "foreground.muted",
       position: "absolute",
+      cursor: "pointer",
       right: 9,
     },
     trigger: {
@@ -113,7 +114,7 @@ const select = defineSlotRecipe({
         },
       },
       "& :where(svg)": {
-        color: "foreground.subtle",
+        color: "foreground.muted",
       },
     },
   },
