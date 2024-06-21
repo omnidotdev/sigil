@@ -2,4 +2,8 @@
 "@omnidev/sigil": patch
 ---
 
-Add subcomponent prop composition to `Popover`
+- Updated Popover
+    - Added subcomponent prop composition
+    - Added children support
+    - Made title and description props optional
+
