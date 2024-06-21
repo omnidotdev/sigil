@@ -1,5 +1,13 @@
 # @omnidev/sigil
 
+## 0.10.3
+
+### Patch Changes
+
+- [#91](https://github.com/omnidotdev/sigil/pull/91) [`b95a097`](https://github.com/omnidotdev/sigil/commit/b95a09789fafeafada277d2a80ec9e83c594b22b) Thanks [@coopbri](https://github.com/coopbri)! - Removed "Add tag" placeholder from `TagsInput` input field
+
+- [#91](https://github.com/omnidotdev/sigil/pull/91) [`b95a097`](https://github.com/omnidotdev/sigil/commit/b95a09789fafeafada277d2a80ec9e83c594b22b) Thanks [@coopbri](https://github.com/coopbri)! - Added subcomponent prop composition to `TagsInput`
+
 ## 0.10.2
 
 ### Patch Changes
