@@ -1,11 +1,6 @@
 import { ark } from "@ark-ui/react";
 import { Dialog as ArkDialog } from "@ark-ui/react/dialog";
-import {
-  cloneElement,
-  type ComponentProps,
-  type ReactElement,
-  type ReactNode,
-} from "react";
+import { type ComponentProps, type ReactElement, type ReactNode } from "react";
 import { FiX } from "react-icons/fi";
 
 import Button from "components/core/Button/Button";
@@ -110,11 +105,9 @@ const Drawer = ({
   description,
   footer,
   closeTrigger = (
-    <DrawerCloseTrigger asChild position="absolute" top={3} right={4}>
-      <Button variant="ghost">
-        <FiX />
-      </Button>
-    </DrawerCloseTrigger>
+    <Button variant="ghost">
+      <FiX />
+    </Button>
   ),
   children,
   triggerProps,
@@ -150,7 +143,17 @@ const Drawer = ({
               </DrawerDescription>
             )}
 
-            {closeTrigger && cloneElement(closeTrigger, closeTriggerProps)}
+            {closeTrigger && (
+              <DrawerCloseTrigger
+                asChild
+                position="absolute"
+                top={3}
+                right={4}
+                {...closeTriggerProps}
+              >
+                {closeTrigger}
+              </DrawerCloseTrigger>
+            )}
           </DrawerHeader>
         )}
 
