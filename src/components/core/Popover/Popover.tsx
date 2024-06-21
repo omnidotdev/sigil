@@ -74,9 +74,16 @@ export interface PopoverTriggerProps
 
 export interface PopoverProps extends PopoverRootProps {
   trigger?: ReactNode;
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
+  triggerProps?: PopoverTriggerProps;
+  positionerProps?: PopoverPositionerProps;
   contentProps?: PopoverContentProps;
+  arrowProps?: PopoverArrowProps;
+  arrowTipProps?: PopoverArrowTipProps;
+  titleProps?: PopoverTitleProps;
+  descriptionProps?: PopoverDescriptionProps;
+  closeTriggerProps?: PopoverCloseTriggerProps;
 }
 
 /**
@@ -86,26 +93,38 @@ const Popover = ({
   trigger,
   title,
   description,
+  children,
+  triggerProps,
+  positionerProps,
   contentProps,
+  arrowProps,
+  arrowTipProps,
+  titleProps,
+  descriptionProps,
+  closeTriggerProps,
   ...rest
 }: PopoverProps) => (
   <PopoverRoot {...rest}>
-    {trigger && <PopoverTrigger>{trigger}</PopoverTrigger>}
+    {trigger && <PopoverTrigger {...triggerProps}>{trigger}</PopoverTrigger>}
 
-    <PopoverPositioner>
+    <PopoverPositioner {...positionerProps}>
       <PopoverContent {...contentProps}>
-        <PopoverArrow>
-          <PopoverArrowTip />
+        <PopoverArrow {...arrowProps}>
+          <PopoverArrowTip {...arrowTipProps} />
         </PopoverArrow>
 
         <Stack gap={1}>
-          <PopoverTitle>{title}</PopoverTitle>
+          <PopoverTitle {...titleProps}>{title}</PopoverTitle>
 
-          <PopoverDescription>{description}</PopoverDescription>
+          <PopoverDescription {...descriptionProps}>
+            {description}
+          </PopoverDescription>
+
+          <Box mt={2}>{children}</Box>
         </Stack>
 
         <Box position="absolute" top="1" right="1">
-          <PopoverCloseTrigger asChild>
+          <PopoverCloseTrigger asChild {...closeTriggerProps}>
             <Button aria-label="Close popover" variant="ghost" size="sm">
               <FiX />
             </Button>
