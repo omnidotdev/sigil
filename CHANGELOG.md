@@ -1,5 +1,13 @@
 # @omnidev/sigil
 
+## 0.10.4
+
+### Patch Changes
+
+- [#93](https://github.com/omnidotdev/sigil/pull/93) [`17b32f1`](https://github.com/omnidotdev/sigil/commit/17b32f117ae6463514a80685506c3e1a9f49262f) Thanks [@coopbri](https://github.com/coopbri)! - Remove close trigger wrapper on `Drawer` and `Popover`
+
+- [#93](https://github.com/omnidotdev/sigil/pull/93) [`17b32f1`](https://github.com/omnidotdev/sigil/commit/17b32f117ae6463514a80685506c3e1a9f49262f) Thanks [@coopbri](https://github.com/coopbri)! - Allow overriding `TagsInput` clear trigger render
+
 ## 0.10.3
 
 ### Patch Changes
