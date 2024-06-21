@@ -20,6 +20,13 @@ export const Default: Story = {
   },
 };
 
+export const NoCloseTrigger: Story = {
+  args: {
+    ...Default.args,
+    closeTrigger: null,
+  },
+};
+
 export const ChildrenOnly: Story = {
   args: {
     ...Default.args,
