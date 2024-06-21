@@ -1,5 +1,11 @@
 # @omnidev/sigil
 
+## 0.10.2
+
+### Patch Changes
+
+- [#89](https://github.com/omnidotdev/sigil/pull/89) [`cb907ec`](https://github.com/omnidotdev/sigil/commit/cb907eca7db8a94c845a0fb48659f198f79fbaf1) Thanks [@coopbri](https://github.com/coopbri)! - Allow overriding `Popover` close trigger render via the `closeTrigger` prop
+
 ## 0.10.1
 
 ### Patch Changes
