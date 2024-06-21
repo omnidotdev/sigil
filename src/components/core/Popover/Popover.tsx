@@ -1,12 +1,16 @@
 import { Popover as ArkPopover } from "@ark-ui/react/popover";
+import {
+  cloneElement,
+  type ReactElement,
+  type ComponentProps,
+  type ReactNode,
+} from "react";
 import { FiX } from "react-icons/fi";
 
 import Button from "components/core/Button/Button";
 import { Box, Stack, styled } from "generated/panda/jsx";
 import { popover } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
-
-import type { ComponentProps, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(popover);
 
@@ -73,16 +77,29 @@ export interface PopoverTriggerProps
   extends ComponentProps<typeof PopoverTrigger> {}
 
 export interface PopoverProps extends PopoverRootProps {
+  /** Trigger node, such as a button, used to open the popover. */
   trigger?: ReactNode;
-  title?: string;
-  description?: string;
+  /** Popover title, displayed at the top. */
+  title?: ReactNode;
+  /** Popover description, displayed underneath the title. */
+  description?: ReactNode;
+  /** Close trigger. Defaults to a button in the top right corner. */
+  closeTrigger?: ReactElement | null;
+  /** Popover trigger props. */
   triggerProps?: PopoverTriggerProps;
+  /** Popover positioner props. */
   positionerProps?: PopoverPositionerProps;
+  /** Popover content props. */
   contentProps?: PopoverContentProps;
+  /** Popover arrow props. */
   arrowProps?: PopoverArrowProps;
+  /** Popover arrow tip props. */
   arrowTipProps?: PopoverArrowTipProps;
+  /** Popover title props. */
   titleProps?: PopoverTitleProps;
+  /** Popover description props. */
   descriptionProps?: PopoverDescriptionProps;
+  /** Close trigger props. */
   closeTriggerProps?: PopoverCloseTriggerProps;
 }
 
@@ -94,6 +111,16 @@ const Popover = ({
   title,
   description,
   children,
+  // TODO make default close trigger styles more flexible, doesn't always look good with certain titles, descriptions, nor children
+  closeTrigger = (
+    <Box position="absolute" top="1" right="1">
+      <PopoverCloseTrigger asChild>
+        <Button aria-label="Close popover" variant="ghost" size="sm">
+          <FiX />
+        </Button>
+      </PopoverCloseTrigger>
+    </Box>
+  ),
   triggerProps,
   positionerProps,
   contentProps,
@@ -123,13 +150,7 @@ const Popover = ({
           <Box mt={2}>{children}</Box>
         </Stack>
 
-        <Box position="absolute" top="1" right="1">
-          <PopoverCloseTrigger asChild {...closeTriggerProps}>
-            <Button aria-label="Close popover" variant="ghost" size="sm">
-              <FiX />
-            </Button>
-          </PopoverCloseTrigger>
-        </Box>
+        {closeTrigger && cloneElement(closeTrigger, closeTriggerProps)}
       </PopoverContent>
     </PopoverPositioner>
   </PopoverRoot>
