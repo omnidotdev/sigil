@@ -1,10 +1,5 @@
 import { Popover as ArkPopover } from "@ark-ui/react/popover";
-import {
-  cloneElement,
-  type ReactElement,
-  type ComponentProps,
-  type ReactNode,
-} from "react";
+import { type ReactElement, type ComponentProps, type ReactNode } from "react";
 import { FiX } from "react-icons/fi";
 
 import Button from "components/core/Button/Button";
@@ -113,13 +108,9 @@ const Popover = ({
   children,
   // TODO make default close trigger styles more flexible, doesn't always look good with certain titles, descriptions, nor children
   closeTrigger = (
-    <Box position="absolute" top="1" right="1">
-      <PopoverCloseTrigger asChild>
-        <Button aria-label="Close popover" variant="ghost" size="sm">
-          <FiX />
-        </Button>
-      </PopoverCloseTrigger>
-    </Box>
+    <Button aria-label="Close popover" variant="ghost" size="sm">
+      <FiX />
+    </Button>
   ),
   triggerProps,
   positionerProps,
@@ -150,7 +141,17 @@ const Popover = ({
           <Box mt={2}>{children}</Box>
         </Stack>
 
-        {closeTrigger && cloneElement(closeTrigger, closeTriggerProps)}
+        {closeTrigger && (
+          <PopoverCloseTrigger
+            asChild
+            position="absolute"
+            top="1"
+            right="1"
+            {...closeTriggerProps}
+          >
+            {closeTrigger}
+          </PopoverCloseTrigger>
+        )}
       </PopoverContent>
     </PopoverPositioner>
   </PopoverRoot>
