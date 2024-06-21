@@ -75,6 +75,8 @@ export interface TagsInputLabelProps
 export interface TagsInputProps extends TagsInputRootProps {
   /** Input label. */
   label?: ReactNode;
+  /** Clear trigger. Defaults to a button. */
+  clearTrigger?: ReactNode;
   /** Label props. */
   labelProps?: TagsInputLabelProps;
   /** Control props. */
@@ -100,6 +102,7 @@ export interface TagsInputProps extends TagsInputRootProps {
  */
 const TagsInput = ({
   label,
+  clearTrigger = <Button variant="outline">Clear</Button>,
   labelProps,
   controlProps,
   itemProps,
@@ -151,9 +154,11 @@ const TagsInput = ({
       <TagsInputInput {...inputProps} />
     </TagsInputControl>
 
-    <TagsInputClearTrigger asChild {...clearTriggerProps}>
-      <Button variant="outline">Clear</Button>
-    </TagsInputClearTrigger>
+    {clearTrigger && (
+      <TagsInputClearTrigger asChild {...clearTriggerProps}>
+        {clearTrigger}
+      </TagsInputClearTrigger>
+    )}
   </TagsInputRoot>
 );
 

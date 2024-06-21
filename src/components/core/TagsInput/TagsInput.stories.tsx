@@ -14,7 +14,14 @@ const meta = {
 export const Default: Story = {
   args: {
     maxW: "xs",
-    label: "Fruits (click tags to edit)",
+    label: "Fruits (double click tags to edit)",
+  },
+};
+
+export const NoClearTrigger: Story = {
+  args: {
+    ...Default.args,
+    clearTrigger: null,
   },
 };
 
