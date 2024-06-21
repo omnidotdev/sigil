@@ -4,7 +4,11 @@
 
 ### Patch Changes
 
-- [#87](https://github.com/omnidotdev/sigil/pull/87) [`c5bb92f`](https://github.com/omnidotdev/sigil/commit/c5bb92ff9bb4614a46ef664f01fa2d447684feae) Thanks [@coopbri](https://github.com/coopbri)! - - Updated Popover - Added subcomponent prop composition - Added children support - Made title and description props optional
+- [#87](https://github.com/omnidotdev/sigil/pull/87) [`c5bb92f`](https://github.com/omnidotdev/sigil/commit/c5bb92ff9bb4614a46ef664f01fa2d447684feae) Thanks [@coopbri](https://github.com/coopbri)!
+  - Updated Popover
+    - Added subcomponent prop composition
+    - Added children support
+    - Made title and description props optional
 
 ## 0.10.0
 
