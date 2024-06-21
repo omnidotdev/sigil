@@ -75,24 +75,56 @@ export interface TagsInputLabelProps
 export interface TagsInputProps extends TagsInputRootProps {
   /** Input label. */
   label?: ReactNode;
+  /** Label props. */
+  labelProps?: TagsInputLabelProps;
+  /** Control props. */
+  controlProps?: TagsInputControlProps;
+  /** Item props. */
+  itemProps?: TagsInputItemProps;
+  /** Item preview props. */
+  itemPreviewProps?: TagsInputItemPreviewProps;
+  /** Item text props. */
+  itemTextProps?: TagsInputItemTextProps;
+  /** Item delete trigger props. */
+  itemDeleteTriggerProps?: TagsInputItemDeleteTriggerProps;
+  /** Item input props. */
+  itemInputProps?: TagsInputItemInputProps;
+  /** Input props. */
+  inputProps?: TagsInputInputProps;
+  /** Clear trigger props. */
+  clearTriggerProps?: TagsInputClearTriggerProps;
 }
 
 /**
  * Input for tags.
  */
-const TagsInput = ({ label, ...rest }: TagsInputProps) => (
+const TagsInput = ({
+  label,
+  labelProps,
+  controlProps,
+  itemProps,
+  itemPreviewProps,
+  itemTextProps,
+  itemDeleteTriggerProps,
+  itemInputProps,
+  inputProps,
+  clearTriggerProps,
+  ...rest
+}: TagsInputProps) => (
   <TagsInputRoot {...rest}>
-    {label && <TagsInputLabel>{label}</TagsInputLabel>}
+    {label && <TagsInputLabel {...labelProps}>{label}</TagsInputLabel>}
 
-    <TagsInputControl>
+    <TagsInputControl {...controlProps}>
       <TagsInputContext>
-        {(api) =>
-          api.value.map((value, idx) => (
-            <TagsInputItem key={idx} index={idx} value={value}>
-              <TagsInputItemPreview>
-                <TagsInputItemText>{value}</TagsInputItemText>
+        {({ value }) =>
+          value.map((value, idx) => (
+            <TagsInputItem key={idx} index={idx} value={value} {...itemProps}>
+              <TagsInputItemPreview {...itemPreviewProps}>
+                <TagsInputItemText {...itemTextProps}>
+                  {value}
+                </TagsInputItemText>
 
-                <TagsInputItemDeleteTrigger asChild>
+                <TagsInputItemDeleteTrigger asChild {...itemDeleteTriggerProps}>
                   <Button
                     aria-label="Delete tag"
                     variant="ghost"
@@ -110,16 +142,16 @@ const TagsInput = ({ label, ...rest }: TagsInputProps) => (
                 </TagsInputItemDeleteTrigger>
               </TagsInputItemPreview>
 
-              <TagsInputItemInput />
+              <TagsInputItemInput {...itemInputProps} />
             </TagsInputItem>
           ))
         }
       </TagsInputContext>
 
-      <TagsInputInput placeholder="Add tag" />
+      <TagsInputInput {...inputProps} />
     </TagsInputControl>
 
-    <TagsInputClearTrigger asChild>
+    <TagsInputClearTrigger asChild {...clearTriggerProps}>
       <Button variant="outline">Clear</Button>
     </TagsInputClearTrigger>
   </TagsInputRoot>
