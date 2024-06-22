@@ -150,10 +150,7 @@ const Select = ({
 
     <SelectControl {...controlProps}>
       <SelectTrigger {...triggerProps}>
-        <SelectValueText
-          placeholder={`Select a ${label.singular.toLowerCase()}...`}
-          {...valueTextProps}
-        />
+        <SelectValueText {...valueTextProps} />
 
         <BiExpandVertical />
       </SelectTrigger>
