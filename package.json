@@ -71,7 +71,7 @@
     "@storybook/manager-api": "^8.1.10",
     "@storybook/react": "^8.1.10",
     "@storybook/react-vite": "^8.1.10",
-    "@storybook/test-runner": "^0.18.2",
+    "@storybook/test-runner": "^0.19.0",
     "@storybook/testing-library": "^0.2.2",
     "@storybook/theming": "^8.1.10",
     "@storybook/types": "^8.1.10",
