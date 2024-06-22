@@ -139,6 +139,7 @@ const Combobox = ({
   displayClearTrigger = true,
   label,
   items,
+  onInputValueChange,
   labelProps,
   controlProps,
   inputProps,
@@ -155,18 +156,32 @@ const Combobox = ({
 }: ComboboxProps) => {
   const [filteredItems, setFilteredItems] = useState(items);
 
-  const handleChange = (evt: ComboboxInputValueChangeDetails) => {
+  /**
+   * Handle input value change. Composes a custom `onInputValueChange` handler, if provided.
+   */
+  const handleChange = (
+    evt: ComboboxInputValueChangeDetails,
+    onInputValueChange?: ComboboxProps["onInputValueChange"],
+  ) => {
     const filtered = items.filter((item) =>
       // @ts-ignore upstream (Ark `CollectionItem`) type bug
       item.label.toLowerCase().includes(evt.inputValue.toLowerCase()),
     );
 
     setFilteredItems(filtered.length ? filtered : items);
+
+    // execute custom `onInputValueChange` handler, if provided
+    onInputValueChange?.(evt);
   };
 
   return (
     <ComboboxRoot
-      onInputValueChange={handleChange}
+      onInputValueChange={(evt) =>
+        onInputValueChange
+          ? // compose custom `onInputValueChange` handler
+            handleChange(evt, onInputValueChange)
+          : handleChange(evt)
+      }
       items={filteredItems}
       {...rest}
     >
@@ -175,11 +190,7 @@ const Combobox = ({
       )}
 
       <ComboboxControl {...controlProps}>
-        <ComboboxInput
-          asChild
-          placeholder={`Select a ${label.singular.toLowerCase()}...`}
-          {...inputProps}
-        >
+        <ComboboxInput asChild {...inputProps}>
           <Input colorPalette={colorPalette} />
         </ComboboxInput>
 
