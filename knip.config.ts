@@ -12,7 +12,10 @@ const knipConfig: KnipConfig = {
     "@omnidev/knit",
     // used in MDX
     "@storybook/addon-docs",
+    // used in MDX
     "@storybook/blocks",
+    // used in Storybook test CI
+    "http-server",
   ],
   ignore: [
     "panda.config.ts",
