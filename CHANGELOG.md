@@ -1,5 +1,15 @@
 # @omnidev/sigil
 
+## 0.10.5
+
+### Patch Changes
+
+- [#95](https://github.com/omnidotdev/sigil/pull/95) [`bd9628a`](https://github.com/omnidotdev/sigil/commit/bd9628aa8d0405a5a04449c6b9577db705cc97d0) Thanks [@coopbri](https://github.com/coopbri)! - Remove default placeholder on `Select` and `Combobox`
+
+- [#95](https://github.com/omnidotdev/sigil/pull/95) [`bd9628a`](https://github.com/omnidotdev/sigil/commit/bd9628aa8d0405a5a04449c6b9577db705cc97d0) Thanks [@coopbri](https://github.com/coopbri)! - Fix Panda style props not being injected into component props
+
+- [#95](https://github.com/omnidotdev/sigil/pull/95) [`bd9628a`](https://github.com/omnidotdev/sigil/commit/bd9628aa8d0405a5a04449c6b9577db705cc97d0) Thanks [@coopbri](https://github.com/coopbri)! - Fix `Combobox` input value change handler composition. Previously, passing `onInputValueChange` would override the built-in handler, causing filtering to not work correctly. This update combines the logic of the built-in handler and any passed in handler.
+
 ## 0.10.4
 
 ### Patch Changes
