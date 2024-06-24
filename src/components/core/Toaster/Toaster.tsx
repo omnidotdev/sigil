@@ -7,36 +7,39 @@ import { toast as toastRecipe } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { ToasterProps as ArkToasterProps } from "@ark-ui/react/toast";
-import type { ComponentProps, ReactNode } from "react";
+import type { Assign, JsxStyleProps } from "generated/panda/types";
+import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(toastRecipe);
 
 export const ToastRoot = withProvider(styled(ArkToast.Root), "root");
-export interface ToastRootProps extends ComponentProps<typeof ToastRoot> {}
+export interface ToastRootProps
+  extends Assign<JsxStyleProps, ArkToast.RootProps> {}
 
 export const ToastTitle = withContext(styled(ArkToast.Title), "title");
-export interface ToastTitleProps extends ComponentProps<typeof ToastTitle> {}
+export interface ToastTitleProps
+  extends Assign<JsxStyleProps, ArkToast.TitleProps> {}
 
 export const ToastDescription = withContext(
   styled(ArkToast.Description),
   "description",
 );
 export interface ToastDescriptionProps
-  extends ComponentProps<typeof ToastDescription> {}
+  extends Assign<JsxStyleProps, ArkToast.DescriptionProps> {}
 
 export const ToastActionTrigger = withContext(
   styled(ArkToast.ActionTrigger),
   "actionTrigger",
 );
 export interface ToastActionTriggerProps
-  extends ComponentProps<typeof ToastActionTrigger> {}
+  extends Assign<JsxStyleProps, ArkToast.ActionTriggerProps> {}
 
 export const ToastCloseTrigger = withContext(
   styled(ArkToast.CloseTrigger),
   "closeTrigger",
 );
 export interface ToastCloseTriggerProps
-  extends ComponentProps<typeof ToastCloseTrigger> {}
+  extends Assign<JsxStyleProps, ArkToast.CloseTriggerProps> {}
 
 export interface ToasterProps extends Omit<ArkToasterProps, "children"> {
   /** Trigger to be displayed in the toast for closing it. Defaults to a close button. To hide the close trigger, pass `null`. */

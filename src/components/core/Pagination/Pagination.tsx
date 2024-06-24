@@ -7,42 +7,42 @@ import { pagination } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { ColorPalette } from "generated/panda/tokens";
-import type { ComponentProps } from "react";
+import type { Assign, JsxStyleProps } from "generated/panda/types";
 
 const { withProvider, withContext } = createStyleContext(pagination);
 
 export const PaginationContext = ArkPagination.Context;
 export interface PaginationContextProps
-  extends ComponentProps<typeof PaginationContext> {}
+  extends Assign<JsxStyleProps, ArkPagination.ContextProps> {}
 
 export const PaginationRoot = withProvider(styled(ArkPagination.Root), "root");
 export interface PaginationRootProps
-  extends ComponentProps<typeof PaginationRoot> {}
+  extends Omit<Assign<JsxStyleProps, ArkPagination.RootProps>, "page"> {}
 
 export const PaginationEllipsis = withContext(
   styled(ArkPagination.Ellipsis),
   "ellipsis",
 );
 export interface PaginationEllipsisProps
-  extends ComponentProps<typeof PaginationEllipsis> {}
+  extends Assign<JsxStyleProps, ArkPagination.EllipsisProps> {}
 
 export const PaginationNextTrigger = withContext(
   styled(ArkPagination.NextTrigger),
   "nextTrigger",
 );
 export interface PaginationNextTriggerProps
-  extends ComponentProps<typeof PaginationNextTrigger> {}
+  extends Assign<JsxStyleProps, ArkPagination.NextTriggerProps> {}
 
 export const PaginationItem = withContext(styled(ArkPagination.Item), "item");
 export interface PaginationItemProps
-  extends ComponentProps<typeof PaginationItem> {}
+  extends Assign<JsxStyleProps, ArkPagination.ItemProps> {}
 
 export const PaginationPrevTrigger = withContext(
   styled(ArkPagination.PrevTrigger),
   "prevTrigger",
 );
 export interface PaginationPrevTriggerProps
-  extends ComponentProps<typeof PaginationPrevTrigger> {}
+  extends Assign<JsxStyleProps, ArkPagination.PrevTriggerProps> {}
 
 export interface PaginationProps extends PaginationRootProps {
   colorPalette?: ColorPalette;

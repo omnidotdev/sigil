@@ -3,9 +3,14 @@ import { ark } from "@ark-ui/react";
 import { styled } from "generated/panda/jsx";
 import { code } from "generated/panda/recipes";
 
-import type { ComponentProps } from "react";
+import type {
+  Assign,
+  ComponentProps,
+  JsxStyleProps,
+} from "generated/panda/types";
 
-export interface CodeProps extends ComponentProps<typeof Code> {}
+export interface CodeProps
+  extends Assign<JsxStyleProps, ComponentProps<typeof Code>> {}
 
 /**
  * Code text representation.

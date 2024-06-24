@@ -12,6 +12,7 @@ interface GenericProps extends Record<string, unknown> {}
 
 type StyleRecipe = {
   (props?: GenericProps): Record<string, string>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   splitVariantProps: (props: GenericProps) => any;
 };
 

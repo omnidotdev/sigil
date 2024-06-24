@@ -6,71 +6,72 @@ import { styled } from "generated/panda/jsx";
 import { tagsInput } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ComponentProps, ReactNode } from "react";
+import type { Assign, JsxStyleProps } from "generated/panda/types";
+import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(tagsInput);
 
 export const TagsInputContext = ArkTagsInput.Context;
 export interface TagsInputContextProps
-  extends ComponentProps<typeof TagsInputContext> {}
+  extends Assign<JsxStyleProps, ArkTagsInput.ContextProps> {}
 
 export const TagsInputRoot = withProvider(styled(ArkTagsInput.Root), "root");
 export interface TagsInputRootProps
-  extends ComponentProps<typeof TagsInputRoot> {}
+  extends Assign<JsxStyleProps, ArkTagsInput.RootProps> {}
 
 export const TagsInputClearTrigger = withContext(
   styled(ArkTagsInput.ClearTrigger),
   "clearTrigger",
 );
 export interface TagsInputClearTriggerProps
-  extends ComponentProps<typeof TagsInputClearTrigger> {}
+  extends Assign<JsxStyleProps, ArkTagsInput.ClearTriggerProps> {}
 
 export const TagsInputControl = withContext(
   styled(ArkTagsInput.Control),
   "control",
 );
 export interface TagsInputControlProps
-  extends ComponentProps<typeof TagsInputControl> {}
+  extends Assign<JsxStyleProps, ArkTagsInput.ControlProps> {}
 
 export const TagsInputInput = withContext(styled(ArkTagsInput.Input), "input");
 export interface TagsInputInputProps
-  extends ComponentProps<typeof TagsInputInput> {}
+  extends Assign<JsxStyleProps, ArkTagsInput.InputProps> {}
 
 export const TagsInputItem = withContext(styled(ArkTagsInput.Item), "item");
 export interface TagsInputItemProps
-  extends ComponentProps<typeof TagsInputItem> {}
+  extends Assign<JsxStyleProps, ArkTagsInput.ItemProps> {}
 
 export const TagsInputItemDeleteTrigger = withContext(
   styled(ArkTagsInput.ItemDeleteTrigger),
   "itemDeleteTrigger",
 );
 export interface TagsInputItemDeleteTriggerProps
-  extends ComponentProps<typeof TagsInputItemDeleteTrigger> {}
+  extends Assign<JsxStyleProps, ArkTagsInput.ItemDeleteTriggerProps> {}
 
 export const TagsInputItemInput = withContext(
   styled(ArkTagsInput.ItemInput),
   "itemInput",
 );
 export interface TagsInputItemInputProps
-  extends ComponentProps<typeof TagsInputItemInput> {}
+  extends Assign<JsxStyleProps, ArkTagsInput.ItemInputProps> {}
 
 export const TagsInputItemText = withContext(
   styled(ArkTagsInput.ItemText),
   "itemText",
 );
 export interface TagsInputItemTextProps
-  extends ComponentProps<typeof TagsInputItemText> {}
+  extends Assign<JsxStyleProps, ArkTagsInput.ItemTextProps> {}
 
 export const TagsInputItemPreview = withContext(
   styled(ArkTagsInput.ItemPreview),
   "itemPreview",
 );
 export interface TagsInputItemPreviewProps
-  extends ComponentProps<typeof TagsInputItemPreview> {}
+  extends Assign<JsxStyleProps, ArkTagsInput.ItemPreviewProps> {}
 
 export const TagsInputLabel = withContext(styled(ArkTagsInput.Label), "label");
 export interface TagsInputLabelProps
-  extends ComponentProps<typeof TagsInputLabel> {}
+  extends Assign<JsxStyleProps, ArkTagsInput.LabelProps> {}
 
 export interface TagsInputProps extends TagsInputRootProps {
   /** Input label. */

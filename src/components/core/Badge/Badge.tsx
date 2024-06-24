@@ -3,9 +3,14 @@ import { ark } from "@ark-ui/react";
 import { styled } from "generated/panda/jsx";
 import { badge } from "generated/panda/recipes";
 
-import type { ComponentProps } from "react";
+import type {
+  Assign,
+  ComponentProps,
+  JsxStyleProps,
+} from "generated/panda/types";
 
-export interface BadgeProps extends ComponentProps<typeof Badge> {}
+export interface BadgeProps
+  extends Assign<JsxStyleProps, ComponentProps<typeof Badge>> {}
 
 /**
  * Badge.

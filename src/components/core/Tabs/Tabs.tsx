@@ -4,25 +4,30 @@ import { styled } from "generated/panda/jsx";
 import { tabs } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ComponentProps, ReactNode } from "react";
+import type { Assign, JsxStyleProps } from "generated/panda/types";
+import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(tabs);
 
 export const TabsRoot = withProvider(styled(ArkTabs.Root), "root");
-export interface TabsRootProps extends ComponentProps<typeof TabsRoot> {}
+export interface TabsRootProps
+  extends Assign<JsxStyleProps, ArkTabs.RootProps> {}
 
 export const TabList = withContext(styled(ArkTabs.List), "list");
-export interface TabListProps extends ComponentProps<typeof TabList> {}
+export interface TabListProps
+  extends Assign<JsxStyleProps, ArkTabs.ListProps> {}
 
 export const TabTrigger = withContext(styled(ArkTabs.Trigger), "trigger");
-export interface TabTriggerProps extends ComponentProps<typeof TabTrigger> {}
+export interface TabTriggerProps
+  extends Assign<JsxStyleProps, ArkTabs.TriggerProps> {}
 
 export const TabIndicator = withContext(styled(ArkTabs.Indicator), "indicator");
 export interface TabIndicatorProps
-  extends ComponentProps<typeof TabIndicator> {}
+  extends Assign<JsxStyleProps, ArkTabs.IndicatorProps> {}
 
 export const TabContent = withContext(styled(ArkTabs.Content), "content");
-export interface TabContentProps extends ComponentProps<typeof TabContent> {}
+export interface TabContentProps
+  extends Assign<JsxStyleProps, ArkTabs.ContentProps> {}
 
 export interface TabsProps extends TabsRootProps {
   tabs: {

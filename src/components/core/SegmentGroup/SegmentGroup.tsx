@@ -4,7 +4,7 @@ import { styled } from "generated/panda/jsx";
 import { segmentGroup } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ComponentProps } from "react";
+import type { Assign, JsxStyleProps } from "generated/panda/types";
 
 const { withProvider, withContext } = createStyleContext(segmentGroup);
 
@@ -15,7 +15,7 @@ export const SegmentGroupRoot = withProvider(
   "root",
 );
 export interface SegmentGroupRootProps
-  extends ComponentProps<typeof SegmentGroupRoot> {}
+  extends Assign<JsxStyleProps, ArkSegmentGroup.RootProps> {}
 
 // TODO use in prebuilt `SegmentGroup` component
 export const SegmentGroupLabel = withContext(
@@ -23,39 +23,39 @@ export const SegmentGroupLabel = withContext(
   "label",
 );
 export interface SegmentGroupLabelProps
-  extends ComponentProps<typeof SegmentGroupLabel> {}
+  extends Assign<JsxStyleProps, ArkSegmentGroup.LabelProps> {}
 
 export const SegmentGroupIndicator = withContext(
   styled(ArkSegmentGroup.Indicator),
   "indicator",
 );
 export interface SegmentGroupIndicatorProps
-  extends ComponentProps<typeof SegmentGroupIndicator> {}
+  extends Assign<JsxStyleProps, ArkSegmentGroup.IndicatorProps> {}
 
 export const SegmentGroupItem = withContext(
   styled(ArkSegmentGroup.Item),
   "item",
 );
 export interface SegmentGroupItemProps
-  extends ComponentProps<typeof SegmentGroupItem> {}
+  extends Assign<JsxStyleProps, ArkSegmentGroup.ItemProps> {}
 
 export const SegmentGroupItemText = withContext(
   styled(ArkSegmentGroup.ItemText),
   "itemText",
 );
 export interface SegmentGroupItemTextProps
-  extends ComponentProps<typeof SegmentGroupItemText> {}
+  extends Assign<JsxStyleProps, ArkSegmentGroup.ItemTextProps> {}
 
 export const SegmentGroupItemControl = withContext(
   styled(ArkSegmentGroup.ItemControl),
   "itemControl",
 );
 export interface SegmentGroupItemControlProps
-  extends ComponentProps<typeof SegmentGroupItemControl> {}
+  extends Assign<JsxStyleProps, ArkSegmentGroup.ItemControlProps> {}
 
 export const SegmentGroupItemHiddenInput = ArkSegmentGroup.ItemHiddenInput;
 export interface SegmentGroupItemHiddenInputProps
-  extends ComponentProps<typeof SegmentGroupItemHiddenInput> {}
+  extends Assign<JsxStyleProps, ArkSegmentGroup.ItemHiddenInputProps> {}
 
 export interface SegmentGroupProps extends SegmentGroupRootProps {
   /** Segment group options. */

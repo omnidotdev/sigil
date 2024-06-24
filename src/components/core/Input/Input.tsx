@@ -3,9 +3,14 @@ import { ark } from "@ark-ui/react";
 import { styled } from "generated/panda/jsx";
 import { input } from "generated/panda/recipes";
 
-import type { ComponentProps } from "react";
+import type {
+  Assign,
+  ComponentProps,
+  JsxStyleProps,
+} from "generated/panda/types";
 
-export interface InputProps extends ComponentProps<typeof Input> {}
+export interface InputProps
+  extends Assign<JsxStyleProps, ComponentProps<typeof Input>> {}
 
 /**
  * Interactive input.

@@ -1,8 +1,7 @@
 import { Code } from "components";
-import { Box, Float } from "generated/panda/jsx";
+import { Box, Float, type FloatProps } from "generated/panda/jsx";
 
 import type { Meta, StoryObj } from "@storybook/react";
-import type { ComponentProps } from "react";
 
 type Story = StoryObj<typeof meta>;
 
@@ -20,7 +19,7 @@ const placements = [
   // "right-start",
   // "right",
   // "right-end",
-] as ComponentProps<typeof Float>["placement"][];
+] as FloatProps["placement"][];
 
 const containerProps = {
   w: "512px",

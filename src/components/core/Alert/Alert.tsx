@@ -8,33 +8,41 @@ import { styled } from "generated/panda/jsx";
 import { alert } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ComponentProps, ReactNode } from "react";
+import type {
+  Assign,
+  ComponentProps,
+  JsxStyleProps,
+} from "generated/panda/types";
+import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(alert);
 
 export const AlertRoot = withProvider(styled(ark.div), "root");
-export interface AlertRootProps extends ComponentProps<typeof AlertRoot> {}
+export interface AlertRootProps
+  extends Assign<JsxStyleProps, ComponentProps<typeof AlertRoot>> {}
 
 export const AlertContent = withContext(styled(ark.div), "content");
 export interface AlertContentProps
-  extends ComponentProps<typeof AlertContent> {}
+  extends Assign<JsxStyleProps, ComponentProps<typeof AlertContent>> {}
 
 export const AlertDescription = withContext(styled(ark.div), "description");
 export interface AlertDescriptionProps
-  extends ComponentProps<typeof AlertDescription> {}
+  extends Assign<JsxStyleProps, ComponentProps<typeof AlertDescription>> {}
 
 export const AlertIcon = withContext(styled(ark.svg), "icon");
-export interface AlertIconProps extends ComponentProps<typeof AlertIcon> {}
+export interface AlertIconProps
+  extends Assign<JsxStyleProps, ComponentProps<typeof AlertIcon>> {}
 
 export const AlertTitle = withContext(styled(ark.h5), "title");
-export interface AlertTitleProps extends ComponentProps<typeof AlertTitle> {}
+export interface AlertTitleProps
+  extends Assign<JsxStyleProps, ComponentProps<typeof AlertTitle>> {}
 
 export interface AlertProps extends AlertRootProps {
   description: ReactNode;
   icon?: ReactNode;
-  contentProps?: ComponentProps<typeof AlertContent>;
-  titleProps?: ComponentProps<typeof AlertTitle>;
-  descriptionProps?: ComponentProps<typeof AlertDescription>;
+  contentProps?: AlertContentProps;
+  titleProps?: AlertTitleProps;
+  descriptionProps?: AlertDescriptionProps;
 }
 
 // TODO better styles (mainly spacing) for if just description or title is passed

@@ -6,66 +6,67 @@ import { styled } from "generated/panda/jsx";
 import { carousel } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ComponentProps, ReactNode } from "react";
+import type { Assign, JsxStyleProps } from "generated/panda/types";
+import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(carousel);
 
 export const CarouselRoot = withProvider(styled(ArkCarousel.Root), "root");
 export interface CarouselRootProps
-  extends ComponentProps<typeof CarouselRoot> {}
+  extends Assign<JsxStyleProps, ArkCarousel.RootProps> {}
 
 export const CarouselControl = withContext(
   styled(ArkCarousel.Control),
   "control",
 );
 export interface CarouselControlProps
-  extends ComponentProps<typeof CarouselControl> {}
+  extends Assign<JsxStyleProps, ArkCarousel.ControlProps> {}
 
 export const CarouselIndicator = withContext(
   styled(ArkCarousel.Indicator),
   "indicator",
 );
 export interface CarouselIndicatorProps
-  extends ComponentProps<typeof CarouselIndicator> {}
+  extends Assign<JsxStyleProps, ArkCarousel.IndicatorProps> {}
 
 export const CarouselIndicatorGroup = withContext(
   styled(ArkCarousel.IndicatorGroup),
   "indicatorGroup",
 );
 export interface CarouselIndicatorGroupProps
-  extends ComponentProps<typeof CarouselIndicatorGroup> {}
+  extends Assign<JsxStyleProps, ArkCarousel.IndicatorGroupProps> {}
 
 export const CarouselItem = withContext(styled(ArkCarousel.Item), "item");
 export interface CarouselItemProps
-  extends ComponentProps<typeof CarouselItem> {}
+  extends Assign<JsxStyleProps, ArkCarousel.ItemProps> {}
 
 export const CarouselItemGroup = withContext(
   styled(ArkCarousel.ItemGroup),
   "itemGroup",
 );
 export interface CarouselItemGroupProps
-  extends ComponentProps<typeof CarouselItemGroup> {}
+  extends Assign<JsxStyleProps, ArkCarousel.ItemGroupProps> {}
 
 export const CarouselNextTrigger = withContext(
   styled(ArkCarousel.NextTrigger),
   "nextTrigger",
 );
 export interface CarouselNextTriggerProps
-  extends ComponentProps<typeof CarouselNextTrigger> {}
+  extends Assign<JsxStyleProps, ArkCarousel.NextTriggerProps> {}
 
 export const CarouselPrevTrigger = withContext(
   styled(ArkCarousel.PrevTrigger),
   "prevTrigger",
 );
 export interface CarouselPrevTriggerProps
-  extends ComponentProps<typeof CarouselPrevTrigger> {}
+  extends Assign<JsxStyleProps, ArkCarousel.PrevTriggerProps> {}
 
 export const CarouselViewport = withContext(
   styled(ArkCarousel.Viewport),
   "viewport",
 );
 export interface CarouselViewportProps
-  extends ComponentProps<typeof CarouselViewport> {}
+  extends Assign<JsxStyleProps, ArkCarousel.ViewportProps> {}
 
 export interface CarouselProps extends CarouselRootProps {
   /** Item content to render. */

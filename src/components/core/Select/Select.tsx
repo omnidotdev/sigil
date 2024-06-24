@@ -6,7 +6,6 @@ import { select } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { Assign, JsxStyleProps } from "generated/panda/types";
-import type { ComponentProps } from "react";
 
 const { withProvider, withContext } = createStyleContext(select);
 
@@ -19,79 +18,87 @@ export const SelectRoot = withProvider(
   styled(ArkSelect.Root) as AugmentedSelectRoot,
   "root",
 );
-export interface SelectRootProps extends ComponentProps<typeof SelectRoot> {}
+export interface SelectRootProps
+  extends Assign<JsxStyleProps, ArkSelect.RootProps<ArkSelect.CollectionItem>> {
+  items: ArkSelect.CollectionItem[];
+}
 
 export const SelectClearTrigger = withContext(
   styled(ArkSelect.ClearTrigger),
   "clearTrigger",
 );
 export interface SelectClearTriggerProps
-  extends ComponentProps<typeof SelectClearTrigger> {}
+  extends Assign<JsxStyleProps, ArkSelect.ClearTriggerProps> {}
 
 export const SelectContent = withContext(styled(ArkSelect.Content), "content");
 export interface SelectContentProps
-  extends ComponentProps<typeof SelectContent> {}
+  extends Assign<JsxStyleProps, ArkSelect.ContentProps> {}
 
 export const SelectControl = withContext(styled(ArkSelect.Control), "control");
 export interface SelectControlProps
-  extends ComponentProps<typeof SelectControl> {}
+  extends Assign<JsxStyleProps, ArkSelect.ControlProps> {}
 
 // TODO use in prebuilt `Select` component
-const SelectIndicator = withContext(styled(ArkSelect.Indicator), "indicator");
+export const SelectIndicator = withContext(
+  styled(ArkSelect.Indicator),
+  "indicator",
+);
 export interface SelectIndicatorProps
-  extends ComponentProps<typeof SelectIndicator> {}
+  extends Assign<JsxStyleProps, ArkSelect.IndicatorProps> {}
 
 export const SelectItem = withContext(styled(ArkSelect.Item), "item");
-export interface SelectItemProps extends ComponentProps<typeof SelectItem> {}
+export interface SelectItemProps
+  extends Assign<JsxStyleProps, ArkSelect.ItemProps> {}
 
 export const SelectItemGroup = withContext(
   styled(ArkSelect.ItemGroup),
   "itemGroup",
 );
 export interface SelectItemGroupProps
-  extends ComponentProps<typeof SelectItemGroup> {}
+  extends Assign<JsxStyleProps, ArkSelect.ItemGroupProps> {}
 
 export const SelectItemGroupLabel = withContext(
   styled(ArkSelect.ItemGroupLabel),
   "itemGroupLabel",
 );
 export interface SelectItemGroupLabelProps
-  extends ComponentProps<typeof SelectItemGroupLabel> {}
+  extends Assign<JsxStyleProps, ArkSelect.ItemGroupLabelProps> {}
 
 export const SelectItemIndicator = withContext(
   styled(ArkSelect.ItemIndicator),
   "itemIndicator",
 );
 export interface SelectItemIndicatorProps
-  extends ComponentProps<typeof SelectItemIndicator> {}
+  extends Assign<JsxStyleProps, ArkSelect.ItemIndicatorProps> {}
 
 export const SelectItemText = withContext(
   styled(ArkSelect.ItemText),
   "itemText",
 );
 export interface SelectItemTextProps
-  extends ComponentProps<typeof SelectItemText> {}
+  extends Assign<JsxStyleProps, ArkSelect.ItemTextProps> {}
 
 export const SelectLabel = withContext(styled(ArkSelect.Label), "label");
-export interface SelectLabelProps extends ComponentProps<typeof SelectLabel> {}
+export interface SelectLabelProps
+  extends Assign<JsxStyleProps, ArkSelect.LabelProps> {}
 
 export const SelectPositioner = withContext(
   styled(ArkSelect.Positioner),
   "positioner",
 );
 export interface SelectPositionerProps
-  extends ComponentProps<typeof SelectPositioner> {}
+  extends Assign<JsxStyleProps, ArkSelect.PositionerProps> {}
 
 export const SelectTrigger = withContext(styled(ArkSelect.Trigger), "trigger");
 export interface SelectTriggerProps
-  extends ComponentProps<typeof SelectTrigger> {}
+  extends Assign<JsxStyleProps, ArkSelect.TriggerProps> {}
 
 export const SelectValueText = withContext(
   styled(ArkSelect.ValueText),
   "valueText",
 );
 export interface SelectValueTextProps
-  extends ComponentProps<typeof SelectValueText> {}
+  extends Assign<JsxStyleProps, ArkSelect.ValueTextProps> {}
 
 export interface SelectProps extends SelectRootProps {
   /** Whether to display the input field label. */

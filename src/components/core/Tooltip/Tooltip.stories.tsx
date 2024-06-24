@@ -1,12 +1,18 @@
 import { FiMapPin } from "react-icons/fi";
 
-import { Avatar, Button, Link, Text, Tooltip } from "components";
+import {
+  Avatar,
+  Button,
+  Link,
+  Text,
+  Tooltip,
+  type TooltipProps,
+} from "components";
 import { Grid, HStack, Stack } from "generated/panda/jsx";
 import { app } from "lib/config";
 import { useDisclosure } from "lib/hooks";
 
 import type { Meta, StoryObj } from "@storybook/react";
-import type { ComponentProps } from "react";
 
 type Story = StoryObj<typeof meta>;
 
@@ -81,7 +87,7 @@ const placements = [
   "right",
   "right-start",
   "right-end",
-] as NonNullable<ComponentProps<typeof Tooltip>["positioning"]>["placement"][];
+] as NonNullable<TooltipProps["positioning"]>["placement"][];
 
 export const Placements: Story = {
   parameters: {

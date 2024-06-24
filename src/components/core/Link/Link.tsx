@@ -3,10 +3,15 @@ import { ark } from "@ark-ui/react";
 import { styled } from "generated/panda/jsx";
 import { link } from "generated/panda/recipes";
 
-import type { ComponentProps } from "react";
+import type {
+  Assign,
+  ComponentProps,
+  JsxStyleProps,
+} from "generated/panda/types";
 
 const LinkRoot = styled(ark.a, link);
-export interface LinkRootProps extends ComponentProps<typeof LinkRoot> {}
+export interface LinkRootProps
+  extends Assign<JsxStyleProps, ComponentProps<typeof LinkRoot>> {}
 
 export interface LinkProps extends LinkRootProps {
   isExternal?: boolean;
