@@ -4,49 +4,49 @@ import { styled } from "generated/panda/jsx";
 import { slider } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { Assign, JsxStyleProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(slider);
 
 export const SliderContext = ArkSlider.Context;
 export interface SliderContextProps
-  extends Assign<JsxStyleProps, ArkSlider.ContextProps> {}
+  extends AssignJSXStyleProps<ArkSlider.ContextProps> {}
 
 export const SliderRoot = withProvider(styled(ArkSlider.Root), "root");
 export interface SliderRootProps
-  extends Assign<JsxStyleProps, ArkSlider.RootProps> {}
+  extends AssignJSXStyleProps<ArkSlider.RootProps> {}
 
 export const SliderControl = withContext(styled(ArkSlider.Control), "control");
 export interface SliderControlProps
-  extends Assign<JsxStyleProps, ArkSlider.ControlProps> {}
+  extends AssignJSXStyleProps<ArkSlider.ControlProps> {}
 
 export const SliderLabel = withContext(styled(ArkSlider.Label), "label");
 export interface SliderLabelProps
-  extends Assign<JsxStyleProps, ArkSlider.LabelProps> {}
+  extends AssignJSXStyleProps<ArkSlider.LabelProps> {}
 
 export const SliderMarker = withContext(styled(ArkSlider.Marker), "marker");
 export interface SliderMarkerProps
-  extends Assign<JsxStyleProps, ArkSlider.MarkerProps> {}
+  extends AssignJSXStyleProps<ArkSlider.MarkerProps> {}
 
 export const SliderMarkerGroup = withContext(
   styled(ArkSlider.MarkerGroup),
   "markerGroup",
 );
 export interface SliderMarkerGroupProps
-  extends Assign<JsxStyleProps, ArkSlider.MarkerGroupProps> {}
+  extends AssignJSXStyleProps<ArkSlider.MarkerGroupProps> {}
 
 export const SliderRange = withContext(styled(ArkSlider.Range), "range");
 export interface SliderRangeProps
-  extends Assign<JsxStyleProps, ArkSlider.RangeProps> {}
+  extends AssignJSXStyleProps<ArkSlider.RangeProps> {}
 
 export const SliderThumb = withContext(styled(ArkSlider.Thumb), "thumb");
 export interface SliderThumbProps
-  extends Assign<JsxStyleProps, ArkSlider.ThumbProps> {}
+  extends AssignJSXStyleProps<ArkSlider.ThumbProps> {}
 
 export const SliderTrack = withContext(styled(ArkSlider.Track), "track");
 export interface SliderTrackProps
-  extends Assign<JsxStyleProps, ArkSlider.TrackProps> {}
+  extends AssignJSXStyleProps<ArkSlider.TrackProps> {}
 
 // TODO use in prebuilt `Slider` component
 export const SliderValueText = withContext(
@@ -54,7 +54,7 @@ export const SliderValueText = withContext(
   "valueText",
 );
 export interface SliderValueTextProps
-  extends Assign<JsxStyleProps, ArkSlider.ValueTextProps> {}
+  extends AssignJSXStyleProps<ArkSlider.ValueTextProps> {}
 
 export interface SliderProps extends SliderRootProps {
   /** Track values to mark. */

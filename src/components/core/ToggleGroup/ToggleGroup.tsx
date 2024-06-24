@@ -4,7 +4,7 @@ import { styled } from "generated/panda/jsx";
 import { toggleGroup } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { Assign, JsxStyleProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 
 const { withProvider, withContext } = createStyleContext(toggleGroup);
 
@@ -13,11 +13,11 @@ export const ToggleGroupRoot = withProvider(
   "root",
 );
 export interface ToggleGroupRootProps
-  extends Assign<JsxStyleProps, ArkToggleGroup.RootProps> {}
+  extends AssignJSXStyleProps<ArkToggleGroup.RootProps> {}
 
 export const ToggleGroupItem = withContext(styled(ArkToggleGroup.Item), "item");
 export interface ToggleGroupItemProps
-  extends Assign<JsxStyleProps, ArkToggleGroup.ItemProps> {}
+  extends AssignJSXStyleProps<ArkToggleGroup.ItemProps> {}
 
 export interface ToggleGroupProps extends ToggleGroupRootProps {}
 

@@ -9,37 +9,37 @@ import { styled } from "generated/panda/jsx";
 import { rating } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { Assign, JsxStyleProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(rating);
 
 export const RatingContext = ArkRatingGroup.Context;
 export interface RatingContextProps
-  extends Assign<JsxStyleProps, ArkRatingGroup.ContextProps> {}
+  extends AssignJSXStyleProps<ArkRatingGroup.ContextProps> {}
 
 export const RatingRoot = withProvider(styled(ArkRatingGroup.Root), "root");
 export interface RatingRootProps
-  extends Assign<JsxStyleProps, ArkRatingGroup.RootProps> {}
+  extends AssignJSXStyleProps<ArkRatingGroup.RootProps> {}
 
 export const RatingControl = withContext(
   styled(ArkRatingGroup.Control),
   "control",
 );
 export interface RatingControlProps
-  extends Assign<JsxStyleProps, ArkRatingGroup.ControlProps> {}
+  extends AssignJSXStyleProps<ArkRatingGroup.ControlProps> {}
 
 export const RatingLabel = withContext(styled(ArkRatingGroup.Label), "label");
 export interface RatingLabelProps
-  extends Assign<JsxStyleProps, ArkRatingGroup.LabelProps> {}
+  extends AssignJSXStyleProps<ArkRatingGroup.LabelProps> {}
 
 export const RatingItem = withContext(styled(ArkRatingGroup.Item), "item");
 export interface RatingItemProps
-  extends Assign<JsxStyleProps, ArkRatingGroup.ItemProps> {}
+  extends AssignJSXStyleProps<ArkRatingGroup.ItemProps> {}
 
 export const RatingItemContext = ArkRatingGroup.ItemContext;
 export interface RatingItemContextProps
-  extends Assign<JsxStyleProps, ArkRatingGroup.ItemContextProps> {}
+  extends AssignJSXStyleProps<ArkRatingGroup.ItemContextProps> {}
 
 export interface RatingProps extends RatingRootProps {
   /** Label for the rating. */

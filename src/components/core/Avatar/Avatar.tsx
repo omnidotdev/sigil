@@ -5,25 +5,25 @@ import { styled } from "generated/panda/jsx";
 import { avatar } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { Assign, JsxStyleProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(avatar);
 
 export const AvatarRoot = withProvider(styled(ArkAvatar.Root), "root");
 export interface AvatarRootProps
-  extends Assign<JsxStyleProps, ArkAvatar.RootProps> {}
+  extends AssignJSXStyleProps<ArkAvatar.RootProps> {}
 
 export const AvatarFallback = withContext(
   styled(ArkAvatar.Fallback),
   "fallback",
 );
 export interface AvatarFallbackProps
-  extends Assign<JsxStyleProps, ArkAvatar.FallbackProps> {}
+  extends AssignJSXStyleProps<ArkAvatar.FallbackProps> {}
 
 export const AvatarImage = withContext(styled(ArkAvatar.Image), "image");
 export interface AvatarImageProps
-  extends Assign<JsxStyleProps, ArkAvatar.ImageProps> {}
+  extends AssignJSXStyleProps<ArkAvatar.ImageProps> {}
 
 // TODO unit test this, use JSDoc examples below as basepoint and match for e.g. names with diacritics
 /**

@@ -5,7 +5,7 @@ import { styled } from "generated/panda/jsx";
 import { numberInput } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { Assign, JsxStyleProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(numberInput);
@@ -15,49 +15,49 @@ export const NumberInputRoot = withProvider(
   "root",
 );
 export interface NumberInputRootProps
-  extends Assign<JsxStyleProps, ArkNumberInput.RootProps> {}
+  extends AssignJSXStyleProps<ArkNumberInput.RootProps> {}
 
 export const NumberInputControl = withContext(
   styled(ArkNumberInput.Control),
   "control",
 );
 export interface NumberInputControlProps
-  extends Assign<JsxStyleProps, ArkNumberInput.ControlProps> {}
+  extends AssignJSXStyleProps<ArkNumberInput.ControlProps> {}
 
 export const NumberInputDecrementTrigger = withContext(
   styled(ArkNumberInput.DecrementTrigger),
   "decrementTrigger",
 );
 export interface NumberInputDecrementTriggerProps
-  extends Assign<JsxStyleProps, ArkNumberInput.DecrementTriggerProps> {}
+  extends AssignJSXStyleProps<ArkNumberInput.DecrementTriggerProps> {}
 
 export const NumberInputInput = withContext(
   styled(ArkNumberInput.Input),
   "input",
 );
 export interface NumberInputInputProps
-  extends Assign<JsxStyleProps, ArkNumberInput.InputProps> {}
+  extends AssignJSXStyleProps<ArkNumberInput.InputProps> {}
 
 export const NumberInputIncrementTrigger = withContext(
   styled(ArkNumberInput.IncrementTrigger),
   "incrementTrigger",
 );
 export interface NumberInputIncrementTriggerProps
-  extends Assign<JsxStyleProps, ArkNumberInput.IncrementTriggerProps> {}
+  extends AssignJSXStyleProps<ArkNumberInput.IncrementTriggerProps> {}
 
 export const NumberInputLabel = withContext(
   styled(ArkNumberInput.Label),
   "label",
 );
 export interface NumberInputLabelProps
-  extends Assign<JsxStyleProps, ArkNumberInput.LabelProps> {}
+  extends AssignJSXStyleProps<ArkNumberInput.LabelProps> {}
 
 export const NumberInputScrubber = withContext(
   styled(ArkNumberInput.Scrubber),
   "scrubber",
 );
 export interface NumberInputScrubberProps
-  extends Assign<JsxStyleProps, ArkNumberInput.ScrubberProps> {}
+  extends AssignJSXStyleProps<ArkNumberInput.ScrubberProps> {}
 
 export interface NumberInputProps extends NumberInputRootProps {
   label?: ReactNode;

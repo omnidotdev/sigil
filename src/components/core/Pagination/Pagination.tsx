@@ -7,42 +7,42 @@ import { pagination } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { ColorPalette } from "generated/panda/tokens";
-import type { Assign, JsxStyleProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 
 const { withProvider, withContext } = createStyleContext(pagination);
 
 export const PaginationContext = ArkPagination.Context;
 export interface PaginationContextProps
-  extends Assign<JsxStyleProps, ArkPagination.ContextProps> {}
+  extends AssignJSXStyleProps<ArkPagination.ContextProps> {}
 
 export const PaginationRoot = withProvider(styled(ArkPagination.Root), "root");
 export interface PaginationRootProps
-  extends Omit<Assign<JsxStyleProps, ArkPagination.RootProps>, "page"> {}
+  extends Omit<AssignJSXStyleProps<ArkPagination.RootProps>, "page"> {}
 
 export const PaginationEllipsis = withContext(
   styled(ArkPagination.Ellipsis),
   "ellipsis",
 );
 export interface PaginationEllipsisProps
-  extends Assign<JsxStyleProps, ArkPagination.EllipsisProps> {}
+  extends AssignJSXStyleProps<ArkPagination.EllipsisProps> {}
 
 export const PaginationNextTrigger = withContext(
   styled(ArkPagination.NextTrigger),
   "nextTrigger",
 );
 export interface PaginationNextTriggerProps
-  extends Assign<JsxStyleProps, ArkPagination.NextTriggerProps> {}
+  extends AssignJSXStyleProps<ArkPagination.NextTriggerProps> {}
 
 export const PaginationItem = withContext(styled(ArkPagination.Item), "item");
 export interface PaginationItemProps
-  extends Assign<JsxStyleProps, ArkPagination.ItemProps> {}
+  extends AssignJSXStyleProps<ArkPagination.ItemProps> {}
 
 export const PaginationPrevTrigger = withContext(
   styled(ArkPagination.PrevTrigger),
   "prevTrigger",
 );
 export interface PaginationPrevTriggerProps
-  extends Assign<JsxStyleProps, ArkPagination.PrevTriggerProps> {}
+  extends AssignJSXStyleProps<ArkPagination.PrevTriggerProps> {}
 
 export interface PaginationProps extends PaginationRootProps {
   colorPalette?: ColorPalette;

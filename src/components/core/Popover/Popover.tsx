@@ -7,49 +7,49 @@ import { Box, Stack, styled } from "generated/panda/jsx";
 import { popover } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { Assign, JsxStyleProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 
 const { withProvider, withContext } = createStyleContext(popover);
 
 export const PopoverRoot = withProvider(styled(ArkPopover.Root), "root");
 export interface PopoverRootProps
-  extends Assign<JsxStyleProps, ArkPopover.RootProps> {}
+  extends AssignJSXStyleProps<ArkPopover.RootProps> {}
 
 export const PopoverAnchor = withContext(styled(ArkPopover.Anchor), "anchor");
 export interface PopoverAnchorProps
-  extends Assign<JsxStyleProps, ArkPopover.AnchorProps> {}
+  extends AssignJSXStyleProps<ArkPopover.AnchorProps> {}
 
 export const PopoverArrow = withContext(styled(ArkPopover.Arrow), "arrow");
 export interface PopoverArrowProps
-  extends Assign<JsxStyleProps, ArkPopover.ArrowProps> {}
+  extends AssignJSXStyleProps<ArkPopover.ArrowProps> {}
 
 export const PopoverArrowTip = withContext(
   styled(ArkPopover.ArrowTip),
   "arrowTip",
 );
 export interface PopoverArrowTipProps
-  extends Assign<JsxStyleProps, ArkPopover.ArrowTipProps> {}
+  extends AssignJSXStyleProps<ArkPopover.ArrowTipProps> {}
 
 export const PopoverCloseTrigger = withContext(
   styled(ArkPopover.CloseTrigger),
   "closeTrigger",
 );
 export interface PopoverCloseTriggerProps
-  extends Assign<JsxStyleProps, ArkPopover.CloseTriggerProps> {}
+  extends AssignJSXStyleProps<ArkPopover.CloseTriggerProps> {}
 
 export const PopoverContent = withContext(
   styled(ArkPopover.Content),
   "content",
 );
 export interface PopoverContentProps
-  extends Assign<JsxStyleProps, ArkPopover.ContentProps> {}
+  extends AssignJSXStyleProps<ArkPopover.ContentProps> {}
 
 export const PopoverDescription = withContext(
   styled(ArkPopover.Description),
   "description",
 );
 export interface PopoverDescriptionProps
-  extends Assign<JsxStyleProps, ArkPopover.DescriptionProps> {}
+  extends AssignJSXStyleProps<ArkPopover.DescriptionProps> {}
 
 // TODO use in prebuilt `Popover` component
 export const PopoverIndicator = withContext(
@@ -57,25 +57,25 @@ export const PopoverIndicator = withContext(
   "indicator",
 );
 export interface PopoverIndicatorProps
-  extends Assign<JsxStyleProps, ArkPopover.IndicatorProps> {}
+  extends AssignJSXStyleProps<ArkPopover.IndicatorProps> {}
 
 export const PopoverPositioner = withContext(
   styled(ArkPopover.Positioner),
   "positioner",
 );
 export interface PopoverPositionerProps
-  extends Assign<JsxStyleProps, ArkPopover.PositionerProps> {}
+  extends AssignJSXStyleProps<ArkPopover.PositionerProps> {}
 
 export const PopoverTitle = withContext(styled(ArkPopover.Title), "title");
 export interface PopoverTitleProps
-  extends Assign<JsxStyleProps, ArkPopover.TitleProps> {}
+  extends AssignJSXStyleProps<ArkPopover.TitleProps> {}
 
 export const PopoverTrigger = withContext(
   styled(ArkPopover.Trigger),
   "trigger",
 );
 export interface PopoverTriggerProps
-  extends Assign<JsxStyleProps, ArkPopover.TriggerProps> {}
+  extends AssignJSXStyleProps<ArkPopover.TriggerProps> {}
 
 export interface PopoverProps extends PopoverRootProps {
   /** Trigger node, such as a button, used to open the popover. */

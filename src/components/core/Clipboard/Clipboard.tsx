@@ -12,43 +12,42 @@ import { styled } from "generated/panda/jsx";
 import { clipboard } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { Assign, JsxStyleProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(clipboard);
 
 export const ClipboardRoot = withProvider(styled(ArkClipboard.Root), "root");
 export interface ClipboardRootProps
-  extends Assign<JsxStyleProps, ArkClipboard.RootProps> {}
-
+  extends AssignJSXStyleProps<ArkClipboard.RootProps> {}
 export const ClipboardControl = withContext(
   styled(ArkClipboard.Control),
   "control",
 );
 export interface ClipboardControlProps
-  extends Assign<JsxStyleProps, ArkClipboard.ControlProps> {}
+  extends AssignJSXStyleProps<ArkClipboard.ControlProps> {}
 
 export const ClipboardIndicator = withContext(
   styled(ArkClipboard.Indicator),
   "indicator",
 );
 export interface ClipboardIndicatorProps
-  extends Assign<JsxStyleProps, ArkClipboard.IndicatorProps> {}
+  extends AssignJSXStyleProps<ArkClipboard.IndicatorProps> {}
 
 export const ClipboardInput = withContext(styled(ArkClipboard.Input), "input");
 export interface ClipboardInputProps
-  extends Assign<JsxStyleProps, ArkClipboard.InputProps> {}
+  extends AssignJSXStyleProps<ArkClipboard.InputProps> {}
 
 export const ClipboardLabel = withContext(styled(ArkClipboard.Label), "label");
 export interface ClipboardLabelProps
-  extends Assign<JsxStyleProps, ArkClipboard.LabelProps> {}
+  extends AssignJSXStyleProps<ArkClipboard.LabelProps> {}
 
 export const ClipboardTrigger = withContext(
   styled(ArkClipboard.Trigger),
   "trigger",
 );
 export interface ClipboardTriggerProps
-  extends Assign<JsxStyleProps, ArkClipboard.TriggerProps> {}
+  extends AssignJSXStyleProps<ArkClipboard.TriggerProps> {}
 
 export interface ClipboardProps extends ClipboardRootProps {
   /** Label for the clipboard content. */

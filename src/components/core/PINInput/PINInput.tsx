@@ -6,29 +6,29 @@ import { pinInput } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { ColorPalette } from "generated/panda/tokens";
-import type { Assign, JsxStyleProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(pinInput);
 
 export const PINInputRoot = withProvider(styled(ArkPINInput.Root), "root");
 export interface PINInputRootProps
-  extends Omit<Assign<JsxStyleProps, ArkPINInput.RootProps>, "mask"> {}
+  extends Omit<AssignJSXStyleProps<ArkPINInput.RootProps>, "mask"> {}
 
 export const PINInputControl = withContext(
   styled(ArkPINInput.Control),
   "control",
 );
 export interface PINInputControlProps
-  extends Assign<JsxStyleProps, ArkPINInput.ControlProps> {}
+  extends AssignJSXStyleProps<ArkPINInput.ControlProps> {}
 
 export const PINInputInput = withContext(styled(ArkPINInput.Input), "input");
 export interface PINInputInputProps
-  extends Assign<JsxStyleProps, ArkPINInput.InputProps> {}
+  extends AssignJSXStyleProps<ArkPINInput.InputProps> {}
 
 export const PINInputLabel = withContext(styled(ArkPINInput.Label), "label");
 export interface PINInputLabelProps
-  extends Assign<JsxStyleProps, ArkPINInput.LabelProps> {}
+  extends AssignJSXStyleProps<ArkPINInput.LabelProps> {}
 
 export interface PINInputProps extends PINInputRootProps {
   colorPalette?: ColorPalette;

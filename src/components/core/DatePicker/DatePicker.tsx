@@ -9,17 +9,17 @@ import { styled } from "generated/panda/jsx";
 import { datePicker } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { Assign, JsxStyleProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 
 const { withProvider, withContext } = createStyleContext(datePicker);
 
 export const DatePickerContext = ArkDatePicker.Context;
 export interface DatePickerContextProps
-  extends Assign<JsxStyleProps, ArkDatePicker.ContextProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.ContextProps> {}
 
 export const DatePickerRoot = withProvider(styled(ArkDatePicker.Root), "root");
 export interface DatePickerRootProps
-  extends Assign<JsxStyleProps, ArkDatePicker.RootProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.RootProps> {}
 
 // TODO use in render
 export const DatePickerClearTrigger = withContext(
@@ -27,56 +27,56 @@ export const DatePickerClearTrigger = withContext(
   "clearTrigger",
 );
 export interface DatePickerClearTriggerProps
-  extends Assign<JsxStyleProps, ArkDatePicker.ClearTriggerProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.ClearTriggerProps> {}
 
 export const DatePickerContent = withContext(
   styled(ArkDatePicker.Content),
   "content",
 );
 export interface DatePickerContentProps
-  extends Assign<JsxStyleProps, ArkDatePicker.ContentProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.ContentProps> {}
 
 export const DatePickerControl = withContext(
   styled(ArkDatePicker.Control),
   "control",
 );
 export interface DatePickerControlProps
-  extends Assign<JsxStyleProps, ArkDatePicker.ControlProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.ControlProps> {}
 
 export const DatePickerInput = withContext(
   styled(ArkDatePicker.Input),
   "input",
 );
 export interface DatePickerInputProps
-  extends Assign<JsxStyleProps, ArkDatePicker.InputProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.InputProps> {}
 
 export const DatePickerLabel = withContext(
   styled(ArkDatePicker.Label),
   "label",
 );
 export interface DatePickerLabelProps
-  extends Assign<JsxStyleProps, ArkDatePicker.LabelProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.LabelProps> {}
 
 export const DatePickerMonthSelect = withContext(
   styled(ArkDatePicker.MonthSelect),
   "monthSelect",
 );
 export interface DatePickerMonthSelectProps
-  extends Assign<JsxStyleProps, ArkDatePicker.MonthSelectProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.MonthSelectProps> {}
 
 export const DatePickerNextTrigger = withContext(
   styled(ArkDatePicker.NextTrigger),
   "nextTrigger",
 );
 export interface DatePickerNextTriggerProps
-  extends Assign<JsxStyleProps, ArkDatePicker.NextTriggerProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.NextTriggerProps> {}
 
 export const DatePickerPositioner = withContext(
   styled(ArkDatePicker.Positioner),
   "positioner",
 );
 export interface DatePickerPositionerProps
-  extends Assign<JsxStyleProps, ArkDatePicker.PositionerProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.PositionerProps> {}
 
 // TODO use
 export const DatePickerPresetTrigger = withContext(
@@ -84,102 +84,102 @@ export const DatePickerPresetTrigger = withContext(
   "presetTrigger",
 );
 export interface DatePickerPresetTriggerProps
-  extends Assign<JsxStyleProps, ArkDatePicker.PresetTriggerProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.PresetTriggerProps> {}
 
 export const DatePickerPrevTrigger = withContext(
   styled(ArkDatePicker.PrevTrigger),
   "prevTrigger",
 );
 export interface DatePickerPrevTriggerProps
-  extends Assign<JsxStyleProps, ArkDatePicker.PrevTriggerProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.PrevTriggerProps> {}
 
 export const DatePickerRangeText = withContext(
   styled(ArkDatePicker.RangeText),
   "rangeText",
 );
 export interface DatePickerRangeTextProps
-  extends Assign<JsxStyleProps, ArkDatePicker.RangeTextProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.RangeTextProps> {}
 
 export const DatePickerTable = withContext(
   styled(ArkDatePicker.Table),
   "table",
 );
 export interface DatePickerTableProps
-  extends Assign<JsxStyleProps, ArkDatePicker.TableProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.TableProps> {}
 
 export const DatePickerTableBody = withContext(
   styled(ArkDatePicker.TableBody),
   "tableBody",
 );
 export interface DatePickerTableBodyProps
-  extends Assign<JsxStyleProps, ArkDatePicker.TableBodyProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.TableBodyProps> {}
 
 export const DatePickerTableCell = withContext(
   styled(ArkDatePicker.TableCell),
   "tableCell",
 );
 export interface DatePickerTableCellProps
-  extends Assign<JsxStyleProps, ArkDatePicker.TableCellProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.TableCellProps> {}
 
 export const DatePickerTableCellTrigger = withContext(
   styled(ArkDatePicker.TableCellTrigger),
   "tableCellTrigger",
 );
 export interface DatePickerTableCellTriggerProps
-  extends Assign<JsxStyleProps, ArkDatePicker.TableCellTriggerProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.TableCellTriggerProps> {}
 
 export const DatePickerTableHead = withContext(
   styled(ArkDatePicker.TableHead),
   "tableHead",
 );
 export interface DatePickerTableHeadProps
-  extends Assign<JsxStyleProps, ArkDatePicker.TableHeadProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.TableHeadProps> {}
 
 export const DatePickerTableHeader = withContext(
   styled(ArkDatePicker.TableHeader),
   "tableHeader",
 );
 export interface DatePickerTableHeaderProps
-  extends Assign<JsxStyleProps, ArkDatePicker.TableHeaderProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.TableHeaderProps> {}
 
 export const DatePickerTableRow = withContext(
   styled(ArkDatePicker.TableRow),
   "tableRow",
 );
 export interface DatePickerTableRowProps
-  extends Assign<JsxStyleProps, ArkDatePicker.TableRowProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.TableRowProps> {}
 
 export const DatePickerTrigger = withContext(
   styled(ArkDatePicker.Trigger),
   "trigger",
 );
 export interface DatePickerTriggerProps
-  extends Assign<JsxStyleProps, ArkDatePicker.TriggerProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.TriggerProps> {}
 
 export const DatePickerView = withContext(styled(ArkDatePicker.View), "view");
 export interface DatePickerViewProps
-  extends Assign<JsxStyleProps, ArkDatePicker.ViewProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.ViewProps> {}
 
 export const DatePickerViewControl = withContext(
   styled(ArkDatePicker.ViewControl),
   "viewControl",
 );
 export interface DatePickerViewControlProps
-  extends Assign<JsxStyleProps, ArkDatePicker.ViewControlProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.ViewControlProps> {}
 
 export const DatePickerViewTrigger = withContext(
   styled(ArkDatePicker.ViewTrigger),
   "viewTrigger",
 );
 export interface DatePickerViewTriggerProps
-  extends Assign<JsxStyleProps, ArkDatePicker.ViewTriggerProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.ViewTriggerProps> {}
 
 export const DatePickerYearSelect = withContext(
   styled(ArkDatePicker.YearSelect),
   "yearSelect",
 );
 export interface DatePickerYearSelectProps
-  extends Assign<JsxStyleProps, ArkDatePicker.YearSelectProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.YearSelectProps> {}
 
 export interface DatePickerProps extends DatePickerRootProps {
   /** Label for the date picker. Defaults to "Date Picker". */

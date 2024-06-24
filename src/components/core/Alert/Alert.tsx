@@ -8,34 +8,31 @@ import { styled } from "generated/panda/jsx";
 import { alert } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type {
-  Assign,
-  ComponentProps,
-  JsxStyleProps,
-} from "generated/panda/types";
+import type { ComponentProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(alert);
 
 export const AlertRoot = withProvider(styled(ark.div), "root");
 export interface AlertRootProps
-  extends Assign<JsxStyleProps, ComponentProps<typeof AlertRoot>> {}
+  extends AssignJSXStyleProps<ComponentProps<typeof AlertRoot>> {}
 
 export const AlertContent = withContext(styled(ark.div), "content");
 export interface AlertContentProps
-  extends Assign<JsxStyleProps, ComponentProps<typeof AlertContent>> {}
+  extends AssignJSXStyleProps<ComponentProps<typeof AlertContent>> {}
 
 export const AlertDescription = withContext(styled(ark.div), "description");
 export interface AlertDescriptionProps
-  extends Assign<JsxStyleProps, ComponentProps<typeof AlertDescription>> {}
+  extends AssignJSXStyleProps<ComponentProps<typeof AlertDescription>> {}
 
 export const AlertIcon = withContext(styled(ark.svg), "icon");
 export interface AlertIconProps
-  extends Assign<JsxStyleProps, ComponentProps<typeof AlertIcon>> {}
+  extends AssignJSXStyleProps<ComponentProps<typeof AlertIcon>> {}
 
 export const AlertTitle = withContext(styled(ark.h5), "title");
 export interface AlertTitleProps
-  extends Assign<JsxStyleProps, ComponentProps<typeof AlertTitle>> {}
+  extends AssignJSXStyleProps<ComponentProps<typeof AlertTitle>> {}
 
 export interface AlertProps extends AlertRootProps {
   description: ReactNode;

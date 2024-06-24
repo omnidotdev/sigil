@@ -8,69 +8,66 @@ import { styled } from "generated/panda/jsx";
 import { drawer } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type {
-  Assign,
-  ComponentProps,
-  JsxStyleProps,
-} from "generated/panda/types";
+import type { ComponentProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 
 const { withProvider, withContext } = createStyleContext(drawer);
 
 export const DrawerRoot = withProvider(styled(ArkDialog.Root), "root");
 export interface DrawerRootProps
-  extends Assign<JsxStyleProps, ArkDialog.RootProps> {}
+  extends AssignJSXStyleProps<ArkDialog.RootProps> {}
 
 export const DrawerTrigger = withContext(styled(ArkDialog.Trigger), "trigger");
 export interface DrawerTriggerProps
-  extends Assign<JsxStyleProps, ArkDialog.TriggerProps> {}
+  extends AssignJSXStyleProps<ArkDialog.TriggerProps> {}
 
 export const DrawerBackdrop = withContext(
   styled(ArkDialog.Backdrop),
   "backdrop",
 );
 export interface DrawerBackdropProps
-  extends Assign<JsxStyleProps, ArkDialog.BackdropProps> {}
+  extends AssignJSXStyleProps<ArkDialog.BackdropProps> {}
 
 export const DrawerCloseTrigger = withContext(
   styled(ArkDialog.CloseTrigger),
   "closeTrigger",
 );
 export interface DrawerCloseTriggerProps
-  extends Assign<JsxStyleProps, ArkDialog.CloseTriggerProps> {}
+  extends AssignJSXStyleProps<ArkDialog.CloseTriggerProps> {}
 
 export const DrawerPositioner = withContext(
   styled(ArkDialog.Positioner),
   "positioner",
 );
 export interface DrawerPositionerProps
-  extends Assign<JsxStyleProps, ArkDialog.PositionerProps> {}
+  extends AssignJSXStyleProps<ArkDialog.PositionerProps> {}
 
 export const DrawerContent = withContext(styled(ArkDialog.Content), "content");
 export interface DrawerContentProps
-  extends Assign<JsxStyleProps, ArkDialog.ContentProps> {}
+  extends AssignJSXStyleProps<ArkDialog.ContentProps> {}
 
 export const DrawerTitle = withContext(styled(ArkDialog.Title), "title");
 export interface DrawerTitleProps
-  extends Assign<JsxStyleProps, ArkDialog.TitleProps> {}
+  extends AssignJSXStyleProps<ArkDialog.TitleProps> {}
 
 export const DrawerDescription = withContext(
   styled(ArkDialog.Description),
   "description",
 );
 export interface DrawerDescriptionProps
-  extends Assign<JsxStyleProps, ArkDialog.DescriptionProps> {}
+  extends AssignJSXStyleProps<ArkDialog.DescriptionProps> {}
 
 export const DrawerHeader = withContext(styled(ark.div), "header");
 export interface DrawerHeaderProps
-  extends Assign<JsxStyleProps, ComponentProps<typeof DrawerHeader>> {}
+  extends AssignJSXStyleProps<ComponentProps<typeof DrawerHeader>> {}
 
 export const DrawerBody = withContext(styled(ark.div), "body");
 export interface DrawerBodyProps
-  extends Assign<JsxStyleProps, ComponentProps<typeof DrawerBody>> {}
+  extends AssignJSXStyleProps<ComponentProps<typeof DrawerBody>> {}
 
 export const DrawerFooter = withContext(styled(ark.div), "footer");
 export interface DrawerFooterProps
-  extends Assign<JsxStyleProps, ComponentProps<typeof DrawerFooter>> {}
+  extends AssignJSXStyleProps<ComponentProps<typeof DrawerFooter>> {}
 
 export interface DrawerProps extends DrawerRootProps {
   /** Trigger node, such as a button, used to open the drawer. */

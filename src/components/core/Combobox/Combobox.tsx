@@ -11,7 +11,7 @@ import { createStyleContext } from "lib/util";
 import type { ComboboxInputValueChangeDetails } from "@ark-ui/react/combobox";
 import type { ComboboxVariantProps } from "generated/panda/recipes";
 import type { ColorPalette } from "generated/panda/tokens";
-import type { Assign, JsxStyleProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 
 const { withProvider, withContext } = createStyleContext(combobox);
 
@@ -25,8 +25,7 @@ export const ComboboxRoot = withProvider(
   "root",
 );
 export interface ComboboxRootProps
-  extends Assign<
-      JsxStyleProps,
+  extends AssignJSXStyleProps<
       ArkCombobox.RootProps<ArkCombobox.CollectionItem>
     >,
     ComboboxVariantProps {}
@@ -36,75 +35,75 @@ export const ComboboxClearTrigger = withContext(
   "clearTrigger",
 );
 export interface ComboboxClearTriggerProps
-  extends Assign<JsxStyleProps, ArkCombobox.ClearTriggerProps> {}
+  extends AssignJSXStyleProps<ArkCombobox.ClearTriggerProps> {}
 
 export const ComboboxContent = withContext(
   styled(ArkCombobox.Content),
   "content",
 );
 export interface ComboboxContentProps
-  extends Assign<JsxStyleProps, ArkCombobox.ContentProps> {}
+  extends AssignJSXStyleProps<ArkCombobox.ContentProps> {}
 
 export const ComboboxControl = withContext(
   styled(ArkCombobox.Control),
   "control",
 );
 export interface ComboboxControlProps
-  extends Assign<JsxStyleProps, ArkCombobox.ControlProps> {}
+  extends AssignJSXStyleProps<ArkCombobox.ControlProps> {}
 
 export const ComboboxInput = withContext(styled(ArkCombobox.Input), "input");
 export interface ComboboxInputProps
-  extends Assign<JsxStyleProps, ArkCombobox.InputProps> {}
+  extends AssignJSXStyleProps<ArkCombobox.InputProps> {}
 
 export const ComboboxItem = withContext(styled(ArkCombobox.Item), "item");
 export interface ComboboxItemProps
-  extends Assign<JsxStyleProps, ArkCombobox.ItemProps> {}
+  extends AssignJSXStyleProps<ArkCombobox.ItemProps> {}
 
 export const ComboboxItemGroup = withContext(
   styled(ArkCombobox.ItemGroup),
   "itemGroup",
 );
 export interface ComboboxItemGroupProps
-  extends Assign<JsxStyleProps, ArkCombobox.ItemGroupProps> {}
+  extends AssignJSXStyleProps<ArkCombobox.ItemGroupProps> {}
 
 export const ComboboxItemGroupLabel = withContext(
   styled(ArkCombobox.ItemGroupLabel),
   "itemGroupLabel",
 );
 export interface ComboboxItemGroupLabelProps
-  extends Assign<JsxStyleProps, ArkCombobox.ItemGroupLabelProps> {}
+  extends AssignJSXStyleProps<ArkCombobox.ItemGroupLabelProps> {}
 
 export const ComboboxItemIndicator = withContext(
   styled(ArkCombobox.ItemIndicator),
   "itemIndicator",
 );
 export interface ComboboxItemIndicatorProps
-  extends Assign<JsxStyleProps, ArkCombobox.ItemIndicatorProps> {}
+  extends AssignJSXStyleProps<ArkCombobox.ItemIndicatorProps> {}
 
 export const ComboboxItemText = withContext(
   styled(ArkCombobox.ItemText),
   "itemText",
 );
 export interface ComboboxItemTextProps
-  extends Assign<JsxStyleProps, ArkCombobox.ItemTextProps> {}
+  extends AssignJSXStyleProps<ArkCombobox.ItemTextProps> {}
 
 export const ComboboxLabel = withContext(styled(ArkCombobox.Label), "label");
 export interface ComboboxLabelProps
-  extends Assign<JsxStyleProps, ArkCombobox.LabelProps> {}
+  extends AssignJSXStyleProps<ArkCombobox.LabelProps> {}
 
 export const ComboboxPositioner = withContext(
   styled(ArkCombobox.Positioner),
   "positioner",
 );
 export interface ComboboxPositionerProps
-  extends Assign<JsxStyleProps, ArkCombobox.PositionerProps> {}
+  extends AssignJSXStyleProps<ArkCombobox.PositionerProps> {}
 
 export const ComboboxTrigger = withContext(
   styled(ArkCombobox.Trigger),
   "trigger",
 );
 export interface ComboboxTriggerProps
-  extends Assign<JsxStyleProps, ArkCombobox.TriggerProps> {}
+  extends AssignJSXStyleProps<ArkCombobox.TriggerProps> {}
 
 export interface ComboboxProps extends ComboboxRootProps {
   colorPalette?: ColorPalette;

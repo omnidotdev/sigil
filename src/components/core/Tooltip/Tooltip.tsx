@@ -4,46 +4,46 @@ import { styled } from "generated/panda/jsx";
 import { tooltip } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { Assign, JsxStyleProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(tooltip);
 
 export const TooltipRoot = withProvider(styled(ArkTooltip.Root), "root");
 export interface TooltipRootProps
-  extends Omit<Assign<JsxStyleProps, ArkTooltip.RootProps>, "content"> {}
+  extends Omit<AssignJSXStyleProps<ArkTooltip.RootProps>, "content"> {}
 
 export const TooltipArrow = withContext(styled(ArkTooltip.Arrow), "arrow");
 export interface TooltipArrowProps
-  extends Assign<JsxStyleProps, ArkTooltip.ArrowProps> {}
+  extends AssignJSXStyleProps<ArkTooltip.ArrowProps> {}
 
 export const TooltipArrowTip = withContext(
   styled(ArkTooltip.ArrowTip),
   "arrowTip",
 );
 export interface TooltipArrowTipProps
-  extends Assign<JsxStyleProps, ArkTooltip.ArrowTipProps> {}
+  extends AssignJSXStyleProps<ArkTooltip.ArrowTipProps> {}
 
 export const TooltipContent = withContext(
   styled(ArkTooltip.Content),
   "content",
 );
 export interface TooltipContentProps
-  extends Assign<JsxStyleProps, ArkTooltip.ContentProps> {}
+  extends AssignJSXStyleProps<ArkTooltip.ContentProps> {}
 
 export const TooltipPositioner = withContext(
   styled(ArkTooltip.Positioner),
   "positioner",
 );
 export interface TooltipPositionerProps
-  extends Assign<JsxStyleProps, ArkTooltip.PositionerProps> {}
+  extends AssignJSXStyleProps<ArkTooltip.PositionerProps> {}
 
 export const TooltipTrigger = withContext(
   styled(ArkTooltip.Trigger),
   "trigger",
 );
 export interface TooltipTriggerProps
-  extends Assign<JsxStyleProps, ArkTooltip.TriggerProps> {}
+  extends AssignJSXStyleProps<ArkTooltip.TriggerProps> {}
 
 export interface TooltipProps extends TooltipRootProps {
   /** Tooltip trigger. */

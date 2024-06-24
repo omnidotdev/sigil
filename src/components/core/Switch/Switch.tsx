@@ -4,30 +4,30 @@ import { styled } from "generated/panda/jsx";
 import { switchRecipe } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { Assign, JsxStyleProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 
 const { withProvider, withContext } = createStyleContext(switchRecipe);
 
 export const SwitchRoot = withProvider(styled(ArkSwitch.Root), "root");
 export interface SwitchRootProps
-  extends Assign<JsxStyleProps, ArkSwitch.RootProps> {}
+  extends AssignJSXStyleProps<ArkSwitch.RootProps> {}
 
 export const SwitchControl = withContext(styled(ArkSwitch.Control), "control");
 
 export interface SwitchControlProps
-  extends Assign<JsxStyleProps, ArkSwitch.ControlProps> {}
+  extends AssignJSXStyleProps<ArkSwitch.ControlProps> {}
 
 export const SwitchLabel = withContext(styled(ArkSwitch.Label), "label");
 export interface SwitchLabelProps
-  extends Assign<JsxStyleProps, ArkSwitch.LabelProps> {}
+  extends AssignJSXStyleProps<ArkSwitch.LabelProps> {}
 
 export const SwitchThumb = withContext(styled(ArkSwitch.Thumb), "thumb");
 export interface SwitchThumbProps
-  extends Assign<JsxStyleProps, ArkSwitch.ThumbProps> {}
+  extends AssignJSXStyleProps<ArkSwitch.ThumbProps> {}
 
 export const SwitchHiddenInput = ArkSwitch.HiddenInput;
 export interface SwitchHiddenInputProps
-  extends Assign<JsxStyleProps, ArkSwitch.HiddenInputProps> {}
+  extends AssignJSXStyleProps<ArkSwitch.HiddenInputProps> {}
 
 export interface SwitchProps extends SwitchRootProps {}
 

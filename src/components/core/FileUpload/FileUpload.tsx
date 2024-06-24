@@ -16,83 +16,83 @@ import type {
   FileUploadItemProps as ArkFileUploadItemProps,
   FileUploadItemSizeTextProps as ArkFileUploadItemSizeTextProps,
 } from "@ark-ui/react/file-upload";
-import type { Assign, JsxStyleProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(fileUpload);
 
 export const FileUploadContext = ArkFileUpload.Context;
 export interface FileUploadContextProps
-  extends Assign<JsxStyleProps, ArkFileUpload.ContextProps> {}
+  extends AssignJSXStyleProps<ArkFileUpload.ContextProps> {}
 
 const FileUploadRoot = withProvider(styled(ArkFileUpload.Root), "root");
 export interface FileUploadRootProps
-  extends Assign<JsxStyleProps, ArkFileUpload.RootProps> {}
+  extends AssignJSXStyleProps<ArkFileUpload.RootProps> {}
 
 const FileUploadTrigger = withContext(styled(ArkFileUpload.Trigger), "trigger");
 export interface FileUploadTriggerProps
-  extends Assign<JsxStyleProps, ArkFileUpload.TriggerProps> {}
+  extends AssignJSXStyleProps<ArkFileUpload.TriggerProps> {}
 
 const FileUploadDropzone = withContext(
   styled(ArkFileUpload.Dropzone),
   "dropzone",
 );
 export interface FileUploadDropzoneProps
-  extends Assign<JsxStyleProps, ArkFileUpload.DropzoneProps> {}
+  extends AssignJSXStyleProps<ArkFileUpload.DropzoneProps> {}
 
 const FileUploadItem = withContext(styled(ArkFileUpload.Item), "item");
 export interface FileUploadItemProps
-  extends Assign<JsxStyleProps, ArkFileUpload.ItemProps> {}
+  extends AssignJSXStyleProps<ArkFileUpload.ItemProps> {}
 
 const FileUploadItemDeleteTrigger = withContext(
   styled(ArkFileUpload.ItemDeleteTrigger),
   "itemDeleteTrigger",
 );
 export interface FileUploadItemDeleteTriggerProps
-  extends Assign<JsxStyleProps, ArkFileUpload.ItemDeleteTriggerProps> {}
+  extends AssignJSXStyleProps<ArkFileUpload.ItemDeleteTriggerProps> {}
 
 const FileUploadItemGroup = withContext(
   styled(ArkFileUpload.ItemGroup),
   "itemGroup",
 );
 export interface FileUploadItemGroupProps
-  extends Assign<JsxStyleProps, ArkFileUpload.ItemGroupProps> {}
+  extends AssignJSXStyleProps<ArkFileUpload.ItemGroupProps> {}
 
 const FileUploadItemName = withContext(
   styled(ArkFileUpload.ItemName),
   "itemName",
 );
 export interface FileUploadItemNameProps
-  extends Assign<JsxStyleProps, ArkFileUpload.ItemNameProps> {}
+  extends AssignJSXStyleProps<ArkFileUpload.ItemNameProps> {}
 
 const FileUploadItemPreview = withContext(
   styled(ArkFileUpload.ItemPreview),
   "itemPreview",
 );
 export interface FileUploadItemPreviewProps
-  extends Assign<JsxStyleProps, ArkFileUpload.ItemPreviewProps> {}
+  extends AssignJSXStyleProps<ArkFileUpload.ItemPreviewProps> {}
 
 const FileUploadItemPreviewImage = withContext(
   styled(ArkFileUpload.ItemPreviewImage),
   "itemPreviewImage",
 );
 export interface FileUploadItemPreviewImageProps
-  extends Assign<JsxStyleProps, ArkFileUpload.ItemPreviewImageProps> {}
+  extends AssignJSXStyleProps<ArkFileUpload.ItemPreviewImageProps> {}
 
 const FileUploadItemSizeText = withContext(
   styled(ArkFileUpload.ItemSizeText),
   "itemSizeText",
 );
 export interface FileUploadItemSizeTextProps
-  extends Assign<JsxStyleProps, ArkFileUpload.ItemSizeTextProps> {}
+  extends AssignJSXStyleProps<ArkFileUpload.ItemSizeTextProps> {}
 
 const FileUploadLabel = withContext(styled(ArkFileUpload.Label), "label");
 export interface FileUploadLabelProps
-  extends Assign<JsxStyleProps, ArkFileUpload.LabelProps> {}
+  extends AssignJSXStyleProps<ArkFileUpload.LabelProps> {}
 
 const FileUploadHiddenInput = ArkFileUpload.HiddenInput;
 export interface FileUploadHiddenInputProps
-  extends Assign<JsxStyleProps, ArkFileUpload.HiddenInputProps> {}
+  extends AssignJSXStyleProps<ArkFileUpload.HiddenInputProps> {}
 
 export interface FileUploadProps extends FileUploadRootProps {
   /** Label for the file upload dropzone. */

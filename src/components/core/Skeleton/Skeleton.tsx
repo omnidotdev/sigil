@@ -3,17 +3,14 @@ import { ark } from "@ark-ui/react";
 import { styled } from "generated/panda/jsx";
 import { skeleton } from "generated/panda/recipes";
 
-import type {
-  Assign,
-  ComponentProps,
-  JsxStyleProps,
-} from "generated/panda/types";
+import type { ComponentProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
 const StyledSkeleton = styled(ark.div, skeleton);
 
 export interface SkeletonProps
-  extends Assign<JsxStyleProps, ComponentProps<typeof StyledSkeleton>> {
+  extends AssignJSXStyleProps<ComponentProps<typeof StyledSkeleton>> {
   /**
    * Whether the skeleton has been loaded.
    * @default false

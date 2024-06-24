@@ -5,39 +5,39 @@ import { styled } from "generated/panda/jsx";
 import { accordion } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { Assign, JsxStyleProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(accordion);
 
 export const AccordionRoot = withProvider(styled(ArkAccordion.Root), "root");
 export interface AccordionRootProps
-  extends Assign<JsxStyleProps, ArkAccordion.RootProps> {}
+  extends AssignJSXStyleProps<ArkAccordion.RootProps> {}
 
 export const AccordionItem = withContext(styled(ArkAccordion.Item), "item");
 export interface AccordionItemProps
-  extends Assign<JsxStyleProps, ArkAccordion.ItemProps> {}
+  extends AssignJSXStyleProps<ArkAccordion.ItemProps> {}
 
 export const AccordionItemContent = withContext(
   styled(ArkAccordion.ItemContent),
   "itemContent",
 );
 export interface AccordionItemContentProps
-  extends Assign<JsxStyleProps, ArkAccordion.ItemContentProps> {}
+  extends AssignJSXStyleProps<ArkAccordion.ItemContentProps> {}
 
 export const AccordionItemIndicator = withContext(
   styled(ArkAccordion.ItemIndicator),
   "itemIndicator",
 );
 export interface AccordionItemIndicatorProps
-  extends Assign<JsxStyleProps, ArkAccordion.ItemIndicatorProps> {}
+  extends AssignJSXStyleProps<ArkAccordion.ItemIndicatorProps> {}
 
 export const AccordionItemTrigger = withContext(
   styled(ArkAccordion.ItemTrigger),
   "itemTrigger",
 );
 export interface AccordionItemTriggerProps
-  extends Assign<JsxStyleProps, ArkAccordion.ItemTriggerProps> {}
+  extends AssignJSXStyleProps<ArkAccordion.ItemTriggerProps> {}
 
 export interface AccordionProps extends AccordionRootProps {
   items: (Omit<ArkAccordion.ItemProps, "title" | "value"> & {

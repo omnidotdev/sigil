@@ -5,13 +5,13 @@ import { styled } from "generated/panda/jsx";
 import { select } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { Assign, JsxStyleProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 
 const { withProvider, withContext } = createStyleContext(select);
 
 // https://github.com/chakra-ui/ark/issues/1740#issuecomment-1817255471
 type AugmentedSelectRoot = <T extends ArkSelect.CollectionItem>(
-  props: Assign<JsxStyleProps, ArkSelect.RootProps<T>>,
+  props: AssignJSXStyleProps<ArkSelect.RootProps<T>>,
 ) => JSX.Element;
 
 export const SelectRoot = withProvider(
@@ -19,7 +19,7 @@ export const SelectRoot = withProvider(
   "root",
 );
 export interface SelectRootProps
-  extends Assign<JsxStyleProps, ArkSelect.RootProps<ArkSelect.CollectionItem>> {
+  extends AssignJSXStyleProps<ArkSelect.RootProps<ArkSelect.CollectionItem>> {
   items: ArkSelect.CollectionItem[];
 }
 
@@ -28,15 +28,15 @@ export const SelectClearTrigger = withContext(
   "clearTrigger",
 );
 export interface SelectClearTriggerProps
-  extends Assign<JsxStyleProps, ArkSelect.ClearTriggerProps> {}
+  extends AssignJSXStyleProps<ArkSelect.ClearTriggerProps> {}
 
 export const SelectContent = withContext(styled(ArkSelect.Content), "content");
 export interface SelectContentProps
-  extends Assign<JsxStyleProps, ArkSelect.ContentProps> {}
+  extends AssignJSXStyleProps<ArkSelect.ContentProps> {}
 
 export const SelectControl = withContext(styled(ArkSelect.Control), "control");
 export interface SelectControlProps
-  extends Assign<JsxStyleProps, ArkSelect.ControlProps> {}
+  extends AssignJSXStyleProps<ArkSelect.ControlProps> {}
 
 // TODO use in prebuilt `Select` component
 export const SelectIndicator = withContext(
@@ -44,61 +44,61 @@ export const SelectIndicator = withContext(
   "indicator",
 );
 export interface SelectIndicatorProps
-  extends Assign<JsxStyleProps, ArkSelect.IndicatorProps> {}
+  extends AssignJSXStyleProps<ArkSelect.IndicatorProps> {}
 
 export const SelectItem = withContext(styled(ArkSelect.Item), "item");
 export interface SelectItemProps
-  extends Assign<JsxStyleProps, ArkSelect.ItemProps> {}
+  extends AssignJSXStyleProps<ArkSelect.ItemProps> {}
 
 export const SelectItemGroup = withContext(
   styled(ArkSelect.ItemGroup),
   "itemGroup",
 );
 export interface SelectItemGroupProps
-  extends Assign<JsxStyleProps, ArkSelect.ItemGroupProps> {}
+  extends AssignJSXStyleProps<ArkSelect.ItemGroupProps> {}
 
 export const SelectItemGroupLabel = withContext(
   styled(ArkSelect.ItemGroupLabel),
   "itemGroupLabel",
 );
 export interface SelectItemGroupLabelProps
-  extends Assign<JsxStyleProps, ArkSelect.ItemGroupLabelProps> {}
+  extends AssignJSXStyleProps<ArkSelect.ItemGroupLabelProps> {}
 
 export const SelectItemIndicator = withContext(
   styled(ArkSelect.ItemIndicator),
   "itemIndicator",
 );
 export interface SelectItemIndicatorProps
-  extends Assign<JsxStyleProps, ArkSelect.ItemIndicatorProps> {}
+  extends AssignJSXStyleProps<ArkSelect.ItemIndicatorProps> {}
 
 export const SelectItemText = withContext(
   styled(ArkSelect.ItemText),
   "itemText",
 );
 export interface SelectItemTextProps
-  extends Assign<JsxStyleProps, ArkSelect.ItemTextProps> {}
+  extends AssignJSXStyleProps<ArkSelect.ItemTextProps> {}
 
 export const SelectLabel = withContext(styled(ArkSelect.Label), "label");
 export interface SelectLabelProps
-  extends Assign<JsxStyleProps, ArkSelect.LabelProps> {}
+  extends AssignJSXStyleProps<ArkSelect.LabelProps> {}
 
 export const SelectPositioner = withContext(
   styled(ArkSelect.Positioner),
   "positioner",
 );
 export interface SelectPositionerProps
-  extends Assign<JsxStyleProps, ArkSelect.PositionerProps> {}
+  extends AssignJSXStyleProps<ArkSelect.PositionerProps> {}
 
 export const SelectTrigger = withContext(styled(ArkSelect.Trigger), "trigger");
 export interface SelectTriggerProps
-  extends Assign<JsxStyleProps, ArkSelect.TriggerProps> {}
+  extends AssignJSXStyleProps<ArkSelect.TriggerProps> {}
 
 export const SelectValueText = withContext(
   styled(ArkSelect.ValueText),
   "valueText",
 );
 export interface SelectValueTextProps
-  extends Assign<JsxStyleProps, ArkSelect.ValueTextProps> {}
+  extends AssignJSXStyleProps<ArkSelect.ValueTextProps> {}
 
 export interface SelectProps extends SelectRootProps {
   /** Whether to display the input field label. */

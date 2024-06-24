@@ -7,36 +7,35 @@ import { checkbox } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { IconProps } from "components/core";
-import type { Assign, JsxStyleProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(checkbox);
 
 export const CheckboxRoot = withProvider(styled(ArkCheckbox.Root), "root");
 export interface CheckboxRootProps
-  extends Assign<JsxStyleProps, ArkCheckbox.RootProps> {}
-
+  extends AssignJSXStyleProps<ArkCheckbox.RootProps> {}
 export const CheckboxControl = withContext(
   styled(ArkCheckbox.Control),
   "control",
 );
 export interface CheckboxControlProps
-  extends Assign<JsxStyleProps, ArkCheckbox.ControlProps> {}
+  extends AssignJSXStyleProps<ArkCheckbox.ControlProps> {}
 
 const CheckboxIndicator = withContext(
   styled(ArkCheckbox.Indicator),
   "indicator",
 );
 export interface CheckboxIndicatorProps
-  extends Assign<JsxStyleProps, ArkCheckbox.IndicatorProps> {}
+  extends AssignJSXStyleProps<ArkCheckbox.IndicatorProps> {}
 
 export const CheckboxLabel = withContext(styled(ArkCheckbox.Label), "label");
 export interface CheckboxLabelProps
-  extends Assign<JsxStyleProps, ArkCheckbox.LabelProps> {}
+  extends AssignJSXStyleProps<ArkCheckbox.LabelProps> {}
 
 export const CheckboxHiddenInput = ArkCheckbox.HiddenInput;
 export interface CheckboxHiddenInputProps
-  extends Assign<JsxStyleProps, ArkCheckbox.HiddenInputProps> {}
+  extends AssignJSXStyleProps<ArkCheckbox.HiddenInputProps> {}
 
 export interface CheckboxProps extends CheckboxRootProps {
   /** Checkbox label. */
