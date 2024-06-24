@@ -1,10 +1,5 @@
 import { Dialog as ArkDialog } from "@ark-ui/react/dialog";
-import {
-  cloneElement,
-  type ComponentProps,
-  type ReactNode,
-  type ReactElement,
-} from "react";
+import { cloneElement, type ReactNode, type ReactElement } from "react";
 import { FiX } from "react-icons/fi";
 
 import Button from "components/core/Button/Button";
@@ -13,51 +8,54 @@ import { dialog } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { DialogContentProps as ArkDialogContentProps } from "@ark-ui/react/dialog";
+import type { AssignJSXStyleProps } from "lib/types";
 
 const { withProvider, withContext } = createStyleContext(dialog);
 
 export const DialogRoot = withProvider(styled(ArkDialog.Root), "root");
-export interface DialogRootProps extends ComponentProps<typeof DialogRoot> {}
+export interface DialogRootProps
+  extends AssignJSXStyleProps<ArkDialog.RootProps> {}
 
 export const DialogTrigger = withContext(styled(ArkDialog.Trigger), "trigger");
 export interface DialogTriggerProps
-  extends ComponentProps<typeof DialogTrigger> {}
+  extends AssignJSXStyleProps<ArkDialog.TriggerProps> {}
 
 export const DialogBackdrop = withContext(
   styled(ArkDialog.Backdrop),
   "backdrop",
 );
 export interface DialogBackdropProps
-  extends ComponentProps<typeof DialogBackdrop> {}
+  extends AssignJSXStyleProps<ArkDialog.BackdropProps> {}
 
 export const DialogContent = withContext(styled(ArkDialog.Content), "content");
 
 export interface DialogContentProps
-  extends ComponentProps<typeof DialogContent> {}
+  extends AssignJSXStyleProps<ArkDialogContentProps> {}
 
 export const DialogCloseTrigger = withContext(
   styled(ArkDialog.CloseTrigger),
   "closeTrigger",
 );
 export interface DialogCloseTriggerProps
-  extends ComponentProps<typeof DialogCloseTrigger> {}
+  extends AssignJSXStyleProps<ArkDialog.CloseTriggerProps> {}
 
 export const DialogTitle = withContext(styled(ArkDialog.Title), "title");
-export interface DialogTitleProps extends ComponentProps<typeof DialogTitle> {}
+export interface DialogTitleProps
+  extends AssignJSXStyleProps<ArkDialog.TitleProps> {}
 
 export const DialogDescription = withContext(
   styled(ArkDialog.Description),
   "description",
 );
 export interface DialogDescriptionProps
-  extends ComponentProps<typeof DialogDescription> {}
+  extends AssignJSXStyleProps<ArkDialog.DescriptionProps> {}
 
 export const DialogPositioner = withContext(
   styled(ArkDialog.Positioner),
   "positioner",
 );
 export interface DialogPositionerProps
-  extends ComponentProps<typeof DialogPositioner> {}
+  extends AssignJSXStyleProps<ArkDialog.PositionerProps> {}
 
 export interface DialogProps extends DialogRootProps {
   /** Trigger node, such as a button, used to open the dialog. */

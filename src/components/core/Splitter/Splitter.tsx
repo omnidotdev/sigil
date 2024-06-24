@@ -5,24 +5,25 @@ import { styled } from "generated/panda/jsx";
 import { splitter } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ComponentProps, ReactNode } from "react";
+import type { AssignJSXStyleProps } from "lib/types";
+import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(splitter);
 
 export const SplitterRoot = withProvider(styled(ArkSplitter.Root), "root");
 export interface SplitterRootProps
-  extends ComponentProps<typeof SplitterRoot> {}
+  extends AssignJSXStyleProps<ArkSplitter.RootProps> {}
 
 export const SplitterPanel = withContext(styled(ArkSplitter.Panel), "panel");
 export interface SplitterPanelProps
-  extends ComponentProps<typeof SplitterPanel> {}
+  extends AssignJSXStyleProps<ArkSplitter.PanelProps> {}
 
 export const SplitterResizeTrigger = withContext(
   styled(ArkSplitter.ResizeTrigger),
   "resizeTrigger",
 );
 export interface SplitterResizeTriggerProps
-  extends ComponentProps<typeof SplitterResizeTrigger> {}
+  extends AssignJSXStyleProps<ArkSplitter.ResizeTriggerProps> {}
 
 // TODO make more generic to easily handle multiple panels and splitters of various orientations, as in https://ark-ui.com/docs/react/components/splitter
 
@@ -56,7 +57,7 @@ const Splitter = ({ sections, ...rest }: SplitterProps) => (
         .with("resizeTrigger", () => (
           <SplitterResizeTrigger
             key={id}
-            id={id as ComponentProps<typeof SplitterResizeTrigger>["id"]}
+            id={id as SplitterResizeTriggerProps["id"]}
           />
         ))
         .exhaustive(),

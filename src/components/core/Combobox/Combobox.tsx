@@ -9,8 +9,9 @@ import { combobox } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { ComboboxInputValueChangeDetails } from "@ark-ui/react/combobox";
+import type { ComboboxVariantProps } from "generated/panda/recipes";
 import type { ColorPalette } from "generated/panda/tokens";
-import type { ComponentProps } from "react";
+import type { AssignJSXStyleProps } from "lib/types";
 
 const { withProvider, withContext } = createStyleContext(combobox);
 
@@ -24,82 +25,85 @@ export const ComboboxRoot = withProvider(
   "root",
 );
 export interface ComboboxRootProps
-  extends ComponentProps<typeof ComboboxRoot> {}
+  extends AssignJSXStyleProps<
+      ArkCombobox.RootProps<ArkCombobox.CollectionItem>
+    >,
+    ComboboxVariantProps {}
 
 export const ComboboxClearTrigger = withContext(
   styled(ArkCombobox.ClearTrigger),
   "clearTrigger",
 );
 export interface ComboboxClearTriggerProps
-  extends ComponentProps<typeof ComboboxClearTrigger> {}
+  extends AssignJSXStyleProps<ArkCombobox.ClearTriggerProps> {}
 
 export const ComboboxContent = withContext(
   styled(ArkCombobox.Content),
   "content",
 );
 export interface ComboboxContentProps
-  extends ComponentProps<typeof ComboboxContent> {}
+  extends AssignJSXStyleProps<ArkCombobox.ContentProps> {}
 
 export const ComboboxControl = withContext(
   styled(ArkCombobox.Control),
   "control",
 );
 export interface ComboboxControlProps
-  extends ComponentProps<typeof ComboboxControl> {}
+  extends AssignJSXStyleProps<ArkCombobox.ControlProps> {}
 
 export const ComboboxInput = withContext(styled(ArkCombobox.Input), "input");
 export interface ComboboxInputProps
-  extends ComponentProps<typeof ComboboxInput> {}
+  extends AssignJSXStyleProps<ArkCombobox.InputProps> {}
 
 export const ComboboxItem = withContext(styled(ArkCombobox.Item), "item");
 export interface ComboboxItemProps
-  extends ComponentProps<typeof ComboboxItem> {}
+  extends AssignJSXStyleProps<ArkCombobox.ItemProps> {}
 
 export const ComboboxItemGroup = withContext(
   styled(ArkCombobox.ItemGroup),
   "itemGroup",
 );
 export interface ComboboxItemGroupProps
-  extends ComponentProps<typeof ComboboxItemGroup> {}
+  extends AssignJSXStyleProps<ArkCombobox.ItemGroupProps> {}
 
 export const ComboboxItemGroupLabel = withContext(
   styled(ArkCombobox.ItemGroupLabel),
   "itemGroupLabel",
 );
 export interface ComboboxItemGroupLabelProps
-  extends ComponentProps<typeof ComboboxItemGroupLabel> {}
+  extends AssignJSXStyleProps<ArkCombobox.ItemGroupLabelProps> {}
 
 export const ComboboxItemIndicator = withContext(
   styled(ArkCombobox.ItemIndicator),
   "itemIndicator",
 );
 export interface ComboboxItemIndicatorProps
-  extends ComponentProps<typeof ComboboxItemIndicator> {}
+  extends AssignJSXStyleProps<ArkCombobox.ItemIndicatorProps> {}
 
 export const ComboboxItemText = withContext(
   styled(ArkCombobox.ItemText),
   "itemText",
 );
 export interface ComboboxItemTextProps
-  extends ComponentProps<typeof ComboboxItemText> {}
+  extends AssignJSXStyleProps<ArkCombobox.ItemTextProps> {}
 
 export const ComboboxLabel = withContext(styled(ArkCombobox.Label), "label");
 export interface ComboboxLabelProps
-  extends ComponentProps<typeof ComboboxLabel> {}
+  extends AssignJSXStyleProps<ArkCombobox.LabelProps> {}
 
 export const ComboboxPositioner = withContext(
   styled(ArkCombobox.Positioner),
   "positioner",
 );
 export interface ComboboxPositionerProps
-  extends ComponentProps<typeof ComboboxPositioner> {}
+  extends AssignJSXStyleProps<ArkCombobox.PositionerProps> {}
 
 export const ComboboxTrigger = withContext(
   styled(ArkCombobox.Trigger),
   "trigger",
 );
 export interface ComboboxTriggerProps
-  extends ComponentProps<typeof ComboboxTrigger> {}
+  extends AssignJSXStyleProps<ArkCombobox.TriggerProps> {}
 
 export interface ComboboxProps extends ComboboxRootProps {
   colorPalette?: ColorPalette;
@@ -139,6 +143,7 @@ const Combobox = ({
   displayClearTrigger = true,
   label,
   items,
+  onInputValueChange,
   labelProps,
   controlProps,
   inputProps,
@@ -155,18 +160,32 @@ const Combobox = ({
 }: ComboboxProps) => {
   const [filteredItems, setFilteredItems] = useState(items);
 
-  const handleChange = (evt: ComboboxInputValueChangeDetails) => {
+  /**
+   * Handle input value change. Composes a custom `onInputValueChange` handler, if provided.
+   */
+  const handleChange = (
+    evt: ComboboxInputValueChangeDetails,
+    onInputValueChange?: ComboboxProps["onInputValueChange"],
+  ) => {
     const filtered = items.filter((item) =>
       // @ts-ignore upstream (Ark `CollectionItem`) type bug
       item.label.toLowerCase().includes(evt.inputValue.toLowerCase()),
     );
 
     setFilteredItems(filtered.length ? filtered : items);
+
+    // execute custom `onInputValueChange` handler, if provided
+    onInputValueChange?.(evt);
   };
 
   return (
     <ComboboxRoot
-      onInputValueChange={handleChange}
+      onInputValueChange={(evt) =>
+        onInputValueChange
+          ? // compose custom `onInputValueChange` handler
+            handleChange(evt, onInputValueChange)
+          : handleChange(evt)
+      }
       items={filteredItems}
       {...rest}
     >
@@ -175,11 +194,7 @@ const Combobox = ({
       )}
 
       <ComboboxControl {...controlProps}>
-        <ComboboxInput
-          asChild
-          placeholder={`Select a ${label.singular.toLowerCase()}...`}
-          {...inputProps}
-        >
+        <ComboboxInput asChild {...inputProps}>
           <Input colorPalette={colorPalette} />
         </ComboboxInput>
 

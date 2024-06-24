@@ -5,45 +5,46 @@ import { Stack, styled } from "generated/panda/jsx";
 import { treeView } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ComponentProps, ReactNode } from "react";
+import type { AssignJSXStyleProps } from "lib/types";
+import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(treeView);
 
 export const TreeViewRoot = withProvider(styled(ArkTreeView.Root), "root");
 export interface TreeViewRootProps
-  extends ComponentProps<typeof TreeViewRoot> {}
+  extends AssignJSXStyleProps<ArkTreeView.RootProps> {}
 
 export const TreeViewBranch = withContext(styled(ArkTreeView.Branch), "branch");
 export interface TreeViewBranchProps
-  extends ComponentProps<typeof TreeViewBranch> {}
+  extends AssignJSXStyleProps<ArkTreeView.BranchProps> {}
 
 export const TreeViewBranchContent = withContext(
   styled(ArkTreeView.BranchContent),
   "branchContent",
 );
 export interface TreeViewBranchContentProps
-  extends ComponentProps<typeof TreeViewBranchContent> {}
+  extends AssignJSXStyleProps<ArkTreeView.BranchContentProps> {}
 
 export const TreeViewBranchControl = withContext(
   styled(ArkTreeView.BranchControl),
   "branchControl",
 );
 export interface TreeViewBranchControlProps
-  extends ComponentProps<typeof TreeViewBranchControl> {}
+  extends AssignJSXStyleProps<ArkTreeView.BranchControlProps> {}
 
 export const TreeViewBranchIndicator = withContext(
   styled(ArkTreeView.BranchIndicator),
   "branchIndicator",
 );
 export interface TreeViewBranchIndicatorProps
-  extends ComponentProps<typeof TreeViewBranchIndicator> {}
+  extends AssignJSXStyleProps<ArkTreeView.BranchIndicatorProps> {}
 
 export const TreeViewBranchText = withContext(
   styled(ArkTreeView.BranchText),
   "branchText",
 );
 export interface TreeViewBranchTextProps
-  extends ComponentProps<typeof TreeViewBranchText> {}
+  extends AssignJSXStyleProps<ArkTreeView.BranchTextProps> {}
 
 // TODO use
 export const TreeViewBranchTrigger = withContext(
@@ -51,11 +52,11 @@ export const TreeViewBranchTrigger = withContext(
   "branchTrigger",
 );
 export interface TreeViewBranchTriggerProps
-  extends ComponentProps<typeof TreeViewBranchTrigger> {}
+  extends AssignJSXStyleProps<ArkTreeView.BranchTriggerProps> {}
 
 export const TreeViewItem = withContext(styled(ArkTreeView.Item), "item");
 export interface TreeViewItemProps
-  extends ComponentProps<typeof TreeViewItem> {}
+  extends AssignJSXStyleProps<ArkTreeView.ItemProps> {}
 
 // TODO use
 export const TreeViewItemIndicator = withContext(
@@ -63,22 +64,22 @@ export const TreeViewItemIndicator = withContext(
   "itemIndicator",
 );
 export interface TreeViewItemIndicatorProps
-  extends ComponentProps<typeof TreeViewItemIndicator> {}
+  extends AssignJSXStyleProps<ArkTreeView.ItemIndicatorProps> {}
 
 export const TreeViewItemText = withContext(
   styled(ArkTreeView.ItemText),
   "itemText",
 );
 export interface TreeViewItemTextProps
-  extends ComponentProps<typeof TreeViewItemText> {}
+  extends AssignJSXStyleProps<ArkTreeView.ItemTextProps> {}
 
 export const TreeViewLabel = withContext(styled(ArkTreeView.Label), "label");
 export interface TreeViewLabelProps
-  extends ComponentProps<typeof TreeViewLabel> {}
+  extends AssignJSXStyleProps<ArkTreeView.LabelProps> {}
 
 export const TreeViewTree = withContext(styled(ArkTreeView.Tree), "tree");
 export interface TreeViewTreeProps
-  extends ComponentProps<typeof TreeViewTree> {}
+  extends AssignJSXStyleProps<ArkTreeView.TreeProps> {}
 
 interface TreeChild {
   value: string;

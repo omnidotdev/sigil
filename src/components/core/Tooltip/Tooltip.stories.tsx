@@ -1,17 +1,20 @@
-// import { Placement } from "@floating-ui/dom";
 import { FiMapPin } from "react-icons/fi";
 
-import { Avatar, Button, Link, Text, Tooltip } from "components";
+import {
+  Avatar,
+  Button,
+  Link,
+  Text,
+  Tooltip,
+  type TooltipProps,
+} from "components";
 import { Grid, HStack, Stack } from "generated/panda/jsx";
 import { app } from "lib/config";
 import { useDisclosure } from "lib/hooks";
 
 import type { Meta, StoryObj } from "@storybook/react";
-import type { Placement } from "@zag-js/tooltip";
 
 type Story = StoryObj<typeof meta>;
-
-// TODO placement story
 
 const meta = {
   title: "Components/Core/Tooltip",
@@ -84,7 +87,7 @@ const placements = [
   "right",
   "right-start",
   "right-end",
-] as Placement[];
+] as NonNullable<TooltipProps["positioning"]>["placement"][];
 
 export const Placements: Story = {
   parameters: {

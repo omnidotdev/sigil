@@ -4,49 +4,49 @@ import { styled } from "generated/panda/jsx";
 import { radioGroup } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ComponentProps } from "react";
+import type { AssignJSXStyleProps } from "lib/types";
 
 const { withProvider, withContext } = createStyleContext(radioGroup);
 
 export const RadioGroupRoot = withProvider(styled(ArkRadioGroup.Root), "root");
 export interface RadioGroupRootProps
-  extends ComponentProps<typeof RadioGroupRoot> {}
+  extends AssignJSXStyleProps<ArkRadioGroup.RootProps> {}
 
 export const RadioGroupIndicator = withContext(
   styled(ArkRadioGroup.Indicator),
   "indicator",
 );
 export interface RadioGroupIndicatorProps
-  extends ComponentProps<typeof RadioGroupIndicator> {}
+  extends AssignJSXStyleProps<ArkRadioGroup.IndicatorProps> {}
 
 export const RadioGroupItem = withContext(styled(ArkRadioGroup.Item), "item");
 export interface RadioGroupItemProps
-  extends ComponentProps<typeof RadioGroupItem> {}
+  extends AssignJSXStyleProps<ArkRadioGroup.ItemProps> {}
 
 export const RadioGroupItemControl = withContext(
   styled(ArkRadioGroup.ItemControl),
   "itemControl",
 );
 export interface RadioGroupItemControlProps
-  extends ComponentProps<typeof RadioGroupItemControl> {}
+  extends AssignJSXStyleProps<ArkRadioGroup.ItemControlProps> {}
 
 export const RadioGroupItemText = withContext(
   styled(ArkRadioGroup.ItemText),
   "itemText",
 );
 export interface RadioGroupItemTextProps
-  extends ComponentProps<typeof RadioGroupItemText> {}
+  extends AssignJSXStyleProps<ArkRadioGroup.ItemTextProps> {}
 
 export const RadioGroupLabel = withContext(
   styled(ArkRadioGroup.Label),
   "label",
 );
 export interface RadioGroupLabelProps
-  extends ComponentProps<typeof RadioGroupLabel> {}
+  extends AssignJSXStyleProps<ArkRadioGroup.LabelProps> {}
 
 export const RadioGroupItemHiddenInput = ArkRadioGroup.ItemHiddenInput;
 export interface RadioGroupHiddenInputProps
-  extends ComponentProps<typeof RadioGroupItemHiddenInput> {}
+  extends AssignJSXStyleProps<ArkRadioGroup.ItemHiddenInputProps> {}
 
 export interface RadioGroupProps extends RadioGroupRootProps {
   options: { value: string; label: string; isDisabled?: boolean }[];

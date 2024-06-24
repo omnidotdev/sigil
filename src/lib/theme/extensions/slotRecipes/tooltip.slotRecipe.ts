@@ -1,6 +1,8 @@
 import { tooltipAnatomy } from "@ark-ui/anatomy";
 import { defineSlotRecipe } from "@pandacss/dev";
 
+// TODO size variants
+
 /**
  * Tooltip recipe.
  */

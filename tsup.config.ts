@@ -40,7 +40,7 @@ const tsupConfig = defineTsupConfig({
   format: ["cjs", "esm"],
   // NB: `peerDeps`, among others, are excluded (marked external) by default
   // see https://tsup.egoist.dev/#excluding-packages
-  external: ["@ark-ui/react", "@zag-js/*", "next", "react-icons"],
+  external: ["@ark-ui/react", "next", "react-icons"],
   outDir: "build",
   esbuildOptions: (opts, _ctx) => {
     // https://esbuild.github.io/api/#resolve-extensions

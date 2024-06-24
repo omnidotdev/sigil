@@ -4,8 +4,10 @@ import { styled } from "generated/panda/jsx";
 import { button } from "generated/panda/recipes";
 
 import type { ComponentProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 
-export interface ButtonProps extends ComponentProps<typeof Button> {}
+export interface ButtonProps
+  extends AssignJSXStyleProps<ComponentProps<typeof Button>> {}
 
 /**
  * Interactive action button.

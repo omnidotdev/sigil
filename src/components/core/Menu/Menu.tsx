@@ -4,64 +4,67 @@ import { styled } from "generated/panda/jsx";
 import { menu } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ComponentProps, ReactNode } from "react";
+import type { AssignJSXStyleProps } from "lib/types";
+import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(menu);
 
 export const MenuRoot = withProvider(styled(ArkMenu.Root), "root");
-export interface MenuRootProps extends ComponentProps<typeof MenuRoot> {}
+export interface MenuRootProps extends AssignJSXStyleProps<ArkMenu.RootProps> {}
 
 export const MenuArrow = withContext(styled(ArkMenu.Arrow), "arrow");
-export interface MenuArrowProps extends ComponentProps<typeof MenuArrow> {}
+export interface MenuArrowProps
+  extends AssignJSXStyleProps<ArkMenu.ArrowProps> {}
 
 export const MenuArrowTip = withContext(styled(ArkMenu.ArrowTip), "arrowTip");
 export interface MenuArrowTipProps
-  extends ComponentProps<typeof MenuArrowTip> {}
+  extends AssignJSXStyleProps<ArkMenu.ArrowTipProps> {}
 
 export const MenuContent = withContext(styled(ArkMenu.Content), "content");
-export interface MenuContentProps extends ComponentProps<typeof MenuContent> {}
+export interface MenuContentProps
+  extends AssignJSXStyleProps<ArkMenu.ContentProps> {}
 
 export const MenuContextTrigger = withContext(
   styled(ArkMenu.ContextTrigger),
   "contextTrigger",
 );
 export interface MenuContextTriggerProps
-  extends ComponentProps<typeof MenuContextTrigger> {}
+  extends AssignJSXStyleProps<ArkMenu.ContextTriggerProps> {}
 
 export const MenuIndicator = withContext(
   styled(ArkMenu.Indicator),
   "indicator",
 );
 export interface MenuIndicatorProps
-  extends ComponentProps<typeof MenuIndicator> {}
+  extends AssignJSXStyleProps<ArkMenu.IndicatorProps> {}
 
 export const MenuCheckboxItem = withContext(
   styled(ArkMenu.CheckboxItem),
   "item",
 );
 export interface MenuCheckboxItemProps
-  extends ComponentProps<typeof MenuCheckboxItem> {}
+  extends AssignJSXStyleProps<ArkMenu.CheckboxItemProps> {}
 
 export const MenuRadioItemGroup = withContext(
   styled(ArkMenu.RadioItemGroup),
   "itemGroup",
 );
 export interface MenuRadioItemGroupProps
-  extends ComponentProps<typeof MenuRadioItemGroup> {}
+  extends AssignJSXStyleProps<ArkMenu.RadioItemGroupProps> {}
 
 export const MenuRadioItem = withContext(styled(ArkMenu.RadioItem), "item");
 export interface MenuRadioItemProps
-  extends ComponentProps<typeof MenuRadioItem> {}
+  extends AssignJSXStyleProps<ArkMenu.RadioItemProps> {}
 
 export const ItemIndicator = withContext(
   styled(ArkMenu.ItemIndicator),
   "itemIndicator",
 );
 export interface ItemIndicatorProps
-  extends ComponentProps<typeof ItemIndicator> {}
+  extends AssignJSXStyleProps<ArkMenu.ItemIndicatorProps> {}
 
 export const MenuItem = withContext(styled(ArkMenu.Item), "item");
-export interface MenuItemProps extends ComponentProps<typeof MenuItem> {}
+export interface MenuItemProps extends AssignJSXStyleProps<ArkMenu.ItemProps> {}
 
 export const ItemText = withContext(styled(ArkMenu.ItemText), "itemText");
 
@@ -70,38 +73,39 @@ export const MenuItemGroup = withContext(
   "itemGroup",
 );
 export interface MenuItemGroupProps
-  extends ComponentProps<typeof MenuItemGroup> {}
+  extends AssignJSXStyleProps<ArkMenu.ItemGroupProps> {}
 
 export const MenuItemGroupLabel = withContext(
   styled(ArkMenu.ItemGroupLabel),
   "itemGroupLabel",
 );
 export interface MenuItemGroupLabelProps
-  extends ComponentProps<typeof MenuItemGroupLabel> {}
+  extends AssignJSXStyleProps<ArkMenu.ItemGroupLabelProps> {}
 
 export const MenuPositioner = withContext(
   styled(ArkMenu.Positioner),
   "positioner",
 );
 export interface MenuPositionerProps
-  extends ComponentProps<typeof MenuPositioner> {}
+  extends AssignJSXStyleProps<ArkMenu.PositionerProps> {}
 
 export const MenuSeparator = withContext(
   styled(ArkMenu.Separator),
   "separator",
 );
 export interface MenuSeparatorProps
-  extends ComponentProps<typeof MenuSeparator> {}
+  extends AssignJSXStyleProps<ArkMenu.SeparatorProps> {}
 
 export const MenuTrigger = withContext(styled(ArkMenu.Trigger), "trigger");
-export interface MenuTriggerProps extends ComponentProps<typeof MenuTrigger> {}
+export interface MenuTriggerProps
+  extends AssignJSXStyleProps<ArkMenu.TriggerProps> {}
 
 export const MenuTriggerItem = withContext(
   styled(ArkMenu.TriggerItem),
   "triggerItem",
 );
 export interface MenuTriggerItemProps
-  extends ComponentProps<typeof MenuTriggerItem> {}
+  extends AssignJSXStyleProps<ArkMenu.TriggerItemProps> {}
 
 export interface MenuProps extends MenuRootProps {
   trigger?: ReactNode;

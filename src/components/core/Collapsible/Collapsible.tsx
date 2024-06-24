@@ -4,7 +4,8 @@ import { styled } from "generated/panda/jsx";
 import { collapsible } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ComponentProps, ReactNode } from "react";
+import type { AssignJSXStyleProps } from "lib/types";
+import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(collapsible);
 
@@ -13,21 +14,21 @@ export const CollapsibleRoot = withProvider(
   "root",
 );
 export interface CollapsibleRootProps
-  extends ComponentProps<typeof CollapsibleRoot> {}
+  extends AssignJSXStyleProps<ArkCollapsible.RootProps> {}
 
 export const CollapsibleContent = withContext(
   styled(ArkCollapsible.Content),
   "content",
 );
 export interface CollapsibleContentProps
-  extends ComponentProps<typeof CollapsibleContent> {}
+  extends AssignJSXStyleProps<ArkCollapsible.ContentProps> {}
 
 export const CollapsibleTrigger = withContext(
   styled(ArkCollapsible.Trigger),
   "trigger",
 );
 export interface CollapsibleTriggerProps
-  extends ComponentProps<typeof CollapsibleTrigger> {}
+  extends AssignJSXStyleProps<ArkCollapsible.TriggerProps> {}
 
 export interface CollapsibleProps extends CollapsibleRootProps {
   /** Trigger node, such as a button, used to toggle the collapsible content visibility. */

@@ -5,42 +5,42 @@ import { styled } from "generated/panda/jsx";
 import { accordion } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { AccordionItemProps as ArkAccordionItemProps } from "@ark-ui/react/accordion";
-import type { ComponentProps, ReactNode } from "react";
+import type { AssignJSXStyleProps } from "lib/types";
+import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(accordion);
 
 export const AccordionRoot = withProvider(styled(ArkAccordion.Root), "root");
 export interface AccordionRootProps
-  extends ComponentProps<typeof AccordionRoot> {}
+  extends AssignJSXStyleProps<ArkAccordion.RootProps> {}
 
 export const AccordionItem = withContext(styled(ArkAccordion.Item), "item");
 export interface AccordionItemProps
-  extends ComponentProps<typeof AccordionItem> {}
+  extends AssignJSXStyleProps<ArkAccordion.ItemProps> {}
 
 export const AccordionItemContent = withContext(
   styled(ArkAccordion.ItemContent),
   "itemContent",
 );
 export interface AccordionItemContentProps
-  extends ComponentProps<typeof AccordionItemContent> {}
+  extends AssignJSXStyleProps<ArkAccordion.ItemContentProps> {}
 
 export const AccordionItemIndicator = withContext(
   styled(ArkAccordion.ItemIndicator),
   "itemIndicator",
 );
 export interface AccordionItemIndicatorProps
-  extends ComponentProps<typeof AccordionItemIndicator> {}
+  extends AssignJSXStyleProps<ArkAccordion.ItemIndicatorProps> {}
 
 export const AccordionItemTrigger = withContext(
   styled(ArkAccordion.ItemTrigger),
   "itemTrigger",
 );
 export interface AccordionItemTriggerProps
-  extends ComponentProps<typeof AccordionItemTrigger> {}
+  extends AssignJSXStyleProps<ArkAccordion.ItemTriggerProps> {}
 
 export interface AccordionProps extends AccordionRootProps {
-  items: (Omit<ArkAccordionItemProps, "title" | "value"> & {
+  items: (Omit<ArkAccordion.ItemProps, "title" | "value"> & {
     /** Title of item. */
     title: ReactNode;
     /** Content to display when item is open. */

@@ -3,9 +3,11 @@ import { ark } from "@ark-ui/react";
 import { styled } from "generated/panda/jsx";
 import { textarea } from "generated/panda/recipes";
 
-import type { ComponentProps } from "react";
+import type { ComponentProps } from "generated/panda/types";
+import type { AssignJSXStyleProps } from "lib/types";
 
-export interface TextareaProps extends ComponentProps<typeof Textarea> {}
+export interface TextareaProps
+  extends AssignJSXStyleProps<ComponentProps<typeof Textarea>> {}
 
 /**
  * Textarea.

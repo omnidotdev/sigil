@@ -4,54 +4,53 @@ import { styled } from "generated/panda/jsx";
 import { progress, type ProgressVariantProps } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ReactNode, ComponentProps } from "react";
+import type { AssignJSXStyleProps } from "lib/types";
+import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(progress);
 
 export const ProgressRoot = withProvider(styled(ArkProgress.Root), "root");
 export interface ProgressRootProps
-  extends ComponentProps<typeof ProgressRoot> {}
+  extends AssignJSXStyleProps<ArkProgress.RootProps> {}
 
 export const ProgressLabel = withContext(styled(ArkProgress.Label), "label");
 export interface ProgressLabelProps
-  extends ComponentProps<typeof ProgressLabel> {}
+  extends AssignJSXStyleProps<ArkProgress.LabelProps> {}
 
 export const ProgressTrack = withContext(styled(ArkProgress.Track), "track");
 export interface ProgressTrackProps
-  extends ComponentProps<typeof ProgressTrack> {}
+  extends AssignJSXStyleProps<ArkProgress.TrackProps> {}
 
 export const ProgressRange = withContext(styled(ArkProgress.Range), "range");
 export interface ProgressRangeProps
-  extends ComponentProps<typeof ProgressRange> {}
+  extends AssignJSXStyleProps<ArkProgress.RangeProps> {}
 
 export const ProgressCircle = withContext(styled(ArkProgress.Circle), "circle");
 export interface ProgressCircleProps
-  extends ComponentProps<typeof ProgressCircle> {}
+  extends AssignJSXStyleProps<ArkProgress.CircleProps> {}
 
 export const ProgressCircleTrack = withContext(
   styled(ArkProgress.CircleTrack),
   "circleTrack",
 );
 export interface ProgressCircleTrackProps
-  extends ComponentProps<typeof ProgressCircleTrack> {}
+  extends AssignJSXStyleProps<ArkProgress.CircleTrackProps> {}
 
 export const ProgressCircleRange = withContext(
   styled(ArkProgress.CircleRange),
   "circleRange",
 );
 export interface ProgressCircleRangeProps
-  extends ComponentProps<typeof ProgressCircleRange> {}
+  extends AssignJSXStyleProps<ArkProgress.CircleRangeProps> {}
 
 export const ProgressValueText = withContext(
   styled(ArkProgress.ValueText),
   "valueText",
 );
 export interface ProgressValueTextProps
-  extends ComponentProps<typeof ProgressValueText> {}
+  extends AssignJSXStyleProps<ArkProgress.ValueTextProps> {}
 
-export interface ProgressProps
-  extends ProgressVariantProps,
-    ComponentProps<typeof ProgressRoot> {
+export interface ProgressProps extends ProgressVariantProps, ProgressRootProps {
   /** Label to display alongside the progress indicator. */
   label?: ReactNode;
   /**

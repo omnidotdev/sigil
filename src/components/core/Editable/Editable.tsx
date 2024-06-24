@@ -6,64 +6,65 @@ import { styled } from "generated/panda/jsx";
 import { editable } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ComponentProps, ReactNode } from "react";
+import type { AssignJSXStyleProps } from "lib/types";
+import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(editable);
 
 export const EditableContext = ArkEditable.Context;
 export interface EditableContextProps
-  extends ComponentProps<typeof EditableContext> {}
+  extends AssignJSXStyleProps<ArkEditable.ContextProps> {}
 
 export const EditableRoot = withProvider(styled(ArkEditable.Root), "root");
 export interface EditableRootProps
-  extends ComponentProps<typeof EditableRoot> {}
+  extends AssignJSXStyleProps<ArkEditable.RootProps> {}
 
 export const EditableArea = withContext(styled(ArkEditable.Area), "area");
 export interface EditableAreaProps
-  extends ComponentProps<typeof EditableArea> {}
+  extends AssignJSXStyleProps<ArkEditable.AreaProps> {}
 
 export const EditableCancelTrigger = withContext(
   styled(ArkEditable.CancelTrigger),
   "cancelTrigger",
 );
 export interface EditableCancelTriggerProps
-  extends ComponentProps<typeof EditableCancelTrigger> {}
+  extends AssignJSXStyleProps<ArkEditable.CancelTriggerProps> {}
 
 export const EditableControl = withContext(
   styled(ArkEditable.Control),
   "control",
 );
 export interface EditableControlProps
-  extends ComponentProps<typeof EditableControl> {}
+  extends AssignJSXStyleProps<ArkEditable.ControlProps> {}
 
 export const EditableEditTrigger = withContext(
   styled(ArkEditable.EditTrigger),
   "editTrigger",
 );
 export interface EditableEditTriggerProps
-  extends ComponentProps<typeof EditableEditTrigger> {}
+  extends AssignJSXStyleProps<ArkEditable.EditTriggerProps> {}
 
 export const EditableInput = withContext(styled(ArkEditable.Input), "input");
 export interface EditableInputProps
-  extends ComponentProps<typeof EditableInput> {}
+  extends AssignJSXStyleProps<ArkEditable.InputProps> {}
 
 export const EditableLabel = withContext(styled(ArkEditable.Label), "label");
 export interface EditableLabelProps
-  extends ComponentProps<typeof EditableLabel> {}
+  extends AssignJSXStyleProps<ArkEditable.LabelProps> {}
 
 export const EditablePreview = withContext(
   styled(ArkEditable.Preview),
   "preview",
 );
 export interface EditablePreviewProps
-  extends ComponentProps<typeof EditablePreview> {}
+  extends AssignJSXStyleProps<ArkEditable.PreviewProps> {}
 
 export const EditableSubmitTrigger = withContext(
   styled(ArkEditable.SubmitTrigger),
   "submitTrigger",
 );
 export interface EditableSubmitTriggerProps
-  extends ComponentProps<typeof EditableSubmitTrigger> {}
+  extends AssignJSXStyleProps<ArkEditable.SubmitTriggerProps> {}
 
 export interface EditableProps extends EditableRootProps {
   /** Editable field label. */
