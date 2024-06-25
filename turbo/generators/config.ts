@@ -1,5 +1,7 @@
 import type { PlopTypes } from "@turbo/gen";
 
+// TODO automated tests for generator UX
+
 /**
  * Turbo generator configuration, internally based on Plop.
  * @see https://turbo.build/repo/docs/guides/generating-code
@@ -23,17 +25,19 @@ const turboGeneratorConfig = (plop: PlopTypes.NodePlopAPI): void => {
       },
     ],
     // TODO recipes, update index files
-    // TODO data callback to reduce duplication of data transformation (e.g. pascal case transforms)
-    actions: [
-      {
-        type: "addMany",
-        base: "templates/component",
-        templateFiles: "templates/component/**",
-        destination:
-          "src/components/{{ camelCase category }}/{{ pascalCase name }}",
-        // data: ... (see TODO above)
-      },
-    ],
+    actions: (data) => {
+      const pascalName = plop.getHelper("pascalCase")(data?.["name"]);
+
+      return [
+        {
+          type: "addMany",
+          base: "templates/component",
+          templateFiles: "templates/component/**",
+          destination: `src/components/{{ camelCase category }}/${pascalName}`,
+          data: { pascalName },
+        },
+      ];
+    },
   });
 };
 

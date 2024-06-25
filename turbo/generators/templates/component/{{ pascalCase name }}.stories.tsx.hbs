@@ -1,12 +1,12 @@
-import { {{ pascalCase name }} } from "components";
+import { {{ pascalName }} } from "components";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
 type Story = StoryObj<typeof meta>;
 
 const meta = {
-  title: "Components/{{ pascalCase category }}/{{ pascalCase name }}",
-  component: {{ pascalCase name }},
+  title: "Components/{{ pascalCase category }}/{{ pascalName }}",
+  component: {{ pascalName }},
   tags: ["autodocs"],
 } satisfies Meta;
 
