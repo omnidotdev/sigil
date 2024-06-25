@@ -7,7 +7,9 @@
   "main": "build/sigil.js",
   "module": "build/sigil.mjs",
   "types": "build/sigil.d.ts",
-  "files": ["build"],
+  "files": [
+    "build"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/omnidotdev/sigil"
