@@ -51,7 +51,7 @@ export const ProgressValueText = withContext(
 export interface ProgressValueTextProps
   extends AssignJSXStyleProps<ArkProgress.ValueTextProps> {}
 
-export interface ProgressProps extends ProgressVariantProps, ProgressRootProps {
+export interface ProgressProps extends ProgressRootProps {
   /** Label to display alongside the progress indicator. */
   label?: ReactNode;
   /**
