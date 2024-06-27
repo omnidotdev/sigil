@@ -1,8 +1,18 @@
+import fs from "fs";
+
 import type { PlopTypes } from "@turbo/gen";
 
 // TODO automated tests for generator UX
-// TODO change startup turbo gen message
 // TODO set up bypass for DX (https://plopjs.com/documentation/#bypassing-prompts)
+
+const componentCategories = fs
+  .readdirSync("src/components")
+  .filter((file) => file !== "index.ts");
+
+const recipeOptions = [
+  { name: "config (`defineRecipe`)", value: "recipe" },
+  { name: "slot (`defineSlotRecipe`)", value: "slotRecipe" },
+];
 
 /**
  * Turbo generator configuration, internally based on Plop.
@@ -16,10 +26,8 @@ const turboGeneratorConfig = (config: PlopTypes.NodePlopAPI): void => {
         type: "list",
         name: "category",
         message: "What category should the component be in?",
-        // TODO dynamic default from array
-        default: "core",
-        // TODO dynamic list of categories from filesystem
-        choices: ["core", "typography"],
+        default: componentCategories.find((category) => category === "core"),
+        choices: componentCategories,
       },
       {
         type: "input",
@@ -35,12 +43,7 @@ const turboGeneratorConfig = (config: PlopTypes.NodePlopAPI): void => {
         type: "list",
         name: "recipeType",
         message: "What type of Panda style recipe will this component use?",
-        // TODO dynamic default from array
-        // default: "config (`defineRecipe`)",
-        choices: [
-          { name: "config (`defineRecipe`)", value: "recipe" },
-          { name: "slot (`defineSlotRecipe`)", value: "slotRecipe" },
-        ],
+        choices: recipeOptions,
       },
     ],
     actions: (data) => {
