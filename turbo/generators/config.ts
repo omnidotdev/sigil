@@ -2,7 +2,7 @@ import type { PlopTypes } from "@turbo/gen";
 
 // TODO automated tests for generator UX
 // TODO change startup turbo gen message
-// TODO bypass for DX (https://plopjs.com/documentation/#bypassing-prompts)
+// TODO set up bypass for DX (https://plopjs.com/documentation/#bypassing-prompts)
 
 /**
  * Turbo generator configuration, internally based on Plop.
@@ -43,12 +43,12 @@ const turboGeneratorConfig = (config: PlopTypes.NodePlopAPI): void => {
         ],
       },
     ],
-    // TODO update index files (recipe & component)
     actions: (data) => {
       const camelName = config.getHelper("camelCase")(data?.["name"]),
         pascalName = config.getHelper("pascalCase")(data?.["name"]);
 
       return [
+        // create new files
         {
           type: "addMany",
           base: "templates/component",
@@ -59,6 +59,23 @@ const turboGeneratorConfig = (config: PlopTypes.NodePlopAPI): void => {
           type: "add",
           path: `src/lib/theme/extensions/{{ recipeType }}s/{{ camelName }}.{{ recipeType }}.ts`,
           templateFile: "templates/recipe/{{ recipeType }}.ts.hbs",
+        },
+        // update index files
+        {
+          type: "append",
+          path: "src/components/{{ camelCase category }}/index.ts",
+          // inject at end of file
+          // TODO sort once injected, either here or via linter (currently no export sorting rules in place)
+          pattern: /$/,
+          template: `export { default as ${pascalName} } from "./${pascalName}/${pascalName}";\nexport * from "./${pascalName}/${pascalName}";\n`,
+        },
+        {
+          type: "append",
+          path: "src/lib/theme/extensions/{{ recipeType }}s/index.ts",
+          // inject at end of file (position before last newline)
+          // TODO sort once injected, either here or via linter (currently no export sorting rules in place)
+          pattern: /.*(?=\n$)/,
+          template: `export { default as ${camelName} } from "./${camelName}.{{ recipeType }}";`,
         },
       ].map((action) => ({
         ...action,
