@@ -4,6 +4,7 @@ import { styled } from "generated/panda/jsx";
 import { collapsible } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { CollapsibleVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
@@ -14,7 +15,8 @@ export const CollapsibleRoot = withProvider(
   "root",
 );
 export interface CollapsibleRootProps
-  extends AssignJSXStyleProps<ArkCollapsible.RootProps> {}
+  extends AssignJSXStyleProps<ArkCollapsible.RootProps>,
+    CollapsibleVariantProps {}
 
 export const CollapsibleContent = withContext(
   styled(ArkCollapsible.Content),

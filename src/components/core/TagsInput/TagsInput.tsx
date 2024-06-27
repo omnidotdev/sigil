@@ -6,6 +6,7 @@ import { styled } from "generated/panda/jsx";
 import { tagsInput } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { TagsInputVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
@@ -17,7 +18,8 @@ export interface TagsInputContextProps
 
 export const TagsInputRoot = withProvider(styled(ArkTagsInput.Root), "root");
 export interface TagsInputRootProps
-  extends AssignJSXStyleProps<ArkTagsInput.RootProps> {}
+  extends AssignJSXStyleProps<ArkTagsInput.RootProps>,
+    TagsInputVariantProps {}
 
 export const TagsInputClearTrigger = withContext(
   styled(ArkTagsInput.ClearTrigger),

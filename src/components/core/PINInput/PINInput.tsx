@@ -5,6 +5,7 @@ import { styled } from "generated/panda/jsx";
 import { pinInput } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { PinInputVariantProps } from "generated/panda/recipes";
 import type { ColorPalette } from "generated/panda/tokens";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
@@ -13,7 +14,8 @@ const { withProvider, withContext } = createStyleContext(pinInput);
 
 export const PINInputRoot = withProvider(styled(ArkPINInput.Root), "root");
 export interface PINInputRootProps
-  extends Omit<AssignJSXStyleProps<ArkPINInput.RootProps>, "mask"> {}
+  extends Omit<AssignJSXStyleProps<ArkPINInput.RootProps>, "mask">,
+    PinInputVariantProps {}
 
 export const PINInputControl = withContext(
   styled(ArkPINInput.Control),

@@ -26,6 +26,7 @@
   },
   "include": [
     "src",
+    "turbo",
     "*.config.ts",
     "*.config.cjs",
     ".storybook/**/*.ts",

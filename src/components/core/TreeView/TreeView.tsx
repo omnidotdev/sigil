@@ -5,6 +5,7 @@ import { Stack, styled } from "generated/panda/jsx";
 import { treeView } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { TreeViewVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
@@ -12,7 +13,8 @@ const { withProvider, withContext } = createStyleContext(treeView);
 
 export const TreeViewRoot = withProvider(styled(ArkTreeView.Root), "root");
 export interface TreeViewRootProps
-  extends AssignJSXStyleProps<ArkTreeView.RootProps> {}
+  extends AssignJSXStyleProps<ArkTreeView.RootProps>,
+    TreeViewVariantProps {}
 
 export const TreeViewBranch = withContext(styled(ArkTreeView.Branch), "branch");
 export interface TreeViewBranchProps

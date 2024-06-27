@@ -12,6 +12,7 @@ import { styled } from "generated/panda/jsx";
 import { clipboard } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { ClipboardVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
@@ -19,7 +20,9 @@ const { withProvider, withContext } = createStyleContext(clipboard);
 
 export const ClipboardRoot = withProvider(styled(ArkClipboard.Root), "root");
 export interface ClipboardRootProps
-  extends AssignJSXStyleProps<ArkClipboard.RootProps> {}
+  extends AssignJSXStyleProps<ArkClipboard.RootProps>,
+    ClipboardVariantProps {}
+
 export const ClipboardControl = withContext(
   styled(ArkClipboard.Control),
   "control",

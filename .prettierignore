@@ -5,3 +5,4 @@ generated
 examples
 tsconfig.json
 storybook-static
+*.hbs

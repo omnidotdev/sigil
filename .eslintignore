@@ -4,6 +4,7 @@ coverage
 generated
 examples
 storybook-static
+*.hbs
 
 # see https://github.com/storybookjs/eslint-plugin-storybook#installation
 !.storybook

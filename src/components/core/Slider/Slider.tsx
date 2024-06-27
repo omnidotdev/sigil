@@ -4,6 +4,7 @@ import { styled } from "generated/panda/jsx";
 import { slider } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { SliderVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
@@ -15,7 +16,8 @@ export interface SliderContextProps
 
 export const SliderRoot = withProvider(styled(ArkSlider.Root), "root");
 export interface SliderRootProps
-  extends AssignJSXStyleProps<ArkSlider.RootProps> {}
+  extends AssignJSXStyleProps<ArkSlider.RootProps>,
+    SliderVariantProps {}
 
 export const SliderControl = withContext(styled(ArkSlider.Control), "control");
 export interface SliderControlProps

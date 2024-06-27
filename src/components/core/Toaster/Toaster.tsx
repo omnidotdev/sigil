@@ -7,6 +7,7 @@ import { toast as toastRecipe } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { ToasterProps as ArkToasterProps } from "@ark-ui/react/toast";
+import type { ToastVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
@@ -14,7 +15,8 @@ const { withProvider, withContext } = createStyleContext(toastRecipe);
 
 export const ToastRoot = withProvider(styled(ArkToast.Root), "root");
 export interface ToastRootProps
-  extends AssignJSXStyleProps<ArkToast.RootProps> {}
+  extends AssignJSXStyleProps<ArkToast.RootProps>,
+    ToastVariantProps {}
 
 export const ToastTitle = withContext(styled(ArkToast.Title), "title");
 export interface ToastTitleProps
@@ -69,7 +71,7 @@ export interface ToasterProps extends Omit<ArkToasterProps, "children"> {
 const Toaster = ({
   toaster,
   closeTrigger = (
-    <Button size="sm" variant="link">
+    <Button size="sm" variant="ghost">
       <FiX />
     </Button>
   ),

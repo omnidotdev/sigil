@@ -8,7 +8,8 @@ const link = defineRecipe({
   description: "Link style recipes",
   base: {
     alignItems: "center",
-    color: "foreground.default",
+    // ? only color this if text? see https://github.com/cschroeter/park-ui/issues/118#issuecomment-1856872877
+    color: "colorPalette.default",
     colorPalette: "accent",
     cursor: "pointer",
     display: "inline-flex",

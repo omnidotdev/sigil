@@ -4,6 +4,7 @@ import { styled } from "generated/panda/jsx";
 import { segmentGroup } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { SegmentGroupVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 
 const { withProvider, withContext } = createStyleContext(segmentGroup);
@@ -15,7 +16,8 @@ export const SegmentGroupRoot = withProvider(
   "root",
 );
 export interface SegmentGroupRootProps
-  extends AssignJSXStyleProps<ArkSegmentGroup.RootProps> {}
+  extends AssignJSXStyleProps<ArkSegmentGroup.RootProps>,
+    SegmentGroupVariantProps {}
 
 // TODO use in prebuilt `SegmentGroup` component
 export const SegmentGroupLabel = withContext(

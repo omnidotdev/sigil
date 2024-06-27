@@ -9,6 +9,7 @@ import { styled } from "generated/panda/jsx";
 import { rating } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { RatingVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
@@ -20,7 +21,8 @@ export interface RatingContextProps
 
 export const RatingRoot = withProvider(styled(ArkRatingGroup.Root), "root");
 export interface RatingRootProps
-  extends AssignJSXStyleProps<ArkRatingGroup.RootProps> {}
+  extends AssignJSXStyleProps<ArkRatingGroup.RootProps>,
+    RatingVariantProps {}
 
 export const RatingControl = withContext(
   styled(ArkRatingGroup.Control),

@@ -7,13 +7,15 @@ import { Box, Stack, styled } from "generated/panda/jsx";
 import { popover } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { PopoverVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 
 const { withProvider, withContext } = createStyleContext(popover);
 
 export const PopoverRoot = withProvider(styled(ArkPopover.Root), "root");
 export interface PopoverRootProps
-  extends AssignJSXStyleProps<ArkPopover.RootProps> {}
+  extends AssignJSXStyleProps<ArkPopover.RootProps>,
+    PopoverVariantProps {}
 
 export const PopoverAnchor = withContext(styled(ArkPopover.Anchor), "anchor");
 export interface PopoverAnchorProps

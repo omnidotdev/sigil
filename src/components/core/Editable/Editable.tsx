@@ -6,6 +6,7 @@ import { styled } from "generated/panda/jsx";
 import { editable } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { EditableVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
@@ -17,7 +18,8 @@ export interface EditableContextProps
 
 export const EditableRoot = withProvider(styled(ArkEditable.Root), "root");
 export interface EditableRootProps
-  extends AssignJSXStyleProps<ArkEditable.RootProps> {}
+  extends AssignJSXStyleProps<ArkEditable.RootProps>,
+    EditableVariantProps {}
 
 export const EditableArea = withContext(styled(ArkEditable.Area), "area");
 export interface EditableAreaProps
@@ -93,15 +95,15 @@ const Editable = ({ label, ...rest }: EditableProps) => (
           editing ? (
             <>
               <EditableSubmitTrigger asChild>
-                <Button variant="link">Save</Button>
+                <Button variant="ghost">Save</Button>
               </EditableSubmitTrigger>
               <EditableCancelTrigger asChild>
-                <Button variant="link">Cancel</Button>
+                <Button variant="ghost">Cancel</Button>
               </EditableCancelTrigger>
             </>
           ) : (
             <EditableEditTrigger asChild>
-              <Button variant="link">Edit</Button>
+              <Button variant="ghost">Edit</Button>
             </EditableEditTrigger>
           )
         }

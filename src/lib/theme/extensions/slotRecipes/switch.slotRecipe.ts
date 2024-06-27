@@ -9,6 +9,8 @@ const switchRecipe = defineSlotRecipe({
   className: "switch",
   description: "Switch style recipes",
   slots: switchAnatomy.keys(),
+  // track usage of the `Switch` component since `switch` is a reserved keyword in JS
+  jsx: ["Switch"],
   base: {
     // TODO apply cursor pointer to label as well? Research UX best practices
     root: {

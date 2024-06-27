@@ -5,6 +5,7 @@ import { styled } from "generated/panda/jsx";
 import { numberInput } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { NumberInputVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
@@ -15,7 +16,8 @@ export const NumberInputRoot = withProvider(
   "root",
 );
 export interface NumberInputRootProps
-  extends AssignJSXStyleProps<ArkNumberInput.RootProps> {}
+  extends AssignJSXStyleProps<ArkNumberInput.RootProps>,
+    NumberInputVariantProps {}
 
 export const NumberInputControl = withContext(
   styled(ArkNumberInput.Control),

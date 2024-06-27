@@ -4,6 +4,7 @@ import { styled } from "generated/panda/jsx";
 import { card } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { CardVariantProps } from "generated/panda/recipes";
 import type { ComponentProps } from "generated/panda/types";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
@@ -12,7 +13,8 @@ const { withProvider, withContext } = createStyleContext(card);
 
 export const CardRoot = withProvider(styled(ark.div), "root");
 export interface CardRootProps
-  extends Omit<AssignJSXStyleProps<ComponentProps<typeof CardRoot>>, "title"> {}
+  extends Omit<AssignJSXStyleProps<ComponentProps<typeof CardRoot>>, "title">,
+    CardVariantProps {}
 
 export const CardHeader = withContext(styled(ark.div), "header");
 export interface CardHeaderProps

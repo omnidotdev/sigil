@@ -16,6 +16,7 @@ import type {
   FileUploadItemProps as ArkFileUploadItemProps,
   FileUploadItemSizeTextProps as ArkFileUploadItemSizeTextProps,
 } from "@ark-ui/react/file-upload";
+import type { FileUploadVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
@@ -27,7 +28,8 @@ export interface FileUploadContextProps
 
 const FileUploadRoot = withProvider(styled(ArkFileUpload.Root), "root");
 export interface FileUploadRootProps
-  extends AssignJSXStyleProps<ArkFileUpload.RootProps> {}
+  extends AssignJSXStyleProps<ArkFileUpload.RootProps>,
+    FileUploadVariantProps {}
 
 const FileUploadTrigger = withContext(styled(ArkFileUpload.Trigger), "trigger");
 export interface FileUploadTriggerProps
@@ -156,7 +158,7 @@ const FileUpload = ({
               <FileUploadItemSizeText {...itemSizeTextProps} />
 
               <FileUploadItemDeleteTrigger asChild {...itemDeleteTriggerProps}>
-                <Button variant="link" size="sm">
+                <Button variant="ghost" size="sm">
                   <FaRegTrashAlt />
                 </Button>
               </FileUploadItemDeleteTrigger>

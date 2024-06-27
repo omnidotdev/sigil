@@ -4,13 +4,16 @@ import { styled } from "generated/panda/jsx";
 import { menu } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { MenuVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(menu);
 
 export const MenuRoot = withProvider(styled(ArkMenu.Root), "root");
-export interface MenuRootProps extends AssignJSXStyleProps<ArkMenu.RootProps> {}
+export interface MenuRootProps
+  extends AssignJSXStyleProps<ArkMenu.RootProps>,
+    MenuVariantProps {}
 
 export const MenuArrow = withContext(styled(ArkMenu.Arrow), "arrow");
 export interface MenuArrowProps

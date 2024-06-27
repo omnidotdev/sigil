@@ -5,6 +5,7 @@ import { styled } from "generated/panda/jsx";
 import { select } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { SelectVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 
 const { withProvider, withContext } = createStyleContext(select);
@@ -19,7 +20,8 @@ export const SelectRoot = withProvider(
   "root",
 );
 export interface SelectRootProps
-  extends AssignJSXStyleProps<ArkSelect.RootProps<ArkSelect.CollectionItem>> {
+  extends AssignJSXStyleProps<ArkSelect.RootProps<ArkSelect.CollectionItem>>,
+    SelectVariantProps {
   items: ArkSelect.CollectionItem[];
 }
 

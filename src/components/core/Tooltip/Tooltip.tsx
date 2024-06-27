@@ -4,6 +4,7 @@ import { styled } from "generated/panda/jsx";
 import { tooltip } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { TooltipVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
@@ -11,7 +12,8 @@ const { withProvider, withContext } = createStyleContext(tooltip);
 
 export const TooltipRoot = withProvider(styled(ArkTooltip.Root), "root");
 export interface TooltipRootProps
-  extends Omit<AssignJSXStyleProps<ArkTooltip.RootProps>, "content"> {}
+  extends Omit<AssignJSXStyleProps<ArkTooltip.RootProps>, "content">,
+    TooltipVariantProps {}
 
 export const TooltipArrow = withContext(styled(ArkTooltip.Arrow), "arrow");
 export interface TooltipArrowProps

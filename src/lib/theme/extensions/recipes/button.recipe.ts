@@ -130,20 +130,6 @@ const button = defineRecipe({
           outlineOffset: "2px",
         },
       },
-      // TODO remove `link` variant, discussion: https://github.com/cschroeter/park-ui/issues/118#issuecomment-1856872877
-      link: {
-        verticalAlign: "baseline",
-        _disabled: {
-          color: "border.disabled",
-          cursor: "not-allowed",
-          _hover: {
-            color: "border.disabled",
-          },
-        },
-        height: "auto!",
-        px: "0!",
-        minW: "0!",
-      },
       icon: {
         px: 0,
         bgColor: "colorPalette.default",

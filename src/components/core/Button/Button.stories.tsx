@@ -59,13 +59,6 @@ export const Ghost: Story = {
   },
 };
 
-export const Link: Story = {
-  args: {
-    ...Default.args,
-    variant: "link",
-  },
-};
-
 export const IconOnly: Story = {
   args: {
     ...Default.args,
@@ -74,6 +67,8 @@ export const IconOnly: Story = {
     children: <FiArrowRight />,
   },
 };
+
+// TODO table like in Avatar stories
 
 /**
  * A custom color palette can be applied to atomically modify the base color.
@@ -86,7 +81,6 @@ export const CustomColorPalette: Story = {
       <Button variant="muted" colorPalette="amber" {...Muted.args} />
       <Button variant="outline" colorPalette="amber" {...Outline.args} />
       <Button variant="ghost" colorPalette="amber" {...Ghost.args} />
-      <Button variant="link" colorPalette="amber" {...Link.args} />
       <Button variant="icon" colorPalette="amber" {...IconOnly.args} />
     </Stack>
   ),

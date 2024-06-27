@@ -11,7 +11,8 @@ const { withProvider, withContext } = createStyleContext(progress);
 
 export const ProgressRoot = withProvider(styled(ArkProgress.Root), "root");
 export interface ProgressRootProps
-  extends AssignJSXStyleProps<ArkProgress.RootProps> {}
+  extends AssignJSXStyleProps<ArkProgress.RootProps>,
+    ProgressVariantProps {}
 
 export const ProgressLabel = withContext(styled(ArkProgress.Label), "label");
 export interface ProgressLabelProps
@@ -50,7 +51,7 @@ export const ProgressValueText = withContext(
 export interface ProgressValueTextProps
   extends AssignJSXStyleProps<ArkProgress.ValueTextProps> {}
 
-export interface ProgressProps extends ProgressVariantProps, ProgressRootProps {
+export interface ProgressProps extends ProgressRootProps {
   /** Label to display alongside the progress indicator. */
   label?: ReactNode;
   /**

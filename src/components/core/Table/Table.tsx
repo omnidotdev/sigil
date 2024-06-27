@@ -4,6 +4,7 @@ import { styled } from "generated/panda/jsx";
 import { table } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { TableVariantProps } from "generated/panda/recipes";
 import type { ComponentProps } from "generated/panda/types";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
@@ -12,7 +13,8 @@ const { withProvider, withContext } = createStyleContext(table);
 
 export const TableRoot = withProvider(styled(ark.table), "root");
 export interface TableRootProps
-  extends AssignJSXStyleProps<ComponentProps<typeof TableRoot>> {}
+  extends AssignJSXStyleProps<ComponentProps<typeof TableRoot>>,
+    TableVariantProps {}
 
 export const TableBody = withContext(styled(ark.tbody), "body");
 export interface TableBodyProps
