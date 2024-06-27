@@ -8,6 +8,7 @@ import { HStack, Stack, styled } from "generated/panda/jsx";
 import { colorPicker } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { ColorPickerVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
@@ -22,7 +23,8 @@ export const ColorPickerRoot = withProvider(
   "root",
 );
 export interface ColorPickerRootProps
-  extends AssignJSXStyleProps<ArkColorPicker.RootProps> {}
+  extends AssignJSXStyleProps<ArkColorPicker.RootProps>,
+    ColorPickerVariantProps {}
 
 export const ColorPickerArea = withContext(styled(ArkColorPicker.Area), "area");
 export interface ColorPickerAreaProps

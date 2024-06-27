@@ -8,6 +8,7 @@ import { styled } from "generated/panda/jsx";
 import { drawer } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { DrawerVariantProps } from "generated/panda/recipes";
 import type { ComponentProps } from "generated/panda/types";
 import type { AssignJSXStyleProps } from "lib/types";
 
@@ -15,7 +16,8 @@ const { withProvider, withContext } = createStyleContext(drawer);
 
 export const DrawerRoot = withProvider(styled(ArkDialog.Root), "root");
 export interface DrawerRootProps
-  extends AssignJSXStyleProps<ArkDialog.RootProps> {}
+  extends AssignJSXStyleProps<ArkDialog.RootProps>,
+    DrawerVariantProps {}
 
 export const DrawerTrigger = withContext(styled(ArkDialog.Trigger), "trigger");
 export interface DrawerTriggerProps

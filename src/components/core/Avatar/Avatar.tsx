@@ -5,6 +5,7 @@ import { styled } from "generated/panda/jsx";
 import { avatar } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { AvatarVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
@@ -12,7 +13,8 @@ const { withProvider, withContext } = createStyleContext(avatar);
 
 export const AvatarRoot = withProvider(styled(ArkAvatar.Root), "root");
 export interface AvatarRootProps
-  extends AssignJSXStyleProps<ArkAvatar.RootProps> {}
+  extends AssignJSXStyleProps<ArkAvatar.RootProps>,
+    AvatarVariantProps {}
 
 export const AvatarFallback = withContext(
   styled(ArkAvatar.Fallback),

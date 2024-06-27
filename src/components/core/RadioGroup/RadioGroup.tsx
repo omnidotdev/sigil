@@ -4,13 +4,15 @@ import { styled } from "generated/panda/jsx";
 import { radioGroup } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { RadioGroupVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 
 const { withProvider, withContext } = createStyleContext(radioGroup);
 
 export const RadioGroupRoot = withProvider(styled(ArkRadioGroup.Root), "root");
 export interface RadioGroupRootProps
-  extends AssignJSXStyleProps<ArkRadioGroup.RootProps> {}
+  extends AssignJSXStyleProps<ArkRadioGroup.RootProps>,
+    RadioGroupVariantProps {}
 
 export const RadioGroupIndicator = withContext(
   styled(ArkRadioGroup.Indicator),

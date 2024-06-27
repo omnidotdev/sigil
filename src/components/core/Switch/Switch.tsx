@@ -4,13 +4,15 @@ import { styled } from "generated/panda/jsx";
 import { switchRecipe } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { SwitchRecipeVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 
 const { withProvider, withContext } = createStyleContext(switchRecipe);
 
 export const SwitchRoot = withProvider(styled(ArkSwitch.Root), "root");
 export interface SwitchRootProps
-  extends AssignJSXStyleProps<ArkSwitch.RootProps> {}
+  extends AssignJSXStyleProps<ArkSwitch.RootProps>,
+    SwitchRecipeVariantProps {}
 
 export const SwitchControl = withContext(styled(ArkSwitch.Control), "control");
 

@@ -8,13 +8,15 @@ import { dialog } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { DialogContentProps as ArkDialogContentProps } from "@ark-ui/react/dialog";
+import type { DialogVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 
 const { withProvider, withContext } = createStyleContext(dialog);
 
 export const DialogRoot = withProvider(styled(ArkDialog.Root), "root");
 export interface DialogRootProps
-  extends AssignJSXStyleProps<ArkDialog.RootProps> {}
+  extends AssignJSXStyleProps<ArkDialog.RootProps>,
+    DialogVariantProps {}
 
 export const DialogTrigger = withContext(styled(ArkDialog.Trigger), "trigger");
 export interface DialogTriggerProps

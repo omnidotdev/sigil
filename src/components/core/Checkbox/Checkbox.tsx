@@ -7,6 +7,7 @@ import { checkbox } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { IconProps } from "components/core";
+import type { CheckboxVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
@@ -14,7 +15,9 @@ const { withProvider, withContext } = createStyleContext(checkbox);
 
 export const CheckboxRoot = withProvider(styled(ArkCheckbox.Root), "root");
 export interface CheckboxRootProps
-  extends AssignJSXStyleProps<ArkCheckbox.RootProps> {}
+  extends AssignJSXStyleProps<ArkCheckbox.RootProps>,
+    CheckboxVariantProps {}
+
 export const CheckboxControl = withContext(
   styled(ArkCheckbox.Control),
   "control",

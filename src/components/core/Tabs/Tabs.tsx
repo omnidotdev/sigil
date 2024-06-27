@@ -4,13 +4,16 @@ import { styled } from "generated/panda/jsx";
 import { tabs } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { TabsVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(tabs);
 
 export const TabsRoot = withProvider(styled(ArkTabs.Root), "root");
-export interface TabsRootProps extends AssignJSXStyleProps<ArkTabs.RootProps> {}
+export interface TabsRootProps
+  extends AssignJSXStyleProps<ArkTabs.RootProps>,
+    TabsVariantProps {}
 
 export const TabList = withContext(styled(ArkTabs.List), "list");
 export interface TabListProps extends AssignJSXStyleProps<ArkTabs.ListProps> {}

@@ -11,7 +11,8 @@ const { withProvider, withContext } = createStyleContext(progress);
 
 export const ProgressRoot = withProvider(styled(ArkProgress.Root), "root");
 export interface ProgressRootProps
-  extends AssignJSXStyleProps<ArkProgress.RootProps> {}
+  extends AssignJSXStyleProps<ArkProgress.RootProps>,
+    ProgressVariantProps {}
 
 export const ProgressLabel = withContext(styled(ArkProgress.Label), "label");
 export interface ProgressLabelProps

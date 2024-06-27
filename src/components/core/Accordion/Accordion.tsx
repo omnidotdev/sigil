@@ -5,6 +5,7 @@ import { styled } from "generated/panda/jsx";
 import { accordion } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { AccordionVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
@@ -12,7 +13,8 @@ const { withProvider, withContext } = createStyleContext(accordion);
 
 export const AccordionRoot = withProvider(styled(ArkAccordion.Root), "root");
 export interface AccordionRootProps
-  extends AssignJSXStyleProps<ArkAccordion.RootProps> {}
+  extends AssignJSXStyleProps<ArkAccordion.RootProps>,
+    AccordionVariantProps {}
 
 export const AccordionItem = withContext(styled(ArkAccordion.Item), "item");
 export interface AccordionItemProps

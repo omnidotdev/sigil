@@ -200,14 +200,14 @@ const Combobox = ({
 
         {displayClearTrigger && (
           <ComboboxClearTrigger asChild {...clearTriggerProps}>
-            <Button variant="link" size="xs" aria-label="Clear combobox">
+            <Button variant="ghost" size="xs" aria-label="Clear combobox">
               <BiX />
             </Button>
           </ComboboxClearTrigger>
         )}
 
         <ComboboxTrigger asChild {...triggerProps}>
-          <Button variant="link" size="xs" aria-label="Open combobox">
+          <Button variant="ghost" size="xs" aria-label="Open combobox">
             <BiExpandVertical />
           </Button>
         </ComboboxTrigger>

@@ -5,6 +5,7 @@ import { styled } from "generated/panda/jsx";
 import { splitter } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { SplitterVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
@@ -12,7 +13,8 @@ const { withProvider, withContext } = createStyleContext(splitter);
 
 export const SplitterRoot = withProvider(styled(ArkSplitter.Root), "root");
 export interface SplitterRootProps
-  extends AssignJSXStyleProps<ArkSplitter.RootProps> {}
+  extends AssignJSXStyleProps<ArkSplitter.RootProps>,
+    SplitterVariantProps {}
 
 export const SplitterPanel = withContext(styled(ArkSplitter.Panel), "panel");
 export interface SplitterPanelProps

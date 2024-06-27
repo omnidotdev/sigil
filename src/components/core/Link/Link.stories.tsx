@@ -100,4 +100,14 @@ export const FontWeights: Story = {
   ),
 };
 
+/**
+ * A custom color palette can be applied to atomically modify the base color.
+ */
+export const CustomColorPalette: Story = {
+  args: {
+    ...ExternalWithIcon.args,
+    colorPalette: "purple",
+  },
+};
+
 export default meta;

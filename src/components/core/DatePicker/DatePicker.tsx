@@ -9,6 +9,7 @@ import { styled } from "generated/panda/jsx";
 import { datePicker } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { DatePickerVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 
 const { withProvider, withContext } = createStyleContext(datePicker);
@@ -19,7 +20,8 @@ export interface DatePickerContextProps
 
 export const DatePickerRoot = withProvider(styled(ArkDatePicker.Root), "root");
 export interface DatePickerRootProps
-  extends AssignJSXStyleProps<ArkDatePicker.RootProps> {}
+  extends AssignJSXStyleProps<ArkDatePicker.RootProps>,
+    DatePickerVariantProps {}
 
 // TODO use in render
 export const DatePickerClearTrigger = withContext(

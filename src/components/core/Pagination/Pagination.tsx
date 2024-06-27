@@ -6,6 +6,7 @@ import { styled } from "generated/panda/jsx";
 import { pagination } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { PaginationVariantProps } from "generated/panda/recipes";
 import type { ColorPalette } from "generated/panda/tokens";
 import type { AssignJSXStyleProps } from "lib/types";
 
@@ -17,7 +18,8 @@ export interface PaginationContextProps
 
 export const PaginationRoot = withProvider(styled(ArkPagination.Root), "root");
 export interface PaginationRootProps
-  extends Omit<AssignJSXStyleProps<ArkPagination.RootProps>, "page"> {}
+  extends Omit<AssignJSXStyleProps<ArkPagination.RootProps>, "page">,
+    PaginationVariantProps {}
 
 export const PaginationEllipsis = withContext(
   styled(ArkPagination.Ellipsis),

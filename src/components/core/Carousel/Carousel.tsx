@@ -6,6 +6,7 @@ import { styled } from "generated/panda/jsx";
 import { carousel } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { CarouselVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
@@ -13,7 +14,8 @@ const { withProvider, withContext } = createStyleContext(carousel);
 
 export const CarouselRoot = withProvider(styled(ArkCarousel.Root), "root");
 export interface CarouselRootProps
-  extends AssignJSXStyleProps<ArkCarousel.RootProps> {}
+  extends AssignJSXStyleProps<ArkCarousel.RootProps>,
+    CarouselVariantProps {}
 
 export const CarouselControl = withContext(
   styled(ArkCarousel.Control),
