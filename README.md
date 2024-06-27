@@ -21,6 +21,12 @@ Follow the [prerequisities](docs/usage.md#prerequisites) to install Panda in you
 
 If you'd like to develop outside of Storybook, as in a dedicated app, follow the [prerequisities](docs/usage.md#prerequisites), then follow the [local usage instructions](docs/usage.md#local).
 
+### Component Generation
+
+To generate a new component, run `bun generate` and follow the prompts. This will create a new component file, story, and recipe in the appropriate directories.
+
+This generator is powered by [Turbo's `generate` subcommand](https://turbo.build/repo/docs/reference/generate).
+
 ## License
 
 The code in this repository is licensed under MIT, &copy; Brian Cooper and Omni LLC. See <a href="LICENSE.md">LICENSE.md</a> for more information.
