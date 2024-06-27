@@ -1,5 +1,17 @@
 # @omnidev/sigil
 
+## 0.10.6
+
+### Patch Changes
+
+- [#98](https://github.com/omnidotdev/sigil/pull/98) [`850f3af`](https://github.com/omnidotdev/sigil/commit/850f3af6e5b724fefde0574666a15a92a38bbc29) Thanks [@coopbri](https://github.com/coopbri)! - Fix `Switch` not having styles applied due to not being tracked from recipe
+
+- [#98](https://github.com/omnidotdev/sigil/pull/98) [`850f3af`](https://github.com/omnidotdev/sigil/commit/850f3af6e5b724fefde0574666a15a92a38bbc29) Thanks [@coopbri](https://github.com/coopbri)! - Fix recipe variant props not being injected into component roots
+
+- [#98](https://github.com/omnidotdev/sigil/pull/98) [`850f3af`](https://github.com/omnidotdev/sigil/commit/850f3af6e5b724fefde0574666a15a92a38bbc29) Thanks [@coopbri](https://github.com/coopbri)! - **BREAKING:** Remove `Button` link variant
+
+- [#98](https://github.com/omnidotdev/sigil/pull/98) [`850f3af`](https://github.com/omnidotdev/sigil/commit/850f3af6e5b724fefde0574666a15a92a38bbc29) Thanks [@coopbri](https://github.com/coopbri)! - Use virtual color (`colorPalette`) in link recipe
+
 ## 0.10.5
 
 ### Patch Changes
