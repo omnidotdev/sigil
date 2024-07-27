@@ -1,5 +1,11 @@
 # @omnidev/sigil
 
+## 0.10.7
+
+### Patch Changes
+
+- [#101](https://github.com/omnidotdev/sigil/pull/101) [`a688b4e`](https://github.com/omnidotdev/sigil/commit/a688b4e4c37204b9e290a0e5cb34a3c4bc6a88a5) Thanks [@coopbri](https://github.com/coopbri)! - Set `Combobox` input field value when `multiple` prop is enabled
+
 ## 0.10.6
 
 ### Patch Changes
