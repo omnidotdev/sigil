@@ -8,7 +8,10 @@ import { styled } from "generated/panda/jsx";
 import { combobox } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ComboboxInputValueChangeDetails } from "@ark-ui/react/combobox";
+import type {
+  ComboboxInputValueChangeDetails,
+  ComboboxValueChangeDetails,
+} from "@ark-ui/react/combobox";
 import type { ComboboxVariantProps } from "generated/panda/recipes";
 import type { ColorPalette } from "generated/panda/tokens";
 import type { AssignJSXStyleProps } from "lib/types";
@@ -144,6 +147,7 @@ const Combobox = ({
   label,
   items,
   onInputValueChange,
+  onValueChange,
   labelProps,
   controlProps,
   inputProps,
@@ -158,12 +162,13 @@ const Combobox = ({
   itemIndicatorProps,
   ...rest
 }: ComboboxProps) => {
-  const [filteredItems, setFilteredItems] = useState(items);
+  const [filteredItems, setFilteredItems] = useState(items),
+    [inputValue, setInputValue] = useState("");
 
   /**
    * Handle input value change. Composes a custom `onInputValueChange` handler, if provided.
    */
-  const handleChange = (
+  const handleInputValueChange = (
     evt: ComboboxInputValueChangeDetails,
     onInputValueChange?: ComboboxProps["onInputValueChange"],
   ) => {
@@ -178,13 +183,32 @@ const Combobox = ({
     onInputValueChange?.(evt);
   };
 
+  /**
+   * Handle value change. Composes a custom `onValueChange` handler, if provided.
+   */
+  const handleValueChange = (
+    evt: ComboboxValueChangeDetails,
+    onValueChange?: ComboboxProps["onValueChange"],
+  ) => {
+    setInputValue(evt.items.map((item) => item.label).join(", "));
+
+    // execute custom `onValueChange` handler, if provided
+    onValueChange?.(evt);
+  };
+
   return (
     <ComboboxRoot
       onInputValueChange={(evt) =>
         onInputValueChange
           ? // compose custom `onInputValueChange` handler
-            handleChange(evt, onInputValueChange)
-          : handleChange(evt)
+            handleInputValueChange(evt, onInputValueChange)
+          : handleInputValueChange(evt)
+      }
+      onValueChange={(evt) =>
+        onValueChange
+          ? // compose custom `onValueChange` handler
+            handleValueChange(evt, onValueChange)
+          : handleValueChange(evt)
       }
       items={filteredItems}
       {...rest}
@@ -194,7 +218,7 @@ const Combobox = ({
       )}
 
       <ComboboxControl {...controlProps}>
-        <ComboboxInput asChild {...inputProps}>
+        <ComboboxInput asChild value={inputValue} {...inputProps}>
           <Input colorPalette={colorPalette} />
         </ComboboxInput>
 
