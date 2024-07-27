@@ -36,6 +36,16 @@ export const Default: Story = {
 };
 
 /**
+ * Selection of multiple items is made possible by enabling the `multiple` prop.
+ */
+export const Multiple: Story = {
+  args: {
+    ...Default.args,
+    multiple: true,
+  },
+};
+
+/**
  * The input field and group labels can be hidden by setting the `displayFieldLabel` and `displayGroupLabel` props to `false`, respectively.
  */
 export const HideLabels: Story = {

@@ -131,12 +131,12 @@ export const omniColors: Tokens["colors"] = {
  * Brand colors.
  */
 export const brandColors: Tokens["colors"] = {
-  primary: omniColors.labradorite,
-  secondary: omniColors.amethyst,
-  tertiary: omniColors.emerald,
-  quaternary: omniColors.citrine,
-  quinary: omniColors.ruby,
-  senary: omniColors.sapphire,
+  primary: omniColors["labradorite"],
+  secondary: omniColors["amethyst"],
+  tertiary: omniColors["emerald"],
+  quaternary: omniColors["citrine"],
+  quinary: omniColors["ruby"],
+  senary: omniColors["sapphire"],
 };
 
 /**
