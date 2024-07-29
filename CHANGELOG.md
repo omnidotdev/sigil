@@ -1,5 +1,11 @@
 # @omnidev/sigil
 
+## 0.10.8
+
+### Patch Changes
+
+- [#104](https://github.com/omnidotdev/sigil/pull/104) [`273ffb2`](https://github.com/omnidotdev/sigil/commit/273ffb28627f278f05533ca9eb032227580e1941) Thanks [@coopbri](https://github.com/coopbri)! - Initiate `Combobox` input value with `Combobox` root default value, if supplied
+
 ## 0.10.7
 
 ### Patch Changes
