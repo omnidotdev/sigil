@@ -1,5 +1,11 @@
 # @omnidev/sigil
 
+## 0.10.9
+
+### Patch Changes
+
+- [#106](https://github.com/omnidotdev/sigil/pull/106) [`60c6710`](https://github.com/omnidotdev/sigil/commit/60c6710eeb77239ac7820427ab63c19ee8ac04c1) Thanks [@coopbri](https://github.com/coopbri)! - Fix `Combobox` input mixing controlled and uncontrolled state
+
 ## 0.10.8
 
 ### Patch Changes
