@@ -163,7 +163,9 @@ const Combobox = ({
   ...rest
 }: ComboboxProps) => {
   const [filteredItems, setFilteredItems] = useState(items),
-    [inputValue, setInputValue] = useState(rest.defaultValue || "");
+    [defaultInputValue, setDefaultInputValue] = useState(
+      rest.defaultValue || "",
+    );
 
   /**
    * Handle input value change. Composes a custom `onInputValueChange` handler, if provided.
@@ -190,7 +192,7 @@ const Combobox = ({
     evt: ComboboxValueChangeDetails,
     onValueChange?: ComboboxProps["onValueChange"],
   ) => {
-    setInputValue(evt.items.map((item) => item.label).join(", "));
+    setDefaultInputValue(evt.items.map((item) => item.label).join(", "));
 
     // execute custom `onValueChange` handler, if provided
     onValueChange?.(evt);
@@ -218,7 +220,7 @@ const Combobox = ({
       )}
 
       <ComboboxControl {...controlProps}>
-        <ComboboxInput asChild value={inputValue} {...inputProps}>
+        <ComboboxInput asChild defaultValue={defaultInputValue} {...inputProps}>
           <Input colorPalette={colorPalette} />
         </ComboboxInput>
 
