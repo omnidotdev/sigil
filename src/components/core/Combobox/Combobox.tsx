@@ -163,7 +163,7 @@ const Combobox = ({
   ...rest
 }: ComboboxProps) => {
   const [filteredItems, setFilteredItems] = useState(items),
-    [inputValue, setInputValue] = useState("");
+    [inputValue, setInputValue] = useState(rest.defaultValue || "");
 
   /**
    * Handle input value change. Composes a custom `onInputValueChange` handler, if provided.
