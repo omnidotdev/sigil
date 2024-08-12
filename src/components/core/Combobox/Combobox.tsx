@@ -18,6 +18,8 @@ import type { AssignJSXStyleProps } from "lib/types";
 
 const { withProvider, withContext } = createStyleContext(combobox);
 
+// TODO normalize styles with `Select`, e.g. make sure trigger has same padding
+
 // https://github.com/chakra-ui/ark/issues/1740#issuecomment-1817255471
 type AugmentedComboboxRoot = <T extends ArkCombobox.CollectionItem>(
   props: ArkCombobox.RootProps<T>,
@@ -226,14 +228,14 @@ const Combobox = ({
 
         {displayClearTrigger && (
           <ComboboxClearTrigger asChild {...clearTriggerProps}>
-            <Button variant="ghost" size="xs" aria-label="Clear combobox">
+            <Button variant="ghost" size="xs" p={0} aria-label="Clear combobox">
               <BiX />
             </Button>
           </ComboboxClearTrigger>
         )}
 
         <ComboboxTrigger asChild {...triggerProps}>
-          <Button variant="ghost" size="xs" aria-label="Open combobox">
+          <Button variant="ghost" size="xs" p={0} aria-label="Open combobox">
             <BiExpandVertical />
           </Button>
         </ComboboxTrigger>
