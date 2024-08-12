@@ -60,7 +60,7 @@ export const AsChildElement: Story = {
   ),
 };
 
-const sizes = Object.keys(text.variants!.size) as TextVariant["size"][];
+const sizes = Object.keys(text.variants!["size"]) as TextVariant["size"][];
 
 // TODO table like avatar stories
 
