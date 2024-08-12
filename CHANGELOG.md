@@ -1,5 +1,11 @@
 # @omnidev/sigil
 
+## 0.10.10
+
+### Patch Changes
+
+- [#110](https://github.com/omnidotdev/sigil/pull/110) [`d8d124e`](https://github.com/omnidotdev/sigil/commit/d8d124e830cc36e3b6d907bfef6c44d3854ae79a) Thanks [@coopbri](https://github.com/coopbri)! - Improve `Combobox` trigger styles
+
 ## 0.10.9
 
 ### Patch Changes
