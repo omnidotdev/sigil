@@ -24,17 +24,19 @@ const combobox = defineSlotRecipe({
     },
     clearTrigger: {
       color: "foreground.muted",
+      bgColor: "background.default",
       position: "absolute",
-      right: 9,
-      bottom: 0,
-      top: 0,
+      right: 7,
+      bottom: 1,
+      top: 1,
     },
     trigger: {
       color: "foreground.muted",
+      bgColor: "background.default",
       position: "absolute",
-      right: 0,
-      bottom: 0,
-      top: 0,
+      right: 1,
+      bottom: 1,
+      top: 1,
     },
     content: {
       bgColor: "background.default",
@@ -93,6 +95,7 @@ const combobox = defineSlotRecipe({
     size: "md",
   },
   variants: {
+    // TODO fix sizes not working
     size: {
       sm: {
         content: { p: 0.5, gap: 1 },
@@ -108,7 +111,6 @@ const combobox = defineSlotRecipe({
           py: 1.5,
         },
         label: { textStyle: "sm" },
-        trigger: { right: 2.5 },
       },
       md: {
         content: { p: 1, gap: 1 },
@@ -124,7 +126,6 @@ const combobox = defineSlotRecipe({
           py: 1.5,
         },
         label: { textStyle: "sm" },
-        trigger: { right: 3 },
       },
       lg: {
         content: { p: 1.5, gap: 1 },
@@ -140,7 +141,6 @@ const combobox = defineSlotRecipe({
           py: 1.5,
         },
         label: { textStyle: "sm" },
-        trigger: { right: 3.5 },
       },
     },
   },
