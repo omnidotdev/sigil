@@ -50,6 +50,8 @@
   "rules": {
     // allow non-null assertion operators
     "@typescript-eslint/no-non-null-assertion": "off",
+    // allow empty object types (e.g. for interfaces)
+    "@typescript-eslint/no-empty-object-type": "off",
     "@typescript-eslint/ban-ts-comment": [
       "error",
       // allow TypeScript bypass directives if a description is specified
