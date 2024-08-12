@@ -40,7 +40,7 @@
     "studio:build": "panda codegen && panda studio --build",
     "changeset": "changeset",
     "release": "bun run build && changeset publish",
-    "prepare": "husky install && panda codegen --silent"
+    "prepare": "husky && panda codegen --silent"
   },
   "peerDependencies": {
     "@pandacss/dev": ">0.40.0",
