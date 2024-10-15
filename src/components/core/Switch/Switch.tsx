@@ -31,20 +31,36 @@ export const SwitchHiddenInput = ArkSwitch.HiddenInput;
 export interface SwitchHiddenInputProps
   extends AssignJSXStyleProps<ArkSwitch.HiddenInputProps> {}
 
-export interface SwitchProps extends SwitchRootProps {}
+export interface SwitchProps extends SwitchRootProps {
+  /** Switch control props. */
+  controlProps?: SwitchControlProps;
+  /** Switch thumb props. */
+  thumbProps?: SwitchThumbProps;
+  /** Switch label props. */
+  labelProps?: SwitchLabelProps;
+  /** Switch hidden input props. */
+  hiddenInputProps?: SwitchHiddenInputProps;
+}
 
 /**
  * Toggle switch.
  */
-const Switch = ({ label, ...rest }: SwitchProps) => (
+const Switch = ({
+  label,
+  controlProps,
+  thumbProps,
+  labelProps,
+  hiddenInputProps,
+  ...rest
+}: SwitchProps) => (
   <SwitchRoot {...rest}>
-    <SwitchControl>
-      <SwitchThumb />
+    <SwitchControl {...controlProps}>
+      <SwitchThumb {...thumbProps} />
     </SwitchControl>
 
-    {label && <SwitchLabel>{label}</SwitchLabel>}
+    {label && <SwitchLabel {...labelProps}>{label}</SwitchLabel>}
 
-    <SwitchHiddenInput />
+    <SwitchHiddenInput {...hiddenInputProps} />
   </SwitchRoot>
 );
 

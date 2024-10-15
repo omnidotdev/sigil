@@ -32,6 +32,10 @@ export const PINInputLabel = withContext(styled(ArkPINInput.Label), "label");
 export interface PINInputLabelProps
   extends AssignJSXStyleProps<ArkPINInput.LabelProps> {}
 
+export const PINInputHiddenInput = ArkPINInput.HiddenInput;
+export interface PINInputHiddenInputProps
+  extends AssignJSXStyleProps<ArkPINInput.HiddenInputProps> {}
+
 export interface PINInputProps extends PINInputRootProps {
   colorPalette?: ColorPalette;
   /** Input label. */
@@ -42,6 +46,8 @@ export interface PINInputProps extends PINInputRootProps {
   controlProps?: PINInputControlProps;
   /** Input props. */
   inputProps?: PINInputInputProps;
+  /** Hidden input props. */
+  hiddenInputProps?: PINInputHiddenInputProps;
 }
 
 // TODO rename to something more generic
@@ -55,6 +61,7 @@ const PINInput = ({
   length = 4,
   controlProps,
   inputProps,
+  hiddenInputProps,
   ...rest
 }: PINInputProps) => {
   // @ts-ignore TODO fix, works functionally
@@ -79,6 +86,8 @@ const PINInput = ({
           </PINInputInput>
         ))}
       </PINInputControl>
+
+      <PINInputHiddenInput {...hiddenInputProps} />
     </PINInputRoot>
   );
 };

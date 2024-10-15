@@ -69,27 +69,51 @@ export interface SegmentGroupProps extends SegmentGroupRootProps {
     /** Whether option is disabled. */
     isDisabled?: boolean;
   }[];
+  /** Item props. */
+  itemProps?: SegmentGroupItemProps;
+  /** Item control props. */
+  itemControlProps?: SegmentGroupItemControlProps;
+  /** Item text props. */
+  itemTextProps?: SegmentGroupItemTextProps;
+  /** Item hidden input props. */
+  itemHiddenInputProps?: SegmentGroupItemHiddenInputProps;
+  /** Indicator props. */
+  indicatorProps?: SegmentGroupIndicatorProps;
 }
 
 /**
  * Segment group.
  */
-const SegmentGroup = ({ options, ...rest }: SegmentGroupProps) => (
+const SegmentGroup = ({
+  options,
+  itemProps,
+  itemControlProps,
+  itemTextProps,
+  itemHiddenInputProps,
+  indicatorProps,
+  ...rest
+}: SegmentGroupProps) => (
   <SegmentGroupRoot
     orientation="vertical"
     defaultValue={options[0].value}
     {...rest}
   >
     {options.map(({ label, value, isDisabled }) => (
-      <SegmentGroupItem key={value} value={value} disabled={isDisabled}>
-        <SegmentGroupItemControl />
+      <SegmentGroupItem
+        key={value}
+        value={value}
+        disabled={isDisabled}
+        {...itemProps}
+      >
+        <SegmentGroupItemControl {...itemControlProps} />
 
-        <SegmentGroupItemText>{label}</SegmentGroupItemText>
+        <SegmentGroupItemText {...itemTextProps}>{label}</SegmentGroupItemText>
 
-        <SegmentGroupItemHiddenInput />
+        <SegmentGroupItemHiddenInput {...itemHiddenInputProps} />
       </SegmentGroupItem>
     ))}
-    <SegmentGroupIndicator />
+
+    <SegmentGroupIndicator {...indicatorProps} />
   </SegmentGroupRoot>
 );
 

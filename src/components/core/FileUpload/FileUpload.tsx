@@ -117,6 +117,8 @@ export interface FileUploadProps extends FileUploadRootProps {
   itemSizeTextProps?: ArkFileUploadItemSizeTextProps;
   /** File upload item delete trigger props. */
   itemDeleteTriggerProps?: ArkFileUploadItemDeleteTriggerProps;
+  /** File upload hidden input props. */
+  hiddenInputProps?: FileUploadHiddenInputProps;
 }
 
 /**
@@ -133,6 +135,7 @@ const FileUpload = ({
   itemNameProps,
   itemSizeTextProps,
   itemDeleteTriggerProps,
+  hiddenInputProps,
   ...rest
 }: FileUploadProps) => (
   <FileUploadRoot {...rest}>
@@ -168,7 +171,7 @@ const FileUpload = ({
       </FileUploadContext>
     </FileUploadItemGroup>
 
-    <FileUploadHiddenInput />
+    <FileUploadHiddenInput {...hiddenInputProps} />
   </FileUploadRoot>
 );
 
