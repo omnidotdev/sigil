@@ -10,7 +10,8 @@ jobs:
   test:
     name: Run Storybook tests 🃏
     timeout-minutes: 60
-    runs-on: ubuntu-latest
+    # TODO update to `ubuntu-latest`; "Install Playwright" step fails
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
