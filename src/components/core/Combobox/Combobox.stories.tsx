@@ -1,11 +1,20 @@
+import { createListCollection } from "@ark-ui/react";
+import { useEffect, useState } from "react";
+
 import { Combobox } from "components";
 import { Box, Stack } from "generated/panda/jsx";
 import { combobox } from "lib/theme/extensions/slotRecipes";
 import { fruitBasket } from "stories/data";
 
+import type { CollectionItem } from "@ark-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import type { ComboboxVariant } from "generated/panda/recipes";
+
 type Story = StoryObj<typeof meta>;
+
+// TODO `selectionBehavior` stories
+// TODO `itemToString`, `itemToValue` in `collectionItem` stories
+// TODO simple string `items` story
 
 const meta = {
   title: "Components/Core/Combobox",
@@ -27,11 +36,13 @@ export const Default: Story = {
       singular: "Fruit",
       plural: "Fruit",
     },
-    items: fruitBasket.map(({ name, icon }, idx) => ({
-      label: `${name} ${icon}`,
-      value: name,
-      disabled: idx === 2,
-    })),
+    collection: createListCollection({
+      items: fruitBasket.map(({ name, icon }, idx) => ({
+        label: `${name} ${icon}`,
+        value: name,
+        disabled: idx === 2,
+      })),
+    }),
   },
 };
 
@@ -42,6 +53,45 @@ export const Multiple: Story = {
   args: {
     ...Default.args,
     multiple: true,
+  },
+};
+
+/**
+ * The Combobox items are loaded here asynchronously, with a simulation via `setTimout`. Enter an input into the input field to load filtered items.
+ */
+export const AsyncItems: StoryObj = {
+  render: () => {
+    const [items, setItems] = useState<CollectionItem[]>([]);
+
+    useEffect(() => {
+      // simulate async data fetching
+      const fetchItems = async () => {
+        const asyncData: CollectionItem[] = await new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(
+              fruitBasket.map(({ name, icon }, idx) => ({
+                label: `${name} ${icon}`,
+                value: name,
+                disabled: idx === 2,
+              })),
+            );
+            // simulate 1s delay
+          }, 1000);
+        });
+
+        setItems(asyncData);
+      };
+
+      void fetchItems();
+    }, []);
+
+    return (
+      <Combobox
+        {...Default.args}
+        placeholder="Search..."
+        collection={createListCollection({ items })}
+      />
+    );
   },
 };
 
