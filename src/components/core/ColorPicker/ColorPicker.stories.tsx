@@ -1,3 +1,5 @@
+import { parseColor } from "@ark-ui/react/color-picker";
+
 import { ColorPicker } from "components";
 
 import type { Meta, StoryObj } from "@storybook/react";
@@ -24,6 +26,19 @@ export const Default: Story = {
       "hsl(350, 81%, 59%)",
     ],
   },
+};
+
+/**
+ * A default color value can be provided with the `defaultValue` prop.
+ */
+export const DefaultValue: Story = {
+  render: () => (
+    <ColorPicker
+      {...Default.args}
+      // NB: for some reason, passing `defaultValue` as a story arg causes a runtime error, so this story render is a workaround
+      defaultValue={parseColor("#eb5e41")}
+    />
+  ),
 };
 
 export default meta;

@@ -21,6 +21,7 @@ const overlappingToaster = createToaster({
 
 // TODO only display one story on docs page
 // TODO placements story
+// TODO use toaster creation `action` in at least 1 story: https://github.com/chakra-ui/ark/blob/main/packages/react/CHANGELOG.md#added-3
 
 /**
  * Popup toast. Toasts require the application to have `Toaster` rendered somewhere in the desired toast usage scope, where `toast` can then be used to initiate, control, and maintain the lifecycle of toasts.

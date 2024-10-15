@@ -7,7 +7,11 @@ import { defineSlotRecipe } from "@pandacss/dev";
 const fileUpload = defineSlotRecipe({
   className: "fileUpload",
   description: "File upload style recipes",
-  slots: fileUploadAnatomy.keys(),
+  slots: [
+    ...fileUploadAnatomy.keys(),
+    // TODO remove this manual slot, Ark currently doesn't correctly export anatomy `clearTrigger` slot upstream but it should in the future
+    "clearTrigger",
+  ],
   base: {
     root: {
       display: "flex",

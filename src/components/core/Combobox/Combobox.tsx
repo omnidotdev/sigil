@@ -9,8 +9,8 @@ import { combobox } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type {
+  CollectionItem,
   ComboboxInputValueChangeDetails,
-  ComboboxValueChangeDetails,
 } from "@ark-ui/react/combobox";
 import type { ComboboxVariantProps } from "generated/panda/recipes";
 import type { ColorPalette } from "generated/panda/tokens";
@@ -96,6 +96,11 @@ export const ComboboxLabel = withContext(styled(ArkCombobox.Label), "label");
 export interface ComboboxLabelProps
   extends AssignJSXStyleProps<ArkCombobox.LabelProps> {}
 
+// TODO use in prebuilt `Combobox` component
+export const ComboboxList = withContext(styled(ArkCombobox.List), "list");
+export interface ComboboxListProps
+  extends AssignJSXStyleProps<ArkCombobox.ListProps> {}
+
 export const ComboboxPositioner = withContext(
   styled(ArkCombobox.Positioner),
   "positioner",
@@ -124,17 +129,29 @@ export interface ComboboxProps extends ComboboxRootProps {
     singular: string;
     plural: string;
   };
+  /** Label props. */
   labelProps?: ComboboxLabelProps;
+  /** Control props. */
   controlProps?: ComboboxControlProps;
+  /** Input props. */
   inputProps?: ComboboxInputProps;
+  /** Clear trigger props. */
   clearTriggerProps?: ComboboxClearTriggerProps;
+  /** Trigger props. */
   triggerProps?: ComboboxTriggerProps;
+  /** Positioner props. */
   positionerProps?: ComboboxPositionerProps;
+  /** Content props. */
   contentProps?: ComboboxContentProps;
+  /** Item group props. */
   itemGroupProps?: ComboboxItemGroupProps;
+  /** Item group label props. */
   itemGroupLabelProps?: ComboboxItemGroupLabelProps;
+  /** Item props. */
   itemProps?: ComboboxItemProps;
+  /** Item text props. */
   itemTextProps?: ComboboxItemTextProps;
+  /** Item indicator props. */
   itemIndicatorProps?: ComboboxItemIndicatorProps;
 }
 
@@ -142,14 +159,13 @@ export interface ComboboxProps extends ComboboxRootProps {
  * Combobox.
  */
 const Combobox = ({
+  collection,
   colorPalette = "accent",
   displayFieldLabel = true,
   displayGroupLabel = true,
   displayClearTrigger = true,
   label,
-  items,
   onInputValueChange,
-  onValueChange,
   labelProps,
   controlProps,
   inputProps,
@@ -164,57 +180,31 @@ const Combobox = ({
   itemIndicatorProps,
   ...rest
 }: ComboboxProps) => {
-  const [filteredItems, setFilteredItems] = useState(items),
-    [defaultInputValue, setDefaultInputValue] = useState(
-      rest.defaultValue || "",
-    );
+  const [filteredItems, setFilteredItems] = useState<CollectionItem[]>(
+    collection.items,
+  );
 
   /**
    * Handle input value change. Composes a custom `onInputValueChange` handler, if provided.
    */
-  const handleInputValueChange = (
-    evt: ComboboxInputValueChangeDetails,
-    onInputValueChange?: ComboboxProps["onInputValueChange"],
-  ) => {
-    const filtered = items.filter((item) =>
-      // @ts-ignore upstream (Ark `CollectionItem`) type bug
-      item.label.toLowerCase().includes(evt.inputValue.toLowerCase()),
-    );
+  const handleInputValueChange = (evt: ComboboxInputValueChangeDetails) => {
+    const filtered = collection.items.filter((item) => {
+      // is this necessary? does createCollectionList always make item.label valid?
+      const label = typeof item === "string" ? item : item.label;
 
-    setFilteredItems(filtered.length ? filtered : items);
+      return label.toLowerCase().includes(evt.inputValue.toLowerCase());
+    });
+
+    setFilteredItems(filtered.length ? filtered : collection.items);
 
     // execute custom `onInputValueChange` handler, if provided
     onInputValueChange?.(evt);
   };
 
-  /**
-   * Handle value change. Composes a custom `onValueChange` handler, if provided.
-   */
-  const handleValueChange = (
-    evt: ComboboxValueChangeDetails,
-    onValueChange?: ComboboxProps["onValueChange"],
-  ) => {
-    setDefaultInputValue(evt.items.map((item) => item.label).join(", "));
-
-    // execute custom `onValueChange` handler, if provided
-    onValueChange?.(evt);
-  };
-
   return (
     <ComboboxRoot
-      onInputValueChange={(evt) =>
-        onInputValueChange
-          ? // compose custom `onInputValueChange` handler
-            handleInputValueChange(evt, onInputValueChange)
-          : handleInputValueChange(evt)
-      }
-      onValueChange={(evt) =>
-        onValueChange
-          ? // compose custom `onValueChange` handler
-            handleValueChange(evt, onValueChange)
-          : handleValueChange(evt)
-      }
-      items={filteredItems}
+      collection={collection}
+      onInputValueChange={handleInputValueChange}
       {...rest}
     >
       {displayFieldLabel && (
@@ -222,7 +212,7 @@ const Combobox = ({
       )}
 
       <ComboboxControl {...controlProps}>
-        <ComboboxInput asChild defaultValue={defaultInputValue} {...inputProps}>
+        <ComboboxInput asChild {...inputProps}>
           <Input colorPalette={colorPalette} />
         </ComboboxInput>
 
@@ -251,10 +241,8 @@ const Combobox = ({
             )}
 
             {filteredItems.map((item) => (
-              // @ts-ignore upstream (Ark `CollectionItem`) type bug
               <ComboboxItem key={item.value} item={item} {...itemProps}>
                 <ComboboxItemText {...itemTextProps}>
-                  {/* @ts-ignore upstream (Ark `CollectionItem`) type bug */}
                   {item.label}
                 </ComboboxItemText>
 

@@ -58,35 +58,71 @@ export const SliderValueText = withContext(
 export interface SliderValueTextProps
   extends AssignJSXStyleProps<ArkSlider.ValueTextProps> {}
 
+export const SliderHiddenInput = ArkSlider.HiddenInput;
+export interface SliderHiddenInputProps
+  extends AssignJSXStyleProps<ArkSlider.HiddenInputProps> {}
+
 export interface SliderProps extends SliderRootProps {
   /** Track values to mark. */
   markerValues: number[];
   /** Label to represent the slider. */
   label?: ReactNode;
+  /** Label props. */
+  labelProps?: SliderLabelProps;
+  /** Control props. */
+  controlProps?: SliderControlProps;
+  /** Track props. */
+  trackProps?: SliderTrackProps;
+  /** Range props. */
+  rangeProps?: SliderRangeProps;
+  /** Thumb props. */
+  thumbProps?: SliderThumbProps;
+  /** Marker group props. */
+  markerGroupProps?: SliderMarkerGroupProps;
+  /** Marker props. */
+  markerProps?: SliderMarkerProps;
+  /** Hidden input props. */
+  hiddenInputProps?: SliderHiddenInputProps;
 }
 
 /**
  * Track slider with a single thumb for selecting a scalar value in a range.
  */
-const Slider = ({ markerValues, label, ...rest }: SliderProps) => (
+const Slider = ({
+  markerValues,
+  label,
+  labelProps,
+  controlProps,
+  trackProps,
+  rangeProps,
+  thumbProps,
+  markerGroupProps,
+  markerProps,
+  hiddenInputProps,
+  ...rest
+}: SliderProps) => (
   <SliderRoot {...rest}>
-    {label && <SliderLabel>{label}</SliderLabel>}
+    {label && <SliderLabel {...labelProps}>{label}</SliderLabel>}
 
-    <SliderControl>
-      <SliderTrack>
-        <SliderRange />
+    <SliderControl {...controlProps}>
+      <SliderTrack {...trackProps}>
+        <SliderRange {...rangeProps} />
       </SliderTrack>
 
       <SliderContext>
         {({ value }) =>
-          value.map((_val, idx) => <SliderThumb key={idx} index={idx} />)
+          value.map((_val, idx) => (
+            <SliderThumb key={idx} index={idx} {...thumbProps}>
+              <SliderHiddenInput {...hiddenInputProps} />
+            </SliderThumb>
+          ))
         }
       </SliderContext>
     </SliderControl>
 
-    <SliderMarkerGroup>
+    <SliderMarkerGroup {...markerGroupProps}>
       {markerValues.map((value) => (
-        <SliderMarker key={value} value={value}>
+        <SliderMarker key={value} value={value} {...markerProps}>
           {value}
         </SliderMarker>
       ))}

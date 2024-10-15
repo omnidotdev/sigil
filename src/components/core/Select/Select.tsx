@@ -21,9 +21,7 @@ export const SelectRoot = withProvider(
 );
 export interface SelectRootProps
   extends AssignJSXStyleProps<ArkSelect.RootProps<ArkSelect.CollectionItem>>,
-    SelectVariantProps {
-  items: ArkSelect.CollectionItem[];
-}
+    SelectVariantProps {}
 
 export const SelectClearTrigger = withContext(
   styled(ArkSelect.ClearTrigger),
@@ -84,6 +82,11 @@ export const SelectLabel = withContext(styled(ArkSelect.Label), "label");
 export interface SelectLabelProps
   extends AssignJSXStyleProps<ArkSelect.LabelProps> {}
 
+// TODO use in prebuilt `Select` component
+export const SelectList = withContext(styled(ArkSelect.List), "list");
+export interface SelectListProps
+  extends AssignJSXStyleProps<ArkSelect.ListProps> {}
+
 export const SelectPositioner = withContext(
   styled(ArkSelect.Positioner),
   "positioner",
@@ -115,17 +118,29 @@ export interface SelectProps extends SelectRootProps {
     singular: string;
     plural: string;
   };
+  /** Label props. */
   labelProps?: SelectLabelProps;
+  /** Control props. */
   controlProps?: SelectControlProps;
+  /** Trigger props. */
   triggerProps?: SelectTriggerProps;
+  /** Value text props. */
   valueTextProps?: SelectValueTextProps;
+  /** Clear trigger props. */
   clearTriggerProps?: SelectClearTriggerProps;
+  /** Positioner props. */
   positionerProps?: SelectPositionerProps;
+  /** Content props. */
   contentProps?: SelectContentProps;
+  /** Item group props. */
   itemGroupProps?: SelectItemGroupProps;
+  /** Item group label props. */
   itemGroupLabelProps?: SelectItemGroupLabelProps;
+  /** Item props. */
   itemProps?: SelectItemProps;
+  /** Item indicator props. */
   itemIndicatorProps?: SelectItemIndicatorProps;
+  /** Item text props. */
   itemTextProps?: SelectItemTextProps;
 }
 
@@ -133,11 +148,11 @@ export interface SelectProps extends SelectRootProps {
  * Select.
  */
 const Select = ({
+  collection,
   displayFieldLabel = true,
   displayGroupLabel = true,
   displayClearTrigger = true,
   label,
-  items,
   labelProps,
   controlProps,
   triggerProps,
@@ -152,7 +167,11 @@ const Select = ({
   itemTextProps,
   ...rest
 }: SelectProps) => (
-  <SelectRoot positioning={{ sameWidth: true }} items={items} {...rest}>
+  <SelectRoot
+    positioning={{ sameWidth: true }}
+    collection={collection}
+    {...rest}
+  >
     {displayFieldLabel && (
       <SelectLabel {...labelProps}>{label.singular}</SelectLabel>
     )}
@@ -180,10 +199,8 @@ const Select = ({
             </SelectItemGroupLabel>
           )}
 
-          {items.map((item) => (
-            // @ts-ignore upstream (Ark `CollectionItem`) type bug
+          {collection.items.map((item) => (
             <SelectItem key={item.value} item={item} {...itemProps}>
-              {/* @ts-ignore upstream (Ark `CollectionItem`) type bug */}
               <SelectItemText {...itemTextProps}>{item.label}</SelectItemText>
 
               <SelectItemIndicator {...itemIndicatorProps}>

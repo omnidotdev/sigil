@@ -61,6 +61,14 @@ export const NumberInputScrubber = withContext(
 export interface NumberInputScrubberProps
   extends AssignJSXStyleProps<ArkNumberInput.ScrubberProps> {}
 
+// TODO use in prebuilt `NumberInput` component
+export const NumberInputValueText = withContext(
+  styled(ArkNumberInput.ValueText),
+  "valueText",
+);
+export interface NumberInputValueTextProps
+  extends AssignJSXStyleProps<ArkNumberInput.ValueTextProps> {}
+
 export interface NumberInputProps extends NumberInputRootProps {
   label?: ReactNode;
   scrubberProps?: NumberInputScrubberProps;

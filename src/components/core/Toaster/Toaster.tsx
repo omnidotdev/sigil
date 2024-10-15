@@ -84,7 +84,6 @@ const Toaster = ({
   ...rest
 }: ToasterProps) => (
   <ArkToaster toaster={toaster} {...rest}>
-    {/* @ts-ignore upstream type issue */}
     {(toast) => (
       <ToastRoot {...rootProps}>
         <ToastTitle {...titleProps}>{toast.title}</ToastTitle>

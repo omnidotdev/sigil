@@ -1,11 +1,19 @@
+import { createListCollection } from "@ark-ui/react/select";
+import { useEffect, useState } from "react";
+
 import { Select } from "components";
 import { Box, Stack } from "generated/panda/jsx";
 import { select } from "lib/theme/extensions/slotRecipes";
+import { fruitBasket } from "stories/data";
 
+import type { CollectionItem } from "@ark-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import type { SelectVariant } from "generated/panda/recipes";
 
 type Story = StoryObj<typeof meta>;
+
+// TODO `itemToString`, `itemToValue` in `collectionItem` stories
+// TODO simple string `items` story
 
 const meta = {
   title: "Components/Core/Select",
@@ -27,11 +35,76 @@ export const Default: Story = {
       singular: "Color",
       plural: "Colors",
     },
-    items: [
-      { value: "red", label: "Red", disabled: true },
-      { value: "green", label: "Green" },
-      { value: "blue", label: "Blue" },
-    ],
+    collection: createListCollection({
+      items: [
+        { value: "red", label: "Red", disabled: true },
+        { value: "green", label: "Green" },
+        { value: "blue", label: "Blue" },
+      ],
+    }),
+  },
+};
+
+/**
+ * A default value can be set with the `defaultValue` prop.
+ */
+export const DefaultValue: Story = {
+  args: {
+    ...Default.args,
+    defaultValue: ["green"],
+  },
+};
+
+/**
+ * Selection of multiple items is made possible by enabling the `multiple` prop.
+ */
+export const Multiple: Story = {
+  args: {
+    ...Default.args,
+    multiple: true,
+  },
+};
+
+/**
+ * The `Select` items are loaded here asynchronously, with a simulation via `setTimout`.
+ */
+export const AsyncItems: StoryObj = {
+  render: () => {
+    const [items, setItems] = useState<CollectionItem[]>([]);
+
+    useEffect(() => {
+      // simulate async data fetching
+      const fetchItems = async () => {
+        const asyncData: CollectionItem[] = await new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(
+              fruitBasket.map(({ name, icon }, idx) => ({
+                label: `${name} ${icon}`,
+                value: name,
+                disabled: idx === 2,
+              })),
+            );
+            // simulate 1s delay
+          }, 1000);
+        });
+
+        setItems(asyncData);
+      };
+
+      void fetchItems();
+    }, []);
+
+    return (
+      <Select
+        {...Default.args}
+        valueTextProps={{
+          placeholder: "Search...",
+        }}
+        collection={createListCollection({
+          items,
+        })}
+      />
+    );
   },
 };
 

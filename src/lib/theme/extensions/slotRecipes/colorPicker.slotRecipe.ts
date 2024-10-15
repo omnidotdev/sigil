@@ -7,7 +7,11 @@ import { defineSlotRecipe } from "@pandacss/dev";
 const colorPicker = defineSlotRecipe({
   className: "colorPicker",
   description: "Color picker style recipes",
-  slots: colorPickerAnatomy.keys(),
+  slots: [
+    ...colorPickerAnatomy.keys(),
+    // TODO remove this manual slot, Ark currently doesn't correctly export anatomy `valueSwatch` slot upstream but it should in the future
+    "valueSwatch",
+  ],
   base: {
     root: {
       display: "flex",

@@ -58,6 +58,14 @@ export const ColorPickerChannelSlider = withContext(
 export interface ColorPickerChannelSliderProps
   extends AssignJSXStyleProps<ArkColorPicker.ChannelSliderProps> {}
 
+// TODO use in prebuilt `ColorPicker` component
+export const ColorPickerChannelSliderLabel = withContext(
+  styled(ArkColorPicker.ChannelSliderLabel),
+  "channelSliderLabel",
+);
+export interface ColorPickerSliderLabelProps
+  extends AssignJSXStyleProps<ArkColorPicker.ChannelSliderLabelProps> {}
+
 export const ColorPickerChannelSliderThumb = withContext(
   styled(ArkColorPicker.ChannelSliderThumb),
   "channelSliderThumb",
@@ -71,6 +79,14 @@ export const ColorPickerChannelSliderTrack = withContext(
 );
 export interface ColorPickerChannelSliderTrackProps
   extends AssignJSXStyleProps<ArkColorPicker.ChannelSliderTrackProps> {}
+
+// TODO use in prebuilt `ColorPicker` component
+export const ColorPickerSliderValueText = withContext(
+  styled(ArkColorPicker.ChannelSliderValueText),
+  "channelSliderValueText",
+);
+export interface ColorPickerSliderValueTextProps
+  extends AssignJSXStyleProps<ArkColorPicker.ChannelSliderValueTextProps> {}
 
 export const ColorPickerContent = withContext(
   styled(ArkColorPicker.Content),
@@ -167,6 +183,14 @@ export interface ColorPickerTriggerProps
   extends AssignJSXStyleProps<ArkColorPicker.TriggerProps> {}
 
 // TODO use in prebuilt `ColorPicker` component
+export const ColorPickerValueSwatch = withContext(
+  styled(ArkColorPicker.ValueSwatch),
+  "valueSwatch",
+);
+export interface ColorPickerValueSwatchProps
+  extends AssignJSXStyleProps<ArkColorPicker.ValueSwatchProps> {}
+
+// TODO use in prebuilt `ColorPicker` component
 export const ColorPickerValueText = withContext(
   styled(ArkColorPicker.ValueText),
   "valueText",
@@ -179,28 +203,51 @@ export const ColorPickerView = withContext(styled(ArkColorPicker.View), "view");
 export interface ColorPickerViewProps
   extends AssignJSXStyleProps<ArkColorPicker.ViewProps> {}
 
+export const ColorPickerHiddenInput = ArkColorPicker.HiddenInput;
+export interface ColorPickerHiddenInputProps
+  extends AssignJSXStyleProps<ArkColorPicker.HiddenInputProps> {}
+
 export interface ColorPickerProps extends ColorPickerRootProps {
   /** Label for the color picker. Defaults to "Color Picker". */
   label?: ReactNode;
   /** Color swatch presets. */
   presets?: string[];
+  /** Label props. */
   labelProps?: ColorPickerLabelProps;
+  /** Control props. */
   controlProps?: ColorPickerControlProps;
+  /** Channel input props. */
   channelInputProps?: ColorPickerChannelInputProps;
+  /** Trigger props. */
   triggerProps?: ColorPickerTriggerProps;
+  /** Swatch group props. */
   swatchGroupProps?: ColorPickerSwatchGroupProps;
+  /** Swatch trigger props. */
   swatchTriggerProps?: ColorPickerSwatchTriggerProps;
+  /** Swatch props. */
   swatchProps?: ColorPickerSwatchProps;
+  /** Positioner props. */
   positionerProps?: ColorPickerPositionerProps;
+  /** Content props. */
   contentProps?: ColorPickerContentProps;
+  /** Area props. */
   areaProps?: ColorPickerAreaProps;
+  /** Area background props. */
   areaBackgroundProps?: ColorPickerAreaBackgroundProps;
+  /** Area thumb props. */
   areaThumbProps?: ColorPickerAreaThumbProps;
+  /** Eye dropper trigger props. */
   eyeDropperTriggerProps?: ColorPickerEyeDropperTriggerProps;
+  /** Channel slider props. */
   channelSliderProps?: ColorPickerChannelSliderProps;
+  /** Channel slider thumb props. */
   channelSliderThumbProps?: ColorPickerChannelSliderThumbProps;
+  /** Channel slider track props. */
   channelSliderTrackProps?: ColorPickerChannelSliderTrackProps;
+  /** Transparency grid props. */
   transparencyGridProps?: ColorPickerTransparencyGridProps;
+  /** Hidden input props. */
+  hiddenInputProps?: ColorPickerHiddenInputProps;
 }
 
 /**
@@ -226,6 +273,7 @@ const ColorPicker = ({
   channelSliderThumbProps,
   channelSliderTrackProps,
   transparencyGridProps,
+  hiddenInputProps,
   ...rest
 }: ColorPickerProps) => (
   <ColorPickerRoot {...rest}>
@@ -321,6 +369,8 @@ const ColorPicker = ({
         </Stack>
       </ColorPickerContent>
     </ColorPickerPositioner>
+
+    <ColorPickerHiddenInput {...hiddenInputProps} />
   </ColorPickerRoot>
 );
 

@@ -43,23 +43,39 @@ export const RatingItemContext = ArkRatingGroup.ItemContext;
 export interface RatingItemContextProps
   extends AssignJSXStyleProps<ArkRatingGroup.ItemContextProps> {}
 
+export const RatingHiddenInput = ArkRatingGroup.HiddenInput;
+export interface RatingHiddenInputProps
+  extends AssignJSXStyleProps<ArkRatingGroup.HiddenInputProps> {}
+
 export interface RatingProps extends RatingRootProps {
-  /** Label for the rating. */
+  /** Label. */
   label?: ReactNode;
+  /** Control props. */
+  controlProps?: RatingControlProps;
+  /** Item props. */
+  itemProps?: RatingItemProps;
+  /** Hidden input props. */
+  hiddenInputProps?: RatingHiddenInputProps;
 }
 
 /**
  * Rating.
  */
-const Rating = ({ label, ...rest }: RatingProps) => (
+const Rating = ({
+  label,
+  controlProps,
+  itemProps,
+  hiddenInputProps,
+  ...rest
+}: RatingProps) => (
   <RatingRoot {...rest}>
     {label && <RatingLabel>{label}</RatingLabel>}
 
-    <RatingControl>
+    <RatingControl {...controlProps}>
       <RatingContext>
         {({ items }) =>
           items.map((idx) => (
-            <RatingItem key={idx} index={idx}>
+            <RatingItem key={idx} index={idx} {...itemProps}>
               <RatingItemContext>
                 {({ half: isHalf, highlighted: isHighlighted }) => {
                   if (isHalf) return <IconHalf />;
@@ -74,6 +90,8 @@ const Rating = ({ label, ...rest }: RatingProps) => (
         }
       </RatingContext>
     </RatingControl>
+
+    <RatingHiddenInput {...hiddenInputProps} />
   </RatingRoot>
 );
 
