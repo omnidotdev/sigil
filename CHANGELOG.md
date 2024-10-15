@@ -1,5 +1,19 @@
 # @omnidev/sigil
 
+## 0.11.0
+
+### Minor Changes
+
+- [#116](https://github.com/omnidotdev/sigil/pull/116) [`257fca9`](https://github.com/omnidotdev/sigil/commit/257fca9405ea6caeae9e458beb4107f4635a0365) Thanks [@coopbri](https://github.com/coopbri)! - **BREAKING:** remove `items` in favor of Ark v4 `collection` API for `Select` and `Combobox`
+
+### Patch Changes
+
+- [#116](https://github.com/omnidotdev/sigil/pull/116) [`257fca9`](https://github.com/omnidotdev/sigil/commit/257fca9405ea6caeae9e458beb4107f4635a0365) Thanks [@coopbri](https://github.com/coopbri)! - `Avatar`: only render if a valid image source (`imageSrc` prop) is passed, add 'no-referrer' referrer policy
+
+- [#116](https://github.com/omnidotdev/sigil/pull/116) [`257fca9`](https://github.com/omnidotdev/sigil/commit/257fca9405ea6caeae9e458beb4107f4635a0365) Thanks [@coopbri](https://github.com/coopbri)! - Add hidden inputs and composable props to `ColorPicker`, `FileUpload`, `PINInput`, `Rating`, `SegmentGroup`, `Slider`, and `Switch`
+
+- [#116](https://github.com/omnidotdev/sigil/pull/116) [`257fca9`](https://github.com/omnidotdev/sigil/commit/257fca9405ea6caeae9e458beb4107f4635a0365) Thanks [@coopbri](https://github.com/coopbri)! - Export `FileUpload` subcomponents
+
 ## 0.10.10
 
 ### Patch Changes
