@@ -68,7 +68,14 @@ const Avatar = ({
   <AvatarRoot {...rest}>
     <AvatarFallback>{fallback}</AvatarFallback>
 
-    <AvatarImage src={imageSrc} alt={`${name}'s avatar`} />
+    {imageSrc && (
+      <AvatarImage
+        src={imageSrc}
+        alt={name ? `${name}'s avatar` : "User's avatar"}
+        // see https://github.com/chakra-ui/chakra-ui/issues/5909
+        referrerPolicy="no-referrer"
+      />
+    )}
   </AvatarRoot>
 );
 
