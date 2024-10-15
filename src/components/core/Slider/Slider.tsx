@@ -67,21 +67,21 @@ export interface SliderProps extends SliderRootProps {
   markerValues: number[];
   /** Label to represent the slider. */
   label?: ReactNode;
-  /** Slider label props. */
+  /** Label props. */
   labelProps?: SliderLabelProps;
-  /** Slider control props. */
+  /** Control props. */
   controlProps?: SliderControlProps;
-  /** Slider track props. */
+  /** Track props. */
   trackProps?: SliderTrackProps;
-  /** Slider range props. */
+  /** Range props. */
   rangeProps?: SliderRangeProps;
-  /** Slider thumb props. */
+  /** Thumb props. */
   thumbProps?: SliderThumbProps;
-  /** Slider marker group props. */
+  /** Marker group props. */
   markerGroupProps?: SliderMarkerGroupProps;
-  /** Slider marker props. */
+  /** Marker props. */
   markerProps?: SliderMarkerProps;
-  /** Slider hidden input props. */
+  /** Hidden input props. */
   hiddenInputProps?: SliderHiddenInputProps;
 }
 

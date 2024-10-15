@@ -51,7 +51,7 @@ export interface RadioGroupHiddenInputProps
   extends AssignJSXStyleProps<ArkRadioGroup.ItemHiddenInputProps> {}
 
 export interface RadioGroupProps extends RadioGroupRootProps {
-  /** Radio group options. */
+  /** Available options. */
   options: { value: string; label: string; isDisabled?: boolean }[];
   /** Item props. */
   itemProps?: RadioGroupItemProps;

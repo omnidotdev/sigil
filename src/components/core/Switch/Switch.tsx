@@ -32,13 +32,13 @@ export interface SwitchHiddenInputProps
   extends AssignJSXStyleProps<ArkSwitch.HiddenInputProps> {}
 
 export interface SwitchProps extends SwitchRootProps {
-  /** Switch control props. */
+  /** Control props. */
   controlProps?: SwitchControlProps;
-  /** Switch thumb props. */
+  /** Thumb props. */
   thumbProps?: SwitchThumbProps;
-  /** Switch label props. */
+  /** Label props. */
   labelProps?: SwitchLabelProps;
-  /** Switch hidden input props. */
+  /** Hidden input props. */
   hiddenInputProps?: SwitchHiddenInputProps;
 }
 

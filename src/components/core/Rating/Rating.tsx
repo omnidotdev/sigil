@@ -48,7 +48,7 @@ export interface RatingHiddenInputProps
   extends AssignJSXStyleProps<ArkRatingGroup.HiddenInputProps> {}
 
 export interface RatingProps extends RatingRootProps {
-  /** Label for the rating. */
+  /** Label. */
   label?: ReactNode;
   /** Control props. */
   controlProps?: RatingControlProps;

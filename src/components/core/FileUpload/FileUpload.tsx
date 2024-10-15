@@ -99,25 +99,25 @@ export interface FileUploadHiddenInputProps
 export interface FileUploadProps extends FileUploadRootProps {
   /** Label for the file upload dropzone. */
   label?: ReactNode;
-  /** File upload dialog trigger. */
+  /** Dialog trigger. */
   dialogTrigger?: ReactNode;
-  /** File upload dropzone props. */
+  /** Dropzone props. */
   dropzoneProps?: ArkFileUploadDropzoneProps;
-  /** File upload item group props. */
+  /** Item group props. */
   itemGroupProps?: ArkFileUploadItemGroupProps;
-  /** File upload item props. */
+  /** Item props. */
   itemProps?: ArkFileUploadItemProps;
-  /** File upload item preview props. */
+  /** Item preview props. */
   itemPreviewProps?: ArkFileUploadItemPreviewProps;
-  /** File upload item preview image props. */
+  /** Item preview image props. */
   itemPreviewImageProps?: ArkFileUploadItemPreviewImageProps;
-  /** File upload item name props. */
+  /** Item name props. */
   itemNameProps?: ArkFileUploadItemNameProps;
-  /** File upload item size text props. */
+  /** Item size text props. */
   itemSizeTextProps?: ArkFileUploadItemSizeTextProps;
-  /** File upload item delete trigger props. */
+  /** Item delete trigger props. */
   itemDeleteTriggerProps?: ArkFileUploadItemDeleteTriggerProps;
-  /** File upload hidden input props. */
+  /** Hidden input props. */
   hiddenInputProps?: FileUploadHiddenInputProps;
 }
 
