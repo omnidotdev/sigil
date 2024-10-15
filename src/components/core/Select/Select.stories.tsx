@@ -46,6 +46,16 @@ export const Default: Story = {
 };
 
 /**
+ * A default value can be set with the `defaultValue` prop.
+ */
+export const DefaultValue: Story = {
+  args: {
+    ...Default.args,
+    defaultValue: ["green"],
+  },
+};
+
+/**
  * Selection of multiple items is made possible by enabling the `multiple` prop.
  */
 export const Multiple: Story = {
