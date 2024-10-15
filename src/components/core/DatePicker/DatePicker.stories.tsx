@@ -19,6 +19,8 @@ export const Default: Story = {};
 
 /**
  * A default date value can be provided with the `defaultValue` prop.
+ *
+ * 🇺🇸 **Fun fact:** 2 July 1776 was the day the Continental Congress officially voted for American independence from Great Britain.
  */
 export const DefaultValue: Story = {
   args: {
