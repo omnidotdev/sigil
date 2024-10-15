@@ -57,7 +57,7 @@ export const Multiple: Story = {
 };
 
 /**
- * The Combobox items are loaded here asynchronously, with a simulation via `setTimout`. Enter an input into the input field to load filtered items.
+ * The `Combobox` items are loaded here asynchronously, with a simulation via `setTimout`. Enter an input into the input field to load filtered items.
  */
 export const AsyncItems: StoryObj = {
   render: () => {

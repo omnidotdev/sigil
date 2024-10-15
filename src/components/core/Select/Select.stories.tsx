@@ -56,7 +56,7 @@ export const Multiple: Story = {
 };
 
 /**
- * The Select items are loaded here asynchronously, with a simulation via `setTimout`.
+ * The `Select` items are loaded here asynchronously, with a simulation via `setTimout`.
  */
 export const AsyncItems: StoryObj = {
   render: () => {
