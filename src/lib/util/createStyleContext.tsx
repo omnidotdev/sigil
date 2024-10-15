@@ -6,6 +6,7 @@ import {
   type ComponentProps,
   type ElementType,
   type JSX,
+  type PropsWithoutRef,
 } from "react";
 
 interface GenericProps extends Record<string, unknown> {}
@@ -44,21 +45,23 @@ const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
     slot?: StyleSlot<R>,
   ): ComponentVariants<T, R> => {
     // eslint-disable-next-line react/display-name
-    const StyledComponent = forwardRef((props: ComponentProps<T>, ref) => {
-      const [variantProps, otherProps] = recipe.splitVariantProps(props);
+    const StyledComponent = forwardRef(
+      (props: PropsWithoutRef<ComponentProps<T>>, ref) => {
+        const [variantProps, otherProps] = recipe.splitVariantProps(props);
 
-      const slotStyles = recipe(variantProps) as StyleSlotRecipe<R>;
+        const slotStyles = recipe(variantProps) as StyleSlotRecipe<R>;
 
-      return (
-        <StyleContext.Provider value={slotStyles}>
-          <Component
-            ref={ref}
-            {...otherProps}
-            className={cx(slotStyles[slot ?? ""], otherProps.className)}
-          />
-        </StyleContext.Provider>
-      );
-    });
+        return (
+          <StyleContext.Provider value={slotStyles}>
+            <Component
+              ref={ref}
+              {...otherProps}
+              className={cx(slotStyles[slot ?? ""], otherProps.className)}
+            />
+          </StyleContext.Provider>
+        );
+      },
+    );
 
     return StyledComponent as unknown as ComponentVariants<T, R>;
   };
@@ -70,15 +73,17 @@ const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
     if (!slot) return Component;
 
     // eslint-disable-next-line react/display-name
-    const StyledComponent = forwardRef((props: ComponentProps<T>, ref) => {
-      const slotStyles = useContext(StyleContext);
+    const StyledComponent = forwardRef(
+      (props: PropsWithoutRef<ComponentProps<T>>, ref) => {
+        const slotStyles = useContext(StyleContext);
 
-      return createElement(Component, {
-        ...props,
-        className: cx(slotStyles?.[slot ?? ""], props.className),
-        ref,
-      });
-    });
+        return createElement(Component, {
+          ...props,
+          className: cx(slotStyles?.[slot ?? ""], props["className"]),
+          ref,
+        });
+      },
+    );
 
     return StyledComponent as unknown as T;
   };
