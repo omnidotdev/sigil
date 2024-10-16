@@ -1,5 +1,11 @@
 # @omnidev/sigil
 
+## 0.11.1
+
+### Patch Changes
+
+- [#120](https://github.com/omnidotdev/sigil/pull/120) [`00ef25c`](https://github.com/omnidotdev/sigil/commit/00ef25c2fd00a3c0d7276ac013a82b7b5b7694cb) Thanks [@hobbescodes](https://github.com/hobbescodes)! - Allow customization of `Combobox` async data fetch preloading via `preloadItems` prop
+
 ## 0.11.0
 
 ### Minor Changes
