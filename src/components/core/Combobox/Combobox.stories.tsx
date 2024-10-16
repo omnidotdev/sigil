@@ -97,7 +97,11 @@ export const AsyncItems: StoryObj = {
 
     return (
       <Combobox
-        {...Default.args}
+        label={{
+          id: "fruit",
+          singular: "Fruit",
+          plural: "Fruit",
+        }}
         placeholder="Search..."
         collection={createListCollection({ items })}
       />

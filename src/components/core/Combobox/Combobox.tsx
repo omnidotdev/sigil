@@ -1,5 +1,5 @@
 import { Combobox as ArkCombobox } from "@ark-ui/react/combobox";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BiCheck, BiExpandVertical, BiX } from "react-icons/bi";
 
 import Button from "components/core/Button/Button";
@@ -200,6 +200,10 @@ const Combobox = ({
     // execute custom `onInputValueChange` handler, if provided
     onInputValueChange?.(evt);
   };
+
+  useEffect(() => {
+    setFilteredItems(collection.items);
+  }, [collection.items]);
 
   return (
     <ComboboxRoot
