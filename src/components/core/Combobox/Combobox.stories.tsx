@@ -106,6 +106,46 @@ export const AsyncItems: StoryObj = {
 };
 
 /**
+ * Asynchronously load items without preloading them. To load items, the input field must be updated.
+ */
+export const AsyncItemsWithoutPreloading: StoryObj = {
+  render: () => {
+    const [items, setItems] = useState<CollectionItem[]>([]);
+
+    useEffect(() => {
+      // simulate async data fetching
+      const fetchItems = async () => {
+        const asyncData: CollectionItem[] = await new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(
+              fruitBasket.map(({ name, icon }, idx) => ({
+                label: `${name} ${icon}`,
+                value: name,
+                disabled: idx === 2,
+              })),
+            );
+            // simulate 1s delay
+          }, 1000);
+        });
+
+        setItems(asyncData);
+      };
+
+      void fetchItems();
+    }, []);
+
+    return (
+      <Combobox
+        {...Default.args}
+        preloadItems={false}
+        placeholder="Search..."
+        collection={createListCollection({ items })}
+      />
+    );
+  },
+};
+
+/**
  * The input field and group labels can be hidden by setting the `displayFieldLabel` and `displayGroupLabel` props to `false`, respectively.
  */
 export const HideLabels: Story = {
