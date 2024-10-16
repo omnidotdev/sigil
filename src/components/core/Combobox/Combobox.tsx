@@ -116,13 +116,17 @@ export interface ComboboxTriggerProps
   extends AssignJSXStyleProps<ArkCombobox.TriggerProps> {}
 
 export interface ComboboxProps extends ComboboxRootProps {
+  /** Color palette. Defaults to "accent". */
   colorPalette?: ColorPalette;
-  /** Whether to display the input field label. */
+  /** Whether to display the input field label. Defaults to true. */
   displayFieldLabel?: boolean;
-  /** Whether to display the group label contained in the dropdown. */
+  /** Whether to display the group label contained in the dropdown. Defaults to true. */
   displayGroupLabel?: boolean;
-  /** Whether to display the clear trigger button. */
+  /** Whether to display the clear trigger button. Defaults to true. */
   displayClearTrigger?: boolean;
+  /** Whether to preload items (useful for async data fetching). Defaults to true. If false, items will be loaded on input change. */
+  preloadItems?: boolean;
+  /** Label. */
   label: {
     // TODO calculate ID from singular (add dashes, lowercase, etc.)
     id: string;
@@ -164,6 +168,7 @@ const Combobox = ({
   displayFieldLabel = true,
   displayGroupLabel = true,
   displayClearTrigger = true,
+  preloadItems = true,
   label,
   onInputValueChange,
   labelProps,
@@ -202,8 +207,8 @@ const Combobox = ({
   };
 
   useEffect(() => {
-    setFilteredItems(collection.items);
-  }, [collection.items]);
+    preloadItems && setFilteredItems(collection.items);
+  }, [collection.items, preloadItems]);
 
   return (
     <ComboboxRoot
