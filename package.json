@@ -89,7 +89,7 @@
     "eslint-plugin-prefer-arrow": "^1.2.3",
     "eslint-plugin-react": "^7.37.1",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-storybook": "^0.9.0",
+    "eslint-plugin-storybook": "^0.10.0",
     "eslint-plugin-testing-library": "^6.3.0",
     "eslint-plugin-typescript-sort-keys": "^3.3.0",
     "eslint-plugin-unused-imports": "^4.1.4",
