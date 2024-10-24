@@ -58,6 +58,8 @@ export interface TooltipProps extends TooltipRootProps {
   arrowProps?: TooltipArrowProps;
   /** Tooltip arrow tip props. */
   arrowTipProps?: TooltipArrowTipProps;
+  /** Tooltip trigger props. */
+  triggerProps?: TooltipTriggerProps;
 }
 
 /**
@@ -70,10 +72,11 @@ const Tooltip = ({
   contentProps,
   arrowProps,
   arrowTipProps,
+  triggerProps,
   ...rest
 }: TooltipProps) => (
   <TooltipRoot openDelay={0} closeDelay={100} {...rest}>
-    {trigger && <TooltipTrigger>{trigger}</TooltipTrigger>}
+    {trigger && <TooltipTrigger {...triggerProps}>{trigger}</TooltipTrigger>}
 
     <TooltipPositioner>
       <TooltipContent {...contentProps}>
