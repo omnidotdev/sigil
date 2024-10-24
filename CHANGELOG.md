@@ -1,5 +1,13 @@
 # @omnidev/sigil
 
+## 0.11.2
+
+### Patch Changes
+
+- [#123](https://github.com/omnidotdev/sigil/pull/123) [`9b51feb`](https://github.com/omnidotdev/sigil/commit/9b51febfce8302c1ba44a51a20e860b70ab9a079) Thanks [@hobbescodes](https://github.com/hobbescodes)! - Add `triggerProps` to `Tooltip` component
+
+- [#123](https://github.com/omnidotdev/sigil/pull/123) [`9b51feb`](https://github.com/omnidotdev/sigil/commit/9b51febfce8302c1ba44a51a20e860b70ab9a079) Thanks [@hobbescodes](https://github.com/hobbescodes)! - Add `positionerProps` to `Tooltip` component
+
 ## 0.11.1
 
 ### Patch Changes
