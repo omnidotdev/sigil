@@ -49,7 +49,7 @@ export const TooltipTrigger = withContext(
   "trigger",
 );
 export interface TooltipTriggerProps
-  extends AssignJSXStyleProps<ArkTooltip.TriggerProps>,
+  extends AssignJSXStyleProps<Omit<ArkTooltip.TriggerProps, "asChild">>,
     ButtonVariantProps {}
 
 export interface TooltipProps extends TooltipRootProps {
@@ -85,7 +85,7 @@ const Tooltip = ({
 }: TooltipProps) => (
   <TooltipRoot openDelay={0} closeDelay={100} {...rest}>
     {trigger && (
-      <TooltipTrigger {...triggerProps} asChild>
+      <TooltipTrigger asChild {...triggerProps}>
         <Button>{trigger}</Button>
       </TooltipTrigger>
     )}
