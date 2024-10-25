@@ -36,11 +36,11 @@ export const ComplexRender: Story = {
       ...Default.args!.contentProps,
       p: 4,
     },
-    trigger: (
-      <Text as="span" size="sm" fontWeight="semibold" cursor="default">
-        {app.organization.x.handle} (hover me)
-      </Text>
-    ),
+    triggerProps: {
+      variant: "ghost",
+      _hover: { bgColor: "transparent" },
+    },
+    trigger: `${app.organization.x.handle} (hover me)`,
     children: (
       <Stack gap={4} direction="row">
         <Avatar name="Childish Gambino" imageSrc="/img/donald-glover.jpg" />
