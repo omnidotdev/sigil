@@ -1,10 +1,14 @@
 import { Tooltip as ArkTooltip } from "@ark-ui/react/tooltip";
 
+import Button from "components/core/Button/Button";
 import { styled } from "generated/panda/jsx";
 import { tooltip } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { TooltipVariantProps } from "generated/panda/recipes";
+import type {
+  ButtonVariantProps,
+  TooltipVariantProps,
+} from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
@@ -45,7 +49,8 @@ export const TooltipTrigger = withContext(
   "trigger",
 );
 export interface TooltipTriggerProps
-  extends AssignJSXStyleProps<ArkTooltip.TriggerProps> {}
+  extends AssignJSXStyleProps<Omit<ArkTooltip.TriggerProps, "asChild">>,
+    ButtonVariantProps {}
 
 export interface TooltipProps extends TooltipRootProps {
   /** Tooltip trigger. */
@@ -79,7 +84,11 @@ const Tooltip = ({
   ...rest
 }: TooltipProps) => (
   <TooltipRoot openDelay={0} closeDelay={100} {...rest}>
-    {trigger && <TooltipTrigger {...triggerProps}>{trigger}</TooltipTrigger>}
+    {trigger && (
+      <TooltipTrigger asChild {...triggerProps}>
+        <Button>{trigger}</Button>
+      </TooltipTrigger>
+    )}
 
     <TooltipPositioner {...positionerProps}>
       <TooltipContent {...contentProps}>

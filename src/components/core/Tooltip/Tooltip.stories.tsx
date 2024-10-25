@@ -36,8 +36,13 @@ export const ComplexRender: Story = {
       ...Default.args!.contentProps,
       p: 4,
     },
+    triggerProps: {
+      variant: "ghost",
+      _hover: { bgColor: "transparent" },
+      cursor: "default",
+    },
     trigger: (
-      <Text as="span" size="sm" fontWeight="semibold" cursor="default">
+      <Text as="span" size="sm" fontWeight="semibold">
         {app.organization.x.handle} (hover me)
       </Text>
     ),
