@@ -1,5 +1,13 @@
 # @omnidev/sigil
 
+## 0.11.3
+
+### Patch Changes
+
+- [#126](https://github.com/omnidotdev/sigil/pull/126) [`f7b2a55`](https://github.com/omnidotdev/sigil/commit/f7b2a5584814b9890aca898f3f202b8b727cc40f) Thanks [@coopbri](https://github.com/coopbri)! - Fix missing tokens error during Panda compilation
+
+- [#125](https://github.com/omnidotdev/sigil/pull/125) [`37e367b`](https://github.com/omnidotdev/sigil/commit/37e367b20cbb18656c7c69d38cb3eba5937624c4) Thanks [@hobbescodes](https://github.com/hobbescodes)! - Add `Button` styles to `TooltipTrigger`
+
 ## 0.11.2
 
 ### Patch Changes
