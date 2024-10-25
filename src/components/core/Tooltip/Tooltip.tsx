@@ -6,8 +6,8 @@ import { tooltip } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type {
-  TooltipVariantProps,
   ButtonVariantProps,
+  TooltipVariantProps,
 } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
