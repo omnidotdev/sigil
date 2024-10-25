@@ -15,33 +15,52 @@ const NEUTRAL_PALETTE = "silver";
 
 /**
  * Generate semantic tokens from base colors. Useful for virtual color (`colorPalette`) usage.
+ @param colors - The base colors to generate semantic tokens from.
+ @param prefix - An optional prefix to prepend to the semantic token keys. Some color tokens are nested for organization, e.g. brand colors might be nested under `brand` prefix.
  */
-const generateSemanticColors = (colors: Tokens["colors"]) =>
-  Object.keys(colors as Recursive<Token<string>>).reduce(
+const generateSemanticColors = (
+  colors: Tokens["colors"],
+  { prefix }: { prefix?: string } = {},
+) => {
+  /***
+   * Calculate the token path for a given color.
+   * @param color - The color to calculate the token path for.
+   * @param prefix - The optional prefix to prepend to the token path.
+   * @returns The token path for the given color.
+   */
+  const calculateTokenPath = ({
+    color,
+    prefix,
+  }: {
+    color: string;
+    prefix?: string;
+  }) => (prefix ? `{colors.${prefix}.${color}}` : `{colors.${color}}`);
+
+  return Object.keys(colors as Recursive<Token<string>>).reduce(
     (semanticColors, color) => {
       semanticColors![color] = {
         default: {
           value: {
-            base: `{colors.${color}}`,
-            _dark: `{colors.${color}.500}`,
+            base: calculateTokenPath({ color, prefix }),
+            _dark: calculateTokenPath({ color: `${color}.500`, prefix }),
           },
         },
         emphasized: {
           value: {
-            base: `{colors.${color}.700}`,
-            _dark: `{colors.${color}.400}`,
+            base: calculateTokenPath({ color: `${color}.700`, prefix }),
+            _dark: calculateTokenPath({ color: `${color}.400`, prefix }),
           },
         },
         foreground: {
           value: {
             base: "{colors.white}",
-            _dark: `{colors.neutral.950}`,
+            _dark: "{colors.neutral.950}",
           },
         },
         text: {
           value: {
-            base: `{colors.${color}.900}`,
-            _dark: `{colors.${color}.100}`,
+            base: calculateTokenPath({ color: `${color}.900`, prefix }),
+            _dark: calculateTokenPath({ color: `${color}.100`, prefix }),
           },
         },
       };
@@ -50,14 +69,15 @@ const generateSemanticColors = (colors: Tokens["colors"]) =>
     },
     {} as SemanticTokens["colors"],
   );
+};
 
 /**
  * Color semantic tokens.
  */
 const colors: SemanticTokens["colors"] = defineSemanticTokens.colors({
   ...generateSemanticColors(baseColors),
-  ...generateSemanticColors(omniColors),
-  ...generateSemanticColors(brandColors),
+  ...generateSemanticColors(omniColors, { prefix: "omni" }),
+  ...generateSemanticColors(brandColors, { prefix: "brand" }),
   ...generateSemanticColors(neutralColors),
   success: { value: "{colors.green}" },
   warning: { value: "{colors.yellow}" },
