@@ -10,8 +10,7 @@ const pandaConfig = defineConfig({
   // enable CSS reset
   preflight: true,
   lightningcss: true,
-  // TODO set to "error" (default) ASAP
-  validation: "warn",
+  validation: "error",
   include: ["src/**/*.{ts,tsx,mdx}"],
   outdir: "src/generated/panda",
   presets: ["@pandacss/preset-base", sigilPreset],
