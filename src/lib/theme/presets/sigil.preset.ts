@@ -73,6 +73,7 @@ const semanticTokens = defineSemanticTokens({
  * Sigil Panda CSS preset.
  */
 const sigilPreset = definePreset({
+  name: "sigil",
   // TODO extend full theme
   // eject,
   // patterns,
