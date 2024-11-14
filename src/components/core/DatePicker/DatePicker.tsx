@@ -292,7 +292,8 @@ const DatePicker = ({
           </Button>
         </DatePickerTrigger>
 
-        {clearTrigger && (
+        {/* display clear trigger if not in range selection mode */}
+        {clearTrigger && rest.selectionMode !== "range" && (
           <DatePickerClearTrigger asChild {...clearTriggerProps}>
             {clearTrigger}
           </DatePickerClearTrigger>
