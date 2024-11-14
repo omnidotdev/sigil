@@ -87,7 +87,7 @@ const select = defineSlotRecipe({
       color: "foreground.muted",
       position: "absolute",
       cursor: "pointer",
-      right: 9,
+      right: 7,
     },
     trigger: {
       appearance: "none",

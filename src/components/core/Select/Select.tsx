@@ -1,6 +1,7 @@
 import { Select as ArkSelect } from "@ark-ui/react/select";
 import { BiCheck, BiExpandVertical, BiX } from "react-icons/bi";
 
+import Button from "components/core/Button/Button";
 import { styled } from "generated/panda/jsx";
 import { select } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
@@ -111,7 +112,7 @@ export interface SelectProps extends SelectRootProps {
   displayFieldLabel?: boolean;
   /** Whether to display the group label contained in the dropdown. */
   displayGroupLabel?: boolean;
-  /** Clear trigger. Defaults to an X icon. */
+  /** Clear trigger. Defaults to an X icon button. */
   clearTrigger?: ReactNode;
   label: {
     // TODO calculate ID from singular (add dashes, lowercase, etc.)
@@ -152,7 +153,11 @@ const Select = ({
   collection,
   displayFieldLabel = true,
   displayGroupLabel = true,
-  clearTrigger = <BiX aria-label="Clear selection" />,
+  clearTrigger = (
+    <Button variant="ghost" size="xs" p={0} aria-label="Clear selection">
+      <BiX />
+    </Button>
+  ),
   label,
   labelProps,
   controlProps,

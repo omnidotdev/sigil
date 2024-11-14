@@ -30,7 +30,7 @@ const datePicker = defineSlotRecipe({
       color: "foreground.muted",
       position: "absolute",
       cursor: "pointer",
-      right: 22,
+      right: 20,
     },
     content: {
       bgColor: "background.default",

@@ -186,7 +186,7 @@ export interface DatePickerYearSelectProps
 export interface DatePickerProps extends DatePickerRootProps {
   /** Label for the date picker. Defaults to "Date Picker". */
   label?: ReactNode;
-  /** Clear trigger. Defaults to an X icon. */
+  /** Clear trigger. Defaults to an X icon button. */
   clearTrigger?: ReactNode;
   /** Label props. */
   labelProps?: DatePickerLabelProps;
@@ -233,7 +233,11 @@ export interface DatePickerProps extends DatePickerRootProps {
  */
 const DatePicker = ({
   label = "Date Picker",
-  clearTrigger = <BiX aria-label="Clear date picker" />,
+  clearTrigger = (
+    <Button variant="ghost" size="xs" p={0} aria-label="Clear selection">
+      <BiX />
+    </Button>
+  ),
   labelProps,
   controlProps,
   clearTriggerProps,
