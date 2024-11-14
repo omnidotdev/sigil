@@ -1,4 +1,4 @@
-import { create } from "@storybook/theming/create";
+import { create as createStorybookTheme } from "@storybook/theming";
 
 import { app } from "../src/lib/config";
 import { fonts } from "../src/lib/theme/extensions/semanticTokens";
@@ -6,14 +6,14 @@ import { fonts } from "../src/lib/theme/extensions/semanticTokens";
 import type { ThemeVars } from "@storybook/theming";
 
 const typography: Pick<ThemeVars, "fontBase" | "fontCode"> = {
-  fontBase: fonts!.primary.value as string,
-  fontCode: fonts!.code.value as string,
+  fontBase: fonts!["primary"].value as string,
+  fontCode: fonts!["code"].value as string,
 };
 
 /**
  * Custom Storybook theme.
  */
-const storybookTheme = create({
+const storybookTheme = createStorybookTheme({
   ...typography,
   // set dark theme default
   base: "dark",

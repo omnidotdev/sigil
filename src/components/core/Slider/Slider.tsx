@@ -64,7 +64,7 @@ export interface SliderHiddenInputProps
 
 export interface SliderProps extends SliderRootProps {
   /** Track values to mark. */
-  markerValues: number[];
+  markerValues?: number[];
   /** Label to represent the slider. */
   label?: ReactNode;
   /** Label props. */
@@ -120,13 +120,15 @@ const Slider = ({
       </SliderContext>
     </SliderControl>
 
-    <SliderMarkerGroup {...markerGroupProps}>
-      {markerValues.map((value) => (
-        <SliderMarker key={value} value={value} {...markerProps}>
-          {value}
-        </SliderMarker>
-      ))}
-    </SliderMarkerGroup>
+    {!!markerValues?.length && (
+      <SliderMarkerGroup {...markerGroupProps}>
+        {markerValues.map((value) => (
+          <SliderMarker key={value} value={value} {...markerProps}>
+            {value}
+          </SliderMarker>
+        ))}
+      </SliderMarkerGroup>
+    )}
   </SliderRoot>
 );
 
