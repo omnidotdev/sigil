@@ -1,5 +1,6 @@
 import { DatePicker as ArkDatePicker } from "@ark-ui/react/date-picker";
 import { useMemo, type ReactNode } from "react";
+import { BiX } from "react-icons/bi";
 import { FiCalendar, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { match } from "ts-pattern";
 
@@ -23,7 +24,6 @@ export interface DatePickerRootProps
   extends AssignJSXStyleProps<ArkDatePicker.RootProps>,
     DatePickerVariantProps {}
 
-// TODO use in render
 export const DatePickerClearTrigger = withContext(
   styled(ArkDatePicker.ClearTrigger),
   "clearTrigger",
@@ -186,8 +186,14 @@ export interface DatePickerYearSelectProps
 export interface DatePickerProps extends DatePickerRootProps {
   /** Label for the date picker. Defaults to "Date Picker". */
   label?: ReactNode;
+  /** Clear trigger. Defaults to an X icon button. */
+  clearTrigger?: ReactNode;
+  /** Label props. */
+  labelProps?: DatePickerLabelProps;
   /** Control props. */
   controlProps?: DatePickerControlProps;
+  /** Clear trigger props. */
+  clearTriggerProps?: DatePickerClearTriggerProps;
   /** Trigger props. */
   triggerProps?: DatePickerTriggerProps;
   /** Positioner props. */
@@ -227,7 +233,14 @@ export interface DatePickerProps extends DatePickerRootProps {
  */
 const DatePicker = ({
   label = "Date Picker",
+  clearTrigger = (
+    <Button variant="ghost" size="xs" p={0} aria-label="Clear selection">
+      <BiX />
+    </Button>
+  ),
+  labelProps,
   controlProps,
+  clearTriggerProps,
   triggerProps,
   positionerProps,
   contentProps,
@@ -272,7 +285,7 @@ const DatePicker = ({
 
   return (
     <DatePickerRoot positioning={{ sameWidth: true }} {...rest}>
-      <DatePickerLabel>{label}</DatePickerLabel>
+      <DatePickerLabel {...labelProps}>{label}</DatePickerLabel>
 
       <DatePickerControl {...controlProps}>
         {inputs}
@@ -282,6 +295,13 @@ const DatePicker = ({
             <FiCalendar />
           </Button>
         </DatePickerTrigger>
+
+        {/* display clear trigger if not in range selection mode */}
+        {clearTrigger && rest.selectionMode !== "range" && (
+          <DatePickerClearTrigger asChild {...clearTriggerProps}>
+            {clearTrigger}
+          </DatePickerClearTrigger>
+        )}
       </DatePickerControl>
 
       <DatePickerPositioner {...positionerProps}>

@@ -15,6 +15,23 @@ const datePicker = defineSlotRecipe({
       flexDirection: "column",
       gap: 1.5,
     },
+    label: {
+      color: "foreground.default",
+      fontWeight: "medium",
+      textStyle: "sm",
+    },
+    control: {
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      gap: 2,
+    },
+    clearTrigger: {
+      color: "foreground.muted",
+      position: "absolute",
+      cursor: "pointer",
+      right: 21,
+    },
     content: {
       bgColor: "background.default",
       borderRadius: "md",
@@ -35,16 +52,6 @@ const datePicker = defineSlotRecipe({
       _hidden: {
         display: "none",
       },
-    },
-    control: {
-      display: "flex",
-      flexDirection: "row",
-      gap: 2,
-    },
-    label: {
-      color: "foreground.default",
-      fontWeight: "medium",
-      textStyle: "sm",
     },
     tableHeader: {
       color: "foreground.muted",

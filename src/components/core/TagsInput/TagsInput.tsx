@@ -105,7 +105,11 @@ export interface TagsInputProps extends TagsInputRootProps {
  */
 const TagsInput = ({
   label,
-  clearTrigger = <Button variant="outline">Clear</Button>,
+  clearTrigger = (
+    <Button variant="outline" aria-label="Clear tags">
+      Clear
+    </Button>
+  ),
   labelProps,
   controlProps,
   itemProps,

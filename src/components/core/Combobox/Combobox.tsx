@@ -15,6 +15,7 @@ import type {
 import type { ComboboxVariantProps } from "generated/panda/recipes";
 import type { ColorPalette } from "generated/panda/tokens";
 import type { AssignJSXStyleProps } from "lib/types";
+import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(combobox);
 
@@ -122,8 +123,8 @@ export interface ComboboxProps extends ComboboxRootProps {
   displayFieldLabel?: boolean;
   /** Whether to display the group label contained in the dropdown. Defaults to true. */
   displayGroupLabel?: boolean;
-  /** Whether to display the clear trigger button. Defaults to true. */
-  displayClearTrigger?: boolean;
+  /** Clear trigger. Defaults to an X icon button. */
+  clearTrigger?: ReactNode;
   /** Whether to preload items (useful for async data fetching). Defaults to true. If false, items will be loaded on input change. */
   preloadItems?: boolean;
   /** Label. */
@@ -167,7 +168,11 @@ const Combobox = ({
   colorPalette = "accent",
   displayFieldLabel = true,
   displayGroupLabel = true,
-  displayClearTrigger = true,
+  clearTrigger = (
+    <Button variant="ghost" size="xs" p={0} aria-label="Clear selection">
+      <BiX />
+    </Button>
+  ),
   preloadItems = true,
   label,
   onInputValueChange,
@@ -225,11 +230,9 @@ const Combobox = ({
           <Input colorPalette={colorPalette} />
         </ComboboxInput>
 
-        {displayClearTrigger && (
+        {clearTrigger && (
           <ComboboxClearTrigger asChild {...clearTriggerProps}>
-            <Button variant="ghost" size="xs" p={0} aria-label="Clear combobox">
-              <BiX />
-            </Button>
+            {clearTrigger}
           </ComboboxClearTrigger>
         )}
 

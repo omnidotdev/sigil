@@ -22,6 +22,8 @@ const select = defineSlotRecipe({
       boxShadow: "lg",
       display: "flex",
       flexDirection: "column",
+      maxH: 62,
+      overflowY: "auto",
       zIndex: "dropdown",
       _hidden: {
         display: "none",
@@ -87,7 +89,7 @@ const select = defineSlotRecipe({
       color: "foreground.muted",
       position: "absolute",
       cursor: "pointer",
-      right: 9,
+      right: 10,
     },
     trigger: {
       appearance: "none",
