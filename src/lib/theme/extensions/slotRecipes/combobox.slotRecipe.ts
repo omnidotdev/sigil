@@ -44,6 +44,7 @@ const combobox = defineSlotRecipe({
       boxShadow: "lg",
       display: "flex",
       flexDirection: "column",
+      maxH: 62,
       overflowY: "auto",
       zIndex: "dropdown",
       _hidden: {
