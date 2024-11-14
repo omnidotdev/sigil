@@ -2,4 +2,4 @@
 "@omnidev/sigil": patch
 ---
 
-Add automatic y-overflow and max height to `Combobox` and `Select` content slot
+Add automatic y-overflow and max height to content slot of `Combobox` and `Select`
