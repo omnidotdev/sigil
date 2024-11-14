@@ -27,6 +27,7 @@ const spacing: Tokens["spacing"] = defineTokens.spacing({
   14: { value: "3.5rem" },
   16: { value: "4rem" },
   20: { value: "5rem" },
+  22: { value: "5.5rem" },
   24: { value: "6rem" },
   28: { value: "7rem" },
   32: { value: "8rem" },
