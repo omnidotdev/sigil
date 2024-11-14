@@ -122,8 +122,8 @@ export interface ComboboxProps extends ComboboxRootProps {
   displayFieldLabel?: boolean;
   /** Whether to display the group label contained in the dropdown. Defaults to true. */
   displayGroupLabel?: boolean;
-  /** Whether to display the clear trigger button. Defaults to true. */
-  displayClearTrigger?: boolean;
+  /** Clear trigger. Defaults to an X icon. */
+  clearTrigger?: ReactNode;
   /** Whether to preload items (useful for async data fetching). Defaults to true. If false, items will be loaded on input change. */
   preloadItems?: boolean;
   /** Label. */
@@ -167,7 +167,7 @@ const Combobox = ({
   colorPalette = "accent",
   displayFieldLabel = true,
   displayGroupLabel = true,
-  displayClearTrigger = true,
+  clearTrigger = <BiX />,
   preloadItems = true,
   label,
   onInputValueChange,
@@ -225,11 +225,9 @@ const Combobox = ({
           <Input colorPalette={colorPalette} />
         </ComboboxInput>
 
-        {displayClearTrigger && (
+        {clearTrigger && (
           <ComboboxClearTrigger asChild {...clearTriggerProps}>
-            <Button variant="ghost" size="xs" p={0} aria-label="Clear combobox">
-              <BiX />
-            </Button>
+            {clearTrigger}
           </ComboboxClearTrigger>
         )}
 

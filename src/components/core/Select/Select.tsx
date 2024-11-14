@@ -7,6 +7,7 @@ import { createStyleContext } from "lib/util";
 
 import type { SelectVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
+import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(select);
 
@@ -110,8 +111,8 @@ export interface SelectProps extends SelectRootProps {
   displayFieldLabel?: boolean;
   /** Whether to display the group label contained in the dropdown. */
   displayGroupLabel?: boolean;
-  /** Whether to display the clear trigger button. */
-  displayClearTrigger?: boolean;
+  /** Clear trigger. Defaults to an X icon. */
+  clearTrigger?: ReactNode;
   label: {
     // TODO calculate ID from singular (add dashes, lowercase, etc.)
     id: string;
@@ -151,7 +152,7 @@ const Select = ({
   collection,
   displayFieldLabel = true,
   displayGroupLabel = true,
-  displayClearTrigger = true,
+  clearTrigger = <BiX />,
   label,
   labelProps,
   controlProps,
@@ -183,9 +184,9 @@ const Select = ({
         <BiExpandVertical />
       </SelectTrigger>
 
-      {displayClearTrigger && (
+      {clearTrigger && (
         <SelectClearTrigger asChild {...clearTriggerProps}>
-          <BiX />
+          {clearTrigger}
         </SelectClearTrigger>
       )}
     </SelectControl>
