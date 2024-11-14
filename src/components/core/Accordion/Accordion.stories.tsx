@@ -1,4 +1,4 @@
-import { Accordion, Button } from "components";
+import { Accordion, Badge } from "components";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -60,7 +60,11 @@ export const CustomTitle: Story = {
     items: [
       {
         ...Default.args.items[0],
-        title: <Button bgColor="red">{Default.args.items[0].title}</Button>,
+        title: (
+          <Badge bgColor="lime" color="white">
+            {Default.args.items[0].title}
+          </Badge>
+        ),
       },
       ...Default.args.items.slice(1),
     ],
