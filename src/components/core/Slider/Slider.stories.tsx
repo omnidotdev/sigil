@@ -9,6 +9,7 @@ import {
 } from "components";
 
 import type { Meta, StoryObj } from "@storybook/react";
+import type { SliderProps } from "components";
 
 type Story = StoryObj<typeof meta>;
 
@@ -18,13 +19,17 @@ const meta = {
   tags: ["autodocs"],
 } satisfies Meta;
 
+const baseArgs: SliderProps = {
+  min: 0,
+  max: 100,
+  defaultValue: [33],
+  label: "Slider",
+};
+
 export const Default: Story = {
   args: {
-    min: 0,
-    max: 100,
-    defaultValue: [33],
+    ...baseArgs,
     markerValues: [25, 50, 75],
-    label: "Slider",
   },
 };
 
@@ -33,11 +38,9 @@ export const Default: Story = {
  */
 // TODO bake into `Slider` component
 export const RangeSlider: Story = {
-  args: {
-    ...Default.args,
-  },
+  args: baseArgs,
   render: () => (
-    <SliderRoot {...Default.args} defaultValue={[33, 66]}>
+    <SliderRoot {...baseArgs} defaultValue={[33, 66]}>
       <SliderLabel>Range Slider Label</SliderLabel>
 
       <SliderControl>
