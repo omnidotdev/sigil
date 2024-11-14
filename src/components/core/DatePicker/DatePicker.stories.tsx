@@ -40,6 +40,9 @@ export const Range: Story = {
   },
 };
 
+/**
+ * A custom start of the week can be provided with the `startOfWeek` prop.
+ */
 export const CustomStartOfWeek: Story = {
   args: {
     startOfWeek: 1,
