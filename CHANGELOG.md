@@ -1,5 +1,25 @@
 # @omnidev/sigil
 
+## 0.12.0
+
+### Minor Changes
+
+- [#132](https://github.com/omnidotdev/sigil/pull/132) [`f3bd97d`](https://github.com/omnidotdev/sigil/commit/f3bd97de0a7e94498dccdc7aa9770c427d671db1) Thanks [@coopbri](https://github.com/coopbri)! - **BREAKING:** Replace `displayClearTrigger` in `Combobox` and `Select` with `clearTrigger` React node render. This was done to maintain consistency with the rest of the Sigil components, e.g. `TagsInput`
+
+### Patch Changes
+
+- [#132](https://github.com/omnidotdev/sigil/pull/132) [`f3bd97d`](https://github.com/omnidotdev/sigil/commit/f3bd97de0a7e94498dccdc7aa9770c427d671db1) Thanks [@coopbri](https://github.com/coopbri)! - Add `DatePicker` clear trigger on non-range selection modes
+
+- [#130](https://github.com/omnidotdev/sigil/pull/130) [`da0e7e4`](https://github.com/omnidotdev/sigil/commit/da0e7e4451e2fdaf46fbbc684a2dc99d41a3fa2c) Thanks [@coopbri](https://github.com/coopbri)! - Fix latent Panda token collisions and mismatched class names (https://github.com/chakra-ui/panda/releases/tag/%40pandacss%2Fparser%400.42.0)
+
+- [#132](https://github.com/omnidotdev/sigil/pull/132) [`f3bd97d`](https://github.com/omnidotdev/sigil/commit/f3bd97de0a7e94498dccdc7aa9770c427d671db1) Thanks [@coopbri](https://github.com/coopbri)! - Normalized `Combobox` clear trigger styles with `Select` clear trigger styles
+
+- [#132](https://github.com/omnidotdev/sigil/pull/132) [`f3bd97d`](https://github.com/omnidotdev/sigil/commit/f3bd97de0a7e94498dccdc7aa9770c427d671db1) Thanks [@coopbri](https://github.com/coopbri)! - Add spacing tokens: 20.5 (5.125rem), 21 (5.25rem), 21.5 (5.375rem), 22 (5.5rem), 22.5 (5.625rem), 23 (5.75rem), 23.5 (5.875rem), and 62 (15.5rem)
+
+- [#130](https://github.com/omnidotdev/sigil/pull/130) [`da0e7e4`](https://github.com/omnidotdev/sigil/commit/da0e7e4451e2fdaf46fbbc684a2dc99d41a3fa2c) Thanks [@coopbri](https://github.com/coopbri)! - Make `Slider` `markerValues` prop optional
+
+- [#132](https://github.com/omnidotdev/sigil/pull/132) [`f3bd97d`](https://github.com/omnidotdev/sigil/commit/f3bd97de0a7e94498dccdc7aa9770c427d671db1) Thanks [@coopbri](https://github.com/coopbri)! - Add automatic y-overflow and max height to content slot of `Combobox` and `Select`
+
 ## 0.11.3
 
 ### Patch Changes
