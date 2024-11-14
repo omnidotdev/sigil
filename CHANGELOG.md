@@ -1,5 +1,11 @@
 # @omnidev/sigil
 
+## 0.12.1
+
+### Patch Changes
+
+- [#133](https://github.com/omnidotdev/sigil/pull/133) [`5b410b1`](https://github.com/omnidotdev/sigil/commit/5b410b1154d8971c343eeb62aae915350a048c69) Thanks [@coopbri](https://github.com/coopbri)! - Improve `DatePicker` clear trigger spacing
+
 ## 0.12.0
 
 ### Minor Changes
