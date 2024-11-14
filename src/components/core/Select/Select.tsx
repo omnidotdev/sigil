@@ -152,7 +152,7 @@ const Select = ({
   collection,
   displayFieldLabel = true,
   displayGroupLabel = true,
-  clearTrigger = <BiX />,
+  clearTrigger = <BiX aria-label="Clear selection" />,
   label,
   labelProps,
   controlProps,

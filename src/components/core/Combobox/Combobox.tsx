@@ -167,7 +167,7 @@ const Combobox = ({
   colorPalette = "accent",
   displayFieldLabel = true,
   displayGroupLabel = true,
-  clearTrigger = <BiX />,
+  clearTrigger = <BiX aria-label="Clear selection" />,
   preloadItems = true,
   label,
   onInputValueChange,
