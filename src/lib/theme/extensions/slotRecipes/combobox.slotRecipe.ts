@@ -28,7 +28,7 @@ const combobox = defineSlotRecipe({
       color: "foreground.muted",
       position: "absolute",
       cursor: "pointer",
-      right: 7,
+      right: 10,
     },
     trigger: {
       color: "foreground.muted",
