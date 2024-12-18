@@ -111,9 +111,13 @@ export interface MenuTriggerItemProps
   extends AssignJSXStyleProps<ArkMenu.TriggerItemProps> {}
 
 export interface MenuProps extends MenuRootProps {
+  /** Trigger. */
   trigger?: ReactNode;
+  /** Trigger props. */
   triggerProps?: MenuTriggerProps;
+  /** Positioner props. */
   positionerProps?: MenuPositionerProps;
+  /** Content props. */
   contentProps?: MenuContentProps;
 }
 
