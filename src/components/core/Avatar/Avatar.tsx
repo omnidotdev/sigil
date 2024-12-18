@@ -6,7 +6,7 @@ import { avatar } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
 import type { AvatarVariantProps } from "generated/panda/recipes";
-import type { AssignJSXStyleProps } from "lib/types";
+import type { AssignJSXStyleProps, Nullable } from "lib/types";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(avatar);
@@ -49,7 +49,7 @@ const getInitials = (name: string) =>
 
 export interface AvatarProps extends AvatarRootProps {
   /** Name of user. */
-  name?: string;
+  name?: Nullable<string>;
   /** Fallback content. Defaults to user's initials if supplied, an icon otherwise. */
   fallback?: ReactNode;
   /** Image source. */
