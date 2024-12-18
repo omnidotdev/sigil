@@ -1,5 +1,11 @@
 # @omnidev/sigil
 
+## 0.12.2
+
+### Patch Changes
+
+- [#139](https://github.com/omnidotdev/sigil/pull/139) [`941c369`](https://github.com/omnidotdev/sigil/commit/941c369bf46027f16e4952bff896dba041e962f7) Thanks [@coopbri](https://github.com/coopbri)! - Allow `Avatar` `name` prop to be `null`
+
 ## 0.12.1
 
 ### Patch Changes
