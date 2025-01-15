@@ -7,7 +7,8 @@ import { defineSlotRecipe } from "@pandacss/dev";
 const treeView = defineSlotRecipe({
   className: "treeView",
   description: "Tree view style recipes",
-  slots: treeViewAnatomy.keys(),
+  // TODO remove this manual slot, Ark currently doesn't correctly export anatomy `branchIndentGuide` slot upstream but it should in the future
+  slots: [...treeViewAnatomy.keys(), "branchIndentGuide"],
   base: {
     root: {
       width: "full",
@@ -17,24 +18,24 @@ const treeView = defineSlotRecipe({
       fontSize: "sm",
       fontWeight: "semibold",
     },
-    branch: {
-      "&[data-depth='1'] > [data-part='branch-content']": {
-        _before: {
-          bgColor: "border.default",
-          content: '""',
-          height: "full",
-          left: 3,
-          position: "absolute",
-          width: "1px",
-          zIndex: 1,
-        },
-      },
+    branchText: {
+      display: "flex",
+      alignItems: "center",
+      gap: 2,
     },
     branchContent: {
       position: "relative",
+      overflow: "hidden",
+      _open: {
+        animation: "collapse-in",
+      },
+      _closed: {
+        animation: "collapse-out",
+      },
     },
     branchControl: {
       alignItems: "center",
+      justifyContent: "space-between",
       borderRadius: "sm",
       color: "foreground.muted",
       cursor: "pointer",
@@ -59,6 +60,14 @@ const treeView = defineSlotRecipe({
         color: "foreground.default",
       },
     },
+    branchIndentGuide: {
+      position: "absolute",
+      content: "",
+      borderLeft: "1px solid",
+      borderColor: "border.subtle",
+      height: "100%",
+      translate: "10px",
+    },
     branchIndicator: {
       color: "colorPalette.default",
       transformOrigin: "center",
@@ -75,6 +84,9 @@ const treeView = defineSlotRecipe({
       },
     },
     item: {
+      display: "flex",
+      alignItems: "center",
+      gap: 2,
       borderRadius: "sm",
       color: "foreground.muted",
       cursor: "pointer",
@@ -115,13 +127,18 @@ const treeView = defineSlotRecipe({
           width: "2px",
           height: "full",
           bgColor: "colorPalette.default",
-          zIndex: 1,
         },
       },
+    },
+    itemText: {
+      display: "flex",
+      alignItems: "center",
+      gap: 2,
     },
     tree: {
       display: "flex",
       flexDirection: "column",
+      w: "240px",
       gap: 1,
     },
   },
