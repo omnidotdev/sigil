@@ -99,7 +99,7 @@ const treeView = defineSlotRecipe({
       transitionProperty: "background, color",
       transitionTimingFunction: "default",
       "&[data-depth='1']": {
-        ps: 6,
+        ps: 1,
         fontWeight: "semibold",
         color: "foreground.default",
         _selected: {
