@@ -14,7 +14,7 @@ const { withProvider, withContext } = createStyleContext(carousel);
 
 export const CarouselRoot = withProvider(styled(ArkCarousel.Root), "root");
 export interface CarouselRootProps
-  extends AssignJSXStyleProps<ArkCarousel.RootProps>,
+  extends Omit<AssignJSXStyleProps<ArkCarousel.RootProps>, "page">,
     CarouselVariantProps {}
 
 export const CarouselControl = withContext(
@@ -63,7 +63,7 @@ export const CarouselPrevTrigger = withContext(
 export interface CarouselPrevTriggerProps
   extends AssignJSXStyleProps<ArkCarousel.PrevTriggerProps> {}
 
-export interface CarouselProps extends Omit<CarouselRootProps, "page"> {
+export interface CarouselProps extends CarouselRootProps {
   /** Item content to render. */
   items: ReactNode[];
 }
