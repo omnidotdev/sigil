@@ -30,4 +30,34 @@ export const Default: Story = {
   },
 };
 
+/**
+ * By enabling the `loop` prop, the carousel will loop back to the first slide after the last slide is reached.
+ */
+export const Loop: Story = {
+  args: {
+    ...Default.args,
+    loop: true,
+  },
+};
+
+/**
+ * By enabling the `autoplay` prop, the carousel will automatically advance to the next slide after a set interval (default 4000ms).
+ */
+export const Autoplay: Story = {
+  args: {
+    ...Default.args,
+    autoplay: true,
+  },
+};
+
+/**
+ * The carousel autoplay interval can be customized by passing an object with a `delay` property to the `autoplay` prop.
+ */
+export const CustomAutoplayInterval: Story = {
+  args: {
+    ...Default.args,
+    autoplay: { delay: 1000 },
+  },
+};
+
 export default meta;
