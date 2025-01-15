@@ -23,8 +23,11 @@ import type { ReactNode } from "react";
 const { withProvider, withContext } = createStyleContext(treeView);
 
 export interface TreeViewNode {
+  /** Human-readable label. */
   label: string;
+  /** Unique value. */
   value: string;
+  /** Recursive child nodes. */
   children?: TreeViewNode[];
 }
 
