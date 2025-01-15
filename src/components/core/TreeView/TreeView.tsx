@@ -1,10 +1,16 @@
 import { TreeView as ArkTreeView } from "@ark-ui/react/tree-view";
-import { FiChevronRight } from "react-icons/fi";
+import {
+  FiCheckSquare,
+  FiChevronRight,
+  FiFile,
+  FiFolder,
+} from "react-icons/fi";
 
-import { Stack, styled } from "generated/panda/jsx";
+import { styled } from "generated/panda/jsx";
 import { treeView } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { TreeNode } from "@ark-ui/react/tree-view";
 import type { TreeViewVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
@@ -12,8 +18,8 @@ import type { ReactNode } from "react";
 const { withProvider, withContext } = createStyleContext(treeView);
 
 export const TreeViewRoot = withProvider(styled(ArkTreeView.Root), "root");
-export interface TreeViewRootProps
-  extends AssignJSXStyleProps<ArkTreeView.RootProps>,
+export interface TreeViewRootProps<T extends TreeNode>
+  extends AssignJSXStyleProps<ArkTreeView.RootProps<T>>,
     TreeViewVariantProps {}
 
 export const TreeViewBranch = withContext(styled(ArkTreeView.Branch), "branch");
@@ -83,31 +89,124 @@ export const TreeViewTree = withContext(styled(ArkTreeView.Tree), "tree");
 export interface TreeViewTreeProps
   extends AssignJSXStyleProps<ArkTreeView.TreeProps> {}
 
-interface TreeChild {
-  value: string;
+export const TreeViewNodeProvider = withContext(
+  styled(ArkTreeView.NodeProvider),
+  // @ts-ignore upstream type issue (TODO resolve)
+  "nodeProvider",
+);
+export interface TreeViewNodeProviderProps<T extends TreeNode>
+  extends AssignJSXStyleProps<ArkTreeView.NodeProviderProps<T>> {}
+
+export const TreeViewBranchIndentGuide = withContext(
+  styled(ArkTreeView.BranchIndentGuide),
+  // @ts-ignore upstream type issue (TODO resolve)
+  "branchIndentGuide",
+);
+export interface TreeViewBranchIndentGuideProps
+  extends AssignJSXStyleProps<ArkTreeView.BranchIndentGuideProps> {}
+
+export interface TreeNodeData {
+  id: string;
   name: string;
-  children?: TreeChild[];
+  children?: TreeNodeData[];
 }
 
-export interface TreeData {
-  children: TreeChild[];
+interface TreeNodeProps extends TreeViewNodeProviderProps<TreeNodeData> {
+  /** Branch props. */
+  branchProps?: TreeViewBranchProps;
+  /** Branch control props. */
+  branchControlProps?: TreeViewBranchControlProps;
+  /** Branch indicator props. */
+  branchIndicatorProps?: TreeViewBranchIndicatorProps;
+  /** Branch text props. */
+  branchTextProps?: TreeViewBranchTextProps;
+  /** Branch content props. */
+  branchContentProps?: TreeViewBranchContentProps;
+  /** Branch trigger props. */
+  branchTriggerProps?: TreeViewBranchTriggerProps;
+  /** Branch indent guide props. */
+  branchIndentGuideProps?: TreeViewBranchIndentGuideProps;
+  /** Item props. */
+  itemProps?: TreeViewItemProps;
+  /** Item indicator props. */
+  itemIndicatorProps?: TreeViewItemIndicatorProps;
+  /** Item text props. */
+  itemTextProps?: TreeViewItemTextProps;
 }
 
-export interface TreeViewProps extends TreeViewRootProps {
+// TODO make more dynamic and composable, e.g. dynamic icons
+/**
+ * Individual tree node.
+ */
+const TreeNode = ({
+  node,
+  indexPath,
+  branchProps,
+  branchControlProps,
+  branchIndicatorProps,
+  branchTextProps,
+  branchContentProps,
+  // TODO use, see note above
+  // branchTriggerProps,
+  branchIndentGuideProps,
+  itemProps,
+  itemIndicatorProps,
+  itemTextProps,
+  ...rest
+}: TreeNodeProps) => (
+  <TreeViewNodeProvider
+    key={node.id}
+    node={node}
+    indexPath={indexPath}
+    {...rest}
+  >
+    {node.children ? (
+      <TreeViewBranch {...branchProps}>
+        <TreeViewBranchControl {...branchControlProps}>
+          <TreeViewBranchText {...branchTextProps}>
+            <FiFolder /> {node.name}
+          </TreeViewBranchText>
+
+          <TreeViewBranchIndicator {...branchIndicatorProps}>
+            <FiChevronRight />
+          </TreeViewBranchIndicator>
+        </TreeViewBranchControl>
+
+        <TreeViewBranchContent {...branchContentProps}>
+          <TreeViewBranchIndentGuide {...branchIndentGuideProps} />
+
+          {node.children.map((child, index) => (
+            <TreeNode
+              key={child.id}
+              node={child}
+              indexPath={[...indexPath, index]}
+              {...rest}
+            />
+          ))}
+        </TreeViewBranchContent>
+      </TreeViewBranch>
+    ) : (
+      <TreeViewItem {...itemProps}>
+        <TreeViewItemIndicator {...itemIndicatorProps}>
+          <FiCheckSquare />
+        </TreeViewItemIndicator>
+
+        <TreeViewItemText {...itemTextProps}>
+          <FiFile />
+          {node.name}
+        </TreeViewItemText>
+      </TreeViewItem>
+    )}
+  </TreeViewNodeProvider>
+);
+
+export interface TreeViewProps extends TreeViewRootProps<TreeNode> {
   /** Label for the tree view content. */
   label?: ReactNode;
-  /** Data to be displayed in the tree view. */
-  data: TreeData;
+  /** Tree props. */
   treeProps?: TreeViewTreeProps;
-  branchProps?: TreeViewBranchProps;
-  branchControlProps?: TreeViewBranchControlProps;
-  branchIndicatorProps?: TreeViewBranchIndicatorProps;
-  branchTextProps?: TreeViewBranchTextProps;
-  branchContentProps?: TreeViewBranchContentProps;
-  branchTriggerProps?: TreeViewBranchTriggerProps;
-  itemProps?: TreeViewItemProps;
-  itemIndicatorProps?: TreeViewItemIndicatorProps;
-  itemTextProps?: TreeViewItemTextProps;
+  /** Node props. */
+  nodeProps?: TreeNodeProps;
 }
 
 /**
@@ -115,72 +214,29 @@ export interface TreeViewProps extends TreeViewRootProps {
  */
 const TreeView = ({
   label,
-  data,
+  collection,
   treeProps,
-  branchProps,
-  branchControlProps,
-  branchIndicatorProps,
-  branchTextProps,
-  branchContentProps,
-  // branchTriggerProps,
-  itemProps,
-  // itemIndicatorProps,
-  itemTextProps,
+  nodeProps,
   ...rest
-}: TreeViewProps) => {
-  /**
-   * Render child node.
-   */
-  const renderChild = ({ value, name, children }: TreeChild) =>
-    children ? (
-      <TreeViewBranch key={value} value={value} {...branchProps}>
-        <TreeViewBranchControl {...branchControlProps}>
-          <TreeViewBranchIndicator {...branchIndicatorProps}>
-            <FiChevronRight />
-          </TreeViewBranchIndicator>
+}: TreeViewProps) => (
+  <TreeViewRoot
+    collection={collection}
+    aria-label={typeof label === "string" ? label : undefined}
+    {...rest}
+  >
+    {label && <TreeViewLabel>{label}</TreeViewLabel>}
 
-          <TreeViewBranchText {...branchTextProps}>{name}</TreeViewBranchText>
-        </TreeViewBranchControl>
-
-        <TreeViewBranchContent {...branchContentProps}>
-          {children.map(renderChild)}
-        </TreeViewBranchContent>
-      </TreeViewBranch>
-    ) : (
-      <TreeViewItem key={value} value={value} {...itemProps}>
-        <TreeViewItemText {...itemTextProps}>{name}</TreeViewItemText>
-      </TreeViewItem>
-    );
-
-  return (
-    <TreeViewRoot
-      aria-label={typeof label === "string" ? label : undefined}
-      {...rest}
-    >
-      <Stack>
-        {label && <TreeViewLabel>{label}</TreeViewLabel>}
-
-        <TreeViewTree {...treeProps}>
-          {data.children.map((child) =>
-            child.children ? (
-              // recursively render child nodes
-              renderChild(child)
-            ) : (
-              <TreeViewItem
-                key={child.value}
-                value={child.value}
-                {...itemProps}
-              >
-                <TreeViewItemText {...itemTextProps}>
-                  {child.name}
-                </TreeViewItemText>
-              </TreeViewItem>
-            ),
-          )}
-        </TreeViewTree>
-      </Stack>
-    </TreeViewRoot>
-  );
-};
+    <TreeViewTree {...treeProps}>
+      {collection.rootNode.children?.map((node, index) => (
+        <TreeNode
+          key={node.id}
+          node={node}
+          indexPath={[index]}
+          {...nodeProps}
+        />
+      ))}
+    </TreeViewTree>
+  </TreeViewRoot>
+);
 
 export default TreeView;
