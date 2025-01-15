@@ -138,7 +138,6 @@ const treeView = defineSlotRecipe({
     tree: {
       display: "flex",
       flexDirection: "column",
-      w: "240px",
       gap: 1,
     },
   },
