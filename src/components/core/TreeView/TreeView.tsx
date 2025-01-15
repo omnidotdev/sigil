@@ -10,16 +10,31 @@ import { styled } from "generated/panda/jsx";
 import { treeView } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { TreeNode } from "@ark-ui/react/tree-view";
-import type { TreeViewVariantProps } from "generated/panda/recipes";
+import type { TreeNode as ArkTreeNode } from "@ark-ui/react/tree-view";
+import type { StyledComponent } from "generated/panda/jsx";
+import type {
+  TreeViewRecipe,
+  TreeViewVariantProps,
+} from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
+import type { ComponentVariants } from "lib/util/createStyleContext";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(treeView);
 
-export const TreeViewRoot = withProvider(styled(ArkTreeView.Root), "root");
-export interface TreeViewRootProps<T extends TreeNode>
-  extends AssignJSXStyleProps<ArkTreeView.RootProps<T>>,
+export interface TreeViewNode {
+  label: string;
+  value: string;
+  children?: TreeViewNode[];
+}
+
+// TODO remove explicit type annotation, used currently due to type inference issue (non-portable type)
+export const TreeViewRoot: ComponentVariants<
+  StyledComponent<typeof ArkTreeView.Root<TreeViewNode>, {}>,
+  TreeViewRecipe
+> = withProvider(styled(ArkTreeView.Root), "root");
+export interface TreeViewRootProps
+  extends AssignJSXStyleProps<ArkTreeView.RootProps<TreeViewNode>>,
     TreeViewVariantProps {}
 
 export const TreeViewBranch = withContext(styled(ArkTreeView.Branch), "branch");
@@ -94,7 +109,7 @@ export const TreeViewNodeProvider = withContext(
   // @ts-ignore upstream type issue (TODO resolve)
   "nodeProvider",
 );
-export interface TreeViewNodeProviderProps<T extends TreeNode>
+export interface TreeViewNodeProviderProps<T extends ArkTreeNode>
   extends AssignJSXStyleProps<ArkTreeView.NodeProviderProps<T>> {}
 
 export const TreeViewBranchIndentGuide = withContext(
@@ -105,13 +120,7 @@ export const TreeViewBranchIndentGuide = withContext(
 export interface TreeViewBranchIndentGuideProps
   extends AssignJSXStyleProps<ArkTreeView.BranchIndentGuideProps> {}
 
-export interface TreeNodeData {
-  id: string;
-  name: string;
-  children?: TreeNodeData[];
-}
-
-interface TreeNodeProps extends TreeViewNodeProviderProps<TreeNodeData> {
+interface TreeNodeProps extends TreeViewNodeProviderProps<TreeViewNode> {
   /** Branch props. */
   branchProps?: TreeViewBranchProps;
   /** Branch control props. */
@@ -155,7 +164,7 @@ const TreeNode = ({
   ...rest
 }: TreeNodeProps) => (
   <TreeViewNodeProvider
-    key={node.id}
+    key={node.value}
     node={node}
     indexPath={indexPath}
     {...rest}
@@ -164,7 +173,7 @@ const TreeNode = ({
       <TreeViewBranch {...branchProps}>
         <TreeViewBranchControl {...branchControlProps}>
           <TreeViewBranchText {...branchTextProps}>
-            <FiFolder /> {node.name}
+            <FiFolder /> {node.label}
           </TreeViewBranchText>
 
           <TreeViewBranchIndicator {...branchIndicatorProps}>
@@ -177,7 +186,7 @@ const TreeNode = ({
 
           {node.children.map((child, index) => (
             <TreeNode
-              key={child.id}
+              key={child.value}
               node={child}
               indexPath={[...indexPath, index]}
               {...rest}
@@ -193,14 +202,14 @@ const TreeNode = ({
 
         <TreeViewItemText {...itemTextProps}>
           <FiFile />
-          {node.name}
+          {node.label}
         </TreeViewItemText>
       </TreeViewItem>
     )}
   </TreeViewNodeProvider>
 );
 
-export interface TreeViewProps extends TreeViewRootProps<TreeNode> {
+export interface TreeViewProps extends TreeViewRootProps {
   /** Label for the tree view content. */
   label?: ReactNode;
   /** Tree props. */
@@ -229,7 +238,7 @@ const TreeView = ({
     <TreeViewTree {...treeProps}>
       {collection.rootNode.children?.map((node, index) => (
         <TreeNode
-          key={node.id}
+          key={node.value}
           node={node}
           indexPath={[index]}
           {...nodeProps}

@@ -3,7 +3,7 @@ import { createTreeCollection } from "@ark-ui/react";
 import { TreeView } from "components";
 
 import type { Meta, StoryObj } from "@storybook/react";
-import type { TreeNodeData } from "components/core/TreeView/TreeView";
+import type { TreeViewNode } from "components";
 
 type Story = StoryObj<typeof meta>;
 
@@ -13,41 +13,41 @@ const meta = {
   tags: ["autodocs"],
 } satisfies Meta;
 
-const collection = createTreeCollection<TreeNodeData>({
-  nodeToValue: (node) => node.id,
-  nodeToString: (node) => node.name,
+const collection = createTreeCollection<TreeViewNode>({
+  nodeToValue: (node) => node.value,
+  nodeToString: (node) => node.label,
   rootNode: {
-    id: "ROOT",
-    name: "",
+    value: "ROOT",
+    label: "",
     children: [
       {
-        id: "node_modules",
-        name: "node_modules",
+        value: "node_modules",
+        label: "node_modules",
         children: [
-          { id: "node_modules/zag-js", name: "zag-js" },
-          { id: "node_modules/pandacss", name: "panda" },
+          { value: "node_modules/zag-js", label: "zag-js" },
+          { value: "node_modules/pandacss", label: "panda" },
           {
-            id: "node_modules/@types",
-            name: "@types",
+            value: "node_modules/@types",
+            label: "@types",
             children: [
-              { id: "node_modules/@types/react", name: "react" },
-              { id: "node_modules/@types/react-dom", name: "react-dom" },
+              { value: "node_modules/@types/react", label: "react" },
+              { value: "node_modules/@types/react-dom", label: "react-dom" },
             ],
           },
         ],
       },
       {
-        id: "src",
-        name: "src",
+        value: "src",
+        label: "src",
         children: [
-          { id: "src/app.tsx", name: "app.tsx" },
-          { id: "src/index.ts", name: "index.ts" },
+          { value: "src/app.tsx", label: "app.tsx" },
+          { value: "src/index.ts", label: "index.ts" },
         ],
       },
-      { id: "panda.config", name: "panda.config.ts" },
-      { id: "package.json", name: "package.json" },
-      { id: "renovate.json", name: "renovate.json" },
-      { id: "readme.md", name: "README.md" },
+      { value: "panda.config", label: "panda.config.ts" },
+      { value: "package.json", label: "package.json" },
+      { value: "renovate.json", label: "renovate.json" },
+      { value: "readme.md", label: "README.md" },
     ],
   },
 });
