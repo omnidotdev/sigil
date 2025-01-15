@@ -15,7 +15,7 @@ import type {
 import type { ComboboxVariantProps } from "generated/panda/recipes";
 import type { ColorPalette } from "generated/panda/tokens";
 import type { AssignJSXStyleProps } from "lib/types";
-import type { ReactNode } from "react";
+import type { JSX, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(combobox);
 
