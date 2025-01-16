@@ -1,5 +1,15 @@
 # @omnidev/sigil
 
+## 0.12.3
+
+### Patch Changes
+
+- [#144](https://github.com/omnidotdev/sigil/pull/144) [`e2b11da`](https://github.com/omnidotdev/sigil/commit/e2b11daa5498a5cc95bec6371c0d3028d63b8bb9) Thanks [@coopbri](https://github.com/coopbri)! - **BREAKING:** Remove `CarouselViewport`
+
+- [#144](https://github.com/omnidotdev/sigil/pull/144) [`e2b11da`](https://github.com/omnidotdev/sigil/commit/e2b11daa5498a5cc95bec6371c0d3028d63b8bb9) Thanks [@coopbri](https://github.com/coopbri)! - Fix `NumberInput` parts layout
+
+- [#144](https://github.com/omnidotdev/sigil/pull/144) [`e2b11da`](https://github.com/omnidotdev/sigil/commit/e2b11daa5498a5cc95bec6371c0d3028d63b8bb9) Thanks [@coopbri](https://github.com/coopbri)! - **BREAKING:** Update `TreeView` to use `createTreeCollection` helper
+
 ## 0.12.2
 
 ### Patch Changes
