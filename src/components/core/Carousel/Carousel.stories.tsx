@@ -31,7 +31,7 @@ export const Default: Story = {
 };
 
 /**
- *  By enabling the `allowMouseDrag` prop, the carousel can be dragged by the user to change the current slide.
+ * By enabling the `allowMouseDrag` prop, the carousel can be dragged by the user to change the current slide.
  */
 export const Draggable: Story = {
   args: {
