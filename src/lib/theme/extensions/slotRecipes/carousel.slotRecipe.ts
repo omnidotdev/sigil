@@ -11,11 +11,7 @@ const carousel = defineSlotRecipe({
   base: {
     root: {
       colorPalette: "accent",
-    },
-    viewport: {
-      overflowX: "hidden",
       position: "relative",
-      borderRadius: "sm",
     },
     control: {
       alignItems: "center",

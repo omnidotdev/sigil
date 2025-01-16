@@ -49,8 +49,8 @@ const numberInput = defineSlotRecipe({
       borderWidth: "1px",
       display: "grid",
       divideX: "1px",
+      gridTemplateRows: "repeat(2, 1fr)",
       gridTemplateColumns: "1fr 32px",
-      gridTemplateRows: "1fr 1fr",
       overflow: "hidden",
       transitionDuration: "normal",
       transitionProperty: "border-color, box-shadow",
@@ -63,7 +63,8 @@ const numberInput = defineSlotRecipe({
     input: {
       bgColor: "transparent",
       border: "none",
-      gridRow: 2,
+      gridRow: "1 / -1",
+      gridColumn: 1,
       outline: "none",
       width: "full",
     },
@@ -74,8 +75,14 @@ const numberInput = defineSlotRecipe({
     decrementTrigger: {
       ...triggerStyles,
       borderTopWidth: "1px",
+      gridRow: 2,
+      gridColumn: 2,
     },
-    incrementTrigger: triggerStyles,
+    incrementTrigger: {
+      ...triggerStyles,
+      gridRow: 1,
+      gridColumn: 2,
+    },
   },
   defaultVariants: {
     size: "md",

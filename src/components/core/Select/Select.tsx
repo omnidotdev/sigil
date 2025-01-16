@@ -8,7 +8,7 @@ import { createStyleContext } from "lib/util";
 
 import type { SelectVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
-import type { ReactNode } from "react";
+import type { JSX, ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(select);
 
