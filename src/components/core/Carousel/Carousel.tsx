@@ -14,7 +14,8 @@ const { withProvider, withContext } = createStyleContext(carousel);
 
 export const CarouselRoot = withProvider(styled(ArkCarousel.Root), "root");
 export interface CarouselRootProps
-  extends AssignJSXStyleProps<ArkCarousel.RootProps>,
+  // TODO do not omit `page` prop and fix controlled carousel (https://linear.app/omnidev/issue/OMNI-175/fix-and-enable-carousel-controlled-component-story)
+  extends Omit<AssignJSXStyleProps<ArkCarousel.RootProps>, "page">,
     CarouselVariantProps {}
 
 export const CarouselControl = withContext(
@@ -63,13 +64,6 @@ export const CarouselPrevTrigger = withContext(
 export interface CarouselPrevTriggerProps
   extends AssignJSXStyleProps<ArkCarousel.PrevTriggerProps> {}
 
-export const CarouselViewport = withContext(
-  styled(ArkCarousel.Viewport),
-  "viewport",
-);
-export interface CarouselViewportProps
-  extends AssignJSXStyleProps<ArkCarousel.ViewportProps> {}
-
 export interface CarouselProps extends CarouselRootProps {
   /** Item content to render. */
   items: ReactNode[];
@@ -80,39 +74,37 @@ export interface CarouselProps extends CarouselRootProps {
  */
 const Carousel = ({ items, ...rest }: CarouselProps) => (
   <CarouselRoot {...rest}>
-    <CarouselViewport>
-      <CarouselItemGroup>
-        {items.map((item, idx) => (
-          <CarouselItem key={idx} index={idx}>
-            {item}
-          </CarouselItem>
+    <CarouselControl>
+      <CarouselPrevTrigger asChild>
+        <Button size="sm" variant="ghost" aria-label="Previous item">
+          <FiChevronLeft />
+        </Button>
+      </CarouselPrevTrigger>
+
+      <CarouselIndicatorGroup>
+        {items.map((_, idx) => (
+          <CarouselIndicator
+            key={idx}
+            index={idx}
+            aria-label={`Go to item ${idx + 1}`}
+          />
         ))}
-      </CarouselItemGroup>
+      </CarouselIndicatorGroup>
 
-      <CarouselControl>
-        <CarouselPrevTrigger asChild>
-          <Button size="sm" variant="ghost" aria-label="Previous item">
-            <FiChevronLeft />
-          </Button>
-        </CarouselPrevTrigger>
+      <CarouselNextTrigger asChild>
+        <Button size="sm" variant="ghost" aria-label="Next item">
+          <FiChevronRight />
+        </Button>
+      </CarouselNextTrigger>
+    </CarouselControl>
 
-        <CarouselIndicatorGroup>
-          {Array.from({ length: items.length }).map((_, idx) => (
-            <CarouselIndicator
-              key={idx}
-              index={idx}
-              aria-label={`Go to item ${idx + 1}`}
-            />
-          ))}
-        </CarouselIndicatorGroup>
-
-        <CarouselNextTrigger asChild>
-          <Button size="sm" variant="ghost" aria-label="Next item">
-            <FiChevronRight />
-          </Button>
-        </CarouselNextTrigger>
-      </CarouselControl>
-    </CarouselViewport>
+    <CarouselItemGroup>
+      {items.map((item, idx) => (
+        <CarouselItem key={idx} index={idx}>
+          {item}
+        </CarouselItem>
+      ))}
+    </CarouselItemGroup>
   </CarouselRoot>
 );
 
