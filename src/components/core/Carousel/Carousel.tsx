@@ -14,6 +14,7 @@ const { withProvider, withContext } = createStyleContext(carousel);
 
 export const CarouselRoot = withProvider(styled(ArkCarousel.Root), "root");
 export interface CarouselRootProps
+  // TODO do not omit `page` prop and fix controlled carousel (https://linear.app/omnidev/issue/OMNI-175/fix-and-enable-carousel-controlled-component-story)
   extends Omit<AssignJSXStyleProps<ArkCarousel.RootProps>, "page">,
     CarouselVariantProps {}
 

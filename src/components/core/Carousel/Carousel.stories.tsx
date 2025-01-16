@@ -40,6 +40,34 @@ export const Draggable: Story = {
   },
 };
 
+// TODO enable below (https://linear.app/omnidev/issue/OMNI-175/fix-and-enable-carousel-controlled-component-story)
+/**
+ * The current carousel page can be controlled by setting the `page` prop.
+ */
+// export const Controlled: Story = {
+//   args: {
+//     ...Default.args,
+//   },
+//   render: () => {
+//     const [page, setPage] = useState(0);
+
+//     return (
+//       <>
+//         <Button onClick={() => setPage(page - 1)}>Prev</Button>
+//         <Carousel
+//           {...Default.args}
+//           page={page}
+//           onPageChange={(evt) => {
+//             console.log(evt);
+//             setPage(evt.page);
+//           }}
+//         />
+//         <Button onClick={() => setPage(page + 1)}>Next</Button>
+//       </>
+//     );
+//   },
+// };
+
 /**
  * By enabling the `loop` prop, the carousel will loop back to the first slide after the last slide is reached.
  */
