@@ -43,8 +43,8 @@
     "prepare": "husky && panda codegen --silent"
   },
   "peerDependencies": {
-    "@pandacss/dev": "^0.51.0",
-    "@pandacss/types": "^0.51.0",
+    "@pandacss/dev": "^0.51.0 || ^0.52.0",
+    "@pandacss/types": "^0.51.0 || ^0.52.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -57,9 +57,9 @@
     "@commitlint/config-conventional": "^19.6.0",
     "@commitlint/types": "^19.5.0",
     "@omnidev/knit": "^0.1.2",
-    "@pandacss/dev": "0.51.1",
-    "@pandacss/studio": "^0.51.1",
-    "@pandacss/types": "0.51.1",
+    "@pandacss/dev": "0.52.0",
+    "@pandacss/studio": "^0.52.0",
+    "@pandacss/types": "0.52.0",
     "@storybook/addon-a11y": "^8.5.0",
     "@storybook/addon-coverage": "^1.0.5",
     "@storybook/addon-docs": "^8.5.0",
