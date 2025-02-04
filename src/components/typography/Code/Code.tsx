@@ -14,6 +14,4 @@ export interface CodeProps
 /**
  * Code text representation.
  */
-const Code = styled(ark.code, code);
-
-export default Code;
+export const Code = styled(ark.code, code);

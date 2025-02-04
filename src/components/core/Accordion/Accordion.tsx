@@ -61,7 +61,7 @@ export interface AccordionProps extends AccordionRootProps {
 /**
  * Accordion used to display interactive tabs that can be opened and closed to show/hide nested content. By default, `multiple` is enabled, allowing multiple items to be open at once.
  */
-const Accordion = ({
+export const Accordion = ({
   items,
   triggerProps,
   indicatorProps,
@@ -92,5 +92,3 @@ const Accordion = ({
     ))}
   </AccordionRoot>
 );
-
-export default Accordion;

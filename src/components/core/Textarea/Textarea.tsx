@@ -14,6 +14,4 @@ export interface TextareaProps
 /**
  * Textarea.
  */
-const Textarea = styled(ark.textarea, textarea);
-
-export default Textarea;
+export const Textarea = styled(ark.textarea, textarea);

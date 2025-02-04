@@ -65,7 +65,7 @@ export interface ProgressProps extends ProgressRootProps {
 /**
  * Progress indicator. Useful for displaying determinate or indeterminate progress, such as loading or processing states.
  */
-const Progress = ({
+export const Progress = ({
   label,
   value,
   defaultValue,
@@ -95,5 +95,3 @@ const Progress = ({
     </ProgressValueText>
   </ProgressRoot>
 );
-
-export default Progress;

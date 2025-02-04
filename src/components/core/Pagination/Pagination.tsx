@@ -1,7 +1,7 @@
 import { Pagination as ArkPagination } from "@ark-ui/react/pagination";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-import Button from "components/core/Button/Button";
+import { Button } from "components/core/Button/Button";
 import { styled } from "generated/panda/jsx";
 import { pagination } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
@@ -57,7 +57,7 @@ export interface PaginationProps extends PaginationRootProps {
 /**
  * Pagination.
  */
-const Pagination = ({
+export const Pagination = ({
   prevTriggerProps,
   itemProps,
   ellipsisProps,
@@ -97,5 +97,3 @@ const Pagination = ({
     </PaginationNextTrigger>
   </PaginationRoot>
 );
-
-export default Pagination;

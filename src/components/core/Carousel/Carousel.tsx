@@ -1,7 +1,7 @@
 import { Carousel as ArkCarousel } from "@ark-ui/react/carousel";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-import Button from "components/core/Button/Button";
+import { Button } from "components/core/Button/Button";
 import { styled } from "generated/panda/jsx";
 import { carousel } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
@@ -72,7 +72,7 @@ export interface CarouselProps extends CarouselRootProps {
 /**
  * Carousel.
  */
-const Carousel = ({ items, ...rest }: CarouselProps) => (
+export const Carousel = ({ items, ...rest }: CarouselProps) => (
   <CarouselRoot {...rest}>
     <CarouselControl>
       <CarouselPrevTrigger asChild>
@@ -107,5 +107,3 @@ const Carousel = ({ items, ...rest }: CarouselProps) => (
     </CarouselItemGroup>
   </CarouselRoot>
 );
-
-export default Carousel;

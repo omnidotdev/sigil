@@ -124,7 +124,7 @@ export interface MenuProps extends MenuRootProps {
 /**
  * Menu.
  */
-const Menu = ({
+export const Menu = ({
   trigger,
   children,
   triggerProps,
@@ -144,5 +144,3 @@ const Menu = ({
     </MenuPositioner>
   </MenuRoot>
 );
-
-export default Menu;

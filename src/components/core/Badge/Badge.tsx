@@ -14,6 +14,4 @@ export interface BadgeProps
 /**
  * Badge.
  */
-const Badge = styled(ark.div, badge);
-
-export default Badge;
+export const Badge = styled(ark.div, badge);

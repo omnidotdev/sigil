@@ -66,7 +66,7 @@ export interface RadioGroupProps extends RadioGroupRootProps {
 /**
  * Radio group.
  */
-const RadioGroup = ({
+export const RadioGroup = ({
   options,
   itemProps,
   itemControlProps,
@@ -95,5 +95,3 @@ const RadioGroup = ({
     ))}
   </RadioGroupRoot>
 );
-
-export default RadioGroup;

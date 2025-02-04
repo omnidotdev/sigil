@@ -1,9 +1,10 @@
+import { createToaster } from "@ark-ui/react";
+
 import { Button, Toaster } from "components";
 import { HStack } from "generated/panda/jsx";
-import { createToaster } from "index";
 
+import type { CreateToasterProps } from "@ark-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-import type { CreateToasterProps } from "index";
 
 type Story = StoryObj<typeof meta>;
 
@@ -104,7 +105,7 @@ export const WithAction: Story = {
         <Toaster
           toaster={toaster}
           actionTrigger={
-            <Button variant="link" size="sm">
+            <Button variant="ghost" size="sm">
               Undo
             </Button>
           }

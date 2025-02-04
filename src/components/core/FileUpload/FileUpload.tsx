@@ -1,7 +1,7 @@
 import { FileUpload as ArkFileUpload } from "@ark-ui/react/file-upload";
 import { FaRegTrashAlt } from "react-icons/fa";
 
-import Button from "components/core/Button/Button";
+import { Button } from "components/core/Button/Button";
 import { styled } from "generated/panda/jsx";
 import { fileUpload } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
@@ -138,7 +138,7 @@ export interface FileUploadProps extends FileUploadRootProps {
 /**
  * File upload dropzone.
  */
-const FileUpload = ({
+export const FileUpload = ({
   label,
   dialogTrigger,
   dropzoneProps,
@@ -188,5 +188,3 @@ const FileUpload = ({
     <FileUploadHiddenInput {...hiddenInputProps} />
   </FileUploadRoot>
 );
-
-export default FileUpload;

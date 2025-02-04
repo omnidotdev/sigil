@@ -25,10 +25,8 @@ export interface SkeletonProps
 /**
  * Loading skeleton placeholder, useful for indicating that content is being loaded. Can be used as a standalone placeholder, or as a wrapper around content.
  */
-const Skeleton = ({ isLoaded, ...rest }: SkeletonProps) => {
+export const Skeleton = ({ isLoaded, ...rest }: SkeletonProps) => {
   if (isLoaded) return <styled.div animation="fade-in" {...rest} />;
 
   return <StyledSkeleton {...rest} />;
 };
-
-export default Skeleton;

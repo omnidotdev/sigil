@@ -53,7 +53,7 @@ export interface CardProps extends CardRootProps {
 /**
  * Card.
  */
-const Card = ({
+export const Card = ({
   title,
   description,
   children,
@@ -75,5 +75,3 @@ const Card = ({
     {footer && <CardFooter {...footerProps}>{footer}</CardFooter>}
   </CardRoot>
 );
-
-export default Card;

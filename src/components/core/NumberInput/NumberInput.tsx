@@ -82,7 +82,7 @@ export interface NumberInputProps extends NumberInputRootProps {
 /**
  * Number input.
  */
-const NumberInput = ({
+export const NumberInput = ({
   label,
   scrubberProps,
   labelProps,
@@ -111,5 +111,3 @@ const NumberInput = ({
     </NumberInputControl>
   </NumberInputRoot>
 );
-
-export default NumberInput;

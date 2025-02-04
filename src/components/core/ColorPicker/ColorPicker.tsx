@@ -1,9 +1,9 @@
 import { ColorPicker as ArkColorPicker } from "@ark-ui/react/color-picker";
 import { IoMdColorFilter } from "react-icons/io";
 
-import Button from "components/core/Button/Button";
-import Input from "components/core/Input/Input";
-import Text from "components/typography/Text/Text";
+import { Button } from "components/core/Button/Button";
+import { Input } from "components/core/Input/Input";
+import { Text } from "components/typography/Text/Text";
 import { HStack, Stack, styled } from "generated/panda/jsx";
 import { colorPicker } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
@@ -63,7 +63,7 @@ export const ColorPickerChannelSliderLabel = withContext(
   styled(ArkColorPicker.ChannelSliderLabel),
   "channelSliderLabel",
 );
-export interface ColorPickerSliderLabelProps
+export interface ColorPickerChannelSliderLabelProps
   extends AssignJSXStyleProps<ArkColorPicker.ChannelSliderLabelProps> {}
 
 export const ColorPickerChannelSliderThumb = withContext(
@@ -253,7 +253,7 @@ export interface ColorPickerProps extends ColorPickerRootProps {
 /**
  * Color picker.
  */
-const ColorPicker = ({
+export const ColorPicker = ({
   label = "Color Picker",
   presets,
   labelProps,
@@ -373,5 +373,3 @@ const ColorPicker = ({
     <ColorPickerHiddenInput {...hiddenInputProps} />
   </ColorPickerRoot>
 );
-
-export default ColorPicker;

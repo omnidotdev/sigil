@@ -50,7 +50,7 @@ export interface AlertProps extends AlertRootProps {
 /**
  * Alert. Useful for displaying important messages to the user, such as warnings, errors, or contextual information.
  */
-const Alert = ({
+export const Alert = ({
   title,
   description,
   icon,
@@ -78,5 +78,3 @@ const Alert = ({
     </AlertRoot>
   );
 };
-
-export default Alert;

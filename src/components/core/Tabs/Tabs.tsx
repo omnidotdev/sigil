@@ -42,7 +42,7 @@ export interface TabsProps extends TabsRootProps {
 /**
  * Tabs.
  */
-const Tabs = ({ tabs, ...rest }: TabsProps) => (
+export const Tabs = ({ tabs, ...rest }: TabsProps) => (
   <TabsRoot defaultValue={tabs[0].id} {...rest}>
     <TabList>
       {tabs.map(({ id, label, isDisabled }) => (
@@ -61,5 +61,3 @@ const Tabs = ({ tabs, ...rest }: TabsProps) => (
     ))}
   </TabsRoot>
 );
-
-export default Tabs;

@@ -1,7 +1,7 @@
 import { Checkbox as ArkCheckbox } from "@ark-ui/react/checkbox";
 import { FaCheck, FaMinus } from "react-icons/fa6";
 
-import Icon from "../Icon/Icon";
+import { Icon } from "../Icon/Icon";
 import { styled } from "generated/panda/jsx";
 import { checkbox } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
@@ -25,7 +25,7 @@ export const CheckboxControl = withContext(
 export interface CheckboxControlProps
   extends AssignJSXStyleProps<ArkCheckbox.ControlProps> {}
 
-const CheckboxIndicator = withContext(
+export const CheckboxIndicator = withContext(
   styled(ArkCheckbox.Indicator),
   "indicator",
 );
@@ -59,7 +59,7 @@ const baseIconProps: Partial<IconProps> = {
 /**
  * Interactive checkbox.
  */
-const Checkbox = ({
+export const Checkbox = ({
   label,
   controlProps,
   indicatorProps,
@@ -84,5 +84,3 @@ const Checkbox = ({
     <CheckboxHiddenInput {...hiddenInputProps} />
   </CheckboxRoot>
 );
-
-export default Checkbox;
