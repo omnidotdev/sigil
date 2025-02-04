@@ -104,7 +104,7 @@ export const WithAction: Story = {
         <Toaster
           toaster={toaster}
           actionTrigger={
-            <Button variant="link" size="sm">
+            <Button variant="ghost" size="sm">
               Undo
             </Button>
           }

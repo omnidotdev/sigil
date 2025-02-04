@@ -1,4 +1,8 @@
-import { Toast as ArkToast, Toaster as ArkToaster } from "@ark-ui/react/toast";
+import {
+  Toast as ArkToast,
+  Toaster as ArkToaster,
+  createToaster as arkCreateToaster,
+} from "@ark-ui/react/toast";
 import { FiX } from "react-icons/fi";
 
 import { Button } from "components/core/Button/Button";
@@ -6,12 +10,18 @@ import { styled } from "generated/panda/jsx";
 import { toast as toastRecipe } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
-import type { ToasterProps as ArkToasterProps } from "@ark-ui/react/toast";
+import type {
+  CreateToasterProps as ArkCreateToasterProps,
+  ToasterProps as ArkToasterProps,
+} from "@ark-ui/react/toast";
 import type { ToastVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(toastRecipe);
+
+export const createToaster = arkCreateToaster;
+export interface CreateToasterProps extends ArkCreateToasterProps {}
 
 export const ToastRoot = withProvider(styled(ArkToast.Root), "root");
 export interface ToastRootProps
