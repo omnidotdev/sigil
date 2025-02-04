@@ -4,10 +4,10 @@ import {
   FaClipboardList as ClipboardIcon,
 } from "react-icons/fa";
 
-import Button from "../Button/Button";
-import Icon from "../Icon/Icon";
-import Input from "../Input/Input";
-import Label from "../Label/Label";
+import { Button } from "../Button/Button";
+import { Icon } from "../Icon/Icon";
+import { Input } from "../Input/Input";
+import { Label } from "../Label/Label";
 import { styled } from "generated/panda/jsx";
 import { clipboard } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
@@ -68,7 +68,7 @@ export interface ClipboardProps extends ClipboardRootProps {
 /**
  * Copy text to clipboard.
  */
-const Clipboard = ({
+export const Clipboard = ({
   label,
   controlProps,
   inputProps,
@@ -98,5 +98,3 @@ const Clipboard = ({
     </ClipboardControl>
   </ClipboardRoot>
 );
-
-export default Clipboard;

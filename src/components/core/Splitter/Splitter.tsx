@@ -47,7 +47,7 @@ export interface SplitterProps extends SplitterRootProps {
 /**
  * Splitter.
  */
-const Splitter = ({ sections, ...rest }: SplitterProps) => (
+export const Splitter = ({ sections, ...rest }: SplitterProps) => (
   <SplitterRoot size={sections.map(({ id, size }) => ({ id, size }))} {...rest}>
     {sections.map(({ type, id, content }) =>
       match(type)
@@ -66,5 +66,3 @@ const Splitter = ({ sections, ...rest }: SplitterProps) => (
     )}
   </SplitterRoot>
 );
-
-export default Splitter;

@@ -2,8 +2,8 @@ import { Combobox as ArkCombobox } from "@ark-ui/react/combobox";
 import { useEffect, useState } from "react";
 import { BiCheck, BiExpandVertical, BiX } from "react-icons/bi";
 
-import Button from "components/core/Button/Button";
-import Input from "components/core/Input/Input";
+import { Button } from "components/core/Button/Button";
+import { Input } from "components/core/Input/Input";
 import { styled } from "generated/panda/jsx";
 import { combobox } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
@@ -163,7 +163,7 @@ export interface ComboboxProps extends ComboboxRootProps {
 /**
  * Combobox.
  */
-const Combobox = ({
+export const Combobox = ({
   collection,
   colorPalette = "accent",
   displayFieldLabel = true,
@@ -269,5 +269,3 @@ const Combobox = ({
     </ComboboxRoot>
   );
 };
-
-export default Combobox;

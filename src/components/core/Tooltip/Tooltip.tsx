@@ -1,6 +1,6 @@
 import { Tooltip as ArkTooltip } from "@ark-ui/react/tooltip";
 
-import Button from "components/core/Button/Button";
+import { Button } from "components/core/Button/Button";
 import { styled } from "generated/panda/jsx";
 import { tooltip } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
@@ -72,7 +72,7 @@ export interface TooltipProps extends TooltipRootProps {
 /**
  * Tooltip.
  */
-const Tooltip = ({
+export const Tooltip = ({
   trigger,
   children,
   hasArrow = true,
@@ -103,5 +103,3 @@ const Tooltip = ({
     </TooltipPositioner>
   </TooltipRoot>
 );
-
-export default Tooltip;

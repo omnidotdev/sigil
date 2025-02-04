@@ -1,7 +1,7 @@
 import { Editable as ArkEditable } from "@ark-ui/react/editable";
 
-import Button from "components/core/Button/Button";
-import Label from "components/core/Label/Label";
+import { Button } from "components/core/Button/Button";
+import { Label } from "components/core/Label/Label";
 import { styled } from "generated/panda/jsx";
 import { editable } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
@@ -76,7 +76,7 @@ export interface EditableProps extends EditableRootProps {
 /**
  * Editable field.
  */
-const Editable = ({ label, ...rest }: EditableProps) => (
+export const Editable = ({ label, ...rest }: EditableProps) => (
   <EditableRoot {...rest}>
     {label && (
       <EditableLabel asChild>
@@ -111,5 +111,3 @@ const Editable = ({ label, ...rest }: EditableProps) => (
     </EditableControl>
   </EditableRoot>
 );
-
-export default Editable;

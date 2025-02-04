@@ -65,7 +65,7 @@ export interface TableProps extends TableRootProps {
 /**
  * Table to display rows of data. Children are rendered within the table body.
  */
-const Table = ({
+export const Table = ({
   headerContent,
   caption,
   children,
@@ -82,5 +82,3 @@ const Table = ({
     {footerContent && <TableFooter>{footerContent}</TableFooter>}
   </TableRoot>
 );
-
-export default Table;

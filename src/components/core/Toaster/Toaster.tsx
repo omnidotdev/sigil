@@ -1,7 +1,7 @@
 import { Toast as ArkToast, Toaster as ArkToaster } from "@ark-ui/react/toast";
 import { FiX } from "react-icons/fi";
 
-import Button from "components/core/Button/Button";
+import { Button } from "components/core/Button/Button";
 import { styled } from "generated/panda/jsx";
 import { toast as toastRecipe } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
@@ -68,7 +68,7 @@ export interface ToasterProps extends Omit<ArkToasterProps, "children"> {
 /**
  * Toaster for displaying popup toast notifications. The default toast type (`data-type`) is `info`.
  */
-const Toaster = ({
+export const Toaster = ({
   toaster,
   closeTrigger = (
     <Button size="sm" variant="ghost">
@@ -107,5 +107,3 @@ const Toaster = ({
     )}
   </ArkToaster>
 );
-
-export default Toaster;

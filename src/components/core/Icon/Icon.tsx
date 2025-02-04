@@ -12,10 +12,8 @@ export interface IconProps
 /**
  * Icon.
  */
-const Icon = ({ src, ...rest }: IconProps) => {
+export const Icon = ({ src, ...rest }: IconProps) => {
   const Component = styled(src, icon);
 
   return <Component {...rest} />;
 };
-
-export default Icon;

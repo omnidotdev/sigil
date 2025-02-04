@@ -1,6 +1,6 @@
 import { PinInput as ArkPINInput } from "@ark-ui/react/pin-input";
 
-import Input from "components/core/Input/Input";
+import { Input } from "components/core/Input/Input";
 import { styled } from "generated/panda/jsx";
 import { pinInput } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
@@ -55,7 +55,7 @@ export interface PINInputProps extends PINInputRootProps {
 /**
  * Personal identification number (PIN) code input. Also useful for e.g. verification codes. Includes auto-focus transfer and masking options.
  */
-const PINInput = ({
+export const PINInput = ({
   colorPalette,
   label,
   length = 4,
@@ -91,5 +91,3 @@ const PINInput = ({
     </PINInputRoot>
   );
 };
-
-export default PINInput;

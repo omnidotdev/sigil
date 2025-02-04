@@ -3,7 +3,7 @@ import { Dialog as ArkDialog } from "@ark-ui/react/dialog";
 import { type ReactElement, type ReactNode } from "react";
 import { FiX } from "react-icons/fi";
 
-import Button from "components/core/Button/Button";
+import { Button } from "components/core/Button/Button";
 import { styled } from "generated/panda/jsx";
 import { drawer } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
@@ -107,7 +107,7 @@ export interface DrawerProps extends DrawerRootProps {
 /**
  * Drawer.
  */
-const Drawer = ({
+export const Drawer = ({
   trigger,
   title,
   description,
@@ -172,5 +172,3 @@ const Drawer = ({
     </DrawerPositioner>
   </DrawerRoot>
 );
-
-export default Drawer;

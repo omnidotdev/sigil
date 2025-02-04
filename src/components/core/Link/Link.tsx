@@ -27,8 +27,6 @@ const externalLinkProps = {
 /**
  * Hyperlink.
  */
-const Link = ({ isExternal = false, ...rest }: LinkProps) => (
+export const Link = ({ isExternal = false, ...rest }: LinkProps) => (
   <LinkRoot {...(isExternal && externalLinkProps)} {...rest} />
 );
-
-export default Link;

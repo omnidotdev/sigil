@@ -14,6 +14,4 @@ export interface KeyboardProps
 /**
  * Keyboard text representation.
  */
-const Keyboard = styled(ark.kbd, keyboard);
-
-export default Keyboard;
+export const Keyboard = styled(ark.kbd, keyboard);

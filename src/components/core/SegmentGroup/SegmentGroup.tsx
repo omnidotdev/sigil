@@ -84,7 +84,7 @@ export interface SegmentGroupProps extends SegmentGroupRootProps {
 /**
  * Segment group.
  */
-const SegmentGroup = ({
+export const SegmentGroup = ({
   options,
   itemProps,
   itemControlProps,
@@ -116,5 +116,3 @@ const SegmentGroup = ({
     <SegmentGroupIndicator {...indicatorProps} />
   </SegmentGroupRoot>
 );
-
-export default SegmentGroup;
