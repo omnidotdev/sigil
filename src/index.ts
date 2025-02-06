@@ -1,9 +1,7 @@
 // inject root cascade layers
 import "lib/styles/main.css";
 
-// export backfill of Ark components (overrides allowed below)
-// eslint-disable-next-line import/export
-export * from "@ark-ui/react";
+export { createListCollection } from "@ark-ui/react";
 
 // 🐼 export backfill of Panda components
 export * from "generated/panda/css";
@@ -26,6 +24,4 @@ export * from "lib/hooks";
 export { useToggle } from "usehooks-ts";
 export { useToggle as useToggleButton } from "@ark-ui/react";
 
-// @ts-expect-error ts(2308): warns about duplicate exports, but intended for composable overrides
-// eslint-disable-next-line import/export
 export * from "components";
