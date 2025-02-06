@@ -2,6 +2,7 @@
 import "lib/styles/main.css";
 
 export * from "components";
+export * from "lib/hooks";
 
 // 🐼 export backfill of Panda components
 // TODO: determine if this causes named export issue
@@ -15,5 +16,3 @@ export { styled as sigil } from "generated/panda/jsx";
 
 // export Panda presets (to be used in downstream Panda configurations)
 export { sigilPreset } from "lib/theme/presets";
-
-export { useDisclosure } from "lib/hooks";
