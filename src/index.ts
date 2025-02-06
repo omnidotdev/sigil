@@ -5,7 +5,6 @@ export * from "components";
 export * from "lib/hooks";
 
 // 🐼 export backfill of Panda components
-// TODO: determine if this causes named export issue
 export * from "generated/panda/css";
 export * from "generated/panda/jsx";
 
