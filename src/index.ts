@@ -15,3 +15,5 @@ export { styled as sigil } from "generated/panda/jsx";
 
 // export Panda presets (to be used in downstream Panda configurations)
 export { sigilPreset } from "lib/theme/presets";
+
+export { useDisclosure } from "lib/hooks";
