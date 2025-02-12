@@ -2,7 +2,23 @@ name: Publish Commit
 on: [push, pull_request]
 
 jobs:
-  build:
+  # check author permissions
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      has-permissions: ${{ steps.checkPermissions.outputs.require-result }}
+    steps:
+      - name: Check permissions
+        id: checkPermissions
+        uses: actions-cool/check-user-permission@v2
+        with:
+          # require repo write access to trigger the package preview
+          require: "write"
+  # build and publish the preview package
+  publish:
+    needs: check
+    # publish the preview package only if permissions check passed
+    if: needs.check.outputs.has-permissions == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -11,5 +27,5 @@ jobs:
         run: bun i
       - name: Build package
         run: bun run build
-
-      - run: bunx pkg-pr-new publish
+      - name: Publish package
+        run: bunx pkg-pr-new publish
