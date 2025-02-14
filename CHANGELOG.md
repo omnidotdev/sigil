@@ -1,5 +1,11 @@
 # @omnidev/sigil
 
+## 0.13.0
+
+### Minor Changes
+
+- [#147](https://github.com/omnidotdev/sigil/pull/147) [`fa8c1d0`](https://github.com/omnidotdev/sigil/commit/fa8c1d06b7f55eee7d0f167d0e707258e3ad5a4d) Thanks [@hobbescodes](https://github.com/hobbescodes)! - **BREAKING:** Removed Ark UI and `usehooks-ts` backfills. If you were previously using any corresponding backfilled imports from Sigil (such as `createListCollection` from `@ark-ui/react`, `useIsClient` from `usehooks-ts`), these will now need to be directly imported from their corresponding package
+
 ## 0.12.3
 
 ### Patch Changes
