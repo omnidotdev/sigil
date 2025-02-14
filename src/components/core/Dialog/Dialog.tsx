@@ -2,7 +2,7 @@ import { Dialog as ArkDialog } from "@ark-ui/react/dialog";
 import { cloneElement, type ReactNode, type ReactElement } from "react";
 import { FiX } from "react-icons/fi";
 
-import Button from "components/core/Button/Button";
+import { Button } from "components/core/Button/Button";
 import { Stack, styled } from "generated/panda/jsx";
 import { dialog } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
@@ -87,7 +87,7 @@ export interface DialogProps extends DialogRootProps {
 /**
  * Modal dialog.
  */
-const Dialog = ({
+export const Dialog = ({
   trigger,
   title,
   description,
@@ -138,5 +138,3 @@ const Dialog = ({
     </DialogPositioner>
   </DialogRoot>
 );
-
-export default Dialog;

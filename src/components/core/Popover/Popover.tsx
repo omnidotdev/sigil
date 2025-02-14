@@ -2,7 +2,7 @@ import { Popover as ArkPopover } from "@ark-ui/react/popover";
 import { type ReactElement, type ReactNode } from "react";
 import { FiX } from "react-icons/fi";
 
-import Button from "components/core/Button/Button";
+import { Button } from "components/core/Button/Button";
 import { Box, Stack, styled } from "generated/panda/jsx";
 import { popover } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
@@ -109,7 +109,7 @@ export interface PopoverProps extends PopoverRootProps {
 /**
  * Popover.
  */
-const Popover = ({
+export const Popover = ({
   trigger,
   title,
   description,
@@ -164,5 +164,3 @@ const Popover = ({
     </PopoverPositioner>
   </PopoverRoot>
 );
-
-export default Popover;

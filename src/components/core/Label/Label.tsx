@@ -14,6 +14,4 @@ export interface LabelProps
 /**
  * Label.
  */
-const Label = styled(ark.label, label);
-
-export default Label;
+export const Label = styled(ark.label, label);

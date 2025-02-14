@@ -42,7 +42,7 @@ export interface CollapsibleProps extends CollapsibleRootProps {
 /**
  * Interactive component which can be expanded or collapsed.
  */
-const Collapsible = ({
+export const Collapsible = ({
   trigger,
   children,
   contentProps,
@@ -54,5 +54,3 @@ const Collapsible = ({
     <CollapsibleContent {...contentProps}>{children}</CollapsibleContent>
   </CollapsibleRoot>
 );
-
-export default Collapsible;

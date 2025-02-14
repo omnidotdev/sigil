@@ -26,8 +26,6 @@ export interface ToggleGroupProps extends ToggleGroupRootProps {}
 /**
  * Toggle group.
  */
-const ToggleGroup = ({ children, ...rest }: ToggleGroupProps) => (
+export const ToggleGroup = ({ children, ...rest }: ToggleGroupProps) => (
   <ToggleGroupRoot {...rest}>{children}</ToggleGroupRoot>
 );
-
-export default ToggleGroup;

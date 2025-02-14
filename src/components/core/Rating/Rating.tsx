@@ -61,7 +61,7 @@ export interface RatingProps extends RatingRootProps {
 /**
  * Rating.
  */
-const Rating = ({
+export const Rating = ({
   label,
   controlProps,
   itemProps,
@@ -94,5 +94,3 @@ const Rating = ({
     <RatingHiddenInput {...hiddenInputProps} />
   </RatingRoot>
 );
-
-export default Rating;

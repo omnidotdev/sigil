@@ -45,7 +45,7 @@ export interface SwitchProps extends SwitchRootProps {
 /**
  * Toggle switch.
  */
-const Switch = ({
+export const Switch = ({
   label,
   controlProps,
   thumbProps,
@@ -63,5 +63,3 @@ const Switch = ({
     <SwitchHiddenInput {...hiddenInputProps} />
   </SwitchRoot>
 );
-
-export default Switch;

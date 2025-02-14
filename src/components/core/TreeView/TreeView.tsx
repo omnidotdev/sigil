@@ -224,7 +224,7 @@ export interface TreeViewProps extends TreeViewRootProps {
 /**
  * Tree view for displaying hierarchical data.
  */
-const TreeView = ({
+export const TreeView = ({
   label,
   collection,
   treeProps,
@@ -250,5 +250,3 @@ const TreeView = ({
     </TreeViewTree>
   </TreeViewRoot>
 );
-
-export default TreeView;

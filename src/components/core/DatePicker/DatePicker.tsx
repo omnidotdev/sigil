@@ -4,8 +4,8 @@ import { BiX } from "react-icons/bi";
 import { FiCalendar, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { match } from "ts-pattern";
 
-import Button from "components/core/Button/Button";
-import Input from "components/core/Input/Input";
+import { Button } from "components/core/Button/Button";
+import { Input } from "components/core/Input/Input";
 import { styled } from "generated/panda/jsx";
 import { datePicker } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
@@ -231,7 +231,7 @@ export interface DatePickerProps extends DatePickerRootProps {
 /**
  * Date picker.
  */
-const DatePicker = ({
+export const DatePicker = ({
   label = "Date Picker",
   clearTrigger = (
     <Button variant="ghost" size="xs" p={0} aria-label="Clear selection">
@@ -477,5 +477,3 @@ const DatePicker = ({
     </DatePickerRoot>
   );
 };
-
-export default DatePicker;

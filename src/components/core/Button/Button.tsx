@@ -14,6 +14,4 @@ export interface ButtonProps
 /**
  * Interactive action button.
  */
-const Button = styled(ark.button, button);
-
-export default Button;
+export const Button = styled(ark.button, button);

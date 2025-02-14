@@ -1,7 +1,7 @@
 import { TagsInput as ArkTagsInput } from "@ark-ui/react/tags-input";
 import { FiX } from "react-icons/fi";
 
-import Button from "components/core/Button/Button";
+import { Button } from "components/core/Button/Button";
 import { styled } from "generated/panda/jsx";
 import { tagsInput } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
@@ -103,7 +103,7 @@ export interface TagsInputProps extends TagsInputRootProps {
 /**
  * Input for tags.
  */
-const TagsInput = ({
+export const TagsInput = ({
   label,
   clearTrigger = (
     <Button variant="outline" aria-label="Clear tags">
@@ -168,5 +168,3 @@ const TagsInput = ({
     )}
   </TagsInputRoot>
 );
-
-export default TagsInput;

@@ -1,7 +1,7 @@
 import { Select as ArkSelect } from "@ark-ui/react/select";
 import { BiCheck, BiExpandVertical, BiX } from "react-icons/bi";
 
-import Button from "components/core/Button/Button";
+import { Button } from "components/core/Button/Button";
 import { styled } from "generated/panda/jsx";
 import { select } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
@@ -149,7 +149,7 @@ export interface SelectProps extends SelectRootProps {
 /**
  * Select.
  */
-const Select = ({
+export const Select = ({
   collection,
   displayFieldLabel = true,
   displayGroupLabel = true,
@@ -219,5 +219,3 @@ const Select = ({
     </SelectPositioner>
   </SelectRoot>
 );
-
-export default Select;

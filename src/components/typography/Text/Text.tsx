@@ -22,10 +22,8 @@ export type TextProps = {
 /**
  * Text.
  */
-const Text = ({ as = "p", ...rest }: TextProps) => {
+export const Text = ({ as = "p", ...rest }: TextProps) => {
   const StyledText = styled(as, text) as StyledComponent<TagVariants>;
 
   return <StyledText {...rest} />;
 };
-
-export default Text;

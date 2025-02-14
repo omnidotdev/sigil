@@ -14,6 +14,4 @@ export interface InputProps
 /**
  * Interactive input.
  */
-const Input = styled(ark.input, input);
-
-export default Input;
+export const Input = styled(ark.input, input);

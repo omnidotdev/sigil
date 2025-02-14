@@ -1,6 +1,3 @@
-// export `usehooks-ts` hooks and types
-export * from "usehooks-ts";
-
 export { default as useBreakpoint } from "./useBreakpoint/useBreakpoint";
 export type { Options as UseBreakpointOptions } from "./useBreakpoint/useBreakpoint";
 

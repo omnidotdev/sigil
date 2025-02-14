@@ -59,7 +59,7 @@ export interface AvatarProps extends AvatarRootProps {
 /**
  * Avatar often used as a graphical representation of a user. Useful for e.g. profile pages and comment sections.
  */
-const Avatar = ({
+export const Avatar = ({
   name,
   fallback = name ? getInitials(name) : <FiUser />,
   imageSrc,
@@ -78,5 +78,3 @@ const Avatar = ({
     )}
   </AvatarRoot>
 );
-
-export default Avatar;

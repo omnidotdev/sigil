@@ -88,7 +88,7 @@ export interface SliderProps extends SliderRootProps {
 /**
  * Track slider with a single thumb for selecting a scalar value in a range.
  */
-const Slider = ({
+export const Slider = ({
   markerValues,
   label,
   labelProps,
@@ -131,5 +131,3 @@ const Slider = ({
     )}
   </SliderRoot>
 );
-
-export default Slider;
