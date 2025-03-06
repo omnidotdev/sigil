@@ -2,4 +2,4 @@
 "@omnidev/sigil": minor
 ---
 
-**BREAKING:** Update ark ui peer dependency to latest major version (v5)
+**BREAKING:** Update Ark UI peer dependency to latest major version (v5)
