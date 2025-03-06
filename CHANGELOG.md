@@ -1,5 +1,15 @@
 # @omnidev/sigil
 
+## 0.14.0
+
+### Minor Changes
+
+- [#152](https://github.com/omnidotdev/sigil/pull/152) [`588b665`](https://github.com/omnidotdev/sigil/commit/588b6659cd7ad154bb5898fc15e08061ce6cc456) Thanks [@hobbescodes](https://github.com/hobbescodes)! - **BREAKING:** Update Ark UI peer dependency to latest major version (v5)
+
+### Patch Changes
+
+- [#152](https://github.com/omnidotdev/sigil/pull/152) [`588b665`](https://github.com/omnidotdev/sigil/commit/588b6659cd7ad154bb5898fc15e08061ce6cc456) Thanks [@hobbescodes](https://github.com/hobbescodes)! - Fix `AccordionItem` key to include index to ensure uniqueness across mapping
+
 ## 0.13.0
 
 ### Minor Changes
