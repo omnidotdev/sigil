@@ -19,6 +19,7 @@ const imageUrls = [
 
 export const Default: Story = {
   args: {
+    slideCount: imageUrls.length,
     items: imageUrls.map((src, idx) => (
       <img
         key={idx}
