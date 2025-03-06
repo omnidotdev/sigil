@@ -69,9 +69,10 @@ export const Accordion = ({
   ...rest
 }: AccordionProps) => (
   <AccordionRoot multiple {...rest}>
-    {items.map(({ title, body, isDisabled, ...rest }) => (
+    {items.map(({ title, body, isDisabled, ...rest }, idx) => (
       <AccordionItem
-        key={title!.toString()}
+        // NB: `title` is of type `ReactNode`, so the mapped index is appended to ensure uniqueness
+        key={`${title!.toString()}-${idx}`}
         value={title!.toString()}
         disabled={isDisabled}
         {...rest}
