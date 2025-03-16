@@ -1,5 +1,11 @@
 # @omnidev/sigil
 
+## 0.14.1
+
+### Patch Changes
+
+- [#154](https://github.com/omnidotdev/sigil/pull/154) [`adf8db1`](https://github.com/omnidotdev/sigil/commit/adf8db14eda7e4dab28e476355705c7b6edf9df0) Thanks [@hobbescodes](https://github.com/hobbescodes)! - Fix bundling issue for `Toaster`
+
 ## 0.14.0
 
 ### Minor Changes

@@ -2,7 +2,7 @@
   "name": "@omnidev/sigil",
   "description": "Omni Sigil design system and library",
   "author": "Brian Cooper <brian@omni.dev>",
-  "version": "0.14.0",
+  "version": "0.14.1",
   "license": "MIT",
   "main": "build/sigil.js",
   "module": "build/sigil.mjs",
