@@ -1,8 +1,4 @@
-import {
-  Toast as ArkToast,
-  Toaster as ArkToaster,
-  createToaster as arkCreateToaster,
-} from "@ark-ui/react/toast";
+import { Toast as ArkToast, Toaster as ArkToaster } from "@ark-ui/react/toast";
 import { FiX } from "react-icons/fi";
 
 import { Button } from "components/core/Button/Button";
@@ -20,7 +16,6 @@ import type { ReactNode } from "react";
 
 const { withProvider, withContext } = createStyleContext(toastRecipe);
 
-export const createToaster = arkCreateToaster;
 export interface CreateToasterProps extends ArkCreateToasterProps {}
 
 export const ToastRoot = withProvider(styled(ArkToast.Root), "root");
