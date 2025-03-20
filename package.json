@@ -4,7 +4,7 @@
   "author": "Brian Cooper <brian@omni.dev>",
   "version": "0.14.1",
   "license": "MIT",
-  "main": "build/index.js",
+  "type": "module",
   "module": "build/index.js",
   "types": "build/index.d.ts",
   "files": [
