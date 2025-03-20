@@ -1,16 +1,20 @@
 import { $ } from "bun";
 
 /**
- * Build the library.
+ * Operations before bundling.
  */
-const build = async () => {
+const preflight = async () => {
   await $`rm -rf build/*`;
 
-  // preflight
   console.log("Generating Panda artifacts...");
   await $`bun panda codegen`;
   console.log("Panda artifacts generated.");
+};
 
+/**
+ * Bundle the package.
+ */
+const bundle = async () => {
   // bundle
   console.log("Bundling...");
   await Bun.build({
@@ -27,8 +31,12 @@ const build = async () => {
     ],
   });
   console.log("Bundling complete.");
+};
 
-  // postflight
+/**
+ * Operations after bundling.
+ */
+const postflight = async () => {
   console.log("Generating TypeScript declarations...");
   await $`tsc -d --declarationDir build --declarationMap --emitDeclarationOnly --project tsconfig.build.json`;
   console.log("TypeScript declarations generated.");
@@ -36,6 +44,15 @@ const build = async () => {
   console.log("Publishing local package...");
   await $`bun knit push`;
   console.log("Publishing local package complete.");
+};
+
+/**
+ * Build the library.
+ */
+const build = async () => {
+  await preflight();
+  await bundle();
+  await postflight();
 };
 
 build().catch((err) => {
