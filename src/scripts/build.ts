@@ -16,7 +16,15 @@ const build = async () => {
   await Bun.build({
     entrypoints: ["src/index.ts"],
     outdir: "build",
-    external: ["@ark-ui/react", "next", "react", "react-icons"],
+    external: [
+      "@ark-ui/react",
+      "@pandacss/dev",
+      "@pandacss/types",
+      "next",
+      "react",
+      "react-dom",
+      "react-icons",
+    ],
   });
   console.log("Bundling complete.");
 
