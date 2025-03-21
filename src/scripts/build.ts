@@ -4,7 +4,7 @@ import { $ } from "bun";
  * Operations before bundling.
  */
 const preflight = async () => {
-  await $`rm -rf build/*`;
+  await $`rm -rf build`;
 
   console.log("Generating Panda artifacts...");
   await $`bun panda codegen`;
@@ -37,9 +37,10 @@ const bundle = async () => {
  * Operations after bundling.
  */
 const postflight = async () => {
-  console.log("Generating TypeScript declarations...");
-  await $`tsc -d --declarationDir build --declarationMap --emitDeclarationOnly --project tsconfig.build.json`;
-  console.log("TypeScript declarations generated.");
+  console.log("Generating type declarations...");
+  // TODO remove `tsup` dependency, should be able to use a Bun plugin or `tsc` directly
+  await $`bun tsup src/index.ts --dts-only`;
+  console.log("Type declarations generated.");
 
   console.log("Publishing local package...");
   await $`bun knit push`;

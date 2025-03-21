@@ -37,7 +37,7 @@ const tsupConfig = defineTsupConfig({
     console.log("Publishing local package...");
     spawnSync("bun", ["knit", "push"], spawnProcessOptions);
   },
-  format: ["cjs", "esm"],
+  format: ["esm"],
   // NB: `peerDeps`, among others, are excluded (marked external) by default
   // see https://tsup.egoist.dev/#excluding-packages
   external: ["@ark-ui/react", "next", "react-icons"],
