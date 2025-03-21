@@ -2,10 +2,10 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "noEmit": false,
-    // enable declaration generation
+    // TODO https://linear.app/omnidev/issue/OMNI-242/use-isolated-declarations-for-type-output-and-remove-tsup
+    // "isolatedDeclarations": true,
     "declaration": true,
     "emitDeclarationOnly": true,
-    // generate declaration source map
     "declarationMap": true,
     "noImplicitAny": false
   },

@@ -60,7 +60,7 @@ export const RoundedRectangleOutline: Story = {
 // TODO table like Avatar stories
 
 const sizes = Object.keys(
-  radioGroup.variants!.size,
+  radioGroup.variants!["size"],
 ) as RadioGroupVariant["size"][];
 
 export const Sizes: Story = {

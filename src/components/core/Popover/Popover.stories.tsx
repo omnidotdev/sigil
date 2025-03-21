@@ -44,7 +44,6 @@ export const Controlled: Story = {
     trigger: undefined,
   },
   render: (args) => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     return (

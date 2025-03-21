@@ -8,7 +8,7 @@ import fonts from "./extensions/semanticTokens/fonts.semantic";
  */
 const globalCss = defineGlobalStyles({
   "html, body": {
-    fontFamily: fonts!.primary.value as string,
+    fontFamily: fonts!["primary"].value as string,
   },
   html: {
     lineHeight: 1.5,

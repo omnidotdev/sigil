@@ -15,14 +15,19 @@ const meta = {
 } satisfies Meta;
 
 export const Default: Story = {
-  render: () => <Icon src={BiAperture} />,
+  args: {
+    src: BiAperture,
+  },
 };
 
 export const Colored: Story = {
-  render: () => <Icon src={BiAperture} color="blue" />,
+  args: {
+    src: BiAperture,
+    color: "blue",
+  },
 };
 
-const sizes = Object.keys(icon.variants!.size) as IconVariant["size"][];
+const sizes = Object.keys(icon.variants!["size"]) as IconVariant["size"][];
 
 export const Sizes = () => (
   <Table

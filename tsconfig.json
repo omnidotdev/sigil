@@ -30,6 +30,7 @@
     "*.config.cjs",
     ".storybook/**/*.ts",
     ".storybook/**/*.tsx",
+    "eslint.config.mjs",
     "test-runner-jest.config.js"
   ],
   "exclude": ["**/node_modules", "src/generated"]

@@ -43,7 +43,9 @@ export const CustomLength: Story = {
   },
 };
 
-const sizes = Object.keys(pinInput.variants!.size) as PINInputVariant["size"][];
+const sizes = Object.keys(
+  pinInput.variants!["size"],
+) as PINInputVariant["size"][];
 
 export const Sizes = () => (
   <Stack>
