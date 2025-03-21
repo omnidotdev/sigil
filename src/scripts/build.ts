@@ -38,7 +38,7 @@ const bundle = async () => {
  */
 const postflight = async () => {
   console.log("Generating type declarations...");
-  // TODO remove `tsup` dependency, should be able to use a Bun plugin or `tsc` directly
+  // TODO remove `tsup` dependency, should be able to use a Bun plugin or `tsc` directly (https://linear.app/omnidev/issue/OMNI-242/use-isolated-declarations-for-type-output-and-remove-tsup)
   await $`bun tsup src/index.ts --dts-only --tsconfig tsconfig.build.json --format esm --out-dir build`;
   console.log("Type declarations generated.");
 
