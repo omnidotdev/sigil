@@ -39,7 +39,7 @@ const bundle = async () => {
 const postflight = async () => {
   console.log("Generating type declarations...");
   // TODO remove `tsup` dependency, should be able to use a Bun plugin or `tsc` directly
-  await $`bun tsup src/index.ts --dts-only`;
+  await $`bun tsup src/index.ts --dts-only --tsconfig tsconfig.build.json --format esm --out-dir build`;
   console.log("Type declarations generated.");
 
   console.log("Publishing local package...");
