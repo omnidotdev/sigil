@@ -15,7 +15,6 @@ const preflight = async () => {
  * Bundle the package.
  */
 const bundle = async () => {
-  // bundle
   console.log("Bundling...");
   await Bun.build({
     entrypoints: ["src/index.ts"],
