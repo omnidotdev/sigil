@@ -107,7 +107,7 @@ export const LazyMount: Story = {
   },
 };
 
-const sizes = Object.keys(tabs.variants!.size) as TabsVariant["size"][];
+const sizes = Object.keys(tabs.variants!["size"]) as TabsVariant["size"][];
 
 export const Sizes = () => (
   <Table

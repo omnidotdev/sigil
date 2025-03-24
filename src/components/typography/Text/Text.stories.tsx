@@ -157,7 +157,7 @@ export const HTMLTags = () => (
   </Stack>
 );
 
-const sizes = Object.keys(text.variants!.size) as TextVariant["size"][];
+const sizes = Object.keys(text.variants!["size"]) as TextVariant["size"][];
 
 /**
  * Text size can be adjusted using either the `size` or the `textStyle` props. Font size is inversely proportional to line height and spacing to maintain responsive layout rhythm.

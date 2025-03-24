@@ -18,12 +18,12 @@ const tokens = defineTokens({
   assets: _tokens.assets,
   blurs: _tokens.blurs,
   borders: _tokens.borders,
-  // TODO
-  // borderWidths: _tokens.borderWidths,
+  borderWidths: _tokens.borderWidths,
   colors: _tokens.colors,
-  // TODO
-  // containerNames: _tokens.containerNames,
+  containerNames: _tokens.containerNames,
+  // TODO https://panda-css.com/docs/concepts/conditional-styles#container-queries
   // containerSizes: _tokens.containerSizes,
+  cursor: _tokens.cursor,
   durations: _tokens.durations,
   easings: _tokens.easings,
   fonts: _tokens.fonts,
@@ -47,12 +47,12 @@ const semanticTokens = defineSemanticTokens({
   assets: _semanticTokens.assets,
   blurs: _semanticTokens.blurs,
   borders: _semanticTokens.borders,
-  // TODO
-  // borderWidths: _tokens.borderWidths,
+  borderWidths: _semanticTokens.borderWidths,
   colors: _semanticTokens.colors,
-  // TODO
-  // containerNames: _tokens.containerNames,
-  // containerSizes: _tokens.containerSizes,
+  containerNames: _semanticTokens.containerNames,
+  // TODO https://panda-css.com/docs/concepts/conditional-styles#container-queries
+  // containerSizes: _semanticTokens.containerSizes,
+  cursor: _semanticTokens.cursor,
   durations: _semanticTokens.durations,
   easings: _semanticTokens.easings,
   fonts: _semanticTokens.fonts,
