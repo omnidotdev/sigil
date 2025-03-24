@@ -49,9 +49,9 @@ const semanticTokens = defineSemanticTokens({
   borders: _semanticTokens.borders,
   borderWidths: _semanticTokens.borderWidths,
   colors: _semanticTokens.colors,
-  containerNames: _tokens.containerNames,
+  containerNames: _semanticTokens.containerNames,
   // TODO https://panda-css.com/docs/concepts/conditional-styles#container-queries
-  // containerSizes: _tokens.containerSizes,
+  // containerSizes: _semanticTokens.containerSizes,
   cursor: _semanticTokens.cursor,
   durations: _semanticTokens.durations,
   easings: _semanticTokens.easings,
