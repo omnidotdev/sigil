@@ -19,6 +19,7 @@ const bundle = async () => {
   await Bun.build({
     entrypoints: ["src/index.ts"],
     outdir: "build",
+    banner: '"use client";',
     external: [
       "@ark-ui/react",
       "@pandacss/dev",
