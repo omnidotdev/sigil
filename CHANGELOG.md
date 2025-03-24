@@ -1,5 +1,11 @@
 # @omnidev/sigil
 
+## 0.15.0
+
+### Minor Changes
+
+- [#157](https://github.com/omnidotdev/sigil/pull/157) [`3962bc1`](https://github.com/omnidotdev/sigil/commit/3962bc15d23d78815c0856e76b51c7ac699252ec) Thanks [@coopbri](https://github.com/coopbri)! - **BREAKING:** Convert Sigil to a pure, ESM-only package; remove CJS support
+
 ## 0.14.1
 
 ### Patch Changes
