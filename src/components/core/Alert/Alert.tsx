@@ -37,14 +37,13 @@ export interface AlertTitleProps
   extends AssignJSXStyleProps<ComponentProps<typeof AlertTitle>> {}
 
 export interface AlertProps extends AlertRootProps {
-  description: ReactNode;
+  description?: ReactNode;
   icon?: ReactNode;
   contentProps?: AlertContentProps;
   titleProps?: AlertTitleProps;
   descriptionProps?: AlertDescriptionProps;
 }
 
-// TODO better styles (mainly spacing) for if just description or title is passed
 // TODO default titles for each variant
 
 /**
@@ -54,6 +53,7 @@ export const Alert = ({
   title,
   description,
   icon,
+  children,
   contentProps,
   titleProps,
   descriptionProps,
@@ -71,9 +71,15 @@ export const Alert = ({
       {(icon || _icon) && <AlertIcon asChild>{icon || _icon}</AlertIcon>}
 
       <AlertContent {...contentProps}>
-        <AlertTitle {...titleProps}>{title}</AlertTitle>
+        {title && <AlertTitle {...titleProps}>{title}</AlertTitle>}
 
-        <AlertDescription {...descriptionProps}>{description}</AlertDescription>
+        {description && (
+          <AlertDescription {...descriptionProps}>
+            {description}
+          </AlertDescription>
+        )}
+
+        {children}
       </AlertContent>
     </AlertRoot>
   );

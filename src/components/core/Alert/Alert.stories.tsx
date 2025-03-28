@@ -1,6 +1,6 @@
 import { FiDownload } from "react-icons/fi";
 
-import { Alert, Icon } from "components";
+import { Alert, Button, Icon } from "components";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -49,6 +49,40 @@ export const Success: Story = {
     variant: "success",
     title: "Success",
     description: "It was a great success!",
+  },
+};
+
+/**
+ * The title is optional.
+ */
+export const NoTitle: Story = {
+  args: {
+    title: undefined,
+    description: "No title, but the description says it all! ✍️",
+  },
+};
+
+/**
+ * The description is optional.
+ */
+export const NoDescription: Story = {
+  args: {
+    title: "Riding the title wave 🌊",
+    description: undefined,
+  },
+};
+
+/**
+ * Children can be passed, and will be displayed underneath the title and description, if present.
+ */
+export const Children: Story = {
+  args: {
+    ...Default.args,
+    children: (
+      <Button variant="outline" w="fit" size="xs" mt={2}>
+        Download
+      </Button>
+    ),
   },
 };
 
