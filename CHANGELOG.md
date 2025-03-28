@@ -1,5 +1,11 @@
 # @omnidev/sigil
 
+## 0.15.1
+
+### Patch Changes
+
+- [#160](https://github.com/omnidotdev/sigil/pull/160) [`56a19da`](https://github.com/omnidotdev/sigil/commit/56a19da495aba94efce316b09788426dfc9d461e) Thanks [@coopbri](https://github.com/coopbri)! - Improve `Alert` styles when title is not passed, make description optional, and allow passing children which render below title and description
+
 ## 0.15.0
 
 ### Minor Changes
