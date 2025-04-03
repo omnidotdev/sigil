@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- [#163](https://github.com/omnidotdev/sigil/pull/163) [`e0a5620`](https://github.com/omnidotdev/sigil/commit/e0a562084acbee70cc25a1ae58a8825b87cfb5d9) Thanks [@coopbri](https://github.com/coopbri)! - Set `NODE_ENV=production` in the build script to use the correct JSX runtime in the output build, add `@ark-ui/react` and `react-icons` to peer dependencies, and switch peer dependencies to use `>=` instead of `^`
+- [#163](https://github.com/omnidotdev/sigil/pull/163) [`e0a5620`](https://github.com/omnidotdev/sigil/commit/e0a562084acbee70cc25a1ae58a8825b87cfb5d9) Thanks [@hobbescodes](https://github.com/hobbescodes)! - Set `NODE_ENV=production` in the build script to use the correct JSX runtime in the output build, add `@ark-ui/react` and `react-icons` to peer dependencies, and switch peer dependencies to use `>=` instead of `^`
 
 ## 0.15.1
 
