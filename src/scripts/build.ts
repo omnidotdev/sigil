@@ -20,6 +20,7 @@ const bundle = async () => {
     entrypoints: ["src/index.ts"],
     outdir: "build",
     banner: '"use client";',
+    define: { "process.env.NODE_ENV": '"production"' },
     external: [
       "@ark-ui/react",
       "@pandacss/dev",
