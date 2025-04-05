@@ -1,7 +1,10 @@
 {
   "name": "@omnidev/sigil",
   "description": "Omni Sigil design system and library",
-  "author": "Brian Cooper <brian@omni.dev>",
+  "author": {
+    "name": "Omni LLC",
+    "url": "https://omni.dev"
+  },
   "version": "0.15.2",
   "license": "MIT",
   "type": "module",
