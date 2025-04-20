@@ -49,18 +49,20 @@ const toast = defineSlotRecipe({
       color: "foreground.default",
       fontWeight: "semibold",
       textStyle: "sm",
+      width: "90%",
     },
     description: {
       color: "foreground.muted",
       textStyle: "sm",
+      width: "90%",
     },
     actionTrigger: {
       mt: 2,
     },
     closeTrigger: {
       position: "absolute",
-      top: 3,
-      right: 3,
+      top: 2,
+      right: 2,
     },
   },
 });
