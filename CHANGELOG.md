@@ -1,5 +1,11 @@
 # @omnidev/sigil
 
+## 0.15.3
+
+### Patch Changes
+
+- [#166](https://github.com/omnidotdev/sigil/pull/166) [`030df98`](https://github.com/omnidotdev/sigil/commit/030df98a91c56a4f76bca79fde0df55beb2b75ea) Thanks [@coopbri](https://github.com/coopbri)! - Prevent toast title from going behind close trigger
+
 ## 0.15.2
 
 ### Patch Changes
