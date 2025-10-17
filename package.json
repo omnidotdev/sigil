@@ -66,7 +66,7 @@
     "@pandacss/studio": "^0.53.4",
     "@pandacss/types": "^0.53.4",
     "@storybook/addon-a11y": "^8.6.12",
-    "@storybook/addon-coverage": "^1.0.5",
+    "@storybook/addon-coverage": "^2.0.0",
     "@storybook/addon-docs": "^8.6.12",
     "@storybook/addon-essentials": "^8.6.12",
     "@storybook/addon-interactions": "^8.6.12",
