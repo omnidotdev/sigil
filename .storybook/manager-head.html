@@ -1,0 +1,15 @@
+<!-- this file redirects `/` to the introduction story when using `bunx serve` -->
+<script>
+  (function () {
+    try {
+      const u = new URL(window.location.href);
+      if (!u.searchParams.get("path")) {
+        // NB: this path must match an actual story ID
+        u.search = "?path=/docs/introduction--docs";
+        window.location.replace(u.toString());
+      }
+    } catch (e) {
+      /* noop */
+    }
+  })();
+</script>
