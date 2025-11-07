@@ -14,6 +14,7 @@ const meta = {
 export const Default: Story = {
   args: {
     orientation: "horizontal",
+    panels: [{ id: "a" }, { id: "b" }],
     sections: [
       { type: "panel", id: "a", content: "A", size: 50 },
       { type: "resizeTrigger", id: "a:b" },

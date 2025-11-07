@@ -153,7 +153,7 @@ export interface ComboboxProps extends ComboboxRootProps {
   /** Item group label props. */
   itemGroupLabelProps?: ComboboxItemGroupLabelProps;
   /** Item props. */
-  itemProps?: ComboboxItemProps;
+  itemProps?: Omit<ComboboxItemProps, "item">;
   /** Item text props. */
   itemTextProps?: ComboboxItemTextProps;
   /** Item indicator props. */

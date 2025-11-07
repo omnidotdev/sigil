@@ -48,7 +48,10 @@ export interface SplitterProps extends SplitterRootProps {
  * Splitter.
  */
 export const Splitter = ({ sections, ...rest }: SplitterProps) => (
-  <SplitterRoot size={sections.map(({ id, size }) => ({ id, size }))} {...rest}>
+  // TODO: discuss this API. The non-null assertion on size seems troublesome,
+  // and the general API upstream has changed. We should consider approaching
+  // this differently
+  <SplitterRoot size={sections.map(({ size }) => size!)} {...rest}>
     {sections.map(({ type, id, content }) =>
       match(type)
         .with("panel", () => (
