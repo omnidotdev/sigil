@@ -33,7 +33,7 @@ export interface SplitterResizeTriggerProps
 interface PanelSection extends SplitterPanelData {
   sectionType: "panel";
   content: ReactNode;
-  asChild?: boolean;
+  panelProps?: SplitterPanelProps;
 }
 
 interface ResizeTriggerSection extends SplitterResizeTriggerProps {
@@ -56,8 +56,8 @@ export const Splitter = ({ sections, ...rest }: SplitterProps) => (
   >
     {sections.map((section) =>
       match(section)
-        .with({ sectionType: "panel" }, ({ content, id, asChild }) => (
-          <SplitterPanel key={id} id={id} asChild={asChild}>
+        .with({ sectionType: "panel" }, ({ content, id, panelProps }) => (
+          <SplitterPanel key={id} id={id} {...panelProps}>
             {content}
           </SplitterPanel>
         ))
