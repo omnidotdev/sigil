@@ -1,4 +1,7 @@
-import { Splitter as ArkSplitter } from "@ark-ui/react/splitter";
+import {
+  Splitter as ArkSplitter,
+  type SplitterPanelData,
+} from "@ark-ui/react/splitter";
 import { match } from "ts-pattern";
 
 import { styled } from "generated/panda/jsx";
@@ -29,42 +32,45 @@ export interface SplitterResizeTriggerProps
 
 // TODO make more generic to easily handle multiple panels and splitters of various orientations, as in https://ark-ui.com/docs/react/components/splitter
 
-export interface SplitterProps extends SplitterRootProps {
-  sections: {
-    type: "panel" | "resizeTrigger";
-    // TODO enforce : on resizeTrigger
-    /** Unique identifier. */
-    id: string;
-    // TODO if type is panel
-    /** Content. */
-    content?: ReactNode;
-    // TODO if type is panel
-    /** Size by percentage. The total size of all sections cannot exceed 100. */
-    size?: number;
-  }[];
+interface PanelSection extends SplitterPanelData {
+  sectionType: "panel";
+  content: ReactNode;
+}
+
+interface ResizeTriggerSection extends SplitterResizeTriggerProps {
+  sectionType: "resizeTrigger";
+}
+
+type Section = PanelSection | ResizeTriggerSection;
+
+export interface SplitterProps extends Omit<SplitterRootProps, "panels"> {
+  sections: Section[];
 }
 
 /**
  * Splitter.
  */
 export const Splitter = ({ sections, ...rest }: SplitterProps) => (
-  // TODO: discuss this API. The non-null assertion on size seems troublesome,
-  // and the general API upstream has changed. We should consider approaching
-  // this differently
-  <SplitterRoot size={sections.map(({ size }) => size!)} {...rest}>
-    {sections.map(({ type, id, content }) =>
-      match(type)
-        .with("panel", () => (
-          <SplitterPanel key={id} id={id}>
-            {content}
-          </SplitterPanel>
-        ))
-        .with("resizeTrigger", () => (
-          <SplitterResizeTrigger
-            key={id}
-            id={id as SplitterResizeTriggerProps["id"]}
-          />
-        ))
+  <SplitterRoot
+    panels={sections.filter((section) => section.sectionType === "panel")}
+    {...rest}
+  >
+    {sections.map((section) =>
+      match(section)
+        .with(
+          { sectionType: "panel" },
+          ({ content, id, sectionType: _sectionType, ...rest }) => (
+            <SplitterPanel key={id} id={id} {...rest}>
+              {content}
+            </SplitterPanel>
+          ),
+        )
+        .with(
+          { sectionType: "resizeTrigger" },
+          ({ id, sectionType: _sectionType, ...rest }) => (
+            <SplitterResizeTrigger key={id} id={id} {...rest} />
+          ),
+        )
         .exhaustive(),
     )}
   </SplitterRoot>
