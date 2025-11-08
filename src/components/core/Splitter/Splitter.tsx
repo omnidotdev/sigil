@@ -1,13 +1,11 @@
-import {
-  Splitter as ArkSplitter,
-  type SplitterPanelData,
-} from "@ark-ui/react/splitter";
+import { Splitter as ArkSplitter } from "@ark-ui/react/splitter";
 import { match } from "ts-pattern";
 
 import { styled } from "generated/panda/jsx";
 import { splitter } from "generated/panda/recipes";
 import { createStyleContext } from "lib/util";
 
+import type { SplitterPanelData } from "@ark-ui/react/splitter";
 import type { SplitterVariantProps } from "generated/panda/recipes";
 import type { AssignJSXStyleProps } from "lib/types";
 import type { ReactNode } from "react";
