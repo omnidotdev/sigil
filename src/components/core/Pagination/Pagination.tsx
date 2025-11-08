@@ -49,8 +49,8 @@ export interface PaginationPrevTriggerProps
 export interface PaginationProps extends PaginationRootProps {
   colorPalette?: ColorPalette;
   prevTriggerProps?: PaginationPrevTriggerProps;
-  itemProps?: PaginationItemProps;
-  ellipsisProps?: PaginationEllipsisProps;
+  itemProps?: Omit<PaginationItemProps, "type" | "value">;
+  ellipsisProps?: Omit<PaginationEllipsisProps, "index">;
   nextTriggerProps?: PaginationNextTriggerProps;
 }
 
