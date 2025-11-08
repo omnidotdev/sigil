@@ -217,7 +217,7 @@ export interface ColorPickerProps extends ColorPickerRootProps {
   /** Control props. */
   controlProps?: ColorPickerControlProps;
   /** Channel input props. */
-  channelInputProps?: ColorPickerChannelInputProps;
+  channelInputProps?: Omit<ColorPickerChannelInputProps, "channel">;
   /** Trigger props. */
   triggerProps?: ColorPickerTriggerProps;
   /** Swatch group props. */
@@ -225,7 +225,7 @@ export interface ColorPickerProps extends ColorPickerRootProps {
   /** Swatch trigger props. */
   swatchTriggerProps?: ColorPickerSwatchTriggerProps;
   /** Swatch props. */
-  swatchProps?: ColorPickerSwatchProps;
+  swatchProps?: Omit<ColorPickerSwatchProps, "value">;
   /** Positioner props. */
   positionerProps?: ColorPickerPositionerProps;
   /** Content props. */
