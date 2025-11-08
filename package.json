@@ -45,11 +45,11 @@
     "prepare": "husky && panda codegen --silent"
   },
   "peerDependencies": {
-    "@ark-ui/react": ">5.27.1",
-    "@pandacss/dev": ">1.4.3",
-    "@pandacss/types": ">1.4.3",
-    "react": ">19.2.0",
-    "react-dom": ">19.2.0",
+    "@ark-ui/react": ">=5.27.1",
+    "@pandacss/dev": ">=1.4.3",
+    "@pandacss/types": ">=1.4.3",
+    "react": ">=19.2.0",
+    "react-dom": ">=19.2.0",
     "react-icons": ">=5.5.0"
   },
   "devDependencies": {
