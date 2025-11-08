@@ -45,7 +45,7 @@ export interface CheckboxProps extends CheckboxRootProps {
   label?: ReactNode;
   controlProps?: CheckboxControlProps;
   indicatorProps?: CheckboxIndicatorProps;
-  iconProps?: IconProps;
+  iconProps?: Omit<IconProps, "src">;
   labelProps?: CheckboxLabelProps;
   hiddenInputProps?: CheckboxHiddenInputProps;
 }
@@ -71,11 +71,21 @@ export const Checkbox = ({
   <CheckboxRoot {...rest}>
     <CheckboxControl {...controlProps}>
       <CheckboxIndicator asChild {...indicatorProps}>
-        <Icon src={FaCheck} {...baseIconProps} {...iconProps} />
+        <Icon
+          src={FaCheck}
+          pointerEvents="none"
+          {...baseIconProps}
+          {...iconProps}
+        />
       </CheckboxIndicator>
 
       <CheckboxIndicator asChild indeterminate {...indicatorProps}>
-        <Icon src={FaMinus} {...baseIconProps} {...iconProps} />
+        <Icon
+          src={FaMinus}
+          pointerEvents="none"
+          {...baseIconProps}
+          {...iconProps}
+        />
       </CheckboxIndicator>
     </CheckboxControl>
 
