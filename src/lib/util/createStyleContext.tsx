@@ -1,12 +1,12 @@
 import {
-  createContext,
-  createElement,
-  forwardRef,
-  useContext,
   type ComponentProps,
   type ElementType,
   type JSX,
   type PropsWithoutRef,
+  createContext,
+  createElement,
+  forwardRef,
+  useContext,
 } from "react";
 
 interface GenericProps extends Record<string, unknown> {}
@@ -27,12 +27,9 @@ type CombineProps<T, U> = Omit<T, keyof U> & U;
 
 const cx = (...args: (string | undefined)[]) => args.filter(Boolean).join(" ");
 
-export interface ComponentVariants<
-  T extends ElementType,
-  R extends StyleRecipe,
-> {
-  (props: CombineProps<ComponentProps<T>, StyleVariantProps<R>>): JSX.Element;
-}
+export type ComponentVariants<T extends ElementType, R extends StyleRecipe> = (
+  props: CombineProps<ComponentProps<T>, StyleVariantProps<R>>,
+) => JSX.Element;
 
 /**
  * Create a style context for a recipe.
@@ -77,6 +74,7 @@ const createStyleContext = <R extends StyleRecipe>(recipe: R) => {
       (props: PropsWithoutRef<ComponentProps<T>>, ref) => {
         const slotStyles = useContext(StyleContext);
 
+        // eslint-disable-next-line react-hooks/refs
         return createElement(Component, {
           ...props,
           className: cx(slotStyles?.[slot ?? ""], props["className"]),

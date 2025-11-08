@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { breakpoints } from "lib/theme/extensions";
 import { emToPx } from "lib/util";
@@ -19,40 +19,42 @@ export interface Options {
  * Get the current theme breakpoint.
  */
 const useBreakpoint = ({ fallback = "base" }: Options = {}) => {
-  const [breakpoint, setBreakpoint] = useState<BreakpointToken>(fallback),
-    [windowDimensions, setWindowDimensions] = useState<WindowDimensions>({
-      width: 0,
-      height: 0,
-    });
+  const [windowDimensions, setWindowDimensions] = useState<WindowDimensions>({
+    width: 0,
+    height: 0,
+  });
 
-  const handleResize = () => {
-    setWindowDimensions({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    });
-  };
+  // Derive state during render
+  const breakpoint = useMemo<BreakpointToken>(() => {
+    if (!windowDimensions.width) return fallback;
 
-  useEffect(() => {
-    // attach listener to window `resize` event
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    // create tuple mapping of semantic breakpoint keys with their values
     const range = Object.entries(breakpoints!)
-      .map(([key, breakpoint]) => [key, emToPx(breakpoint as `${number}em`)])
-      // reverse to set largest breakpoint at the start (top-down; decreasing order)
+      .map(([key, value]) => [key, emToPx(value as `${number}em`)])
       .reverse();
 
-    setBreakpoint(
-      // find the first "floored" breakpoint below the window width
-      range.find(
+    return (
+      (range.find(
         ([, breakpoint]) => +breakpoint <= windowDimensions.width,
-      )?.[0] as BreakpointToken,
+      )?.[0] as BreakpointToken) ?? fallback
     );
+  }, [windowDimensions.width, fallback]);
 
-    // clean up listener
-    return () => window.removeEventListener("resize", handleResize);
-  }, [windowDimensions.width]);
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return breakpoint;
 };
