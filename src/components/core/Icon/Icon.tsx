@@ -2,7 +2,6 @@ import { styled } from "generated/panda/jsx";
 import { icon } from "generated/panda/recipes";
 
 import type { IconVariantProps } from "generated/panda/recipes";
-
 import type { ComponentProps, ElementType } from "react";
 
 export interface IconProps
