@@ -4,9 +4,7 @@ import { icon } from "generated/panda/recipes";
 import type { IconVariantProps } from "generated/panda/recipes";
 import type { ComponentProps, ElementType } from "react";
 
-export interface IconProps
-  extends IconVariantProps,
-    ComponentProps<ElementType> {
+export interface IconProps extends IconVariantProps, ComponentProps<"span"> {
   /** Source. */
   src: ElementType;
 }
