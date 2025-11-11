@@ -6,6 +6,7 @@ import type { ComponentProps, ElementType } from "react";
 export interface IconProps
   extends IconVariantProps,
     ComponentProps<ElementType> {
+  /** Source. */
   src: ElementType;
 }
 
