@@ -31,18 +31,23 @@ export interface SplitterResizeTriggerProps
 // TODO make more generic to easily handle multiple panels and splitters of various orientations, as in https://ark-ui.com/docs/react/components/splitter
 
 interface PanelSection extends SplitterPanelData {
+  /** Panel section containing content. */
   sectionType: "panel";
+  /** Content within the panel. */
   content: ReactNode;
+  /** Panel props. */
   panelProps?: SplitterPanelProps;
 }
 
 interface ResizeTriggerSection extends SplitterResizeTriggerProps {
+  /** Resize trigger section that users interact with. */
   sectionType: "resizeTrigger";
 }
 
 type Section = PanelSection | ResizeTriggerSection;
 
 export interface SplitterProps extends Omit<SplitterRootProps, "panels"> {
+  /** Sections. */
   sections: Section[];
 }
 
