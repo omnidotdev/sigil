@@ -1,5 +1,7 @@
 import { styled } from "generated/panda/jsx";
-import { type IconVariantProps, icon } from "generated/panda/recipes";
+import { icon } from "generated/panda/recipes";
+
+import type { IconVariantProps } from "generated/panda/recipes";
 
 import type { ComponentProps, ElementType } from "react";
 
