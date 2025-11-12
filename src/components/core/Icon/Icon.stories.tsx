@@ -27,6 +27,12 @@ export const Colored: Story = {
   },
 };
 
+export const AsChild: Story = {
+  args: {
+    children: <BiAperture />,
+  },
+};
+
 const sizes = Object.keys(icon.variants!["size"]) as IconVariant["size"][];
 
 export const Sizes = () => (
