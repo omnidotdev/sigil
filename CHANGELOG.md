@@ -1,5 +1,27 @@
 # @omnidev/sigil
 
+## 0.16.0
+
+### Minor Changes
+
+- [#178](https://github.com/omnidotdev/sigil/pull/178) [`1390b2a`](https://github.com/omnidotdev/sigil/commit/1390b2a4c53c5f99b1a2e9a1ff235b32b33cb6ce) Thanks [@hobbescodes](https://github.com/hobbescodes)! - Omit props that are handled internally for `Pagination`
+
+- [#178](https://github.com/omnidotdev/sigil/pull/178) [`1390b2a`](https://github.com/omnidotdev/sigil/commit/1390b2a4c53c5f99b1a2e9a1ff235b32b33cb6ce) Thanks [@hobbescodes](https://github.com/hobbescodes)! - Update `Checkbox` to remove required `src` prop from `iconProps` and remove `pointerEvents` for icon(s) by default
+
+- [#178](https://github.com/omnidotdev/sigil/pull/178) [`1390b2a`](https://github.com/omnidotdev/sigil/commit/1390b2a4c53c5f99b1a2e9a1ff235b32b33cb6ce) Thanks [@hobbescodes](https://github.com/hobbescodes)! - Omit props that are handled internally for `ColorPicker`
+
+- [#178](https://github.com/omnidotdev/sigil/pull/178) [`1390b2a`](https://github.com/omnidotdev/sigil/commit/1390b2a4c53c5f99b1a2e9a1ff235b32b33cb6ce) Thanks [@hobbescodes](https://github.com/hobbescodes)! - Omit `item` from `itemProps` in `Combobox` as it is handled internally
+
+- [#178](https://github.com/omnidotdev/sigil/pull/178) [`1390b2a`](https://github.com/omnidotdev/sigil/commit/1390b2a4c53c5f99b1a2e9a1ff235b32b33cb6ce) Thanks [@hobbescodes](https://github.com/hobbescodes)! - Update props for `Splitter` to provide better type safety for differing `section` types
+
+### Patch Changes
+
+- [#178](https://github.com/omnidotdev/sigil/pull/178) [`1390b2a`](https://github.com/omnidotdev/sigil/commit/1390b2a4c53c5f99b1a2e9a1ff235b32b33cb6ce) Thanks [@hobbescodes](https://github.com/hobbescodes)! - Improve type safety of `Icon` props. Now, for example, the `onPointerDown` prop can be used with a proper pointer event type for the parameter.
+
+- [#178](https://github.com/omnidotdev/sigil/pull/178) [`1390b2a`](https://github.com/omnidotdev/sigil/commit/1390b2a4c53c5f99b1a2e9a1ff235b32b33cb6ce) Thanks [@hobbescodes](https://github.com/hobbescodes)! - Use a neutral container element for `Icon` to prevent newly created components on every render
+
+- [#178](https://github.com/omnidotdev/sigil/pull/178) [`1390b2a`](https://github.com/omnidotdev/sigil/commit/1390b2a4c53c5f99b1a2e9a1ff235b32b33cb6ce) Thanks [@hobbescodes](https://github.com/hobbescodes)! - Prevent cascading renders with `useBreakpoint` usage
+
 ## 0.15.3
 
 ### Patch Changes
