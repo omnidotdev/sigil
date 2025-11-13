@@ -16,19 +16,6 @@ const StyledIcon = styled(ark.svg, icon);
 /**
  * Icon.
  */
-export const Icon = ({
-  src,
-  asChild: _asChild,
-  children,
-  ...rest
-}: IconProps) => {
-  if (!src) {
-    return (
-      <StyledIcon {...rest} asChild>
-        {children}
-      </StyledIcon>
-    );
-  }
-
-  return <StyledIcon {...rest} as={src} />;
-};
+export const Icon = ({ src, ...rest }: IconProps) => (
+  <StyledIcon {...rest} as={src} asChild={!src} />
+);
