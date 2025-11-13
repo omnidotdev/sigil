@@ -16,7 +16,7 @@
 
 ### Patch Changes
 
-- [#178](https://github.com/omnidotdev/sigil/pull/178) [`1390b2a`](https://github.com/omnidotdev/sigil/commit/1390b2a4c53c5f99b1a2e9a1ff235b32b33cb6ce) Thanks [@hobbescodes](https://github.com/hobbescodes)! - Improve type safety of `Icon` props. Now, for example, the `onPointerDown` prop can be used with a proper pointer event type for the parameter.
+- [#178](https://github.com/omnidotdev/sigil/pull/178) [`1390b2a`](https://github.com/omnidotdev/sigil/commit/1390b2a4c53c5f99b1a2e9a1ff235b32b33cb6ce) Thanks [@coopbri](https://github.com/coopbri)! - Improve type safety of `Icon` props. Now, for example, the `onPointerDown` prop can be used with a proper pointer event type for the parameter.
 
 - [#178](https://github.com/omnidotdev/sigil/pull/178) [`1390b2a`](https://github.com/omnidotdev/sigil/commit/1390b2a4c53c5f99b1a2e9a1ff235b32b33cb6ce) Thanks [@hobbescodes](https://github.com/hobbescodes)! - Use a neutral container element for `Icon` to prevent newly created components on every render
 
