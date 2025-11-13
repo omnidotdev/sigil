@@ -70,7 +70,6 @@ This workflow is ideal for local development.
 1. Install [knit](https://github.com/coopbri/knit)
 2. **Within the root UI library directory**, build the UI library: `bun run build` (or `bun dev` for continuous builds)
 3. **Within the project directory:**
-
    1. Install dependencies: `bun i`
    2. Link the UI library: `knit link @omnidev/sigil`. Linking will not modify `package.json`, it will just symlink the package into your `node_modules`. Note that the package must be published to the `knit` store first (this happens automatically after a successful build of the UI library)
 

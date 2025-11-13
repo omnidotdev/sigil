@@ -1,19 +1,19 @@
 import { styled } from "generated/panda/jsx";
-import { icon, type IconVariantProps } from "generated/panda/recipes";
+import { icon } from "generated/panda/recipes";
 
-import type { ComponentProps, ElementType } from "react";
+import type { ComponentProps } from "generated/panda/types";
+import type { ElementType } from "react";
 
-export interface IconProps
-  extends IconVariantProps,
-    ComponentProps<ElementType> {
+export interface IconProps extends ComponentProps<typeof StyledIcon> {
+  /** Source. */
   src: ElementType;
 }
+
+const StyledIcon = styled("svg", icon);
 
 /**
  * Icon.
  */
-export const Icon = ({ src, ...rest }: IconProps) => {
-  const Component = styled(src, icon);
-
-  return <Component {...rest} />;
-};
+export const Icon = ({ src, ...rest }: IconProps) => (
+  <StyledIcon {...rest} as={src} />
+);

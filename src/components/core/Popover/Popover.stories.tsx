@@ -14,6 +14,7 @@ const meta = {
 export const Default: Story = {
   args: {
     trigger: <Button>Open Popover</Button>,
+    triggerProps: { asChild: true },
     title: "Hello",
     description: "I'm a popover! Snap crackle pop 🍫",
     children: "I'm the popover content!",

@@ -15,9 +15,9 @@ export const Default: Story = {
   args: {
     orientation: "horizontal",
     sections: [
-      { type: "panel", id: "a", content: "A", size: 50 },
-      { type: "resizeTrigger", id: "a:b" },
-      { type: "panel", id: "b", content: "B", size: 50 },
+      { sectionType: "panel", id: "a", content: "A", minSize: 20 },
+      { sectionType: "resizeTrigger", id: "a:b" },
+      { sectionType: "panel", id: "b", content: "B", minSize: 20 },
     ],
   },
 };
